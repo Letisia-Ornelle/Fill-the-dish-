@@ -1,1 +1,0 @@
-As a worker, I want to find recipes, so that if I come from job too late I can cook good dishes even if there's not a lot of food in my fridge
