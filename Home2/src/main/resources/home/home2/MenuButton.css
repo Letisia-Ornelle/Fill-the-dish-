@@ -1,0 +1,64 @@
+#menuButton
+{
+    -fx-background-image: url("menu.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+#menuButton:hover
+{
+    -fx-background-image: url("menu.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000044;
+    -fx-background-radius: 10;
+}
+
+#homeButton{
+    -fx-background-image: url("home.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+#homeButton:hover
+{
+    -fx-background-image: url("home.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000044;
+}
+
+#backButton{
+    -fx-background-image: url("back.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+#backButton:hover
+{
+    -fx-background-image: url("back.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000044;
+}
+
+
+
