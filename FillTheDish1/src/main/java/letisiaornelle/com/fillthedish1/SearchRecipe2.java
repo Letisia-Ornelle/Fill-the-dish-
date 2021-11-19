@@ -54,6 +54,18 @@ public class SearchRecipe2 implements Initializable {
 
             ricette.add(ricetta);
 
+            ricetta = new Recipe();
+            ricetta.setName("Panna");
+            ricetta.setImgSrc("im2.jpg");
+
+            ricette.add(ricetta);
+
+            ricetta = new Recipe();
+            ricetta.setName("Pasta");
+            ricetta.setImgSrc("im1.png");
+
+            ricette.add(ricetta);
+
        }
         return ricette;
     }
@@ -71,8 +83,8 @@ public class SearchRecipe2 implements Initializable {
 
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                /*ItemsController itemController = fxmlLoader.getController();
-                itemController.setData(ricette.get(i));*/
+                ItemsController itemController = fxmlLoader.getController();
+                itemController.setData(ricette.get(i));
 
                 if(column == 5){
                     column = 0;
