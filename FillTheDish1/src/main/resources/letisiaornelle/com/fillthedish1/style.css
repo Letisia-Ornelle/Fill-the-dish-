@@ -1,0 +1,185 @@
+#root {
+    -fx-background-image: url("Background.png");
+    -fx-background-size: 1280 640;
+    -fx-background-position: center center;
+
+}
+
+.colazioni{
+    -fx-font-size: 15px;
+}
+
+.secondi{
+    -fx-font-size: 15px;
+}
+
+.contorni{
+    -fx-font-size: 15px;
+}
+
+.spuntini{
+    -fx-font-size: 15px;
+}
+
+.dolci{
+    -fx-font-size: 15px;
+}
+
+.primi{
+    -fx-font-size: 15px;
+}
+
+.cerca{
+    -fx-font-size: 15px;
+    -fx-border-radius:100px;
+    -fx-background-position: center center;
+    -fx-background-radius: 100;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+    -fx-border-color: black;
+}
+
+.cerca:hover{
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000044;
+}
+
+.back{
+    -fx-font-size: 15px;
+}
+
+.textField{
+    -fx-font-size: 15px;
+    -fx-text-fill: #9C9C9C;
+}
+
+.insertIngredients{
+    -fx-border-radius: 100px;
+    -fx-background-radius: 100px;
+    -fx-border-color: black;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #00000000;
+}
+.insertIngredients:hover{
+    -fx-pref-height: 100px;
+    -fx-pref-width: 100px;
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+}
+
+.homeButton{
+    -fx-background-image: url('home.png');
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.homeButton:hover{
+    -fx-background-image: url('home.png');
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+}
+
+.backButton{
+    -fx-background-image: url('back.png');
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.backButton:hover{
+    -fx-background-image: url('back.png');
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+    -fx-background-repeat: stretch;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+}
+
+.transparentButton{
+    -fx-background-color: transparent;
+}
+
+.ingredients{
+    -fx-background-image: url("img_1.png");
+    -fx-background-size: 415 450;
+    -fx-background-position: center center;
+    -fx-border-color:#FFFF00;
+    -fx-border-radius: 50;
+}
+
+.button1{
+    -fx-background-image: url('im1.png');
+    -fx-pref-height: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.button2{
+    -fx-background-image: url('im2.jpg');
+    -fx-pref-height: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.button3{
+    -fx-background-image: url('im3.jpg');
+    -fx-pref-height: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.button4{
+    -fx-background-image: url('im4.jpg');
+    -fx-pref-height: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.button5{
+    -fx-background-image: url('im5.jpg');
+    -fx-pref-height: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+}
+
+.transparent{
+    -fx-background-color : #00000000;
+}
+
+.horizontalBox{
+    -fx-background-color: #00000000;
+}
+
+.ricetta{
+    -fx-background-color: #FFFAFA;
+    -fx-background-radius: 30;
+}
+

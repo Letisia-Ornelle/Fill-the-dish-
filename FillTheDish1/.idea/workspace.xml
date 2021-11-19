@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b10766c-40ad-4631-9410-f4a7097b24fd" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="20GuDChgjZLdJNXf6ssS2N7lYEs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/letisiaornelle/com/fillthedish1" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\letis\IdeaProjects\FillTheDish1\src\main\resources\letisiaornelle\com\fillthedish1" />
+      <recent name="C:\Users\letis\IdeaProjects\FillTheDish1\src\main\resources\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\letis\IdeaProjects\FillTheDish1\src\main\resources\letisiaornelle\com\fillthedish1" />
+      <recent name="C:\Users\letis\IdeaProjects\FillTheDish1\src\main\resources\css" />
+      <recent name="C:\Users\letis\IdeaProjects\FillTheDish1\src\main\resources\images" />
+      <recent name="C:\Users\letis\IdeaProjects\FillTheDish1\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="letisiaornelle.com.fillthedish1" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Letisia" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="letisiaornelle.com.fillthedish1.MainActivity" />
+      <module name="FillTheDish1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b10766c-40ad-4631-9410-f4a7097b24fd" name="Changes" comment="" />
+      <created>1635683131807</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635683131807</updated>
+      <workItem from="1635683133124" duration="6925000" />
+      <workItem from="1635764212792" duration="266000" />
+      <workItem from="1635764792419" duration="2180000" />
+      <workItem from="1635780991096" duration="316000" />
+      <workItem from="1635790778363" duration="489000" />
+      <workItem from="1635800111301" duration="816000" />
+      <workItem from="1635804040109" duration="223000" />
+      <workItem from="1635804306223" duration="3363000" />
+      <workItem from="1635879742722" duration="12282000" />
+      <workItem from="1635933952892" duration="802000" />
+      <workItem from="1635939158463" duration="1028000" />
+      <workItem from="1635968754679" duration="6000" />
+      <workItem from="1635970726009" duration="596000" />
+      <workItem from="1636038263029" duration="9165000" />
+      <workItem from="1636203283249" duration="5253000" />
+      <workItem from="1636238089202" duration="374000" />
+      <workItem from="1636407181951" duration="3647000" />
+      <workItem from="1636443716627" duration="1509000" />
+      <workItem from="1636445249056" duration="8933000" />
+      <workItem from="1636462851895" duration="49000" />
+      <workItem from="1636469105851" duration="10620000" />
+      <workItem from="1636487250511" duration="680000" />
+      <workItem from="1636534012371" duration="9512000" />
+      <workItem from="1636550014269" duration="6274000" />
+      <workItem from="1636666089465" duration="4008000" />
+      <workItem from="1637051993184" duration="9423000" />
+      <workItem from="1637153380041" duration="2870000" />
+      <workItem from="1637157516994" duration="1077000" />
+      <workItem from="1637264316231" duration="103000" />
+      <workItem from="1637264730240" duration="11417000" />
+      <workItem from="1637280572819" duration="4219000" />
+      <workItem from="1637307175134" duration="565000" />
+      <workItem from="1637307836606" duration="223000" />
+      <workItem from="1637354264930" duration="6584000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FillTheDish1$Letisia.ic" NAME="Letisia Coverage Results" MODIFIED="1637359638795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
