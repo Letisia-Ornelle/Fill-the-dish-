@@ -5,7 +5,7 @@
     -fx-background-size: 700 700;
 }
 
-#bigButton
+#searchButton
 {
     -fx-border-color: white;
     -fx-border-style: solid;
@@ -17,7 +17,7 @@
     -fx-pref-height: 400;
 }
 
-#bigButton:hover
+#searchButton:hover
 {
     -fx-background-color: #00000055;
     -fx-background-radius: 200;
@@ -25,24 +25,23 @@
     -fx-pref-height: 400;
 }
 
-#menuButton
+#ingredientsButton
 {
-    -fx-background-image: url("menu.png");
-    -fx-pref-height: 50px;
-    -fx-pref-width: 50px;
-    -fx-background-repeat: stretch;
-    -fx-background-position: center center;
-    -fx-border-color: #00000000;
-    -fx-background-color: #00000000;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-border-width: 4px;
+    -fx-border-radius: 200;
+    -fx-background-color: #00000033;
+    -fx-background-radius: 200;
+    -fx-pref-width: 400;
+    -fx-pref-height: 400;
 }
 
-#menuButton:hover
+#ingredientsButton:hover
 {
-    -fx-background-image: url("menu.png");
-    -fx-pref-height: 50px;
-    -fx-pref-width: 50px;
-    -fx-background-repeat: stretch;
-    -fx-border-color: #00000000;
-    -fx-background-color: #00000044;
-    -fx-background-radius: 10;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 200;
+    -fx-pref-width: 400;
+    -fx-pref-height: 400;
 }
+

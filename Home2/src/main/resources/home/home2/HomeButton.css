@@ -6,16 +6,10 @@
     -fx-border-radius: 200;
     -fx-background-color: #00000033;
     -fx-background-radius: 200;
-
-    -fx-pref-width: 400;
-    -fx-pref-height: 400;
 }
 
 .button:hover
 {
     -fx-background-color: #00000055;
     -fx-background-radius: 200;
-
-    -fx-pref-width: 400;
-    -fx-pref-height: 400;
 }

@@ -30,7 +30,7 @@
          <children>
             <Pane prefHeight="559.0" prefWidth="640.0">
                <children>
-                  <Button fx:id="bigButton" layoutX="200.0" layoutY="87.5" mnemonicParsing="false" prefHeight="440.0" prefWidth="484.0" stylesheets="@Home.css" text="Inserisci i tuoi ingredienti" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="ingredientsButton" layoutX="200.0" layoutY="87.5" mnemonicParsing="false" onAction="#clickIngredientsButton" prefHeight="440.0" prefWidth="484.0" stylesheets="@Home.css" text="Inserisci i tuoi ingredienti" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Inter Light BETA" size="60.0" />
                      </font>
@@ -42,7 +42,7 @@
             </Pane>
             <Pane prefHeight="271.0" prefWidth="330.0" GridPane.columnIndex="1">
                <children>
-                  <Button fx:id="bigButton" layoutX="40.0" layoutY="87.5" mnemonicParsing="false" stylesheets="@Home.css" text="Cerca Ricetta" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="searchButton" layoutX="40.0" layoutY="87.5" mnemonicParsing="false" onAction="#clickSearchButton" stylesheets="@Home.css" text="Cerca Ricetta" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Inter Light BETA" size="60.0" />
                      </font>
@@ -98,6 +98,6 @@
             <Pane fx:id="rightPane" layoutX="320.0" onMouseClicked="#clickMenuButton" prefHeight="640.0" prefWidth="962.0" style="-fx-background-color: #00000044;" />
          </children>
       </Pane>
-      <Button fx:id="menuButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickMenuButton" prefHeight="52.0" prefWidth="56.0" stylesheets="@Home.css" />
+      <Button fx:id="menuButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickMenuButton" prefHeight="52.0" prefWidth="56.0" stylesheets="@MenuButton.css" />
    </children>
 </Pane>
