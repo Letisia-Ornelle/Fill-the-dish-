@@ -1,0 +1,141 @@
+#sfondoInsert{
+    -fx-background-image: url("Insert.jpeg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1280 640;
+}
+
+.text-field{
+    -fx-border-color: #00000000;
+    -fx-background-radius: 100;
+    -fx-background-color: #D2D2D2;
+}
+
+.text-area {
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000000;
+
+}
+
+.text-area .content {
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+
+}
+
+#portataButton1{
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+    -fx-background-radius: 100;
+}
+
+#portataButton1:hover{
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 100;
+    -fx-pref-height: 50;
+    -fx-pref-width: 70;
+    -fx-translate-x: -5;
+    -fx-translate-y: -5;
+}
+
+#portataButton2{
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+    -fx-background-radius: 100;
+}
+
+#portataButton2:hover{
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 100;
+    -fx-pref-height: 50;
+    -fx-pref-width: 70;
+    -fx-translate-x: -5;
+    -fx-translate-y: -5;
+}
+
+#portataButton3{
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+    -fx-background-radius: 100;
+}
+
+#portataButton3:hover{
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 100;
+    -fx-pref-height: 50;
+    -fx-pref-width: 70;
+    -fx-translate-x: -5;
+    -fx-translate-y: -5;
+}
+
+#portataButton4 {
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+    -fx-background-radius: 100;
+}
+
+#portataButton4:hover{
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 100;
+    -fx-pref-height: 50;
+    -fx-pref-width: 70;
+    -fx-translate-x: -5;
+    -fx-translate-y: -5;
+}
+
+#portataButton5{
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+    -fx-background-radius: 100;
+}
+
+#portataButton5:hover{
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 100;
+    -fx-pref-height: 50;
+    -fx-pref-width: 70;
+    -fx-translate-x: -5;
+    -fx-translate-y: -5;
+}
+
+#portataButton6{
+    -fx-border-color: #00000000;
+    -fx-background-color: #D2D2D2;
+    -fx-background-radius: 100;
+}
+
+#portataButton6:hover{
+    -fx-border-color: #00000000;
+    -fx-background-color: #00000055;
+    -fx-background-radius: 100;
+    -fx-pref-height: 50;
+    -fx-pref-width: 70;
+    -fx-translate-x: -5;
+    -fx-translate-y: -5;
+}
+
+.button{
+    -fx-background-radius: 100;
+    -fx-background-color: #00000000;
+    -fx-border-radius: 100;
+    -fx-border-color: #113322;
+    -fx-border-width: 2;
+}
+
+.button:hover{
+    -fx-background-radius: 100;
+    -fx-background-color: #00000055;
+    -fx-border-radius: 100;
+    -fx-border-color: #113322;
+    -fx-border-width: 2;
+}
+
+#borderpane{
+    -fx-background-image: url("LoginScreen.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1280 640;
+}
