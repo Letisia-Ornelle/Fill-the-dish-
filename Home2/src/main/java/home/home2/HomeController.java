@@ -45,9 +45,13 @@ public class HomeController implements Initializable {
 
     @FXML
     private static Button menuLink1;
+    @FXML
     private static Button menuLink2;
+    @FXML
     private static Button menuLink3;
+    @FXML
     private static Button menuLink4;
+    @FXML
     private static Button menuLink5;
 
 
@@ -83,6 +87,16 @@ public class HomeController implements Initializable {
             menu.setVisible(true);
             menuButton.setLayoutX(255);
         }
+    }
+
+    @FXML
+    private void clickSearchButton() throws IOException {
+        General.changeScene(General.setSource("Search"));
+    }
+
+    @FXML
+    private void clickIngredientsButton() throws IOException {
+        //General.changeScene(General.setSource("Search"));
     }
 
     @FXML
