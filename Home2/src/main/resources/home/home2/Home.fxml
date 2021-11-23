@@ -51,9 +51,9 @@
             </Pane>
          </children>
       </GridPane>
-      <Pane fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" style="-fx-background-color: #00000044;">
+      <Pane fx:id="dark" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeMenu.css">
          <children>
-            <Pane fx:id="leftpane" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
+            <Pane fx:id="menu" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
                <children>
                   <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                      <children>
@@ -95,7 +95,6 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="rightPane" layoutX="320.0" onMouseClicked="#clickMenuButton" prefHeight="640.0" prefWidth="962.0" style="-fx-background-color: #00000044;" />
          </children>
       </Pane>
       <Button fx:id="menuButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickMenuButton" prefHeight="52.0" prefWidth="56.0" stylesheets="@MenuButton.css" />

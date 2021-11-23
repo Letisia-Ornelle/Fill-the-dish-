@@ -8,29 +8,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeBackground.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SearchController">
+<Pane fx:id="search" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeBackground.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SearchController">
    <children>
       <Button fx:id="Primi" layoutX="757.0" layoutY="135.0" mnemonicParsing="false" onAction="#clickPrimiButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Primi">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="portataButton1" layoutX="545.0" layoutY="135.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Colazioni" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="portataButton1" layoutX="545.0" layoutY="135.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Colazioni" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="spuntini" layoutX="545.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Spuntini">
+      <Button fx:id="spuntini" layoutX="545.0" layoutY="329.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Spuntini">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="secondi" layoutX="757.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Secondi">
+      <Button fx:id="secondi" layoutX="757.0" layoutY="329.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Secondi">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="contorni" layoutX="971.0" layoutY="135.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Contorni">
+      <Button fx:id="contorni" layoutX="971.0" layoutY="135.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Contorni">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="dolci" layoutX="971.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Dolci">
+      <Button fx:id="dolci" layoutX="971.0" layoutY="329.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Dolci">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
@@ -58,33 +58,33 @@
       </Button>
       <Button fx:id="backButton" layoutX="1135.0" layoutY="15.0" onAction="#clickBackButton" stylesheets="@MenuButton.css">
       </Button>
-      <Pane fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" style="-fx-background-color: #00000044;" visible="false">
+      <Pane fx:id="dark" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeMenu.css">
          <children>
-            <Pane fx:id="leftpane" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
+            <Pane fx:id="menu" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
                <children>
                   <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                      <children>
-                        <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@MenuLinks.css" text="Vedi Elenco Ricette">
+                        <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@menuLinks.css" text="Vedi Elenco Ricette">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@MenuLinks.css" text="Aggiungi la tua Ricetta">
+                        <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@menuLinks.css" text="Aggiungi la tua Ricetta">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Log In">
+                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Iscriviti">
+                        <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Iscriviti">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@MenuLinks.css" text="Lascia una Recensione">
+                        <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lascia una Recensione">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
@@ -102,7 +102,6 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="rightPane" layoutX="320.0" onMouseClicked="#clickMenuButton" prefHeight="640.0" prefWidth="962.0" style="-fx-background-color: #00000044;" />
          </children>
       </Pane>
       <Button fx:id="menuButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButton" stylesheets="@MenuButton.css" />
