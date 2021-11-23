@@ -1,10 +1,12 @@
 package home.home2;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -22,9 +24,26 @@ public class Home extends Application {
         stage.show();
     }
 
-    public void setNewScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.getScene().setRoot(pane);
+    public void setNewScene(String oldFXML, String newFXML) throws IOException {
+        //Parent oldPane = FXMLLoader.load(getClass().getResource(oldFXML));
+        Parent newPane = FXMLLoader.load(getClass().getResource(newFXML));
+
+        //FadeTransition fadeTransitionOld = new FadeTransition(Duration.seconds(1.5), oldPane);
+        //FadeTransition fadeTransitionNew = new FadeTransition(Duration.seconds(1.5), newPane);
+
+        //fadeTransitionOld.setFromValue(1);
+        //fadeTransitionOld.setToValue(0);
+        //fadeTransitionOld.play();
+
+        //fadeTransitionOld.setOnFinished(event ->{
+            stg.getScene().setRoot(newPane);
+            //fadeTransitionNew.setFromValue(0);
+            //fadeTransitionNew.setToValue(1);
+            //fadeTransitionNew.play();
+        //});
+
+
+
     }
 
     /*

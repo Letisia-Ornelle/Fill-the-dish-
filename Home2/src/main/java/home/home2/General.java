@@ -1,10 +1,12 @@
 package home.home2;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -19,10 +21,10 @@ public class General {
         return tempSrc;
     }
 
-    public static void changeScene(String source) throws IOException {
+    public static void changeScene(String nowSource, String newSource) throws IOException {
         Home m = new Home();
         //list.appendScreen(source);
-        m.setNewScene(source);
+        m.setNewScene(nowSource, newSource);
     }
 
     /*

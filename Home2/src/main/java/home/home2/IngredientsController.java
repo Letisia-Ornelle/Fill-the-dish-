@@ -1,41 +1,31 @@
 package home.home2;
 
-import javafx.animation.*;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static javafx.application.Application.launch;
+public class IngredientsController implements Initializable {
+   @FXML
+   private Button recipeButton, fridgeButton, menuButton;
 
-public class HomeController implements Initializable {
-
-    @FXML
-    private Pane menu, dark;
-
-    @FXML
-    private Button menuButton;
-
-    @FXML
-    private Button menuLink1, menuLink2, menuLink3, menuLink4, menuLink5;
-
+   @FXML
+   private Pane menu, dark;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dark.setVisible(false);
         menu.setVisible(false);
+        dark.setVisible(false);
     }
 
     @FXML
@@ -76,16 +66,25 @@ public class HomeController implements Initializable {
             translateTransition2.play();
         }
     }
-
-
     @FXML
-    private void clickSearchButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Search"));
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"), General.setSource("Home"));
     }
     @FXML
-    private void clickIngredientsButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Ingredients"));
+    private void clickBackButton() throws IOException {
+        //General.changeScene(General.getBackScene());
     }
+
+   @FXML
+   private void clickRecipeButton() throws IOException {
+       General.changeScene(General.setSource("Ingredients"), General.setSource("ricettaOttenuta"));
+   }
+
+    @FXML
+    private void clickFridgeButton() throws IOException {
+        General.changeScene(General.setSource("Ingredients"), General.setSource("Fridge"));
+    }
+
 
 
     @FXML
@@ -112,4 +111,17 @@ public class HomeController implements Initializable {
     private void clickMenuLink5(ActionEvent event) throws IOException {
 
     }
+
+/*
+    public void screen2(ActionEvent actionEvent) throws IOException {
+        HelloApplication h = new HelloApplication();
+        if(actionEvent.getSource()== bFridge){
+            h.changeScene("Fridge.fxml");
+        }
+        if(actionEvent.getSource()== buttonricetta){
+            h.changeScene("ricettaOttenuta.fxml");
+        }
+
+    }
+ */
 }
