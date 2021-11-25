@@ -67,7 +67,7 @@
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Log In">
+                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
