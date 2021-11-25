@@ -74,7 +74,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void clickBackButton() throws IOException {
-        //General.changeScene(General.getBackScene());
+        General.setBackScene();
     }
 
 
