@@ -1,9 +1,9 @@
-#rightpane
+#dark
 {
-    -fx-background-color: #00000055;
+    -fx-background-color: #00000077;
 }
 
-#leftpane
+#menu
 {
     -fx-background-color: #00D2D2D2;
 }

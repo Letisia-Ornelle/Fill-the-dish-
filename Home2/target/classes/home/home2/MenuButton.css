@@ -38,6 +38,7 @@
     -fx-background-repeat: stretch;
     -fx-border-color: #00000000;
     -fx-background-color: #00000044;
+    -fx-background-radius: 100;
 }
 
 #backButton{
@@ -58,6 +59,7 @@
     -fx-background-repeat: stretch;
     -fx-border-color: #00000000;
     -fx-background-color: #00000044;
+    -fx-background-radius: 100;
 }
 
 

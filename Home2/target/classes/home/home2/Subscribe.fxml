@@ -10,73 +10,73 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@LoginScreen.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SubscribeController">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SubscribeController">
    <center>
       <Pane prefHeight="532.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="nome" layoutX="300.0" layoutY="90.0" prefHeight="40.0" prefWidth="250.0" promptText="Nome" stylesheets="@LoginScreen.css">
+            <TextField fx:id="nome" layoutX="300.0" layoutY="90.0" prefHeight="40.0" prefWidth="250.0" promptText="Nome" stylesheets="@Login.css">
                <font>
                   <Font name="Inter Light BETA" size="15.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="password1" layoutX="730.0" layoutY="180.0" prefHeight="40.0" prefWidth="250.0" promptText="Password (min. 8 caratteri)" stylesheets="@LoginScreen.css">
+            <PasswordField fx:id="password1" layoutX="730.0" layoutY="180.0" prefHeight="40.0" prefWidth="250.0" promptText="Password (min. 8 caratteri)" stylesheets="@Login.css">
                <font>
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <Button layoutX="565.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@LoginScreen.css" text="Iscriviti" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="565.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@Login.css" text="Iscriviti" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
             <Hyperlink fx:id="login" layoutX="588.0" layoutY="350.0" onAction="#clickLogin" text="Oppure fai il Login" />
-            <TextField fx:id="cognome" layoutX="300.0" layoutY="180.0" prefHeight="40.0" prefWidth="250.0" promptText="Cognome" stylesheets="@LoginScreen.css">
+            <TextField fx:id="cognome" layoutX="300.0" layoutY="180.0" prefHeight="40.0" prefWidth="250.0" promptText="Cognome" stylesheets="@Login.css">
                <font>
                   <Font name="Inter Light BETA" size="15.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="password2" layoutX="730.0" layoutY="270.0" prefHeight="40.0" prefWidth="250.0" promptText="Ripeti Password" stylesheets="@LoginScreen.css">
+            <PasswordField fx:id="password2" layoutX="730.0" layoutY="270.0" prefHeight="40.0" prefWidth="250.0" promptText="Ripeti Password" stylesheets="@Login.css">
                <font>
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="username" layoutX="300.0" layoutY="270.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" stylesheets="@LoginScreen.css">
+            <TextField fx:id="username" layoutX="300.0" layoutY="270.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" stylesheets="@Login.css">
                <font>
                   <Font name="Inter Light BETA" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="email" layoutX="730.0" layoutY="90.0" prefHeight="40.0" prefWidth="250.0" promptText="E-mail" stylesheets="@LoginScreen.css">
+            <TextField fx:id="email" layoutX="730.0" layoutY="90.0" prefHeight="40.0" prefWidth="250.0" promptText="E-mail" stylesheets="@Login.css">
                <font>
                   <Font name="Inter Light BETA" size="15.0" />
                </font>
             </TextField>
-            <Pane fx:id="menu" layoutY="-100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" style="-fx-background-color: #00000044;">
+            <Pane fx:id="dark" layoutY="-100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeMenu.css">
                <children>
-                  <Pane fx:id="leftpane" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
+                  <Pane fx:id="menu" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
                      <children>
                         <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                            <children>
-                              <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@menuLinks.css" text="Vedi Elenco Ricette">
+                              <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@MenuLinks.css" text="Vedi Elenco Ricette">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@menuLinks.css" text="Aggiungi la tua Ricetta">
+                              <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@MenuLinks.css" text="Aggiungi la tua Ricetta">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
+                              <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Log In">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Iscriviti">
+                              <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Iscriviti">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lascia una Recensione">
+                              <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@MenuLinks.css" text="Lascia una Recensione">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
@@ -94,7 +94,6 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Pane layoutX="320.0" prefHeight="640.0" prefWidth="962.0" style="-fx-background-color: #00000044;" />
                </children>
             </Pane>
          </children>

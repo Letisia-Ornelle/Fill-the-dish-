@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,6 +47,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources\home\home2" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="home.home2" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Home">
@@ -114,6 +117,10 @@
       <workItem from="1637159448984" duration="126000" />
       <workItem from="1637229438072" duration="6748000" />
       <workItem from="1637248930458" duration="788000" />
+      <workItem from="1637661606433" duration="1617000" />
+      <workItem from="1637845905452" duration="68000" />
+      <workItem from="1637853500045" duration="55000" />
+      <workItem from="1637859289989" duration="6626000" />
     </task>
     <servers />
   </component>
