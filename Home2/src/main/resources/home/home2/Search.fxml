@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="search" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeBackground.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SearchController">
+<Pane fx:id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SearchController">
    <children>
       <Button fx:id="Primi" layoutX="757.0" layoutY="135.0" mnemonicParsing="false" onAction="#clickPrimiButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Primi">
          <font>

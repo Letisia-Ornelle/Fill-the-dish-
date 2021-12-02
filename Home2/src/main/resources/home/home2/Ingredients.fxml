@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" style="-fx-background-image: 'backgroundFDD.jpg';" styleClass="pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.IngredientsController">
+<Pane id="pane" fx:id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.IngredientsController">
    <children>
       <Label layoutX="294.0" layoutY="25.0" prefHeight="50.0" prefWidth="787.0" text="Inserisci i tuoi ingredienti per ottenere una ricetta" textAlignment="CENTER">
          <font>
