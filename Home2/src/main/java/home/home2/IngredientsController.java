@@ -19,19 +19,17 @@ public class IngredientsController implements Initializable {
    @FXML
    private Button recipeButton, fridgeButton, menuButton;
 
-   @FXML
-   private Pane menu, dark;
+    @FXML
+    private Pane menu, dark;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
     }
-
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
-
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
@@ -66,23 +64,25 @@ public class IngredientsController implements Initializable {
             translateTransition2.play();
         }
     }
+
+
     @FXML
     private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Home"));
+        General.changeScene(General.setSource("Home"));
     }
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
 
-   @FXML
-   private void clickRecipeButton() throws IOException {
-       General.changeScene(General.setSource("Ingredients"), General.setSource("ricettaOttenuta"));
-   }
 
     @FXML
+    private void clickRecipeButton() throws IOException {
+           General.changeScene(General.setSource("ricettaOttenuta"));
+       }
+    @FXML
     private void clickFridgeButton() throws IOException {
-        General.changeScene(General.setSource("Ingredients"), General.setSource("Fridge"));
+        General.changeScene(General.setSource("Fridge"));
     }
 
 
@@ -94,34 +94,22 @@ public class IngredientsController implements Initializable {
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
-            //goToHome();
+            General.changeScene(General.setSource("Insert"));
         } else {
-            General.changeScene(General.setSource("Home"), General.setSource("Login"));
+            General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Login"));
+        General.changeScene(General.setSource("Login"));
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Subscribe"));
+        General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Review"));
     }
 
-/*
-    public void screen2(ActionEvent actionEvent) throws IOException {
-        HelloApplication h = new HelloApplication();
-        if(actionEvent.getSource()== bFridge){
-            h.changeScene("Fridge.fxml");
-        }
-        if(actionEvent.getSource()== buttonricetta){
-            h.changeScene("ricettaOttenuta.fxml");
-        }
-
-    }
- */
 }

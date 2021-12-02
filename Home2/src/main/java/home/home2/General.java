@@ -24,7 +24,7 @@ public class General {
         return tempSrc;
     }
 
-    public static void changeScene(String nowSource, String newSource) throws IOException {
+    public static void changeScene(String newSource) throws IOException {
         int i;
         Home m = new Home();
         list = m.getList();
@@ -34,7 +34,7 @@ public class General {
             System.out.println(list.get(i));
         }
 
-        m.setNewScene(nowSource, newSource);
+        m.setNewScene(newSource);
     }
 
 
@@ -42,7 +42,7 @@ public class General {
         Home m = new Home();
         list = m.getList();
         if (list.size() > 0) {
-            m.setNewScene("Home.fxml", (String)list.get( list.size() - 2 ));
+            m.setNewScene((String)list.get( list.size() - 2 ));
             list.remove(list.size()-1);
         }
     }

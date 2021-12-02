@@ -67,9 +67,11 @@ public class RecipeController implements Initializable {
             translateTransition2.play();
         }
     }
+
+
     @FXML
     private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Home"));
+        General.changeScene(General.setSource("Home"));
     }
     @FXML
     private void clickBackButton() throws IOException {
@@ -83,22 +85,22 @@ public class RecipeController implements Initializable {
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
-            General.changeScene(General.setSource("Home"), General.setSource("Insert"));
+            General.changeScene(General.setSource("Insert"));
         } else {
-            General.changeScene(General.setSource("Home"), General.setSource("Login"));
+            General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Login"));
+        General.changeScene(General.setSource("Login"));
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Subscribe"));
+        General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Review"));
     }
 
 

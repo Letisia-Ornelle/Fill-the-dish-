@@ -34,33 +34,10 @@ public class Home extends Application {
         return screenList;
     }
 
-    public void setNewScene(String oldFXML, String newFXML) throws IOException {
-        //Parent oldPane = FXMLLoader.load(getClass().getResource(oldFXML));
+    public void setNewScene(String newFXML) throws IOException {
         Parent newPane = FXMLLoader.load(getClass().getResource(newFXML));
-
-        //FadeTransition fadeTransitionOld = new FadeTransition(Duration.seconds(1.5), oldPane);
-        //FadeTransition fadeTransitionNew = new FadeTransition(Duration.seconds(1.5), newPane);
-
-        //fadeTransitionOld.setFromValue(1);
-        //fadeTransitionOld.setToValue(0);
-        //fadeTransitionOld.play();
-
-        //fadeTransitionOld.setOnFinished(event ->{
-            stg.getScene().setRoot(newPane);
-            //fadeTransitionNew.setFromValue(0);
-            //fadeTransitionNew.setToValue(1);
-            //fadeTransitionNew.play();
-        //});
-
-
-
+        stg.getScene().setRoot(newPane);
     }
-
-    /*
-    public void addScene(String fxml) throws IOException {
-
-    }
-    */
 
     public static void main(String[] args) {
         launch();

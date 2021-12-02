@@ -28,12 +28,6 @@ public class SubscribeController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
     }
-
-    @FXML
-    private void clickLogin() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Login"));
-    }
-
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
@@ -73,11 +67,11 @@ public class SubscribeController implements Initializable {
         }
     }
 
+
     @FXML
     private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Home"));
+        General.changeScene(General.setSource("Home"));
     }
-
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
@@ -87,28 +81,31 @@ public class SubscribeController implements Initializable {
     private void clickMenuLink1(ActionEvent event) throws IOException {
 
     }
-
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
-            //goToHome();
+            General.changeScene(General.setSource("Insert"));
         } else {
-            General.changeScene(General.setSource("Home"), General.setSource("Login"));
+            General.changeScene(General.setSource("Login"));
         }
     }
-
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Login"));
+        General.changeScene(General.setSource("Login"));
     }
-
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Subscribe"));
+        General.changeScene(General.setSource("Subscribe"));
     }
-
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Review"));
+    }
 
+
+
+    @FXML
+    private void clickLogin() throws IOException {
+        General.changeScene(General.setSource("Login"));
     }
 }

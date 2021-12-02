@@ -21,27 +21,19 @@ import java.util.ResourceBundle;
 import static javafx.application.Application.launch;
 
 public class HomeController implements Initializable {
-
+    @FXML
+    private Button menuButton;
     @FXML
     private Pane menu, dark;
 
-    @FXML
-    private Button menuButton;
-
-    @FXML
-    private Button menuLink1, menuLink2, menuLink3, menuLink4, menuLink5;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dark.setVisible(false);
         menu.setVisible(false);
+        dark.setVisible(false);
     }
-
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
-
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
@@ -80,11 +72,11 @@ public class HomeController implements Initializable {
 
     @FXML
     private void clickSearchButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Search"));
+        General.changeScene(General.setSource("Search"));
     }
     @FXML
     private void clickIngredientsButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Ingredients"));
+        General.changeScene(General.setSource("Ingredients"));
     }
 
 
@@ -95,21 +87,21 @@ public class HomeController implements Initializable {
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
-            //goToHome();
+            General.changeScene(General.setSource("Insert"));
         } else {
-            General.changeScene(General.setSource("Home"), General.setSource("Login"));
+            General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Login"));
+        General.changeScene(General.setSource("Login"));
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Subscribe"));
+        General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Review"));
     }
 }

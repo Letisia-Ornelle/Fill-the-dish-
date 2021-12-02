@@ -18,7 +18,6 @@ public class InsertController implements Initializable {
 
     @FXML
     private Button menuButton;
-
     @FXML
     private Pane menu, dark;
 
@@ -27,7 +26,6 @@ public class InsertController implements Initializable {
         dark.setVisible(false);
         menu.setVisible(false);
     }
-
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
@@ -66,9 +64,10 @@ public class InsertController implements Initializable {
             translateTransition2.play();
         }
     }
+
     @FXML
     private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Home"));
+        General.changeScene(General.setSource("Home"));
     }
     @FXML
     private void clickBackButton() throws IOException {
@@ -81,33 +80,30 @@ public class InsertController implements Initializable {
 
     }
 
+
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
 
     }
-
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
-            General.changeScene(General.setSource("Home"), General.setSource("Insert"));
+            General.changeScene(General.setSource("Insert"));
         } else {
-            General.changeScene(General.setSource("Home"), General.setSource("Login"));
+            General.changeScene(General.setSource("Login"));
         }
     }
-
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Login"));
+        General.changeScene(General.setSource("Login"));
     }
-
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home"), General.setSource("Subscribe"));
+        General.changeScene(General.setSource("Subscribe"));
     }
-
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Review"));
     }
 
 
