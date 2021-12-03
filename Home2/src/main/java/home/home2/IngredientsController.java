@@ -111,5 +111,13 @@ public class IngredientsController implements Initializable {
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
+    @FXML
+    private void clickMenuLink6(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Favourites"));
+    }
+    @FXML
+    private void clickMenuLink7(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Fridge"));
+    }
 
 }

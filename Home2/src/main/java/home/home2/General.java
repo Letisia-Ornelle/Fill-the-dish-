@@ -34,16 +34,30 @@ public class General {
             System.out.println(list.get(i));
         }
 
+        if (newSource == "Home") {
+            list.clear();
+        }
+
         m.setNewScene(newSource);
     }
 
 
     public static void setBackScene() throws IOException {
         Home m = new Home();
+        String newScene;
+
         list = m.getList();
         if (list.size() > 0) {
-            m.setNewScene((String)list.get( list.size() - 2 ));
-            list.remove(list.size()-1);
+            newScene = (String)list.get(list.size() - 2);
+            m.setNewScene(newScene);
+
+            if (newScene == "Home") {
+                list.clear();
+            } else {
+                list.remove(list.size()-1);
+            }
+
+
         }
     }
 

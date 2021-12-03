@@ -1,3 +1,4 @@
+/*
 package home.home2;
 
 import javafx.animation.FadeTransition;
@@ -82,6 +83,8 @@ public class ResultController implements Initializable {
 
 
     }
+
+
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
@@ -198,5 +201,5 @@ public class ResultController implements Initializable {
         return ricette;
     }
 
-
 }
+*/

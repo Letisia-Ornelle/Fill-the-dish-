@@ -5,8 +5,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -15,6 +14,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReviewController implements Initializable {
+    private int starValue=0;
+    private String address, comment;
+
+    @FXML
+    private Label alert;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextArea note;
     @FXML
     private Button menuButton;
     @FXML
@@ -25,6 +33,7 @@ public class ReviewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
+        alert.setVisible(false);
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -98,6 +107,48 @@ public class ReviewController implements Initializable {
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
+    }
+    @FXML
+    private void clickMenuLink6(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Favourites"));
+    }
+    @FXML
+    private void clickMenuLink7(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Fridge"));
+    }
+
+    @FXML
+    private void clickStar1(ActionEvent event) throws IOException {
+        starValue = 1;
+    }
+    @FXML
+    private void clickStar2(ActionEvent event) throws IOException {
+        starValue = 2;
+    }
+    @FXML
+    private void clickStar3(ActionEvent event) throws IOException {
+        starValue = 3;
+    }
+    @FXML
+    private void clickStar4(ActionEvent event) throws IOException {
+        starValue = 4;
+    }
+    @FXML
+    private void clickStar5(ActionEvent event) throws IOException {
+        starValue = 5;
+    }
+
+    @FXML
+    private void clickSubmitButton(ActionEvent event) throws IOException {
+        address = email.getText();
+        comment = note.getText();
+        if (address != null && comment != null && starValue != 0) {
+            alert.setVisible(false);
+            System.out.println("Recensione di " + address + ": \n" + comment + "\nValutazione: " + String.valueOf(starValue) + "/5");
+        } else {
+            alert.setVisible(true);
+        }
+
     }
 
 }

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -14,6 +15,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
+    private String content;
+
+    @FXML
+    private TextField search;
     @FXML
     private Button primi, secondi, contorni, spuntini, dolci, colazioni;
     @FXML
@@ -74,6 +79,10 @@ public class SearchController implements Initializable {
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
+    @FXML
+    private void clickIngredientsButton() throws IOException {
+        General.changeScene(General.setSource("Ingredients"));
+    }
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
@@ -99,9 +108,45 @@ public class SearchController implements Initializable {
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
+    @FXML
+    private void clickMenuLink6(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Favourites"));
+    }
+    @FXML
+    private void clickMenuLink7(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Fridge"));
+    }
 
     @FXML
+    private void clickColazioniButton() throws IOException {
+        General.changeScene(General.setSource("Result"));
+    }
+    @FXML
     private void clickPrimiButton() throws IOException {
+        General.changeScene(General.setSource("Result"));
+    }
+    @FXML
+    private void clickSecondiButton() throws IOException {
+        General.changeScene(General.setSource("Result"));
+    }
+    @FXML
+    private void clickContorniButton() throws IOException {
+        General.changeScene(General.setSource("Result"));
+    }
+    @FXML
+    private void clickSpuntiniButton() throws IOException {
+        General.changeScene(General.setSource("Result"));
+    }
+    @FXML
+    private void clickDolciButton() throws IOException {
+        General.changeScene(General.setSource("Result"));
+    }
+
+
+    @FXML
+    private void clickSearchButton() throws IOException {
+        content = search.getText();
+        System.out.println(content);
         General.changeScene(General.setSource("Result"));
     }
 

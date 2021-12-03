@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -15,9 +17,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SubscribeController implements Initializable {
+    private String c1, c2, c3, c4, c5, c6;
 
     @FXML
-    private static Hyperlink login;
+    private TextField name, lastname, username, email, pwd, pwdRepeat;
+    @FXML
+    private Label pwdAlert1, pwdAlert2, alert;
+    @FXML
+    private Hyperlink login;
     @FXML
     private Pane menu, dark;
     @FXML
@@ -25,6 +32,10 @@ public class SubscribeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        pwdAlert1.setVisible(false);
+        pwdAlert2.setVisible(false);
+        alert.setVisible(false);
+
         menu.setVisible(false);
         dark.setVisible(false);
     }
@@ -101,11 +112,48 @@ public class SubscribeController implements Initializable {
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
+    @FXML
+    private void clickMenuLink6(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Favourites"));
+    }
+    @FXML
+    private void clickMenuLink7(ActionEvent event) throws IOException {
+        //General.changeScene(General.setSource("Fridge"));
+    }
 
 
 
     @FXML
     private void clickLogin() throws IOException {
         General.changeScene(General.setSource("Login"));
+    }
+
+    @FXML
+    private void clickSubscribe() throws IOException {
+        c1 = name.getText();
+        c2 = lastname.getText();
+        c3 = username.getText();
+        c4 = email.getText();
+        c5 = pwd.getText();
+        c6 = pwdRepeat.getText();
+
+        if (c1 == null || c2 == null || c3 == null || c4 == null || c5 == null || c6 == null) {
+            alert.setVisible(true);
+        } else {
+            alert.setVisible(false);
+            if (c5.length() < 8) {
+                pwdAlert1.setVisible(true);
+            } else {
+                pwdAlert1.setVisible(false);
+            }
+            // aggiustare confronto tra stringhe
+            if (c5 != c6) {
+                pwdAlert2.setVisible(true);
+            } else {
+                pwdAlert2.setVisible(false);
+            }
+            // check also the email !!
+        }
+
     }
 }
