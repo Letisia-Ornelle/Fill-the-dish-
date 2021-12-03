@@ -7,7 +7,7 @@
 .text-field{
     -fx-border-color: #00000000;
     -fx-background-radius: 100;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #9898A8;
 }
 
 .text-area {
@@ -18,13 +18,13 @@
 
 .text-area .content {
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #9898A8;
 
 }
 
 #portataButton1{
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #5f5f7b;
     -fx-background-radius: 100;
 }
 
@@ -40,7 +40,7 @@
 
 #portataButton2{
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #5f5f7b;
     -fx-background-radius: 100;
 }
 
@@ -56,7 +56,7 @@
 
 #portataButton3{
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #5f5f7b;
     -fx-background-radius: 100;
 }
 
@@ -72,7 +72,7 @@
 
 #portataButton4 {
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #5f5f7b;
     -fx-background-radius: 100;
 }
 
@@ -88,7 +88,7 @@
 
 #portataButton5{
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #5f5f7b;
     -fx-background-radius: 100;
 }
 
@@ -104,7 +104,7 @@
 
 #portataButton6{
     -fx-border-color: #00000000;
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: #5f5f7b;
     -fx-background-radius: 100;
 }
 
