@@ -24,11 +24,7 @@
          </font></Label>
       <Button fx:id="homeButton" layoutX="1215.0" layoutY="15.0" onAction="#clickHomeButton" stylesheets="@MenuButton.css">
       </Button>
-      <Button fx:id="Fav" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Salva ricetta tra i Preferiti" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
+      <ImageView fx:id="favButton" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="150.0" onMouseClicked="#clickFavButton" onMouseEntered="#hoveredButton" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="backButton" layoutX="1135.0" layoutY="15.0" onAction="#clickBackButton" stylesheets="@MenuButton.css">
       </Button>
       <Pane fx:id="RecipeScrollDescription" layoutX="615.0" layoutY="150.0" prefHeight="900.0" prefWidth="640.0" stylesheets="@Recipe.css">
@@ -61,27 +57,27 @@
                <children>
                   <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                      <children>
-                        <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@MenuLinks.css" text="Vedi Elenco Ricette">
+                        <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@menuLinks.css" text="Vedi Elenco Ricette">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@MenuLinks.css" text="Aggiungi la tua Ricetta">
+                        <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@menuLinks.css" text="Aggiungi la tua Ricetta">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Log In">
+                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Iscriviti">
+                        <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Iscriviti">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@MenuLinks.css" text="Lascia una Recensione">
+                        <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lascia una Recensione">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
