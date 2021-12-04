@@ -22,7 +22,7 @@ public class Home extends Application {
         list.add("Home.fxml");
         screenList = list;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Home.class.getResource("Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Home.class.getResource("Recipe.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 640);
         stage.setResizable(false);
         stage.setTitle("Fill The Dish!");

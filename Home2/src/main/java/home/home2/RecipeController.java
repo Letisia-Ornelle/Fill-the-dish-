@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -14,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RecipeController implements Initializable {
-
+    Boolean inFavourite;
     @FXML
     Button primi, secondi, contorni, spuntini, dolci, colazioni;
 
@@ -24,10 +26,15 @@ public class RecipeController implements Initializable {
     @FXML
     private Pane menu, dark;
 
+    @FXML
+    private ImageView favButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
+        favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png"));
+        inFavourite = false;
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -109,6 +116,24 @@ public class RecipeController implements Initializable {
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         //General.changeScene(General.setSource("Fridge"));
+    }
+
+
+    @FXML
+    private void clickFavButton(ActionEvent event) throws IOException {
+        if (!inFavourite) {
+            favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png"));
+            inFavourite = true;
+        } else {
+            favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png"));
+            inFavourite = false;
+        }
+    }
+
+    @FXML
+    private void hoveredButton(ActionEvent event) throws IOException {
+        favButton.setScaleX(1.2);
+        favButton.setScaleY(1.2);
     }
 
 

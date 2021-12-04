@@ -47,7 +47,7 @@ public class General {
         String newScene;
 
         list = m.getList();
-        if (list.size() > 0) {
+        if (list.size() > 1) {
             newScene = (String)list.get(list.size() - 2);
             m.setNewScene(newScene);
 
