@@ -19,10 +19,10 @@ public class Home extends Application {
         stg = stage;
 
         ArrayList list = new ArrayList();
-        list.add("Home.fxml");
+        list.add("Home.fxml");              // potrebbe dare bug se la app si apre in una schermata diversa dalla home
         screenList = list;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Home.class.getResource("Recipe.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Home.class.getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 640);
         stage.setResizable(false);
         stage.setTitle("Fill The Dish!");

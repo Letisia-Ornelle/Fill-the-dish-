@@ -22,7 +22,7 @@ public class SubscribeController implements Initializable {
     @FXML
     private TextField name, lastname, username, email, pwd, pwdRepeat;
     @FXML
-    private Label pwdAlert1, pwdAlert2, alert;
+    private Label pwdAlert1, pwdAlert2, pwdAlert3, alert;
     @FXML
     private Hyperlink login;
     @FXML
@@ -34,6 +34,7 @@ public class SubscribeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pwdAlert1.setVisible(false);
         pwdAlert2.setVisible(false);
+        pwdAlert3.setVisible(false);
         alert.setVisible(false);
 
         menu.setVisible(false);
@@ -90,7 +91,7 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Result"));
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
@@ -114,7 +115,7 @@ public class SubscribeController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        //General.changeScene(General.setSource("Favourites"));
+        General.changeScene(General.setSource("Favourite"));
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
@@ -137,7 +138,9 @@ public class SubscribeController implements Initializable {
         c5 = pwd.getText();
         c6 = pwdRepeat.getText();
 
-        if (c1 == null || c2 == null || c3 == null || c4 == null || c5 == null || c6 == null) {
+        if (c1 == "" || c2 == "" || c3 == "" || c4 == "" || c5 == "" || c6 == "") {
+            pwdAlert1.setVisible(false);
+            pwdAlert2.setVisible(false);
             alert.setVisible(true);
         } else {
             alert.setVisible(false);

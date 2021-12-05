@@ -82,7 +82,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Result"));
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
@@ -106,7 +106,7 @@ public class HomeController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        //General.changeScene(General.setSource("Favourites"));
+        General.changeScene(General.setSource("Favourite"));
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {

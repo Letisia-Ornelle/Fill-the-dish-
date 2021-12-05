@@ -5,8 +5,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -15,9 +14,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+    String usernameContent, pwdContent;
 
     @FXML
-    private static Hyperlink subscribe;
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private Label alert;
     @FXML
     private Button menuButton;
     @FXML
@@ -27,6 +31,7 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
+        alert.setVisible(false);
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -79,8 +84,16 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void clickLoginButton() throws IOException{
+    private void clickLoginButton() throws IOException {
+        usernameContent = username.getText();
+        pwdContent = password.getText();
 
+        if (usernameContent == "" || pwdContent == "") {
+            alert.setVisible(true);
+        } else {
+            alert.setVisible(false);
+            System.out.println("email: " + usernameContent + "\npassword: " + pwdContent);
+        }
     }
     @FXML
     private void clickSubscribe() throws IOException {
@@ -92,7 +105,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
-
+        General.changeScene(General.setSource("Result"));
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
@@ -116,7 +129,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        //General.changeScene(General.setSource("Favourites"));
+        General.changeScene(General.setSource("Favourite"));
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
