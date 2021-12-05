@@ -24,7 +24,7 @@
          </font></Label>
       <Button fx:id="homeButton" layoutX="1215.0" layoutY="15.0" onAction="#clickHomeButton" stylesheets="@MenuButton.css">
       </Button>
-      <ImageView fx:id="favButton" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="150.0" onMouseClicked="#clickFavButton" onMouseEntered="#hoveredButton" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="favButton" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="150.0" onMouseClicked="#clickFavButton" onMouseEntered="#hoveredButton" onMouseExited="#ReleaseButton" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="backButton" layoutX="1135.0" layoutY="15.0" onAction="#clickBackButton" stylesheets="@MenuButton.css">
       </Button>
       <Pane fx:id="RecipeScrollDescription" layoutX="615.0" layoutY="150.0" prefHeight="900.0" prefWidth="640.0" stylesheets="@Recipe.css">

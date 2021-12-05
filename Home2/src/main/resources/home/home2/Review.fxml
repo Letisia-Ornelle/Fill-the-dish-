@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -17,11 +18,11 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Pane fx:id="star1" layoutX="415.0" layoutY="140.0" onMouseClicked="#clickStar1" prefHeight="50.0" prefWidth="50.0" stylesheets="@MenuButton.css" />
-      <Pane fx:id="star2" layoutX="515.0" layoutY="140.0" onMouseClicked="#clickStar2" prefHeight="50.0" prefWidth="50.0" stylesheets="@MenuButton.css" />
-      <Pane fx:id="star3" layoutX="615.0" layoutY="140.0" onMouseClicked="#clickStar3" prefHeight="50.0" prefWidth="50.0" stylesheets="@MenuButton.css" />
-      <Pane fx:id="star4" layoutX="715.0" layoutY="140.0" onMouseClicked="#clickStar4" prefHeight="50.0" prefWidth="50.0" stylesheets="@MenuButton.css" />
-      <Pane fx:id="star5" layoutX="815.0" layoutY="140.0" onMouseClicked="#clickStar5" prefHeight="50.0" prefWidth="50.0" stylesheets="@MenuButton.css" />
+      <ImageView fx:id="star1" fitHeight="50.0" fitWidth="50.0" layoutX="415.0" layoutY="130.0" onMouseClicked="#clickStar1" onMouseEntered="#hoveredStar1" onMouseExited="#releasedStar" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star2" fitHeight="50.0" fitWidth="50.0" layoutX="515.0" layoutY="130.0" onMouseClicked="#clickStar2" onMouseEntered="#hoveredStar2" onMouseExited="#releasedStar" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star3" fitHeight="50.0" fitWidth="50.0" layoutX="615.0" layoutY="130.0" onMouseClicked="#clickStar3" onMouseEntered="#hoveredStar3" onMouseExited="#releasedStar" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star4" fitHeight="50.0" fitWidth="50.0" layoutX="715.0" layoutY="130.0" onMouseClicked="#clickStar4" onMouseEntered="#hoveredStar4" onMouseExited="#releasedStar" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star5" fitHeight="50.0" fitWidth="50.0" layoutX="815.0" layoutY="130.0" onMouseClicked="#clickStar5" onMouseEntered="#hoveredStar5" onMouseExited="#releasedStar" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="email" layoutX="515.0" layoutY="225.0" prefHeight="40.0" prefWidth="250.0" promptText="Inserisci la tua e-mail" stylesheets="@Login.css">
          <font>
             <Font size="15.0" />

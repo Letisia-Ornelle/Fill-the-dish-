@@ -11,3 +11,7 @@
     -fx-background-color: #00000044;
     -fx-background-radius: 0;
 }
+
+#removeRecipe{
+    -fx-background-image: url("trasher.png");
+}
