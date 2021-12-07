@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ResultController">
+<Pane id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ResultController">
     <children>
         <Label layoutX="484.0" layoutY="34.0" prefHeight="62.0" prefWidth="313.0" text="Cerca una ricetta">
             <font>
@@ -30,7 +30,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <ScrollPane hbarPolicy="NEVER" layoutY="200.0" prefHeight="440.0" prefWidth="1280.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="200.0" prefHeight="440.0" prefWidth="1280.0" stylesheets="@style.css">
          <content>
           <GridPane fx:id="grid" prefHeight="0.0" prefWidth="31.0" styleClass="transparent" stylesheets="style.css">
              <rowConstraints>
