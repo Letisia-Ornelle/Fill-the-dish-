@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane prefHeight="125.0" prefWidth="359.0" styleClass="ricetta" stylesheets="style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ItemsController">
+<Pane prefHeight="198.0" prefWidth="402.0" styleClass="ricetta" stylesheets="style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ItemsController">
    <children>
-      <ImageView fx:id="recipeImage" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickRecipeImage" fitHeight="100.0" fitWidth="150.0">
+      <ImageView fx:id="recipeImage" fitHeight="145.0" fitWidth="158.0" layoutX="14.0" layoutY="27.0" onMouseClicked="#clickRecipeImage">
       <image>
          <Image url="@pesto.png" />
       </image>
       </ImageView>
 
-      <Hyperlink fx:id="recipeName" layoutX="160.0" layoutY="10.0" prefHeight="44.0" prefWidth="188.0" text="Nome Ricetta" wrapText="true">
+      <Hyperlink fx:id="recipeName" layoutX="168.0" layoutY="14.0" prefHeight="60.0" prefWidth="200.0" text="Nome Ricetta" wrapText="true">
          <font>
             <Font name="Inter Semi Bold" size="23.0" />
          </font>
