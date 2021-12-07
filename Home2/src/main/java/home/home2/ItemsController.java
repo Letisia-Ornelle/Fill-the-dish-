@@ -1,11 +1,8 @@
-/*
 package home.home2;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,7 +23,7 @@ public class ItemsController {
     private Recipe recipe;
 
     public void clickRecipeImage(MouseEvent mouseEvent) throws IOException {
-        General.changeScene(General.setSource("items"), General.setSource("Recipe"));
+        General.changeScene(General.setSource("Recipe"));
     }
 
 
@@ -40,4 +37,3 @@ public class ItemsController {
 
 
 }
-*/
