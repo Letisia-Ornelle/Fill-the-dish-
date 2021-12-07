@@ -93,7 +93,10 @@ public class LoginController implements Initializable {
         } else {
             alert.setVisible(false);
             System.out.println("email: " + usernameContent + "\npassword: " + pwdContent);
+            General.changeScene(General.setSource("Home"));
         }
+
+
     }
     @FXML
     private void clickSubscribe() throws IOException {

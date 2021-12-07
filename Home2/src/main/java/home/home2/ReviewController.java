@@ -241,9 +241,10 @@ public class ReviewController implements Initializable {
     private void clickSubmitButton(ActionEvent event) throws IOException {
         address = email.getText();
         comment = note.getText();
-        if (address != null && comment != null && starValue != 0) {
+        if (address != "" && comment != "" && starValue != 0) {
             alert.setVisible(false);
             System.out.println("Recensione di " + address + ": \n" + comment + "\nValutazione: " + String.valueOf(starValue) + "/5");
+            // conferma di avvenuta sottomissione
         } else {
             alert.setVisible(true);
         }
