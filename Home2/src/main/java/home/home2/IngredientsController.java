@@ -2,10 +2,14 @@ package home.home2;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -16,16 +20,73 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class IngredientsController implements Initializable {
+
+    //these items are for the chooseBox
+    @FXML
+    private ChoiceBox choiceBox1;
+    @FXML
+    private ChoiceBox choiceBox2;
+    @FXML
+    private ChoiceBox choiceBox3;
+    @FXML
+    private ChoiceBox choiceBox4;
+    @FXML
+    private ChoiceBox choiceBox5;
+    @FXML
+    private ChoiceBox choiceBox6;
+    @FXML
+    private ChoiceBox choiceBox7;
+    @FXML
+    private ChoiceBox choiceBox8;
+
+
+
+    public void choiceBoxButtonPushed(){
+        choiceBox1.getValue();
+        choiceBox2.getValue();
+        choiceBox3.getValue();
+        choiceBox4.getValue();
+        choiceBox5.getValue();
+        choiceBox6.getValue();
+        choiceBox7.getValue();
+        choiceBox8.getValue();
+    }
+
+
+
    @FXML
    private Button recipeButton, fridgeButton, menuButton;
 
     @FXML
     private Pane menu, dark;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
+
+        //configuring the choiceboxs
+        choiceBox1.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox2.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox3.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox4.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox5.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox6.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox7.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox8.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+
+        choiceBox1.setValue("Inserisci il primo ingrediente");
+        choiceBox2.setValue("Inserisci il secondo ingrediente");
+        choiceBox3.setValue("Inserisci il terzo ingrediente");
+        choiceBox4.setValue("Inserisci il quarto ingrediente");
+        choiceBox5.setValue("Inserisci il quinto ingrediente");
+        choiceBox6.setValue("Inserisci il sesto ingrediente");
+        choiceBox7.setValue("Inserisci il settimo ingrediente");
+        choiceBox8.setValue("Inserisci l'ottavo ingrediente");
+
+
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
