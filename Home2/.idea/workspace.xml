@@ -19,6 +19,9 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="20FAS50zwd9Ku9RsNOaQ9jxqxNt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,6 +37,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" />
   </component>
   <component name="RecentsManager">
@@ -46,13 +50,18 @@
       <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources\home\home2" />
+      <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2\Immagini" />
+      <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2\View" />
+      <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2\Css" />
+      <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\main\resources" />
+      <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="home.home2" />
+      <recent name="home.home2.View" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Home">
+  <component name="RunManager" selected="Application.Letisia">
     <configuration name="General" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="home.home2.General" />
       <module name="Home2" />
@@ -66,7 +75,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Home" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Letisia" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="home.home2.Home" />
       <module name="Home2" />
       <extension name="coverage">
@@ -79,9 +88,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.General" />
+      <item itemvalue="Application.Letisia" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Home" />
+        <item itemvalue="Application.Letisia" />
         <item itemvalue="Application.General" />
       </list>
     </recent_temporary>
@@ -120,7 +133,36 @@
       <workItem from="1637661606433" duration="1617000" />
       <workItem from="1637845905452" duration="68000" />
       <workItem from="1637853500045" duration="55000" />
-      <workItem from="1637859289989" duration="6626000" />
+      <workItem from="1637859289989" duration="8620000" />
+      <workItem from="1638189750735" duration="108000" />
+      <workItem from="1638190147377" duration="7650000" />
+      <workItem from="1638365192338" duration="3797000" />
+      <workItem from="1638475185542" duration="3471000" />
+      <workItem from="1638478784119" duration="392000" />
+      <workItem from="1638480082113" duration="420000" />
+      <workItem from="1638481365518" duration="629000" />
+      <workItem from="1638482051600" duration="424000" />
+      <workItem from="1638531977882" duration="309000" />
+      <workItem from="1638539540364" duration="288000" />
+      <workItem from="1638543227552" duration="760000" />
+      <workItem from="1638544033327" duration="1333000" />
+      <workItem from="1638728621457" duration="638000" />
+      <workItem from="1638730264397" duration="287000" />
+      <workItem from="1638730592845" duration="2172000" />
+      <workItem from="1638734642723" duration="19000" />
+      <workItem from="1638809107644" duration="841000" />
+      <workItem from="1638870280234" duration="571000" />
+      <workItem from="1638872899352" duration="60000" />
+      <workItem from="1638873472443" duration="53000" />
+      <workItem from="1638873670886" duration="1503000" />
+      <workItem from="1638875300135" duration="627000" />
+      <workItem from="1638876137655" duration="4321000" />
+      <workItem from="1638881723148" duration="422000" />
+      <workItem from="1638882201840" duration="1034000" />
+      <workItem from="1638883552018" duration="2188000" />
+      <workItem from="1639056528512" duration="708000" />
+      <workItem from="1639060131669" duration="10000" />
+      <workItem from="1639062524900" duration="324000" />
     </task>
     <servers />
   </component>
@@ -136,5 +178,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

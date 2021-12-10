@@ -34,7 +34,7 @@ public class RecipeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
-        favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png"));
+        //favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png0"));
         inFavourite = false;
     }
     @FXML

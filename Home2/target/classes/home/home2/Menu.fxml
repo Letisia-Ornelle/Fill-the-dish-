@@ -37,6 +37,16 @@
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Button>
+                  <Button fx:id="menuLink6" mnemonicParsing="false" onAction="#clickMenuLink6" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lista dei Preferiti">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="menuLink7" mnemonicParsing="false" onAction="#clickMenuLink7" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Visita il tuo Frigo Virtuale!">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
             <Pane prefHeight="57.0" prefWidth="225.0">
