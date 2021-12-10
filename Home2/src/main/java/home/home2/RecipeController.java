@@ -19,13 +19,37 @@ import java.util.ResourceBundle;
 public class RecipeController implements Initializable {
     Boolean inFavourite;
     @FXML
-    Button primi, secondi, contorni, spuntini, dolci, colazioni;
+    Button primi;
 
     @FXML
-    Button backButton, homeButton, menuButton;
+    Button secondi;
 
     @FXML
-    private Pane menu, dark;
+    Button contorni;
+
+    @FXML
+    Button spuntini;
+
+    @FXML
+    Button dolci;
+
+    @FXML
+    Button colazioni;
+
+    @FXML
+    Button backButton;
+
+    @FXML
+    Button homeButton;
+
+    @FXML
+    Button menuButton;
+
+    @FXML
+    private Pane menu;
+
+    @FXML
+    private Pane dark;
 
     @FXML
     private ImageView favButton;
