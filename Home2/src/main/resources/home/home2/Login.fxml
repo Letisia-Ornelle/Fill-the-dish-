@@ -36,7 +36,7 @@
             </ImageView>
             <Hyperlink fx:id="subscribe" alignment="CENTER" layoutX="580.0" layoutY="295.0" onAction="#clickSubscribe" prefWidth="120.0" text="Oppure Iscriviti" textAlignment="CENTER">
                <font>
-                  <Font size="14.0" />
+                  <Font name="SansSerif Regular" size="14.0" />
                </font></Hyperlink>
             <Label fx:id="alert" alignment="CENTER" layoutX="540.0" layoutY="350.0" prefWidth="200.0" text="Ci sono campi non riempiti!" textAlignment="CENTER" textFill="RED">
                <font>

@@ -34,7 +34,7 @@
          <content>
           <GridPane fx:id="grid" prefHeight="0.0" prefWidth="31.0" styleClass="transparent" stylesheets="style.css">
              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
              </rowConstraints>
           </GridPane>
        </content>

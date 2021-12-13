@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ElementController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ElementController">
    <children>
       <ImageView fx:id="img" fitHeight="50.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="name" alignment="BASELINE_LEFT" layoutX="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="550.0" stylesheets="@menuLinks.css" text="Nome Ricetta" wrapText="true">
@@ -13,6 +13,7 @@
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="removeRecipe" layoutX="750.0" mnemonicParsing="false" onAction="#clickRemoveRecipe" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
+      <ImageView fx:id="select" fitHeight="50.0" fitWidth="50.0" layoutX="700.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="removeRecipe" layoutX="750.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
    </children>
 </Pane>
