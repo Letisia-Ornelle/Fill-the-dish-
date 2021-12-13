@@ -22,21 +22,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ResultController implements Initializable {
-
-    //private Label welcomeText;
-
     @FXML
     GridPane grid;
-
     @FXML
-    Button backButton;
-
-    @FXML
-    Button homeButton;
-    @FXML
-    private Button menuButton;
+    Button homeButton, menuButton, backButton;
     @FXML
     private Pane menu, dark;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,9 +40,9 @@ public class ResultController implements Initializable {
         int column = 0;
         int row = 1;
         try {
-            for(int i=0; i<ricette.size(); i++) {
+            for (int i=0; i<ricette.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                //fxmlLoader.setController(new SearchRecipe2());
+
                 fxmlLoader.setLocation(getClass().getResource("items.fxml"));
 
                 Pane anchorPane = fxmlLoader.load();
@@ -79,9 +71,8 @@ public class ResultController implements Initializable {
                 grid.setHalignment(anchorPane, HPos.LEFT);
                 grid.setGridLinesVisible(false);
             }
-        }catch(IOException e){
+        } catch(IOException e) {
             e.printStackTrace();
-
         }
 
 
@@ -137,7 +128,7 @@ public class ResultController implements Initializable {
         General.setBackScene();
     }
 
-
+    // forse c'è già un altro metodo identico in itemsController
     @FXML
     private void clickRecipeButton() throws IOException {
         General.changeScene(General.setSource("Recipe"));
@@ -168,7 +159,6 @@ public class ResultController implements Initializable {
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
-
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Favourite"));
@@ -180,7 +170,7 @@ public class ResultController implements Initializable {
 
     private List<Recipe> ricette = new ArrayList<>();
 
-    private List<Recipe> getData(){
+    private List<Recipe> getData() {
         List<Recipe> ricette = new ArrayList<>();
         Recipe ricetta;
 

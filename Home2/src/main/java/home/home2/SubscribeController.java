@@ -131,6 +131,7 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickSubscribe() throws IOException {
+        int i;
         c1 = name.getText();
         c2 = lastname.getText();
         c3 = username.getText();
@@ -144,17 +145,19 @@ public class SubscribeController implements Initializable {
             alert.setVisible(true);
         } else {
             alert.setVisible(false);
-            if (c5.length() < 8) {
+            if (c5.length() != 8) {
                 pwdAlert1.setVisible(true);
             } else {
                 pwdAlert1.setVisible(false);
             }
-            // aggiustare confronto tra stringhe
-            if (c5 != c6) {
-                pwdAlert2.setVisible(true);
-            } else {
+
+
+            if (c5.equals(c6)) {
                 pwdAlert2.setVisible(false);
+            } else {
+                pwdAlert2.setVisible(true);
             }
+
             // check also the email !!
         }
 

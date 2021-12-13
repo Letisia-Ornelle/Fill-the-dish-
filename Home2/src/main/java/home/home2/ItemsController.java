@@ -13,10 +13,8 @@ public class ItemsController {
 
     @FXML
     private Button recipeButton;
-
     @FXML
     private ImageView recipeImage;
-
     @FXML
     private Hyperlink recipeName;
 
@@ -26,8 +24,7 @@ public class ItemsController {
         General.changeScene(General.setSource("Recipe"));
     }
 
-
-    public void setData( Recipe recipe){
+    public void setData(Recipe recipe) {
             this.recipe = recipe;
             recipeName.setText(recipe.getName());
 
