@@ -178,7 +178,11 @@ public class IngredientsController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        //General.changeScene(General.setSource("Fridge"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Fridge"));
+        } else {
+            General.changeScene(General.setSource("Login"));
+        }
     }
 
 }
