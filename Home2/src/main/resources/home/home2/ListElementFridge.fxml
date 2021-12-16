@@ -14,6 +14,7 @@
          </font>
       </Button>
       <ImageView fx:id="select" fitHeight="50.0" fitWidth="50.0" layoutX="700.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane fx:id="cover" layoutX="700.0" onMouseClicked="#clickSelect" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
       <Button fx:id="removeRecipe" layoutX="750.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
    </children>
 </Pane>
