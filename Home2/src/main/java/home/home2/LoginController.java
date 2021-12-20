@@ -142,5 +142,15 @@ public class LoginController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
+    @FXML
+    private void clickMenuLink8(ActionEvent event) throws IOException {
+        if (Home.GUI==0) {
+            Home.GUI=1;
+            General.changeScene(General.setSource("Home2"));
+        } else {
+            Home.GUI=0;
+            General.changeScene(General.setSource("Home"));
+        }
+    }
 
 }
