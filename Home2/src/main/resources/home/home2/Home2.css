@@ -1,0 +1,24 @@
+#pane{
+    -fx-background-image: url("sfondo_home2.png");
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+    -fx-background-size: 500 500;
+}
+
+.button{
+    -fx-background-color: #00ff00;
+    -fx-border-color: #000000;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+
+.button:hover{
+    -fx-background-color: #000000aa;
+    -fx-border-color: #000000;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-scale-x: 1.65;
+    -fx-scale-y: 1.65;
+}
