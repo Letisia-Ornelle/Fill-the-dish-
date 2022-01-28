@@ -38,6 +38,8 @@ public class IngredientsController implements Initializable {
     private ChoiceBox choiceBox7;
     @FXML
     private ChoiceBox choiceBox8;
+    @FXML
+    private ChoiceBox choiceBoxN;
 
 
 
@@ -50,44 +52,9 @@ public class IngredientsController implements Initializable {
         choiceBox6.getValue();
         choiceBox7.getValue();
         choiceBox8.getValue();
+        choiceBoxN.getValue();
     }
 
-
-
-   @FXML
-   private Button recipeButton, fridgeButton, menuButton;
-
-    @FXML
-    private Pane menu, dark;
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
-        dark.setVisible(false);
-
-        //configuring the choiceboxs
-        choiceBox1.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox2.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox3.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox4.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox5.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox6.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox7.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox8.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-
-        choiceBox1.setValue("Inserisci il primo ingrediente");
-        choiceBox2.setValue("Inserisci il secondo ingrediente");
-        choiceBox3.setValue("Inserisci il terzo ingrediente");
-        choiceBox4.setValue("Inserisci il quarto ingrediente");
-        choiceBox5.setValue("Inserisci il quinto ingrediente");
-        choiceBox6.setValue("Inserisci il sesto ingrediente");
-        choiceBox7.setValue("Inserisci il settimo ingrediente");
-        choiceBox8.setValue("Inserisci l'ottavo ingrediente");
-
-
-    }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
@@ -126,6 +93,44 @@ public class IngredientsController implements Initializable {
         }
     }
 
+   @FXML
+   private Button recipeButton, fridgeButton, menuButton;
+
+    @FXML
+    private Pane menu, dark;
+
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        menu.setVisible(false);
+        dark.setVisible(false);
+
+        //configuring the choiceboxs
+        choiceBox1.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox2.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox3.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox4.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox5.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox6.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox7.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBox8.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+
+
+        choiceBox1.setValue("Inserisci il primo ingrediente");
+        choiceBox2.setValue("Inserisci l'ottavo ingrediente");
+        choiceBox3.setValue("Inserisci il settimo ingrediente");
+        choiceBox4.setValue("Inserisci il sesto ingrediente");
+        choiceBox5.setValue("Inserisci il quinto ingrediente");
+        choiceBox6.setValue("Inserisci il quarto ingrediente");
+        choiceBox7.setValue("Inserisci il secondo ingrediente");
+        choiceBox8.setValue("Inserisci il terzo ingrediente");
+
+
+
+    }
+
+
 
     @FXML
     private void clickHomeButton() throws IOException {
@@ -139,7 +144,7 @@ public class IngredientsController implements Initializable {
 
     @FXML
     private void clickRecipeButton() throws IOException {
-           General.changeScene(General.setSource("ricettaOttenuta"));
+           General.changeScene(General.setSource("Result"));
        }
     @FXML
     private void clickFridgeButton() throws IOException {
@@ -195,4 +200,10 @@ public class IngredientsController implements Initializable {
         }
     }
 
+    @FXML
+    private void clickPlus(ActionEvent event) throws IOException{
+
+        choiceBoxN.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
+        choiceBoxN.setValue("Inserisci un ulteriore ingrediente ingrediente");
+    }
 }
