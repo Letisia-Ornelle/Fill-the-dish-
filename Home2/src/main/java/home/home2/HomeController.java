@@ -116,6 +116,19 @@ public class HomeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
+<<<<<<< .mine
+
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
+    }
+
+    @FXML
+    private void clickBackButton() throws IOException {
+        General.setBackScene();
+    }
+||||||| .r50
+=======
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
         if (Home.GUI==0) {
@@ -126,4 +139,5 @@ public class HomeController implements Initializable {
             General.changeScene(General.setSource("Home"));
         }
     }
+>>>>>>> .r61
 }
