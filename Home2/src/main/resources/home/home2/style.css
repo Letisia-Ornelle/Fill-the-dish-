@@ -317,6 +317,7 @@
     -fx-border-color: #00000000;
     -fx-background-color: #00000022;
     -fx-border-color: black;
+    -fx-prompt-text-fill: black;
 }
 .go{
     -fx-font-size: 15px;

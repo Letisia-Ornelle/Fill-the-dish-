@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -12,9 +13,9 @@
 
 <Pane id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ResultController">
     <children>
-        <Label layoutX="484.0" layoutY="34.0" prefHeight="62.0" prefWidth="313.0" text="Cerca una ricetta">
+        <Label layoutX="484.0" layoutY="13.0" prefHeight="62.0" prefWidth="313.0" text="Cerca una ricetta">
             <font>
-                <Font size="34.0" />
+                <Font name="Inter Semi Bold" size="35.0" />
             </font>
         </Label>
         <Button fx:id="homeButton" layoutX="1215.0" layoutY="15.0" onAction="#clickHomeButton" stylesheets="@MenuButton.css">
@@ -45,27 +46,27 @@
                <children>
                   <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                      <children>
-                        <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@MenuLinks.css" text="Vedi Elenco Ricette">
+                        <Button fx:id="menuLink1" mnemonicParsing="false" onAction="#clickMenuLink1" prefHeight="60.0" prefWidth="320.0" stylesheets="@menuLinks.css" text="Vedi Elenco Ricette">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@MenuLinks.css" text="Aggiungi la tua Ricetta">
+                        <Button fx:id="menuLink2" mnemonicParsing="false" onAction="#clickMenuLink2" prefHeight="60.0" prefWidth="362.0" stylesheets="@menuLinks.css" text="Aggiungi la tua Ricetta">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Log In">
+                        <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@MenuLinks.css" text="Iscriviti">
+                        <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Iscriviti">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@MenuLinks.css" text="Lascia una Recensione">
+                        <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lascia una Recensione">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>
@@ -101,5 +102,10 @@
          </children>
       </Pane>
       <Button fx:id="menuButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButton" stylesheets="@MenuButton.css" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="215.0" layoutY="130.0" prefHeight="400.0" prefWidth="850.0" vbarPolicy="ALWAYS">
+         <content>
+            <AnchorPane prefHeight="400.0" prefWidth="850.0" />
+         </content>
+      </ScrollPane>
     </children>
 </Pane>

@@ -70,7 +70,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Button fx:id="menuButton" layoutX="255.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButton2" prefHeight="55.0" prefWidth="46.0" stylesheets="@MenuButton.css" />
+                        <Button fx:id="menuButton" layoutX="255.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButton" prefHeight="55.0" prefWidth="46.0" stylesheets="@MenuButton.css" />
                      </children>
                   </Pane>
                </children>
@@ -83,7 +83,7 @@
          <children>
             <Label layoutX="552.0" layoutY="13.0" prefHeight="74.0" prefWidth="176.0" text="Login" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Inter Semi Bold" size="64.0" />
+                  <Font name="Inter Semi Bold" size="35.0" />
                </font>
             </Label>
             <Button fx:id="homeButton" layoutX="1215.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickHomeButton" stylesheets="@MenuButton.css" />
