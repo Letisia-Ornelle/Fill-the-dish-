@@ -182,6 +182,10 @@ public class ResultController implements Initializable {
         }
     }
 
+<<<<<<< .mine
+
+||||||| .r38
+=======
     private List<Recipe> ricette = new ArrayList<>();
 
     private List<Recipe> getData() {
@@ -218,4 +222,5 @@ public class ResultController implements Initializable {
         return ricette;
     }
 
+>>>>>>> .r63
 }
