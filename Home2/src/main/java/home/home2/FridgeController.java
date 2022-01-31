@@ -78,7 +78,7 @@ public class FridgeController implements Initializable {
             e.printStackTrace();
         }
     }
-    @FXML
+   /* @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
 
@@ -137,7 +137,7 @@ public class FridgeController implements Initializable {
         } else {
             General.changeScene(General.setSource("Login"));
         }
-    }
+    }*/
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Login"));
@@ -162,7 +162,7 @@ public class FridgeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-    @FXML
+   /* @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
         if (Home.GUI==0) {
             Home.GUI=1;
@@ -171,7 +171,7 @@ public class FridgeController implements Initializable {
             Home.GUI=0;
             General.changeScene(General.setSource("Home"));
         }
-    }
+    }*/
 
     @FXML
     private void clickComputeRecipe(ActionEvent event) throws IOException {
@@ -198,14 +198,17 @@ public class FridgeController implements Initializable {
         return elements;
     }
 
-    @FXML
+    public void clickMenuLink8(ActionEvent actionEvent) {
+    }
+
+  /*  @FXML
     private void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
-    }
+    }*/
 
 
     @FXML
@@ -246,4 +249,5 @@ public class FridgeController implements Initializable {
             translateTransition2.play();
         }
     }
+
 }

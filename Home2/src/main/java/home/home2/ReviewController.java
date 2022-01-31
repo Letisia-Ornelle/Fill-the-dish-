@@ -133,8 +133,8 @@ public class ReviewController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
+   // @FXML
+   /* private void clickMenuLink8(ActionEvent event) throws IOException {
         if (Home.GUI==0) {
             Home.GUI=1;
             General.changeScene(General.setSource("Home2"));
@@ -143,7 +143,7 @@ public class ReviewController implements Initializable {
             General.changeScene(General.setSource("Home"));
         }
     }
-
+*/
     @FXML
     private void clickStar1(MouseEvent event) throws IOException {
         star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));

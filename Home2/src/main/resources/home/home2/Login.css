@@ -5,15 +5,16 @@
 }
 
 .text-field{
-    -fx-border-color: #00000000;
-
-    -fx-background-radius: 100;
+    -fx-border-color: black;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
     -fx-background-color: transparent;
 }
 
 .text-area {
     -fx-border-color: #00000000;
     -fx-background-color: transparent;
+    -fx-prompt-text-fill: black;
 
 
 
@@ -26,7 +27,7 @@
 
 }
 .text-area {
-    -fx-background-color: rgba(50,40,50,0.3);
+    -fx-background-color: rgba(50,40,50,0.2);
     -fx-background-radius: 25;
     -fx-border-radius: 25;
     -fx-border-color: black;

@@ -40,7 +40,7 @@ public class ResultController implements Initializable {
         int column = 0;
         int row = 1;
         try {
-            for (int i=0; i<ricette.size(); i++) {
+            for (int i = 0; i < ricette.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
 
                 fxmlLoader.setLocation(getClass().getResource("items.fxml"));
@@ -50,7 +50,7 @@ public class ResultController implements Initializable {
                 ItemsController itemController = fxmlLoader.getController();
                 itemController.setData(ricette.get(i));
 
-                if(column == 2){
+                if (column == 2) {
                     column = 0;
                     row++;
                 }
@@ -65,13 +65,13 @@ public class ResultController implements Initializable {
                 grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-                grid.add(anchorPane,column++, row);
+                grid.add(anchorPane, column++, row);
                 grid.setMargin(anchorPane, new Insets(100));
                 grid.setAlignment(Pos.CENTER);
                 grid.setHalignment(anchorPane, HPos.LEFT);
                 grid.setGridLinesVisible(false);
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -123,6 +123,7 @@ public class ResultController implements Initializable {
     private void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
+
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
@@ -139,6 +140,7 @@ public class ResultController implements Initializable {
     private void clickMenuLink1(ActionEvent event) throws IOException {
 
     }
+
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
@@ -147,22 +149,27 @@ public class ResultController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
+
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Login"));
     }
+
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
+
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
+
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Favourite"));
     }
+
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
@@ -171,7 +178,7 @@ public class ResultController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-    @FXML
+   /* @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
         if (Home.GUI==0) {
             Home.GUI=1;
@@ -180,19 +187,16 @@ public class ResultController implements Initializable {
             Home.GUI=0;
             General.changeScene(General.setSource("Home"));
         }
-    }
+    }*/
 
-<<<<<<< .mine
 
-||||||| .r38
-=======
     private List<Recipe> ricette = new ArrayList<>();
 
     private List<Recipe> getData() {
         List<Recipe> ricette = new ArrayList<>();
         Recipe ricetta;
 
-        for(int i = 0; i<40;i++){
+        for (int i = 0; i < 40; i++) {
             ricetta = new Recipe();
             ricetta.setName("Carbonara");
             ricetta.setImgSrc("Carbonara.png");
@@ -221,6 +225,6 @@ public class ResultController implements Initializable {
         }
         return ricette;
     }
-
->>>>>>> .r63
 }
+
+

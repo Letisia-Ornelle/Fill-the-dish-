@@ -15,3 +15,11 @@
 #removeRecipe{
     -fx-background-image: url("trasher.png");
 }
+
+#cover{
+    -fx-background-color: #00000000;
+}
+
+#cover:hover{
+    -fx-background-color: #00000044;
+}

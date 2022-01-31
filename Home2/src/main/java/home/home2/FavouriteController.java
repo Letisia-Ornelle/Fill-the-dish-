@@ -6,9 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
@@ -21,7 +19,9 @@ import java.util.ResourceBundle;
 
 public class FavouriteController implements Initializable {
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
+    @FXML
+    private Pane dark;
     @FXML
     private Button menuButton;
     @FXML
@@ -30,7 +30,8 @@ public class FavouriteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int i;
-        int column = 0, row = 1;
+        int column = 0;
+        int row = 1;
 
         menu.setVisible(false);
         dark.setVisible(false);
@@ -56,7 +57,7 @@ public class FavouriteController implements Initializable {
     }
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton() {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -109,7 +110,7 @@ public class FavouriteController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (Boolean.TRUE.equals(General.loginState)) {
             General.changeScene(General.setSource("Insert"));
         } else {
             General.changeScene(General.setSource("Login"));
@@ -140,7 +141,7 @@ public class FavouriteController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
+    /*private void clickMenuLink8(ActionEvent event) throws IOException {
         if (Home.GUI==0) {
             Home.GUI=1;
             General.changeScene(General.setSource("Home2"));
@@ -148,7 +149,7 @@ public class FavouriteController implements Initializable {
             Home.GUI=0;
             General.changeScene(General.setSource("Home"));
         }
-    }
+    }*/
 
     private List<Element> elements = new ArrayList<>();
 

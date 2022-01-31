@@ -116,7 +116,6 @@ public class HomeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-<<<<<<< .mine
 
     @FXML
     private void clickHomeButton() throws IOException {
@@ -127,17 +126,15 @@ public class HomeController implements Initializable {
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
-||||||| .r50
-=======
+
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
+       /* if (Home.GUI==0) {
             Home.GUI=1;
             General.changeScene(General.setSource("Home2"));
         } else {
             Home.GUI=0;
             General.changeScene(General.setSource("Home"));
-        }
+        }*/
     }
->>>>>>> .r61
 }

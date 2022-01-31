@@ -4,7 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="330cc173-d023-424c-875f-787ed372b0ee" name="Changes" comment="" />
+    <list default="true" id="330cc173-d023-424c-875f-787ed372b0ee" name="Changes" comment="SonarLint">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/ElementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/ElementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/FavouriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/FavouriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/FridgeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/FridgeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/IngredientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/IngredientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/InsertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/RecipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/ResultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/ResultController_corrotto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/home/home2/SubscribeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/home/home2/SubscribeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Favourite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Favourite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Fridge.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Fridge.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/HomeMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/HomeMenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Ingredients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Ingredients.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Insert.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Insert.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/ListElementFridge.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/ListElementFridge.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/LoginMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/LoginMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Recipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Recipe.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Result.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Review.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Review.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Search.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Search.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/Subscribe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/Subscribe.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/menuLinks.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/menuLinks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/ricettaOttenuta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/ricettaOttenuta.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/home/home2/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/home/home2/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/ElementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/ElementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Favourite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Favourite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/FavouriteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/FavouriteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Fridge.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Fridge.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/FridgeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/FridgeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/HomeMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/HomeMenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Ingredients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Ingredients.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/IngredientsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/IngredientsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Insert.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Insert.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/InsertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/InsertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/ListElementFridge.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/ListElementFridge.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/LoginMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/LoginMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Recipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Recipe.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/RecipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/RecipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Result.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/ResultController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Review.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Review.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/ReviewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Search.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Search.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/SearchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/Subscribe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/Subscribe.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/SubscribeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/SubscribeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/menuLinks.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/menuLinks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/ricettaOttenuta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/ricettaOttenuta.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/home/home2/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/home/home2/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,31 +78,44 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="20FAS50zwd9Ku9RsNOaQ9jxqxNt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Progetto" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" />
   </component>
   <component name="RecentsManager">
@@ -162,12 +240,62 @@
       <workItem from="1638883552018" duration="2188000" />
       <workItem from="1639056528512" duration="708000" />
       <workItem from="1639060131669" duration="10000" />
-      <workItem from="1639062524900" duration="324000" />
+      <workItem from="1639062524900" duration="2786000" />
+      <workItem from="1639393309331" duration="646000" />
+      <workItem from="1639410402759" duration="1477000" />
+      <workItem from="1639422267227" duration="37000" />
+      <workItem from="1639422332458" duration="132000" />
+      <workItem from="1639527939601" duration="828000" />
+      <workItem from="1639529083937" duration="539000" />
+      <workItem from="1639659324005" duration="375000" />
+      <workItem from="1639687756952" duration="2429000" />
+      <workItem from="1640093922083" duration="162000" />
+      <workItem from="1640167712483" duration="1416000" />
+      <workItem from="1640278648250" duration="1708000" />
+      <workItem from="1640883521651" duration="4000" />
+      <workItem from="1640883568916" duration="2609000" />
+      <workItem from="1643285402740" duration="2671000" />
+      <workItem from="1643369830586" duration="8000" />
+      <workItem from="1643369906032" duration="625000" />
+      <workItem from="1643370727533" duration="94000" />
+      <workItem from="1643370927059" duration="4061000" />
+      <workItem from="1643377632557" duration="67000" />
+      <workItem from="1643378743901" duration="1763000" />
+      <workItem from="1643380740462" duration="767000" />
+      <workItem from="1643382366564" duration="70000" />
+      <workItem from="1643382863262" duration="304000" />
+      <workItem from="1643383298318" duration="582000" />
+      <workItem from="1643549867043" duration="188000" />
+      <workItem from="1643623645866" duration="3473000" />
+      <workItem from="1643627409987" duration="4764000" />
     </task>
+    <task id="LOCAL-00001" summary="SonarLint">
+      <created>1639422431047</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639422431047</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="SonarLint" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
