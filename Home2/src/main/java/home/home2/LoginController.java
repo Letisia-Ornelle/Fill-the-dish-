@@ -174,11 +174,11 @@ public class LoginController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-    /*@FXML
+    @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
         ps.clear();
         Home.GUI=1;
         General.changeScene(General.setSource("Home2"));
-    }*/
+    }
 
 }

@@ -78,7 +78,7 @@ public class FridgeController implements Initializable {
             e.printStackTrace();
         }
     }
-   /* @FXML
+    @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
 
@@ -133,7 +133,7 @@ public class FridgeController implements Initializable {
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Insert"));
-    }*/
+    }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Login"));
@@ -158,16 +158,11 @@ public class FridgeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-   /* @FXML
+    @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
             Home.GUI=1;
             General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
-        }
-    }*/
+    }
 
     @FXML
     private void clickComputeRecipe(ActionEvent event) throws IOException {
@@ -192,58 +187,6 @@ public class FridgeController implements Initializable {
             elements.add(elem);
         }
         return elements;
-    }
-
-    public void clickMenuLink8(ActionEvent actionEvent) {
-    }
-
-  /*  @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
-    @FXML
-    private void clickBackButton() throws IOException {
-        General.setBackScene();
-    }*/
-
-
-    @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
-        if (menu.isVisible()) {
-
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(1);
-            fadeTransition.setToValue(0);
-            fadeTransition.play();
-
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(-320);
-            translateTransition2.setByX(-220);
-            translateTransition1.play();
-            translateTransition2.play();
-
-            fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
-            });
-
-        } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
-
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(0);
-            fadeTransition.setToValue(1);
-            fadeTransition.play();
-
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(320);
-            translateTransition2.setByX(220);
-            translateTransition1.play();
-            translateTransition2.play();
-        }
     }
 
 }

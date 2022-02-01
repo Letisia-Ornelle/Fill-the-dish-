@@ -125,16 +125,11 @@ public class SearchController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-   /* @FXML
+    @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
-            Home.GUI=1;
-            General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
-        }
-    }*/
+        Home.GUI=1;
+        General.changeScene(General.setSource("Home2"));
+    }
 
     @FXML
     private void clickColazioniButton() throws IOException {

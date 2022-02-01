@@ -76,7 +76,6 @@ public class HomeController implements Initializable {
         }
     }
 
-
     @FXML
     private void clickSearchButton() throws IOException {
         General.changeScene(General.setSource("Search"));

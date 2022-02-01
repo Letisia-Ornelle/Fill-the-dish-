@@ -18,9 +18,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReviewController implements Initializable {
-    private int starValue=0;
+    private int vote;
+    private String click;
     private String address, comment;
     private static PendentScreen ps;
+    private Image star, starfilled;
 
     @FXML
     private Label alert;
@@ -42,11 +44,15 @@ public class ReviewController implements Initializable {
         dark.setVisible(false);
         alert.setVisible(false);
 
-        //star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-        //star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-        //star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-        //star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-        //star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
+        vote = 0;
+        star = new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png");
+        starfilled = new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png");
+
+        star1.setImage(star);
+        star2.setImage(star);
+        star3.setImage(star);
+        star4.setImage(star);
+        star5.setImage(star);
 
     }
     @FXML
@@ -138,131 +144,115 @@ public class ReviewController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-   // @FXML
-   /* private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
-            Home.GUI=1;
-            General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
+    @FXML
+    private void clickMenuLink8(ActionEvent event) throws IOException {
+        Home.GUI=1;
+        General.changeScene(General.setSource("Home2"));
+
+    }
+
+    public void clickStar(MouseEvent event) throws IOException {
+        click = event.getPickResult().getIntersectedNode().getId();
+        switch (click) {
+            case "star1":
+                star1.setImage(starfilled);
+                vote = 1;
+                break;
+            case "star2":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                vote = 2;
+                break;
+            case "star3":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                star3.setImage(starfilled);
+                vote = 3;
+                break;
+            case "star4":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                star3.setImage(starfilled);
+                star4.setImage(starfilled);
+                vote = 4;
+                break;
+            case "star5":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                star3.setImage(starfilled);
+                star4.setImage(starfilled);
+                star5.setImage(starfilled);
+                vote = 5;
+                break;
         }
     }
-*/
-    @FXML
-    private void clickStar1(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        starValue = 1;
+    public void hoverStar(MouseEvent event) throws IOException {
+        click = event.getPickResult().getIntersectedNode().getId();
+        switch (click) {
+            case "star1":
+                star1.setImage(starfilled);
+                break;
+            case "star2":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                break;
+            case "star3":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                star3.setImage(starfilled);
+                break;
+            case "star4":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                star3.setImage(starfilled);
+                star4.setImage(starfilled);
+                break;
+            case "star5":
+                star1.setImage(starfilled);
+                star2.setImage(starfilled);
+                star3.setImage(starfilled);
+                star4.setImage(starfilled);
+                star5.setImage(starfilled);
+                break;
+        }
     }
-    @FXML
-    private void clickStar2(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        starValue = 2;
-    }
-    @FXML
-    private void clickStar3(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        starValue = 3;
-    }
-    @FXML
-    private void clickStar4(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        starValue = 4;
-    }
-    @FXML
-    private void clickStar5(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        starValue = 5;
-    }
-
-
-    @FXML
-    private void hoveredStar1(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-    }
-    @FXML
-    private void hoveredStar2(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-
-    }
-    @FXML
-    private void hoveredStar3(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-
-    }
-    @FXML
-    private void hoveredStar4(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-
-    }
-    @FXML
-    private void hoveredStar5(MouseEvent event) throws IOException {
-        star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-        star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png"));
-
-    }
-
-    @FXML
-    private void releasedStar(MouseEvent event) throws IOException {
-        switch (starValue) {
+    public void releaseStar(MouseEvent event) throws IOException {
+        switch (vote) {
             case 0:
-                star1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
+                star1.setImage(star);
+                star2.setImage(star);
+                star3.setImage(star);
+                star4.setImage(star);
+                star5.setImage(star);
                 break;
             case 1:
-                star2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
+                star2.setImage(star);
+                star3.setImage(star);
+                star4.setImage(star);
+                star5.setImage(star);
                 break;
             case 2:
-                star3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
+                star3.setImage(star);
+                star4.setImage(star);
+                star5.setImage(star);
                 break;
             case 3:
-                star4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
+                star4.setImage(star);
+                star5.setImage(star);
                 break;
             case 4:
-                star5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png"));
-                break;
-            case 5:
+                star5.setImage(star);
                 break;
         }
-
     }
-
 
     @FXML
     private void clickSubmitButton(ActionEvent event) throws IOException {
         address = email.getText();
         comment = note.getText();
-        if (address != "" && comment != "" && starValue != 0) {
+        if (address != "" && comment != "" && vote != 0) {
             alert.setVisible(false);
-            System.out.println("Recensione di " + address + ": \n" + comment + "\nValutazione: " + String.valueOf(starValue) + "/5");
+            System.out.println("Recensione di " + address + ": \n" + comment + "\nValutazione: " + String.valueOf(vote) + "/5");
             // conferma di avvenuta sottomissione
         } else {
             alert.setVisible(true);

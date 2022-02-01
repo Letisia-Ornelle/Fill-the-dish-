@@ -30,14 +30,16 @@ public class Home2Controller implements Initializable {
         }
     }
 
+    @FXML
     public void clickBackButton() {
         Home m = new Home();
         list = m.getList();
+        //System.out.println(General.setSource((String)list.get(list.size() - 2)));
 
         if (list.size() > 1) {
             try {
                 FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource(General.setSource((String)list.get(list.size() - 2))));
+                fxmlloader.setLocation(getClass().getResource((String)list.get(list.size() - 2)));
                 Pane anchorPane = fxmlloader.load();
 
                 grid.add(anchorPane, 0,0);
@@ -50,6 +52,7 @@ public class Home2Controller implements Initializable {
 
     }
 
+    @FXML
     public void clickHomeButton() {
         try {
             FXMLLoader fxmlloader = new FXMLLoader();

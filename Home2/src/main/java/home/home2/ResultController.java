@@ -80,6 +80,7 @@ public class ResultController implements Initializable {
 
     }
 
+    @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
 
@@ -117,11 +118,11 @@ public class ResultController implements Initializable {
             translateTransition2.play();
         }
     }
-
+    @FXML
     private void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
-
+    @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
@@ -178,16 +179,12 @@ public class ResultController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-   /* @FXML
+    @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
-            Home.GUI=1;
-            General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
-        }
-    }*/
+        Home.GUI = 1;
+        General.changeScene(General.setSource("Home2"));
+
+    }
 
 
     private List<Recipe> ricette = new ArrayList<>();
