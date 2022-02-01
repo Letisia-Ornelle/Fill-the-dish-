@@ -110,21 +110,17 @@ public class FavouriteController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-<<<<<<< .mine
         General.changeScene(General.setSource("Insert"));
-||||||| .r55
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
             General.changeScene(General.setSource("Login"));
         }
-=======
         if (Boolean.TRUE.equals(General.loginState)) {
             General.changeScene(General.setSource("Insert"));
         } else {
             General.changeScene(General.setSource("Login"));
         }
->>>>>>> .r66
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
@@ -151,15 +147,10 @@ public class FavouriteController implements Initializable {
         }
     }
     @FXML
-    /*private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
-            Home.GUI=1;
-            General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
-        }
-    }*/
+    private void clickMenuLink8(ActionEvent event) throws IOException {
+        Home.GUI=1;
+        General.changeScene(General.setSource("Home2"));
+    }
 
     private List<Element> elements = new ArrayList<>();
 

@@ -30,12 +30,6 @@ public class General {
         list = m.getList();
         list.add(newSource);
 
-        /*
-        for (i=0;i<list.size();i++) {
-            System.out.println(list.get(i));
-        }
-        */
-
         if (newSource.equals("Home.fxml")) {
             list.clear();
             list.add(newSource);

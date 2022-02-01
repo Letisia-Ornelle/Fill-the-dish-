@@ -80,8 +80,6 @@ public class ResultController implements Initializable {
 
     }
 
-
-    @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
 
@@ -120,19 +118,15 @@ public class ResultController implements Initializable {
         }
     }
 
-
-    @FXML
     private void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
 
-    @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
 
     // forse c'è già un altro metodo identico in itemsController
-    @FXML
     private void clickRecipeButton() throws IOException {
         General.changeScene(General.setSource("Recipe"));
     }
