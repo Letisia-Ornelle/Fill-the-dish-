@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class IngredientsController implements Initializable {
+    private static PendentScreen ps;
 
     //these items are for the chooseBox
     @FXML
@@ -162,6 +163,10 @@ public class IngredientsController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

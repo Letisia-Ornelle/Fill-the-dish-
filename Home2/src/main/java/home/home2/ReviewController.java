@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 public class ReviewController implements Initializable {
     private int starValue=0;
     private String address, comment;
+    private static PendentScreen ps;
 
     @FXML
     private Label alert;
@@ -106,6 +107,10 @@ public class ReviewController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

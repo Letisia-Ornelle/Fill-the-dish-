@@ -15,7 +15,7 @@ import java.util.List;
 public class General {
 
     public static Boolean loginState = false;
-    private static ArrayList list;
+    public static ArrayList list;
 
 
     public static String setSource(String newScreen) {
@@ -30,12 +30,20 @@ public class General {
         list = m.getList();
         list.add(newSource);
 
+        /*
         for (i=0;i<list.size();i++) {
             System.out.println(list.get(i));
         }
+        */
 
-        if (newSource == "Home") {
+        if (newSource.equals("Home.fxml")) {
             list.clear();
+            list.add(newSource);
+        }
+
+        if (newSource.equals("Home2.fxml")) {
+            list.clear();
+            list.add("Main2.fxml");
         }
 
         m.setNewScene(newSource);

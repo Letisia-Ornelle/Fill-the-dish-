@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
     private String content;
+    private static PendentScreen ps;
 
     @FXML
     private TextField search;
@@ -93,6 +94,10 @@ public class SearchController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

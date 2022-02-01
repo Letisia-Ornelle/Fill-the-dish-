@@ -110,11 +110,21 @@ public class FavouriteController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
+<<<<<<< .mine
+        General.changeScene(General.setSource("Insert"));
+||||||| .r55
+        if (General.loginState) {
+            General.changeScene(General.setSource("Insert"));
+        } else {
+            General.changeScene(General.setSource("Login"));
+        }
+=======
         if (Boolean.TRUE.equals(General.loginState)) {
             General.changeScene(General.setSource("Insert"));
         } else {
             General.changeScene(General.setSource("Login"));
         }
+>>>>>>> .r66
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {

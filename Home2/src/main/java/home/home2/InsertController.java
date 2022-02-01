@@ -314,11 +314,7 @@ public class InsertController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
-            General.changeScene(General.setSource("Insert"));
-        } else {
-            General.changeScene(General.setSource("Login"));
-        }
+        // niente
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {

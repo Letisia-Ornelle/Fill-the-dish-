@@ -29,6 +29,8 @@ public class ResultController implements Initializable {
     @FXML
     private Pane menu, dark;
 
+    private static PendentScreen ps;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -146,6 +148,10 @@ public class ResultController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

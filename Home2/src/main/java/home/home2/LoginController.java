@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     String usernameContent, pwdContent;
+    private static PendentScreen ps;
 
     @FXML
     private TextField username;
@@ -32,6 +33,9 @@ public class LoginController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
         alert.setVisible(false);
+
+        Home m = new Home();
+        ps = m.getPS();
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -85,6 +89,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void clickLoginButton() throws IOException {
+        /*
         usernameContent = username.getText();
         pwdContent = password.getText();
 
@@ -93,8 +98,31 @@ public class LoginController implements Initializable {
         } else {
             alert.setVisible(false);
             System.out.println("email: " + usernameContent + "\npassword: " + pwdContent);
+        */
+
+        General.loginState = true;
+        if (ps.isNull()) {
             General.changeScene(General.setSource("Home"));
+        } else {
+            General.changeScene(ps.get());
         }
+            /*
+            Login log = new Login();
+            if (log.login(usernameContent, pwdContent)) {
+                alert.setVisible(false);
+                if (PendentInterface.isNull()) {
+                    General.changeScene(General.setSource("Home"));
+                } else {
+                    General.changeScene(PendentInterface.get());
+                }
+
+            } else {
+                alert.setText("Login Fallito");
+                alert.setVisible(true);
+            }
+            */
+
+
 
 
     }
@@ -103,11 +131,12 @@ public class LoginController implements Initializable {
         General.changeScene(General.setSource("Subscribe"));
     }
 
-
+    // login tramite facebook & google
 
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        ps.clear();
         General.changeScene(General.setSource("Result"));
     }
     @FXML
@@ -115,12 +144,14 @@ public class LoginController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+        // niente
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
@@ -128,6 +159,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
+        ps.clear();
         General.changeScene(General.setSource("Review"));
     }
     @FXML
@@ -144,13 +176,9 @@ public class LoginController implements Initializable {
     }
     /*@FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
-            Home.GUI=1;
-            General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
-        }
+        ps.clear();
+        Home.GUI=1;
+        General.changeScene(General.setSource("Home2"));
     }*/
 
 }

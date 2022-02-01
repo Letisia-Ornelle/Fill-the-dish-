@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class SubscribeController implements Initializable {
     private String c1, c2, c3, c4, c5, c6;
+    private static PendentScreen ps;
 
     @FXML
     private TextField name, lastname, username, email, pwd, pwdRepeat;
@@ -39,6 +40,9 @@ public class SubscribeController implements Initializable {
 
         menu.setVisible(false);
         dark.setVisible(false);
+
+        Home m = new Home();
+        ps = m.getPS();
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -98,6 +102,8 @@ public class SubscribeController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

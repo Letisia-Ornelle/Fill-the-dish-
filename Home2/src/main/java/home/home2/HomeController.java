@@ -15,6 +15,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -26,10 +27,16 @@ public class HomeController implements Initializable {
     @FXML
     private Pane menu, dark;
 
+    private static ArrayList list;
+    private static PendentScreen ps;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
+
+        Home m = new Home();
+        list = m.getList();
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -89,6 +96,10 @@ public class HomeController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Insert.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -129,6 +140,18 @@ public class HomeController implements Initializable {
 
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
+<<<<<<< .mine
+        Home.GUI=1;
+        General.changeScene(General.setSource("Home2"));
+||||||| .r55
+        if (Home.GUI==0) {
+            Home.GUI=1;
+            General.changeScene(General.setSource("Home2"));
+        } else {
+            Home.GUI=0;
+            General.changeScene(General.setSource("Home"));
+        }
+=======
        /* if (Home.GUI==0) {
             Home.GUI=1;
             General.changeScene(General.setSource("Home2"));
@@ -136,5 +159,6 @@ public class HomeController implements Initializable {
             Home.GUI=0;
             General.changeScene(General.setSource("Home"));
         }*/
+>>>>>>> .r66
     }
 }
