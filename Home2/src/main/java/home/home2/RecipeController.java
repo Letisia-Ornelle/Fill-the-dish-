@@ -19,39 +19,13 @@ import java.util.ResourceBundle;
 public class RecipeController implements Initializable {
     Boolean inFavourite;
     private static PendentScreen ps;
-    @FXML
-    Button primi;
+    Image heart = new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png");
+    Image check = new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
 
     @FXML
-    Button secondi;
-
+    Button menuButton, homeButton, backButton;
     @FXML
-    Button contorni;
-
-    @FXML
-    Button spuntini;
-
-    @FXML
-    Button dolci;
-
-    @FXML
-    Button colazioni;
-
-    @FXML
-    Button backButton;
-
-    @FXML
-    Button homeButton;
-
-    @FXML
-    Button menuButton;
-
-    @FXML
-    private Pane menu;
-
-    @FXML
-    private Pane dark;
-
+    private Pane menu, dark;
     @FXML
     private ImageView favButton;
 
@@ -59,7 +33,7 @@ public class RecipeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
-        //favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png0"));
+        favButton.setImage(heart);
         inFavourite = false;
     }
     @FXML
@@ -141,37 +115,53 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Favourite.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login"));
+        }
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
             General.changeScene(General.setSource("Fridge"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
-    /*@FXML
+    @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        if (Home.GUI==0) {
-            Home.GUI=1;
-            General.changeScene(General.setSource("Home2"));
-        } else {
-            Home.GUI=0;
-            General.changeScene(General.setSource("Home"));
-        }
-    }*/
+        Home.GUI=1;
+        General.changeScene(General.setSource("Home2"));
+
+    }
 
 
     @FXML
     private void clickFavButton(MouseEvent event) throws IOException {
-        if (!inFavourite) {
-            favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png"));
-            inFavourite = true;
+        if (General.loginState) {
+            if (!inFavourite) {
+                favButton.setImage(check);
+                inFavourite = true;
+            } else {
+                favButton.setImage(heart);
+                inFavourite = false;
+            }
         } else {
-            favButton.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png"));
-            inFavourite = false;
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Recipe.fxml");
+            General.changeScene(General.setSource("Login"));
         }
+
     }
 
     @FXML

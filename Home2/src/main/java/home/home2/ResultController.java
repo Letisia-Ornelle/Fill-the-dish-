@@ -137,7 +137,6 @@ public class ResultController implements Initializable {
     private void clickMenuLink1(ActionEvent event) throws IOException {
 
     }
-
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
@@ -150,32 +149,39 @@ public class ResultController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Login"));
     }
-
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
-
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
-
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Favourite.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login"));
+        }
     }
-
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
             General.changeScene(General.setSource("Fridge"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

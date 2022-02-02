@@ -149,7 +149,14 @@ public class IngredientsController implements Initializable {
        }
     @FXML
     private void clickFridgeButton() throws IOException {
-        General.changeScene(General.setSource("Fridge"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Fridge"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            General.changeScene(General.setSource("Login"));
+        }
     }
 
 
@@ -184,13 +191,25 @@ public class IngredientsController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Favourite.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login"));
+        }
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
             General.changeScene(General.setSource("Fridge"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

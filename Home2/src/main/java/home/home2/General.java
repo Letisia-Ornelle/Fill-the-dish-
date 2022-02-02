@@ -16,7 +16,32 @@ public class General {
 
     public static Boolean loginState = false;
     public static ArrayList list;
+    public static List<Element> Elements = new ArrayList<>();
+    // esempio lista di piatti inseriti nella lista dei preferiti
+    public static String[] piatti = {"Pasta alla carbonara", "Pasta al tonno", "Pasta al sugo", "Pasta ai funghi"};
 
+    public static void addElement() {
+            // ee
+    }
+
+    public static void removeEl(String string) {
+        int k=0;
+        for (int i=0;i<piatti.length;i++) {
+            if (piatti[i].equals(string)) {
+                k++;
+            }
+
+            if (k>=piatti.length) {
+                piatti[i] = "";
+            } else {
+                piatti[i] = piatti[k];
+            }
+
+
+            k++;
+        }
+
+    }
 
     public static String setSource(String newScreen) {
         String tempSrc = newScreen;

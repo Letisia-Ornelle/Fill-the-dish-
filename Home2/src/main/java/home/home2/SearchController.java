@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
     private String content;
+    private String click;
     private static PendentScreen ps;
 
     @FXML
@@ -80,10 +82,7 @@ public class SearchController implements Initializable {
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
-    @FXML
-    private void clickIngredientsButton() throws IOException {
-        General.changeScene(General.setSource("Ingredients"));
-    }
+
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
@@ -115,13 +114,25 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Favourite.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login"));
+        }
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
             General.changeScene(General.setSource("Fridge"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -132,31 +143,34 @@ public class SearchController implements Initializable {
     }
 
     @FXML
-    private void clickColazioniButton() throws IOException {
+    public void clickPortata(MouseEvent event) throws IOException {
+        click = event.getPickResult().getIntersectedNode().getId();
+        switch (click) {
+            case "primi":
+                System.out.println("Mostra i primi");
+                break;
+            case "secondi":
+                System.out.println("Mostra i secondi");
+                break;
+            case "contorni":
+                System.out.println("Mostra i contorni");
+                break;
+            case "colazioni":
+                System.out.println("Mostra le colazioni");
+                break;
+            case "dessert":
+                System.out.println("Mostra i dessert");
+                break;
+            case "antipasti":
+                System.out.println("Mostra gli antipasti");
+                break;
+        }
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickPrimiButton() throws IOException {
-        General.changeScene(General.setSource("Result"));
+    private void clickIngredientsButton() throws IOException {
+        General.changeScene(General.setSource("Ingredients"));
     }
-    @FXML
-    private void clickSecondiButton() throws IOException {
-        General.changeScene(General.setSource("Result"));
-    }
-    @FXML
-    private void clickContorniButton() throws IOException {
-        General.changeScene(General.setSource("Result"));
-    }
-    @FXML
-    private void clickSpuntiniButton() throws IOException {
-        General.changeScene(General.setSource("Result"));
-    }
-    @FXML
-    private void clickDolciButton() throws IOException {
-        General.changeScene(General.setSource("Result"));
-    }
-
-
     @FXML
     private void clickSearchButton() throws IOException {
         content = search.getText();

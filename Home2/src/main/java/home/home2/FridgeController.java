@@ -148,15 +148,11 @@ public class FridgeController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        //General.changeScene(General.setSource("Favourites"));
+        General.changeScene(General.setSource("Favourite"));
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
-            General.changeScene(General.setSource("Fridge"));
-        } else {
-            General.changeScene(General.setSource("Login"));
-        }
+        // niente
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {

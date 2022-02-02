@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ElementController {
     @FXML
@@ -23,6 +24,7 @@ public class ElementController {
 
     private Element elem;
     public static ArrayList list = new ArrayList();
+    //private static List<Element> elements = General.Elements;
 
     public void setData(Element elem) {
         this.elem = elem;
@@ -32,8 +34,9 @@ public class ElementController {
     }
 
     @FXML
-    public void clickRemoveRecipe(ActionEvent event) throws IOException {
-        // rimuovere elemento dalla lista
+    public void clickRemoveRecipe(MouseEvent event) throws IOException {
+        General.removeEl(this.elem.getTitle());
+        General.changeScene(General.setSource("Favourite"));
     }
 
     @FXML

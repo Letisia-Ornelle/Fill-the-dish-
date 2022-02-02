@@ -27,6 +27,8 @@ public class FavouriteController implements Initializable {
     @FXML
     private GridPane grid;
 
+    //private static List<Element> elements = General.Elements;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int i;
@@ -36,16 +38,18 @@ public class FavouriteController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
 
-        elements.addAll(getData());
+        General.Elements.clear();
+        General.Elements.addAll(getData());
+        //System.out.println(General.Elements);
 
         try {
-            for (i=0;i<elements.size();i++) {
+            for (i=0;i<General.Elements.size();i++) {
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("ListElement.fxml"));
                 Pane anchorPane = fxmlloader.load();
 
                 ElementController elementController = fxmlloader.getController();
-                elementController.setData(elements.get(i));
+                elementController.setData(General.Elements.get(i));
 
                 grid.add(anchorPane, column, row++);
                 grid.setMargin(anchorPane, new Insets(5));
@@ -111,16 +115,6 @@ public class FavouriteController implements Initializable {
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Insert"));
-        if (General.loginState) {
-            General.changeScene(General.setSource("Insert"));
-        } else {
-            General.changeScene(General.setSource("Login"));
-        }
-        if (Boolean.TRUE.equals(General.loginState)) {
-            General.changeScene(General.setSource("Insert"));
-        } else {
-            General.changeScene(General.setSource("Login"));
-        }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
@@ -140,11 +134,7 @@ public class FavouriteController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
-            General.changeScene(General.setSource("Fridge"));
-        } else {
-            General.changeScene(General.setSource("Login"));
-        }
+        General.changeScene(General.setSource("Fridge"));
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
@@ -152,19 +142,26 @@ public class FavouriteController implements Initializable {
         General.changeScene(General.setSource("Home2"));
     }
 
-    private List<Element> elements = new ArrayList<>();
+
 
     private List<Element> getData() {
         int i;
         List<Element> elements = new ArrayList<>();
         Element elem;
 
-        for (i=0;i<10;i++) {
-            elem = new Element();
-            elem.setTitle("Pasta Alla Carbonara");
-            elem.setImgSrc("im3.jpg");
-            elements.add(elem);
+        i=0;
+
+        while (i < General.piatti.length) {
+            //System.out.println(General.piatti[i]);
+            if (!General.piatti[i].equals("")) {
+                elem = new Element();
+                elem.setTitle(General.piatti[i]);
+                elem.setImgSrc("im3.jpg");
+                elements.add(elem);
+            }
+            i++;
         }
+
         return elements;
     }
 

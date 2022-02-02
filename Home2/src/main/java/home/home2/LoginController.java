@@ -79,10 +79,12 @@ public class LoginController implements Initializable {
 
     @FXML
     private void clickHomeButton() throws IOException {
+        ps.clear();
         General.changeScene(General.setSource("Home"));
     }
     @FXML
     private void clickBackButton() throws IOException {
+        ps.clear();
         General.setBackScene();
     }
 
@@ -164,13 +166,25 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite"));
+        if (General.loginState) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Favourite.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login"));
+        }
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
             General.changeScene(General.setSource("Fridge"));
         } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

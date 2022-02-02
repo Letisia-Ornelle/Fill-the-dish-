@@ -34,13 +34,6 @@ public class InsertController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dark.setVisible(false);
         menu.setVisible(false);
-
-        dish1.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
-        dish2.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
-        dish3.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
-        dish4.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
-        dish5.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
-        dish6.setImage(new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -91,218 +84,6 @@ public class InsertController implements Initializable {
     }
 
     @FXML
-    private void clickDish1(MouseEvent event) throws IOException {
-        System.out.println("Primi!");
-        clicked[0] = true;
-
-        dish2.setScaleX(1);
-        dish2.setScaleY(1);
-        dish3.setScaleX(1);
-        dish3.setScaleY(1);
-        dish4.setScaleX(1);
-        dish4.setScaleY(1);
-        dish5.setScaleX(1);
-        dish5.setScaleY(1);
-        dish6.setScaleX(1);
-        dish6.setScaleY(1);
-
-        for (i = 0; i < 6; i++) {
-            if (i != 0) {
-                clicked[i] = false;
-            }
-        }
-    }
-    @FXML
-    private void clickDish2(MouseEvent event) throws IOException {
-        System.out.println("Secondi!");
-        clicked[1] = true;
-
-        dish1.setScaleX(1);
-        dish1.setScaleY(1);
-        dish3.setScaleX(1);
-        dish3.setScaleY(1);
-        dish4.setScaleX(1);
-        dish4.setScaleY(1);
-        dish5.setScaleX(1);
-        dish5.setScaleY(1);
-        dish6.setScaleX(1);
-        dish6.setScaleY(1);
-
-        for (i = 0; i < 6; i++) {
-            if (i != 1) {
-                clicked[i] = false;
-            }
-        }
-    }
-    @FXML
-    private void clickDish3(MouseEvent event) throws IOException {
-        System.out.println("Contorni!");
-        clicked[2] = true;
-
-        dish1.setScaleX(1);
-        dish1.setScaleY(1);
-        dish2.setScaleX(1);
-        dish2.setScaleY(1);
-        dish4.setScaleX(1);
-        dish4.setScaleY(1);
-        dish5.setScaleX(1);
-        dish5.setScaleY(1);
-        dish6.setScaleX(1);
-        dish6.setScaleY(1);
-
-        for (i = 0; i < 6; i++) {
-            if (i != 2) {
-                clicked[i] = false;
-            }
-        }
-    }
-    @FXML
-    private void clickDish4(MouseEvent event) throws IOException {
-        System.out.println("Primi!");
-        clicked[3] = true;
-
-        dish2.setScaleX(1);
-        dish2.setScaleY(1);
-        dish3.setScaleX(1);
-        dish3.setScaleY(1);
-        dish1.setScaleX(1);
-        dish1.setScaleY(1);
-        dish5.setScaleX(1);
-        dish5.setScaleY(1);
-        dish6.setScaleX(1);
-        dish6.setScaleY(1);
-
-        for (i = 0; i < 6; i++) {
-            if (i != 3) {
-                clicked[i] = false;
-            }
-        }
-    }
-    @FXML
-    private void clickDish5(MouseEvent event) throws IOException {
-        System.out.println("Primi!");
-        clicked[4] = true;
-
-        dish2.setScaleX(1);
-        dish2.setScaleY(1);
-        dish3.setScaleX(1);
-        dish3.setScaleY(1);
-        dish4.setScaleX(1);
-        dish4.setScaleY(1);
-        dish1.setScaleX(1);
-        dish1.setScaleY(1);
-        dish6.setScaleX(1);
-        dish6.setScaleY(1);
-
-        for (i = 0; i < 6; i++) {
-            if (i != 4) {
-                clicked[i] = false;
-            }
-        }
-    }
-    @FXML
-    private void clickDish6(MouseEvent event) throws IOException {
-        System.out.println("Primi!");
-        clicked[5] = true;
-
-        dish2.setScaleX(1);
-        dish2.setScaleY(1);
-        dish3.setScaleX(1);
-        dish3.setScaleY(1);
-        dish4.setScaleX(1);
-        dish4.setScaleY(1);
-        dish5.setScaleX(1);
-        dish5.setScaleY(1);
-        dish1.setScaleX(1);
-        dish1.setScaleY(1);
-
-        for (i = 0; i < 6; i++) {
-            if (i != 5) {
-                clicked[i] = false;
-            }
-        }
-    }
-
-    @FXML
-    private void hoverDish1(MouseEvent event) throws IOException {
-        dish1.setScaleX(1.5);
-        dish1.setScaleY(1.5);
-    }
-    @FXML
-    private void releaseDish1(MouseEvent event) throws IOException {
-        if (!clicked[0]) {
-            dish1.setScaleX(1);
-            dish1.setScaleY(1);
-        }
-
-    }
-    @FXML
-    private void hoverDish2(MouseEvent event) throws IOException {
-        dish2.setScaleX(1.5);
-        dish2.setScaleY(1.5);
-    }
-    @FXML
-    private void releaseDish2(MouseEvent event) throws IOException {
-        if (!clicked[1]) {
-            dish2.setScaleX(1);
-            dish2.setScaleY(1);
-        }
-
-    }
-    @FXML
-    private void hoverDish3(MouseEvent event) throws IOException {
-        dish3.setScaleX(1.5);
-        dish3.setScaleY(1.5);
-    }
-    @FXML
-    private void releaseDish3(MouseEvent event) throws IOException {
-        if (!clicked[2]) {
-            dish3.setScaleX(1);
-            dish3.setScaleY(1);
-        }
-
-    }
-    @FXML
-    private void hoverDish4(MouseEvent event) throws IOException {
-        dish4.setScaleX(1.5);
-        dish4.setScaleY(1.5);
-    }
-    @FXML
-    private void releaseDish4(MouseEvent event) throws IOException {
-        if (!clicked[3]) {
-            dish4.setScaleX(1);
-            dish4.setScaleY(1);
-        }
-
-    }
-    @FXML
-    private void hoverDish5(MouseEvent event) throws IOException {
-        dish5.setScaleX(1.5);
-        dish5.setScaleY(1.5);
-    }
-    @FXML
-    private void releaseDish5(MouseEvent event) throws IOException {
-        if (!clicked[4]) {
-            dish5.setScaleX(1);
-            dish5.setScaleY(1);
-        }
-
-    }
-    @FXML
-    private void hoverDish6(MouseEvent event) throws IOException {
-        dish6.setScaleX(1.5);
-        dish6.setScaleY(1.5);
-    }
-    @FXML
-    private void releaseDish6(MouseEvent event) throws IOException {
-        if (!clicked[5]) {
-            dish6.setScaleX(1);
-            dish6.setScaleY(1);
-        }
-
-    }
-
-    @FXML
     private void clickSubmitButton() throws IOException{
 
     }
@@ -334,17 +115,12 @@ public class InsertController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
-            General.changeScene(General.setSource("Fridge"));
-        } else {
-            General.changeScene(General.setSource("Login"));
-        }
+        General.changeScene(General.setSource("Fridge"));
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
         Home.GUI=1;
         General.changeScene(General.setSource("Home2"));
     }
-
 
 }
