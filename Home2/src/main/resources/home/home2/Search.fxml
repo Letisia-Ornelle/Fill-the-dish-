@@ -10,27 +10,27 @@
 
 <Pane fx:id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.SearchController">
    <children>
-      <Button fx:id="primi" layoutX="757.0" layoutY="135.0" mnemonicParsing="false" onAction="#clickPrimiButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Primi">
+      <Button fx:id="primi" layoutX="757.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#clickPortata" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Primi">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="colazioni" layoutX="545.0" layoutY="135.0" mnemonicParsing="false" onAction="#clickColazioniButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Colazioni" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="colazioni" layoutX="545.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#clickPortata" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Colazioni" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="spuntini" layoutX="545.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickSpuntiniButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Spuntini">
+      <Button fx:id="antipasti" layoutX="545.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#clickPortata" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Antipasti">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="secondi" layoutX="757.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickSecondiButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Secondi">
+      <Button fx:id="secondi" layoutX="757.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#clickPortata" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Secondi">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="contorni" layoutX="971.0" layoutY="135.0" mnemonicParsing="false" onAction="#clickContorniButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Contorni">
+      <Button fx:id="contorni" layoutX="971.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#clickPortata" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Contorni">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>
-      <Button fx:id="dolci" layoutX="971.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickDolciButton" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Dolci">
+      <Button fx:id="dessert" layoutX="971.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#clickPortata" prefHeight="150.0" prefWidth="150.0" stylesheets="@HomeButton.css" text="Dessert">
          <font>
             <Font name="Inter Extra Light BETA" size="25.0" />
          </font></Button>

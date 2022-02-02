@@ -13,6 +13,6 @@
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="removeRecipe" layoutX="750.0" mnemonicParsing="false" onAction="#clickRemoveRecipe" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
+      <Button fx:id="removeRecipe" layoutX="750.0" mnemonicParsing="false" onMouseClicked="#clickRemoveRecipe" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
    </children>
 </Pane>
