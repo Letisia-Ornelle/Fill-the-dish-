@@ -10,6 +10,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -28,15 +29,22 @@ public class ResultController implements Initializable {
     Button homeButton, menuButton, backButton;
     @FXML
     private Pane menu, dark;
+    @FXML
+    Label category;
 
     private static PendentScreen ps;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Home m = new Home();
+        ps = m.getPS();
+
+        category.setText(ps.getLabel());
+
         dark.setVisible(false);
         menu.setVisible(false);
-
 
         ricette.addAll(getData());
         int column = 0;
@@ -142,8 +150,6 @@ public class ResultController implements Initializable {
         if (General.loginState) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
             ps.add("Insert.fxml");
             //System.out.println();
             General.changeScene(General.setSource("Login"));
