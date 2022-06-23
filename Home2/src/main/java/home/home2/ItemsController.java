@@ -25,11 +25,11 @@ public class ItemsController {
     }
 
     public void setData(Recipe recipe) {
-            this.recipe = recipe;
-            recipeName.setText(recipe.getName());
+        this.recipe = recipe;
+        recipeName.setText(recipe.getName());
 
-            Image image = new Image(getClass().getResourceAsStream(recipe.getImgSrc()));
-            recipeImage.setImage(image);
+        Image image = new Image(getClass().getResourceAsStream(recipe.getImgSrc()));
+        recipeImage.setImage(image);
     }
 
 

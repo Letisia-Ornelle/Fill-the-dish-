@@ -43,7 +43,7 @@ public class Home extends Application {
     }
 
     public void setNewScene(String newFXML) throws IOException {
-       Parent newPane = FXMLLoader.load(getClass().getResource(newFXML));
+        Parent newPane = FXMLLoader.load(getClass().getResource(newFXML));
        stg.getScene().setRoot(newPane);
     }
 

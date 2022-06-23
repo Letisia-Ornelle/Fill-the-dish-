@@ -18,3 +18,4 @@
       <Button fx:id="removeRecipe" layoutX="750.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@menuLinks.css" />
    </children>
 </Pane>
+

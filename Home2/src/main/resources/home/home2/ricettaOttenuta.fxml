@@ -26,7 +26,7 @@
             <Button fx:id="ricetta2" mnemonicParsing="false" prefHeight="140.0" prefWidth="160.0" style=" -fx-background-radius: 30;" styleClass="ricetta2" stylesheets="@ricettaOttenuta.css" GridPane.rowIndex="1" onAction="#clickMenuLink1"/>
             <Button fx:id="ricetta3" mnemonicParsing="false" prefHeight="140.0" prefWidth="160.0" style="-fx-background-radius: 30; ;" styleClass="ricetta3" GridPane.rowIndex="2" onAction="#clickMenuLink1"/>
             <Label text="Questa e' la descrizione della prima ricetta!" prefHeight="140.0" style="-fx-background-radius: 30;" styleClass="testo1" stylesheets="@ricettaOttenuta.css" GridPane.columnIndex="1" >
-            <font> <Font size = "30.0"/> </font> </Label>
+               <font> <Font size = "30.0"/> </font> </Label>
 
 
             <Label text="Questa e' la descrizione della seconda ricetta!" prefHeight="140.0" style="-fx-background-radius: 30;" styleClass="testo1" GridPane.columnIndex="1" GridPane.rowIndex="1">
