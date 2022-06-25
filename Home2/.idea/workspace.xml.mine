@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="330cc173-d023-424c-875f-787ed372b0ee" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="20FAS50zwd9Ku9RsNOaQ9jxqxNt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="home.home2" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources" />
+      <recent name="C:\Users\Matteo\IdeaProjects\Home2\target\classes\home\home2" />
+      <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources\home\home2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Home">
+    <configuration name="General" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="home.home2.General" />
+      <module name="Home2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="home.home2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Home" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="home.home2.Home" />
+      <module name="Home2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="home.home2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Home" />
+        <item itemvalue="Application.General" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="330cc173-d023-424c-875f-787ed372b0ee" name="Changes" comment="" />
+      <created>1635629959822</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635629959822</updated>
+      <workItem from="1635629961103" duration="4905000" />
+      <workItem from="1635634964596" duration="147000" />
+      <workItem from="1635635376961" duration="30000" />
+      <workItem from="1635636103232" duration="69000" />
+      <workItem from="1635676135267" duration="2841000" />
+      <workItem from="1635681881981" duration="1000" />
+      <workItem from="1635704170998" duration="3682000" />
+      <workItem from="1635846283884" duration="3641000" />
+      <workItem from="1635854249412" duration="3429000" />
+      <workItem from="1635879457127" duration="6036000" />
+      <workItem from="1636042952979" duration="567000" />
+      <workItem from="1636156857808" duration="2348000" />
+      <workItem from="1636202523352" duration="1176000" />
+      <workItem from="1636297646363" duration="1267000" />
+      <workItem from="1636393759211" duration="3106000" />
+      <workItem from="1636401785976" duration="535000" />
+      <workItem from="1636541102683" duration="3000000" />
+      <workItem from="1636551392418" duration="306000" />
+      <workItem from="1636551847137" duration="1227000" />
+      <workItem from="1637152485798" duration="4852000" />
+      <workItem from="1637159448984" duration="126000" />
+      <workItem from="1637229438072" duration="6748000" />
+      <workItem from="1637248930458" duration="788000" />
+      <workItem from="1637762887699" duration="134000" />
+      <workItem from="1637763164698" duration="255000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

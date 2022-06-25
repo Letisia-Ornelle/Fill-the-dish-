@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="1280.0" stylesheets="@Search2.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.Search2Controller">
+   <children>
+      <TextField layoutX="400.0" layoutY="25.0" prefHeight="30.0" prefWidth="415.0" stylesheets="@Search2.css" />
+      <ImageView fx:id="primi" fitHeight="20.0" fitWidth="20.0" layoutX="420.0" layoutY="85.0" onMouseClicked="#selectPrimi" onMouseEntered="#hoverPrimi" onMouseExited="#releasePrimi" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@selectRelease.png" />
+         </image></ImageView>
+      <ImageView fx:id="secondi" fitHeight="20.0" fitWidth="20.0" layoutX="490.0" layoutY="85.0" onMouseClicked="#selectSecondi" onMouseEntered="#hoverSecondi" onMouseExited="#releaseSecondi" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="contorni" fitHeight="20.0" fitWidth="20.0" layoutX="560.0" layoutY="85.0" onMouseClicked="#selectContorni" onMouseEntered="#hoverContorni" onMouseExited="#releaseContorni" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="colazioni" fitHeight="20.0" fitWidth="20.0" layoutX="630.0" layoutY="85.0" onMouseClicked="#selectColazioni" onMouseEntered="#hoverColazioni" onMouseExited="#releaseColazioni" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="dessert" fitHeight="20.0" fitWidth="20.0" layoutX="700.0" layoutY="85.0" onMouseClicked="#selectDessert" onMouseEntered="#hoverDessert" onMouseExited="#releaseDessert" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="antipasti" fitHeight="20.0" fitWidth="20.0" layoutX="770.0" layoutY="85.0" onMouseClicked="#selectAntipasti" onMouseEntered="#hoverAntipasti" onMouseExited="#releaseAntipasti" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="850.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@Search2.css" text="Cerca" />
+      <Button layoutX="850.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@Search2.css" text="Applica Filtri" />
+      <Button layoutX="980.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFilter" prefHeight="30.0" prefWidth="100.0" stylesheets="@Search2.css" text="Rimuovi Filtri" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="140.0" layoutY="160.0" prefHeight="350.0" prefWidth="1010.0">
+         <content>
+            <GridPane fx:id="grid" prefHeight="350.0" prefWidth="1000.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutX="390.0" layoutY="120.0" prefWidth="80.0" text="Primi" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="460.0" layoutY="120.0" prefWidth="80.0" text="Secondi" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="530.0" layoutY="120.0" prefWidth="80.0" text="Contorni" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="600.0" layoutY="120.0" prefWidth="80.0" text="Colazioni" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="670.0" layoutY="120.0" prefWidth="80.0" text="Dessert" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="740.0" layoutY="120.0" prefWidth="80.0" text="Antipasti" textAlignment="CENTER" />
+   </children>
+</Pane>
