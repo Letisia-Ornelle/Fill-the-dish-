@@ -107,8 +107,8 @@ public class ElementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        image1 = new Image("C:\\Users\\987229\\Desktop\\copiaPROG\\Home2\\src\\main\\resources\\home\\home2\\true.png");
-        image2 = new Image("C:\\Users\\987229\\Desktop\\copiaPROG\\Home2\\src\\main\\resources\\home\\home2\\Immagine_trasparente.png");
+        image1 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
+        image2 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\Immagine_trasparente.png");
     }
 
     public void select(MouseEvent mouseEvent) {
