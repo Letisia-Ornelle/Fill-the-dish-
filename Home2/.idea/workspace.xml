@@ -38,7 +38,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="sonarlint" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" />
   </component>
   <component name="RecentsManager">
@@ -171,6 +171,7 @@
       <workItem from="1655995168774" duration="24635000" />
       <workItem from="1656154833147" duration="1520000" />
       <workItem from="1656156984232" duration="905000" />
+      <workItem from="1656193876930" duration="1960000" />
     </task>
     <servers />
   </component>

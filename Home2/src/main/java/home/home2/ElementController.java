@@ -25,9 +25,6 @@ public class ElementController implements Initializable {
     @FXML
     private Pane cover;
     private Image image1;
-    private Image image2;
-    private int fatto;
-
 
     private Element elem;
     public static ArrayList list = new ArrayList();
@@ -46,7 +43,7 @@ public class ElementController implements Initializable {
         General.changeScene(General.setSource("Favourite"));
     }
 
-   @FXML
+    @FXML
     public void clickSelect(MouseEvent event) throws IOException {
 
         //System.out.println("Selezionato ingrediente: " + name.getText());
@@ -103,26 +100,16 @@ public class ElementController implements Initializable {
     }
 
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         image1 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
-        image2 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\Immagine_trasparente.png");
     }
 
     public void select(MouseEvent mouseEvent) {
-         if(mouseEvent.getSource() == select){
-             select.setImage(image1);
-             fatto = 1;
-         }
+        if (mouseEvent.getSource() == select) {
+            select.setImage(image1);
+        }
 
     }
 
-
-    public void hoverSelect(MouseEvent mouseEvent) {
-    }
-
-    public void spunta(MouseEvent mouseEvent) {
-    }
 }

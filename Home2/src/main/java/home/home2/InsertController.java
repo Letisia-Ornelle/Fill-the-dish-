@@ -39,7 +39,7 @@ public class InsertController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dark.setVisible(false);
         menu.setVisible(false);
-        portata.getItems().addAll("primo      ","secondo      ","colazione      ","antipasto      ","contorno      ","dessert      ");
+        portata.getItems().addAll(" ","primo      ","secondo      ","colazione      ","antipasto      ","contorno      ","dessert      ");
         portata.setValue("Seleziona un ingrediente");
     }
     @FXML

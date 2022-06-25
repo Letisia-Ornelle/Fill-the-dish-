@@ -34,7 +34,7 @@
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <ChoiceBox layoutX="81.0" layoutY="155.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="portata" layoutX="81.0" layoutY="155.0" prefWidth="150.0" />
                   <TextArea layoutX="440.0" layoutY="55.0" prefHeight="250.0" prefWidth="300.0" stylesheets="@Login.css" />
                   <Pane fx:id="dark" layoutY="-100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeMenu.css">
                      <children>
