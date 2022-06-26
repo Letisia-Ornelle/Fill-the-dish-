@@ -22,7 +22,7 @@ sonar.links.issue=https://github.com/Letisia-Ornelle/Fill-the-dish-/issues
 
 sonar.host.url=https://sonarcloud.io
 sonar.organization=Letisia-Ornelle-github
-sonar.login=d75caff53d89ba913e0c91614fa3b8bea0dfd189
+sonar.login=6a34dbdf3901e06bb26b3a56a91339320b1a1ea0
 sonar.sources=src
 sonar.language=java
 
