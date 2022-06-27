@@ -38,7 +38,7 @@
                <font>
                   <Font name="SansSerif Regular" size="14.0" />
                </font></Hyperlink>
-            <Label fx:id="alert" alignment="CENTER" layoutX="540.0" layoutY="350.0" prefWidth="200.0" text="Ci sono campi non riempiti!" textAlignment="CENTER" textFill="RED">
+            <Label fx:id="alert" alignment="CENTER" layoutX="540.0" layoutY="350.0" prefWidth="200.0" text="Credenziali errate!" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="SansSerif Regular" size="15.0" />
                </font>

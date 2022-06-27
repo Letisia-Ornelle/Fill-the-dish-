@@ -1,5 +1,7 @@
 package home.home2;
 
+import home.home2.Controller.loginController;
+import home.home2.Model.Beans.loginBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -11,6 +13,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -92,7 +95,7 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void clickLoginButton() throws IOException {
+    private void clickLoginButton() throws IOException, SQLException {
         /*
         usernameContent = username.getText();
         pwdContent = password.getText();
@@ -105,11 +108,11 @@ public class LoginController implements Initializable {
         */
 
         General.loginState = true;
-        if (ps.isNull()) {
+      /*  if (ps.isNull()) {
             General.changeScene(General.setSource("Home"));
         } else {
-            General.changeScene(ps.get());
-        }
+            General.changeScene(ps.get());*/
+        //}
             /*
             Login log = new Login();
             if (log.login(usernameContent, pwdContent)) {
@@ -125,6 +128,27 @@ public class LoginController implements Initializable {
                 alert.setVisible(true);
             }
             */
+
+        loginBean lb = new loginBean();
+        lb.setUsername(username.getText());
+        lb.setPassword(password.getText());
+
+        loginController lc = new loginController();
+        if (lc.verifyLogin(lb) == false) {
+            alert.setVisible(true);
+        }
+        else{
+            if (ps.isNull()) {
+                General.changeScene(General.setSource("Home"));
+            } else {
+                General.changeScene(ps.get());
+            }
+
+
+
+
+        }
+
 
 
     }
