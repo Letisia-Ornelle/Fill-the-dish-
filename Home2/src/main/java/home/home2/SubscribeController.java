@@ -1,5 +1,7 @@
 package home.home2;
 
+import home.home2.Controller.enrollController;
+import home.home2.Model.Beans.enrollBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SubscribeController implements Initializable {
@@ -23,7 +26,7 @@ public class SubscribeController implements Initializable {
     @FXML
     private TextField name, lastname, username, email, pwd, pwdRepeat;
     @FXML
-    private Label pwdAlert1, pwdAlert2, pwdAlert3, alert;
+    private Label pwdAlert1, pwdAlert2, pwdAlert3, alert, alertfail;
     @FXML
     private Hyperlink login;
     @FXML
@@ -156,9 +159,9 @@ public class SubscribeController implements Initializable {
         General.changeScene(General.setSource("Login"));
     }
     @FXML
-    private void clickSubscribe() throws IOException {
+    private void clickSubscribe() throws IOException, SQLException {
         int i;
-        c1 = name.getText();
+       /* c1 = name.getText();
         c2 = lastname.getText();
         c3 = username.getText();
         c4 = email.getText();
@@ -187,6 +190,23 @@ public class SubscribeController implements Initializable {
 
             // check also the email !!
         }
+
+    } */
+
+        enrollBean eb = new enrollBean();
+        eb.setUsername(username.getText());
+        eb.setName(name.getText());
+        eb.setCognome(lastname.getText());
+        eb.setEmail(email.getText());
+        eb.setPassword(pwd.getText());
+
+
+        enrollController ec = new enrollController();
+
+            if (ec.addUser(eb)== true){
+                alert.setVisible(true);
+            }
+
 
     }
 }

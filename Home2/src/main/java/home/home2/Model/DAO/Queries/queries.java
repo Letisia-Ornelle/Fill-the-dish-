@@ -36,6 +36,13 @@ public class queries {
             return stmt.executeQuery(selectCredentials);
 
     }
+
+    public static int enroll( Statement stmt, String username, String nome, String cognome, String email, String password) throws SQLException {
+
+        String enrollNow = String.format("INSERT INTO `utenti`(username, nome, cognome, email, password) VALUES ('%s','%s','%s','%s','%s')", username, nome, cognome, email, password);
+        return stmt.executeUpdate(enrollNow);   //ritorna un intero con il numero di righe aggiunte
+
+    }
 }
 
 
