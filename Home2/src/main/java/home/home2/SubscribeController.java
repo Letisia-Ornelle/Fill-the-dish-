@@ -19,6 +19,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import static home.home2.Model.Beans.enrollBean.verifyEmail;
+
 public class SubscribeController implements Initializable {
     private String c1, c2, c3, c4, c5, c6;
     private static PendentScreen ps;
@@ -26,7 +28,7 @@ public class SubscribeController implements Initializable {
     @FXML
     private TextField name, lastname, username, email, pwd, pwdRepeat;
     @FXML
-    private Label pwdAlert1, pwdAlert2, pwdAlert3, alert, alertfail;
+    private Label pwdAlert1, pwdAlert2, pwdAlert3, pwdAlert4, alert, alertfail;
     @FXML
     private Hyperlink login;
     @FXML
@@ -39,6 +41,7 @@ public class SubscribeController implements Initializable {
         pwdAlert1.setVisible(false);
         pwdAlert2.setVisible(false);
         pwdAlert3.setVisible(false);
+        pwdAlert4.setVisible(false);
         alert.setVisible(false);
 
         menu.setVisible(false);
@@ -47,6 +50,7 @@ public class SubscribeController implements Initializable {
         Home m = new Home();
         ps = m.getPS();
     }
+
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {
@@ -91,6 +95,7 @@ public class SubscribeController implements Initializable {
     private void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
+
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
@@ -100,6 +105,7 @@ public class SubscribeController implements Initializable {
     private void clickMenuLink1(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Result"));
     }
+
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         if (General.loginState) {
@@ -110,18 +116,22 @@ public class SubscribeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
+
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Login"));
     }
+
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
+
     @FXML
     private void clickMenuLink5(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Review"));
     }
+
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
         if (General.loginState) {
@@ -134,6 +144,7 @@ public class SubscribeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
+
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
@@ -146,18 +157,19 @@ public class SubscribeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
+
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
+        Home.GUI = 1;
         General.changeScene(General.setSource("Home2"));
     }
-
 
 
     @FXML
     private void clickLogin() throws IOException {
         General.changeScene(General.setSource("Login"));
     }
+
     @FXML
     private void clickSubscribe() throws IOException, SQLException {
         int i;
@@ -202,11 +214,28 @@ public class SubscribeController implements Initializable {
 
 
         enrollController ec = new enrollController();
+        if (ec.addUser(eb) == true) {
+            alert.setVisible(true);
+        } else {
+            if ((verifyEmail(eb.getEmail())) == false) {
 
-            if (ec.addUser(eb)== true){
-                alert.setVisible(true);
+                pwdAlert3.setVisible(true);
+
+
+            } else {
+                //if (eb.getPassword().equals(pwdRepeat.getText())) non funziona
+                //    pwdAlert2.setVisible(true);
+
+                if (eb.getPassword().length() < 8){
+                    pwdAlert1.setVisible(true);
+                }
+                else {
+                    pwdAlert4.setVisible(true);
+                }
+
             }
 
 
+        }
     }
 }

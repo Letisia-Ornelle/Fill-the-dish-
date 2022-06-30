@@ -18,6 +18,7 @@ public class enrollDAO {
 
         int res = queries.enroll(stmt, username, nome,cognome,email, password);
 
+
         if (res == 0) {
             System.out.println("Non è stata aggiunta nessuna riga alla tabella\n");
             return false;

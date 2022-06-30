@@ -53,6 +53,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Label fx:id="pwdAlert4" layoutX="550.0" layoutY="350.0" text="Ci sono campi non riempiti" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             <Label fx:id="pwdAlert2" layoutX="1000.0" layoutY="240.0" text="Le due password non coincidono" textFill="RED">
                <font>
                   <Font size="15.0" />

@@ -1,4 +1,5 @@
 package home.home2.Model.Beans;
+import java.util.regex.Pattern;
 
 public class enrollBean {
 
@@ -31,8 +32,10 @@ public class enrollBean {
     public String getCognome(){
         return cognome;}
 
-    public void setEmail(String Email){
-        this.email = Email;
+    public void setEmail(String Email) {
+
+            this.email = Email;
+
     }
     public String getEmail(){
         return email;}
@@ -43,4 +46,12 @@ public class enrollBean {
     public String getPassword(){
         return password;
     }
+
+    public static boolean verifyEmail(String email){
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
+        Pattern p = Pattern.compile(regex);
+        return p.matcher(email).matches();
+    }
+
+
 }
