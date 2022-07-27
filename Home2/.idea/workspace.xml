@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/home/home2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.29.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -79,7 +79,7 @@
       <module name="Home2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="home.home2.*" />
+          <option name="PATTERN" value="home.home2.Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,7 +92,7 @@
       <module name="Home2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="home.home2.*" />
+          <option name="PATTERN" value="home.home2.Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,12 +100,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="loginDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="home.home2.Model.DAO.loginDAO" />
+    <configuration name="userDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="home.home2.Model.DAO.userDAO" />
       <module name="Home2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="home.home2.Model.DAO.*" />
+          <option name="PATTERN" value="home.home2.Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +116,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Home" />
-        <item itemvalue="Application.loginDAO" />
+        <item itemvalue="Application.userDAO" />
         <item itemvalue="Application.General" />
       </list>
     </recent_temporary>
@@ -203,6 +203,20 @@
       <workItem from="1656366954343" duration="340000" />
       <workItem from="1656367339114" duration="32000" />
       <workItem from="1656403514530" duration="17403000" />
+      <workItem from="1656351058553" duration="18000" />
+      <workItem from="1656351146391" duration="248000" />
+      <workItem from="1656351471319" duration="466000" />
+      <workItem from="1656360258856" duration="267000" />
+      <workItem from="1656402887821" duration="4794000" />
+      <workItem from="1656429765384" duration="673000" />
+      <workItem from="1656582455329" duration="632000" />
+      <workItem from="1656583174891" duration="118000" />
+      <workItem from="1656583321808" duration="111000" />
+      <workItem from="1656583772097" duration="37428000" />
+      <workItem from="1657980271415" duration="2247000" />
+      <workItem from="1658739786769" duration="3445000" />
+      <workItem from="1658844723076" duration="4375000" />
+      <workItem from="1658927377940" duration="1872000" />
     </task>
     <servers />
   </component>
