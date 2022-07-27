@@ -15,7 +15,6 @@ public class loginBean {
         return username;
     }
 
-
     public void setPassword(String password){
         this.password = password;
     }

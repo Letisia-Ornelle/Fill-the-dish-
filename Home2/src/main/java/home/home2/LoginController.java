@@ -134,7 +134,7 @@ public class LoginController implements Initializable {
         lb.setPassword(password.getText());
 
         loginController lc = new loginController();
-        if (lc.verifyLogin(lb) == false) {
+        if (lc.login(lb) == false) {
             alert.setVisible(true);
         }
         else{

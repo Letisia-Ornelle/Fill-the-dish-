@@ -2,6 +2,8 @@ package home.home2.Controller;
 
 import home.home2.Model.Beans.enrollBean;
 import home.home2.Model.DAO.enrollDAO;
+import home.home2.Model.user;
+import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
@@ -19,19 +21,46 @@ public class enrollController {
 
         enrollDAO dao = new enrollDAO();
 
-        if ((eb.getPassword() == "" || eb.getUsername() == "" || eb.getName() == "" || eb.getCognome() == "" || eb.getEmail() == "") || verifyEmail(eb.getEmail()) == false || ( eb.getPassword().length() < 8 )) {
+        if ((eb.getPassword() == "" || eb.getUsername() == "" || eb.getName() == "" || eb.getCognome() == "" || eb.getEmail() == "")) {
+            //return false;
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ci sono campi vuoti!");
+            alert.show();
+
             return false;
-        } else {
+        }
+        if( eb.getPassword().length() < 8 ){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Password troppo corta!");
+            alert.show();
+
+            return false;
+
+        }
+        if( verifyEmail(eb.getEmail()) == false ){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Sintassi dell'email non valida!");
+            alert.show();
+            return false;
 
 
-            Boolean add = dao.newUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
+        }
+        else {
 
-            if (add == true) {
+
+           // Boolean add = dao.newUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
+
+            user.getInstance().registerNewUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
+
+            /*if (add == true) {
                 return true;
             } else {
                 return false;
             }
-        }
+        }*/
+            return true;
 
+
+        }
     }
 }

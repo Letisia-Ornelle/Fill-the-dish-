@@ -7,10 +7,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -35,6 +32,8 @@ public class SubscribeController implements Initializable {
     private Pane menu, dark;
     @FXML
     private Button menuButton;
+    @FXML
+    private Button subscribe;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -171,7 +170,7 @@ public class SubscribeController implements Initializable {
     }
 
     @FXML
-    private void clickSubscribe() throws IOException, SQLException {
+    private void clickSubscribe(ActionEvent event) throws IOException, SQLException {
         int i;
        /* c1 = name.getText();
         c2 = lastname.getText();
@@ -213,8 +212,19 @@ public class SubscribeController implements Initializable {
         eb.setPassword(pwd.getText());
 
 
+
         enrollController ec = new enrollController();
-        if (ec.addUser(eb) == true) {
+
+        if(ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())){
+            General.changeScene(General.setSource("Login"));
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Le due password non coincidono!");
+            alert.show();
+        }
+
+        /*if (ec.addUser(eb) == true) {
             alert.setVisible(true);
         } else {
             if ((verifyEmail(eb.getEmail())) == false) {
@@ -236,6 +246,6 @@ public class SubscribeController implements Initializable {
             }
 
 
-        }
+        }*/
     }
 }

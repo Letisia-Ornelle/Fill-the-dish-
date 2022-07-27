@@ -29,20 +29,17 @@ public class enrollBean {
     public void setCognome(String Cognome){
         this.cognome = Cognome;
     }
-    public String getCognome(){
-        return cognome;}
 
-    public void setEmail(String Email) {
+    public String getCognome(){ return cognome;}
 
-            this.email = Email;
+    public void setEmail(String Email) { this.email = Email;  }
 
-    }
-    public String getEmail(){
-        return email;}
+    public String getEmail(){ return email;}
 
     public void setPassword(String pwd){
         this.password = pwd;
     }
+
     public String getPassword(){
         return password;
     }
