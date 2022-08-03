@@ -1,5 +1,6 @@
 package home.home2;
 
+import home.home2.Controller.CalculateRecipeController;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.Observable;
@@ -53,6 +54,8 @@ public class IngredientsController implements Initializable {
     private GridPane grid;
     int column = 0 ;
     int row  = 3;
+
+
 
 
     public void choiceBoxButtonPushed(){
@@ -267,6 +270,8 @@ public class IngredientsController implements Initializable {
         Home.GUI=1;
         General.changeScene(General.setSource("Home2"));
     }
+
+    CalculateRecipeController c = new CalculateRecipeController();
 
 
 

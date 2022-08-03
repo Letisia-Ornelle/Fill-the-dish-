@@ -1,6 +1,6 @@
 package home.home2;
 
-import home.home2.Model.Element;
+import home.home2.Element;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

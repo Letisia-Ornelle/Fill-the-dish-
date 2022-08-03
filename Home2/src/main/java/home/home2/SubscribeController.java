@@ -2,6 +2,8 @@ package home.home2;
 
 import home.home2.Controller.enrollController;
 import home.home2.Model.Beans.enrollBean;
+import home.home2.Model.DAO.Queries.queries;
+import home.home2.Model.DAO.enrollDAO;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -25,7 +27,7 @@ public class SubscribeController implements Initializable {
     @FXML
     private TextField name, lastname, username, email, pwd, pwdRepeat;
     @FXML
-    private Label pwdAlert1, pwdAlert2, pwdAlert3, pwdAlert4, alert, alertfail;
+    private Label pwdAlert1, pwdAlert2, pwdAlert3, pwdAlert4, alert, alertfail, alertUser;
     @FXML
     private Hyperlink login;
     @FXML
@@ -42,6 +44,7 @@ public class SubscribeController implements Initializable {
         pwdAlert3.setVisible(false);
         pwdAlert4.setVisible(false);
         alert.setVisible(false);
+        alertUser.setVisible(false);
 
         menu.setVisible(false);
         dark.setVisible(false);
@@ -211,14 +214,15 @@ public class SubscribeController implements Initializable {
         eb.setEmail(email.getText());
         eb.setPassword(pwd.getText());
 
+        enrollDAO ed;
+        ed = new enrollDAO();
 
 
         enrollController ec = new enrollController();
 
-        if(ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())){
+        if (ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())) {
             General.changeScene(General.setSource("Login"));
-        }
-        else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Le due password non coincidono!");
             alert.show();
@@ -227,19 +231,24 @@ public class SubscribeController implements Initializable {
         /*if (ec.addUser(eb) == true) {
             alert.setVisible(true);
         } else {
-            if ((verifyEmail(eb.getEmail())) == false) {
 
-                pwdAlert3.setVisible(true);
+            if(eb.getUsername() != "" && eb.getName() != "" && eb.getCognome() != "" && eb.getEmail() != "" && eb.getPassword() != "") {
+                if ((verifyEmail(eb.getEmail())) == false) {
 
-
-            } else {
+                    pwdAlert3.setVisible(true);
+                }
                 //if (eb.getPassword().equals(pwdRepeat.getText())) non funziona
                 //    pwdAlert2.setVisible(true);
 
-                if (eb.getPassword().length() < 8){
+                if (eb.getPassword().length() < 8) {
                     pwdAlert1.setVisible(true);
                 }
-                else {
+                if(ed.newUser(eb.getUsername(), eb.getName(), eb.getCognome(),eb.getEmail(),eb.getPassword()) == false){ //ho chiamato classe dao nel controller grafico
+                    alertUser.setVisible(true);
+                }
+
+            }
+            else{
                     pwdAlert4.setVisible(true);
                 }
 
@@ -247,5 +256,6 @@ public class SubscribeController implements Initializable {
 
 
         }*/
+
     }
 }

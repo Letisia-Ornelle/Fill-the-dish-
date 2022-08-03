@@ -68,6 +68,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Label fx:id="alertUser" alignment="CENTER" layoutX="515.0" layoutY="350.0" prefWidth="250.0" text="Questo username è gia stato scelto" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             <Label fx:id="pwdAlert3" layoutX="1000.0" layoutY="60.0" text="Email non valida!" textFill="RED">
                <font>
                   <Font size="15.0" />
