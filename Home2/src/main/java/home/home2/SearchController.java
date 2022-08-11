@@ -131,7 +131,7 @@ public class SearchController implements Initializable {
         } else {
             Home m = new Home();
             ps = m.getPS();
-            ps.add("Fridge0.fxml");
+            ps.add("Fridge.fxml");
             //System.out.println();
             General.changeScene(General.setSource("Login"));
         }

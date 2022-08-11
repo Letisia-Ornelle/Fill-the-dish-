@@ -130,10 +130,10 @@ public class HomeController implements Initializable {
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
             General.changeScene(General.setSource("Fridge0"));
-        } else {
+      } else {
             Home m = new Home();
             ps = m.getPS();
-            ps.add("Fridge0.fxml");
+            ps.add("Fridge.fxml");
             //System.out.println();
             General.changeScene(General.setSource("Login"));
         }

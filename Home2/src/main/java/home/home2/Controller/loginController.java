@@ -2,6 +2,7 @@ package home.home2.Controller;
 
 import home.home2.Model.Beans.loginBean;
 import home.home2.Model.DAO.userDAO;
+import home.home2.Model.Exceptions.loginFailedException;
 import home.home2.Model.user;
 
 import java.sql.SQLException;
@@ -28,7 +29,7 @@ public class loginController {
 
     }*/
 
-    public boolean login(loginBean loginbean) throws SQLException {
+    public boolean login(loginBean loginbean) throws SQLException, loginFailedException {
 
         userDAO userdao = new userDAO();
 
@@ -43,9 +44,13 @@ public class loginController {
 
             System.out.println(user.getInstance().getUser().getPassword());
 
-           // System.out.println(user.getInstance().getUser());
+            System.out.println(user.getInstance().getUser().getSurname());
+
+           System.out.println(user.getInstance().getUser());
 
             System.out.println(user.getInstance().getUser().getEmail());
+
+            System.out.println("ciao");
 
 
             return true;

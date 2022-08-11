@@ -19,8 +19,6 @@ public class enrollController {
 
     public boolean addUser(enrollBean eb ) throws SQLException {
 
-        enrollDAO dao = new enrollDAO();
-
         if ((eb.getPassword() == "" || eb.getUsername() == "" || eb.getName() == "" || eb.getCognome() == "" || eb.getEmail() == "")) {
             //return false;
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -47,19 +45,9 @@ public class enrollController {
         }
         else {
 
-
-           // Boolean add = dao.newUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
-
             user.getInstance().registerNewUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
 
-            /*if (add == true) {
-                return true;
-            } else {
-                return false;
-            }
-        }*/
             return true;
-
 
         }
     }

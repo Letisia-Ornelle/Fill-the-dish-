@@ -2,6 +2,7 @@ package home.home2;
 
 import home.home2.Controller.loginController;
 import home.home2.Model.Beans.loginBean;
+import home.home2.Model.Exceptions.loginFailedException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -95,39 +96,9 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void clickLoginButton() throws IOException, SQLException {
-        /*
-        usernameContent = username.getText();
-        pwdContent = password.getText();
-
-        if (usernameContent == "" || pwdContent == "") {
-            alert.setVisible(true);
-        } else {
-            alert.setVisible(false);
-            System.out.println("email: " + usernameContent + "\npassword: " + pwdContent);
-        */
+    private void clickLoginButton() throws IOException, SQLException , loginFailedException {
 
         General.loginState = true;
-      /*  if (ps.isNull()) {
-            General.changeScene(General.setSource("Home"));
-        } else {
-            General.changeScene(ps.get());*/
-        //}
-            /*
-            Login log = new Login();
-            if (log.login(usernameContent, pwdContent)) {
-                alert.setVisible(false);
-                if (PendentInterface.isNull()) {
-                    General.changeScene(General.setSource("Home"));
-                } else {
-                    General.changeScene(PendentInterface.get());
-                }
-
-            } else {
-                alert.setText("Login Fallito");
-                alert.setVisible(true);
-            }
-            */
 
         loginBean lb = new loginBean();
         lb.setUsername(username.getText());
@@ -144,12 +115,7 @@ public class LoginController implements Initializable {
                 General.changeScene(ps.get());
             }
 
-
-
-
         }
-
-
 
     }
 
@@ -158,7 +124,7 @@ public class LoginController implements Initializable {
         General.changeScene(General.setSource("Subscribe"));
     }
 
-    // login tramite facebook & google
+    // login tramite facebook || google
 
 
     @FXML
@@ -214,7 +180,7 @@ public class LoginController implements Initializable {
         } else {
             Home m = new Home();
             ps = m.getPS();
-            ps.add("Fridge0.fxml");
+            ps.add("Fridge.fxml");
             //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
