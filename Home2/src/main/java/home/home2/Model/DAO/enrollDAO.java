@@ -13,21 +13,14 @@ public class enrollDAO {
     Connection conn = null;
 
     public void newUser(String username, String nome, String cognome, String email, String password ) throws SQLException {
-        conn = DBConnection.getInstance().getConnection();
-        stmt =  conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 
-        //int res =
-                queries.enroll(stmt, username, nome,cognome,email, password);
+        try{
+            conn = DBConnection.getInstance().getConnection();
+            stmt =  conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 
-
-       /* if (res == 0) {
-            System.out.println("Non è stata aggiunta nessuna riga alla tabella\n");
-            return false;
+            queries.enroll(stmt, username, nome,cognome,email, password);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        else {
-            return true;
-            // riga aggiunta correttamente
-        }*/
-
     }
 }

@@ -1,15 +1,12 @@
 package home.home2.Model.DAO.Queries;
 
-import home.home2.Model.DAO.DBConnection;
-import javafx.scene.image.Image;
+import home.home2.Model.IngredientEntity;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 
 public class queries {
-
-
-
-    /*  Connection connection = DriverManager.getConnection("jdbc:mysql://allinoneexchange.com:3306/FillTheDish", "testUser", "7BEpa]q=tLkm"); */
 
 
     public queries() {
@@ -23,29 +20,53 @@ public class queries {
 
     }
 
-    /*public static ResultSet allUsers(Statement stmt) throws SQLException {
-        String returnUsers = String.format("Select * From utenti");
-        return stmt.executeQuery(returnUsers);
 
-    }*/
+    public static void enroll(Statement stmt, String username, String nome, String cognome, String email, String password) throws SQLException {
 
-    public static int enroll( Statement stmt, String username, String nome, String cognome, String email, String password) throws SQLException {
-
-        String enrollNow = String.format("INSERT IGNORE INTO `utenti`(username, nome, cognome, email, password) VALUES ('%s','%s','%s','%s','%s')", username, nome, cognome, email, password);
-        return stmt.executeUpdate(enrollNow);   //ritorna un intero con il numero di righe aggiunte
+        String enrollNow = String.format("INSERT INTO `utenti`(username, nome, cognome, email, password) VALUES ('%s','%s','%s','%s','%s')", username, nome, cognome, email, password);
+        stmt.executeUpdate(enrollNow);   //ritorna un intero con il numero di righe aggiunte
 
     }
 
-    // Dovrei fare il controllo anche sull'utente ? o non e necessario ?
-    public static ResultSet getImageFromIng(Statement stmt,String username, String ingredient) throws SQLException {
 
-        String selectImage = String.format("SELECT immagine from ingredienti where nome = %s", ingredient);
+    public static ResultSet getImageFromIng(Statement stmt, String ingredient) throws SQLException {
 
-        if(stmt.executeQuery(selectImage) != null){
-            String insertF = String.format("INSERT IGNORE INTO fridge(utente, ingrediente, immagine) VALUES ('%s','%s','%s')", username,ingredient,selectImage);
-            stmt.executeUpdate(insertF);
-        }
+        String selectImage = String.format("SELECT * from `ingredienti` where nome = '%s'", ingredient);
         return stmt.executeQuery(selectImage);
+    }
+
+
+    public static void insertIntoFridge(Connection conn, String username, IngredientEntity ingredient, InputStream ingredientImageInputStream) throws SQLException {
+
+        PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `frigo`(utente,ingrediente,immagine) values (?,?,?)");
+        try{
+            pstmt.setString(1, username);
+            pstmt.setString(2,ingredient.getIngredient());
+            pstmt.setBlob(3,ingredientImageInputStream);
+
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            pstmt.close();
+        }
+
+    }
+
+
+    public static ResultSet getIngredients(Statement stmt) throws SQLException {
+        String ingredients = String.format("SELECT `nome`  FROM `ingredienti`");
+        return stmt.executeQuery(ingredients);
+    }
+
+    public static ResultSet getIngredientsFromFridge(Statement stmt, String username) throws SQLException {
+        String ingredients = String.format("SELECT * FROM `frigo` where `utente` = '%s'", username);
+        return stmt.executeQuery(ingredients);
+    }
+
+    public static void deleteFromFridge(Statement stmt,String username, String ingredient) throws SQLException{
+        String delete = String.format("DELETE FROM `frigo` WHERE `utente` = '%s' AND `ingrediente` = '%s' ",username,ingredient);
+        stmt.executeUpdate(delete);
     }
 }
 
