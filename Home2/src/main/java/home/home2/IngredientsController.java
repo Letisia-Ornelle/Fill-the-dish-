@@ -1,6 +1,6 @@
 package home.home2;
 
-import home.home2.Controller.CalculateRecipeController;
+import home.home2.Controller.calculateRecipeController;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.Observable;
@@ -271,7 +271,7 @@ public class IngredientsController implements Initializable {
         General.changeScene(General.setSource("Home2"));
     }
 
-    CalculateRecipeController c = new CalculateRecipeController();
+    calculateRecipeController c = new calculateRecipeController();
 
 
 

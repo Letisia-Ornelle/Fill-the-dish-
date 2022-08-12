@@ -1,4 +1,4 @@
-package home.home2;
+/*package home.home2;
 
 import home.home2.Element;
 import javafx.event.ActionEvent;
@@ -27,10 +27,10 @@ public class Fridge0Controller implements Initializable{
 
     public void clickBackButton(ActionEvent actionEvent) throws IOException {
         General.setBackScene();
-    }
+    }*/
 
 
-    public void clickHomeButton(ActionEvent actionEvent) throws IOException {
+  /*  public void clickHomeButton(ActionEvent actionEvent) throws IOException {
         General.changeScene(General.setSource("Home"));
     }
 
@@ -172,4 +172,4 @@ public class Fridge0Controller implements Initializable{
         }
 
     }
-}
+}*/

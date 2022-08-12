@@ -53,6 +53,11 @@ public class queries {
 
     }
 
+    public static ResultSet takeIngredientsDB(Statement stmt) throws SQLException {
+        String takeIng = String.format("SELECT nome FROM ingredienti");
+        return stmt.executeQuery(takeIng);
+    }
+
 
     public static ResultSet getIngredients(Statement stmt) throws SQLException {
         String ingredients = String.format("SELECT `nome`  FROM `ingredienti`");

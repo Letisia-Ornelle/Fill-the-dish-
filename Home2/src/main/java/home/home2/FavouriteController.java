@@ -1,4 +1,4 @@
-package home.home2;
+/*package home.home2;
 
 import home.home2.Element;
 import javafx.animation.FadeTransition;
@@ -166,4 +166,4 @@ public class FavouriteController implements Initializable {
         return elements;
     }
 
-}
+}*/

@@ -49,7 +49,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="sonarlint" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" />
   </component>
   <component name="RecentsManager">
@@ -216,7 +216,20 @@
       <workItem from="1657980271415" duration="2247000" />
       <workItem from="1658739786769" duration="3445000" />
       <workItem from="1658844723076" duration="4375000" />
-      <workItem from="1658927377940" duration="1872000" />
+      <workItem from="1658927377940" duration="4855000" />
+      <workItem from="1658953567848" duration="1085000" />
+      <workItem from="1659009004820" duration="20284000" />
+      <workItem from="1659176255581" duration="89583000" />
+      <workItem from="1659703040141" duration="19728000" />
+      <workItem from="1659735534061" duration="90000" />
+      <workItem from="1659735764835" duration="5810000" />
+      <workItem from="1659781400793" duration="8000" />
+      <workItem from="1659781504685" duration="305000" />
+      <workItem from="1659808765333" duration="49330000" />
+      <workItem from="1660210014601" duration="167000" />
+      <workItem from="1660210958772" duration="1229000" />
+      <workItem from="1660295416840" duration="3244000" />
+      <workItem from="1660299048699" duration="57000" />
     </task>
     <servers />
   </component>
