@@ -27,7 +27,7 @@ public class userEntity {
 
     // Penso che dovrebbe essere uguale all'istanza di fridge !?
     public userEntity(){
-        this.fridge= null;
+        this.fridge= fridgeSingletonEntity.getInstance();
     }
 
     public fridgeSingletonEntity getFridge(){

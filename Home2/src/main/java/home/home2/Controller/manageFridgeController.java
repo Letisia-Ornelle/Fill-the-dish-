@@ -14,15 +14,22 @@ import java.util.List;
 
 public class manageFridgeController {
 
+   private static fridgeSingletonEntity fridge = null;
+    List<IngredientEntity> ingredients;
+
+    public manageFridgeController(){
+        try{
+            ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
+            this.fridge = fridgeSingletonEntity.createFridge(ingredients,user.getInstance().getUser().getUsername());
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+   }
+
     // Devo implementare Observer sul frigo --> Come cacchio funziona sto pattern ?
 
-    public static void addIngredient(fridgeBean fridgebean) throws SQLException, duplicateIngredientException {
-
-        List<IngredientEntity> ingredients;
-
-        ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
-        fridgeSingletonEntity fridge = fridgeSingletonEntity.createFridge(ingredients,user.getInstance().getUser().getUsername());
-
+    public void addIngredient(fridgeBean fridgebean) throws SQLException, duplicateIngredientException {
 
         for(IngredientEntity ingr : ingredients){
             if(ingr.getIngredient().equals(fridgebean.getIngredientName())){
@@ -39,13 +46,9 @@ public class manageFridgeController {
         List<IngredientEntity> ingredients;
         List<fridgeBean> ingredientListBean = new ArrayList<>();
 
-         ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
-         fridgeSingletonEntity fridge = fridgeSingletonEntity.createFridge(ingredients,user.getInstance().getUser().getUsername());
-
          userEntity entity = new userEntity(fridge,user.getInstance().getUser().getUsername());
 
          ingredients = entity.getFridge().getIngredientList();
-
 
 
         for(IngredientEntity ingr : ingredients){
