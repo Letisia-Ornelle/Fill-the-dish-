@@ -1,130 +1,59 @@
 package home.home2;
 
-import home.home2.Element;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
+
+import home.home2.Controller.manageFridgeController;
+import home.home2.Model.Beans.fridgeBean;
+import home.home2.Model.Exceptions.duplicateIngredientException;
+import home.home2.Model.fridgeObserver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class FridgeController implements Initializable {
-    @FXML
-    Button backButton;
-    @FXML
-    Button homeButton;
-    @FXML
-    Button buttonricetta;
+public class FridgeController implements Initializable, fridgeObserver {
+    private int row;
 
     @FXML
-    private Button menuButton;
+    private VBox verticalBox;
+
+    @FXML
+    private Button aggiungi;
+
+    private String imageURL = "C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\basilico.jpg";
+
+    @FXML
+    private TextField textField;
+
     @FXML
     private Pane menu, dark;
     @FXML
-    private GridPane grid;
+    private Button recipeButton, fridgeButton, menuButton;
 
-    // LISTA D'ESEMPIO PER VEDERE SE FUNZIONA (RIEMPIMENTO IN RIGA 47)
-    private int i;
-    ArrayList list = new ArrayList();
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        int i;
-        int column = 0, row = 1;
-
-        menu.setVisible(false);
-        dark.setVisible(false);
-
-        // ESEMPI PER VEDERE SE FUNZIONA
-        list.add("Olio");
-        list.add("Sale");
-        list.add("Pepe");
-        list.add("Pasta");
-        list.add("Farina");
-        list.add("Prezzemolo");
-        list.add("Parmigiano");
-        list.add("Basilico ");
-        list.add("Pomodoro");
-        list.add("Mozzarella");
-
-
-        elements.addAll(getData());
-
-        try {
-            for (i=0;i<elements.size();i++) {
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("ListElementFridgeSelection.fxml"));
-                Pane anchorPane = fxmlloader.load();
-
-                ElementController elementController = fxmlloader.getController();
-                elementController.setData(elements.get(i));
-
-                grid.add(anchorPane, column, row++);
-                grid.setMargin(anchorPane, new Insets(5));
-                grid.setGridLinesVisible(false);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
-        if (menu.isVisible()) {
-
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(1);
-            fadeTransition.setToValue(0);
-            fadeTransition.play();
-
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(-320);
-            translateTransition2.setByX(-220);
-            translateTransition1.play();
-            translateTransition2.play();
-
-            fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
-            });
-
-        } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
-
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(0);
-            fadeTransition.setToValue(1);
-            fadeTransition.play();
-
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(320);
-            translateTransition2.setByX(220);
-            translateTransition1.play();
-            translateTransition2.play();
-        }
-    }
-
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
-    @FXML
-    private void clickBackButton() throws IOException {
+    public void clickBackButton(ActionEvent actionEvent) throws IOException {
         General.setBackScene();
+    }
+
+
+    public void clickHomeButton(ActionEvent actionEvent) throws IOException {
+        General.changeScene(General.setSource("Home"));
     }
 
     @FXML
@@ -161,29 +90,178 @@ public class FridgeController implements Initializable {
         General.changeScene(General.setSource("Home2"));
     }
 
-    @FXML
-    private void clickComputeRecipe(ActionEvent event) throws IOException {
-        int i;
-        for (i=0;i<ElementController.list.size();i++) {
-            System.out.println(ElementController.list.get(i));
+
+    public void clickMenuButton(ActionEvent actionEvent) {
+        if (menu.isVisible()) {
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            fadeTransition.setFromValue(1);
+            fadeTransition.setToValue(0);
+            fadeTransition.play();
+
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
+            translateTransition1.setByX(-320);
+            translateTransition2.setByX(-220);
+            translateTransition1.play();
+            translateTransition2.play();
+
+            fadeTransition.setOnFinished(event -> {
+                menu.setVisible(false);
+                dark.setVisible(false);
+            });
+
+        } else {
+            menu.setVisible(true);
+            dark.setVisible(true);
+
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            fadeTransition.setFromValue(0);
+            fadeTransition.setToValue(1);
+            fadeTransition.play();
+
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
+            translateTransition1.setByX(320);
+            translateTransition2.setByX(220);
+            translateTransition1.play();
+            translateTransition2.play();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        menu.setVisible(false);
+        dark.setVisible(false);
+
+        manageFridgeController fridge = new manageFridgeController();
+        List<fridgeBean> fridgeBeans = new ArrayList<>();
+        try {
+            fridgeBeans = fridge.showFridge();
+            System.out.println("Lista mantenuta?");
+            for(fridgeBean j : fridgeBeans){
+                System.out.println(j.getIngredientImage());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        for(int i=0; i<fridgeBeans.size();i++){
+            FXMLLoader fxmlloader = new FXMLLoader();
+            fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
+            try{
+                Pane anchorPane = fxmlloader.load();
+                ElementController elementController = fxmlloader.getController();
+
+                elementController.setData2(fridgeBeans.get(i));
+
+                verticalBox.getChildren().add(anchorPane);
+                verticalBox.setMargin(anchorPane, new Insets(5));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
 
-    private List<Element> elements = new ArrayList<>();
+    public void addImageToIngredient(fridgeBean fridgebean){
 
-    private List<Element> getData() {
-        int i;
-        List<Element> elements = new ArrayList<>();
-        Element elem;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png","*.jpg","*.png"));
+        File file = fileChooser.showOpenDialog(null);
+        if(file!=null) {
+            String imagePath = file.getAbsolutePath();
+            InputStream inputStream = null;
+            try {
+                inputStream = new FileInputStream(imagePath);
+                fridgebean.setIngredientInputStream(new FileInputStream(imagePath));
 
-        for (i=0;i<list.size();i++) {
-            elem = new Element();
-            elem.setTitle((String)list.get(i));
-            elem.setImgSrc("im3.jpg");
-            elements.add(elem);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            Image image = new Image(inputStream);
+            fridgebean.setIngredientImage(image);
         }
-        return elements;
+
     }
 
+    public VBox getResults(){
+        return this.verticalBox;
+    }
+
+    public void AddToFridge(ActionEvent event) throws IOException, SQLException, duplicateIngredientException {
+
+
+        if(textField.getText() != "") {
+            fridgeBean f = new fridgeBean();
+
+            f.setIngredientName(textField.getText());
+            //  f.setIngredientInputStream(new FileInputStream(imageURL));
+
+            manageFridgeController fridge = new manageFridgeController();
+
+
+            FXMLLoader fxmlloader = new FXMLLoader();
+            fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
+            Pane anchorPane = fxmlloader.load();
+
+            ElementController elementController = fxmlloader.getController();
+
+            //fridge.getImage(f);
+
+            if (fridge.getImage(f) == true) {
+                System.out.println("Ehi sono qui 1");
+                // Devo convertire l'immagine recuperata dal DATABASE in inputStream in modo da reinserirla ( In frigo)
+                // Quindi recupero il path dell'immagine restituita
+                elementController.setData2(f);
+            } else {
+
+               // anchorPane.setOnMouseClicked(event1 -> addImageToIngredient(f));
+
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
+                File file = fileChooser.showOpenDialog(null);
+                if (file != null) {
+                    String imagePath = file.getAbsolutePath();
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = new FileInputStream(imagePath);
+                        f.setIngredientInputStream(new FileInputStream(imagePath));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Image image = new Image(inputStream);
+                    f.setIngredientImage(image);
+
+
+                    elementController.setData2(f);
+                }
+
+            }
+            fridge.addIngredient(f);
+                verticalBox.getChildren().add(anchorPane);
+                verticalBox.setMargin(anchorPane, new Insets(5));
+
+                textField.setText("");
+            }
+
+
+
+
+            // Devo settare pure l'immagine di f prima di aggiungere
+
+            // Posso fare tipo else ... metto un alert ????
+
+
+    }
+
+    @Override
+    public void update(fridgeBean fridgebean) {
+        // Ahahahahahahha bella merda -- > in che modo voglio fare l'update ? i don't knowwwwwwwwwwww
+        // Teoricamente voglio aggiungere l'ingrediente alla lista ogni volta che l'utente sceglie
+        // L'immagine --> Come ? forse a l'onClick devo solo recuperare l'immagine
+        // e poi su update, devo aggiungere le diverse componenti al VBox????....
+        // cioè fare l'update della lista, ma come ?
+    }
 }
