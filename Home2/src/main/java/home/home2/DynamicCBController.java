@@ -1,8 +1,8 @@
 package home.home2;
 
-import home.home2.Controller.CalculateRecipeController;
-import home.home2.Model.Beans.CalculateRecipeBean;
-import home.home2.Model.DAO.CalculateRecipeDAO;
+import home.home2.Controller.calculateRecipeController;
+import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Model.DAO.calculateRecipeDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -44,8 +44,9 @@ public class DynamicCBController implements Initializable {
             e.printStackTrace();
         }
     } */
-        CalculateRecipeController CRCont = new CalculateRecipeController();
-        CalculateRecipeBean CRBean = new CalculateRecipeBean();
+
+        calculateRecipeController CRCont = new calculateRecipeController();
+        calculateRecipeBean CRBean = new calculateRecipeBean();
 
         try {
             if ( CRCont.verifyList(CRBean) == true) {

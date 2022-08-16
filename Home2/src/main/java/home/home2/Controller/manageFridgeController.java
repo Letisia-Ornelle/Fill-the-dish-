@@ -87,8 +87,10 @@ public class manageFridgeController {
 
         fridgeSingletonEntity.getInstance().removeIngredient(ingredient);
 
-        fridgeSingletonEntity fridge = fridgeSingletonEntity.getInstance();
+        //fridgeSingletonEntity fridge = fridgeSingletonEntity.getInstance();
 
         fridgeDAO.delete(fridgebean.getIngredientName());
     }
+
+    public static void modifyService(){}
 }
