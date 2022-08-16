@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class SelectIngredientsController implements  Initializable {
     @FXML
     Button backButton;
@@ -144,7 +146,15 @@ public class SelectIngredientsController implements  Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        // niente
+        if (General.loginState) {
+            General.changeScene(General.setSource("Fridge"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login"));
+        }
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {

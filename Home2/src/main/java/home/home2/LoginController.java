@@ -176,7 +176,7 @@ public class LoginController implements Initializable {
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
         if (General.loginState) {
-            General.changeScene(General.setSource("Fridge0"));
+            General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
             ps = m.getPS();

@@ -3,7 +3,7 @@ package home.home2;
 import home.home2.Controller.manageFridgeController;
 import home.home2.Model.Beans.fridgeBean;
 import home.home2.Model.Beans.ingredientBean;
-import home.home2.Model.Element;
+import home.home2.Element;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,7 +44,7 @@ public class ElementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        image1 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
+       // image1 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
     }
 
     public void removeIngredient(ActionEvent event) throws SQLException {

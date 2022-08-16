@@ -46,6 +46,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -72,6 +73,11 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="home.home2" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="S" />
+    </option>
   </component>
   <component name="RunManager" selected="Application.Home">
     <configuration name="General" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

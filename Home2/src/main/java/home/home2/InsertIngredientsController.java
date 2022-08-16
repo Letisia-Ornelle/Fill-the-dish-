@@ -201,11 +201,11 @@ public class InsertIngredientsController implements Initializable {
     @FXML
     private void clickFridgeButton() throws IOException {
         if (General.loginState) {
-            General.changeScene(General.setSource("Fridge"));
+            General.changeScene(General.setSource("Fridge0"));
         } else {
             Home m = new Home();
             ps = m.getPS();
-            ps.add("Fridge.fxml");
+            ps.add("Fridge0.fxml");
             General.changeScene(General.setSource("Login"));
         }
     }

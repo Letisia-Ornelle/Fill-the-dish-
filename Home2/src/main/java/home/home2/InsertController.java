@@ -122,7 +122,7 @@ public class InsertController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Fridge0"));
+        General.changeScene(General.setSource("Fridge"));
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {

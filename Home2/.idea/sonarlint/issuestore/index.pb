@@ -3,22 +3,10 @@ N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
 T
 $src/main/java/home/home2/Recipe.java,4\0\408196c21085789c2a3df552e671ec672d829b9b
-^
-.src/main/java/home/home2/RecipeController.java,8\3\8384f533a323e01074d6a24c63ea69d5f461017f
-^
-.src/main/java/home/home2/ResultController.java,1\7\172a2afea9c02c139f3da56f3959a2b255bd15fc
-_
-/src/main/java/home/home2/Review2Controller.java,e\3\e30119c6cde7e2dfab34a7cce4ba1f21a50385c5
-^
-.src/main/java/home/home2/ReviewController.java,1\d\1db26e479204ce490d680140781747847e0f0132
 X
 (src/main/java/home/home2/ScreenList.java,c\9\c9c2d1364e62fbfda628c4c64d422a40e7308c48
 _
 /src/main/java/home/home2/Search2Controller.java,f\b\fb64fe30345133e7c7c3141462334256f3659d90
-^
-.src/main/java/home/home2/SearchController.java,c\0\c041c54b2736a4165afa351a03cbeb3330e9d5fa
-a
-1src/main/java/home/home2/SubscribeController.java,d\2\d23c4f3b0fbe2afcd2a9d27ba8c1bb3cbea64e46
 i
 9src/main/java/home/home2/Controller/enrollController.java,6\f\6f656f7ce6709b7940b1cb24089c49b0b300ce2a
 g
@@ -27,11 +15,7 @@ a
 1src/main/java/home/home2/FavouriteController.java,6\8\68c74ff1d55ed54047df48f0ac2e8242f80ee875
 j
 :src/main/java/home/home2/Model/DAO/CalculateRecipeDAO.java,9\7\9714227e7d13809a599966dc2ceefae1cbbd07be
-c
-3src/main/java/home/home2/IngredientsController.java,b\8\b8d318e9da36d183f1a601ea2d05eb5c8879313b
 r
 Bsrc/main/java/home/home2/Controller/CalculateRecipeController.java,a\f\afc1a9e51e63c6c7040572f4068f597bcb77f429
 m
 =src/main/java/home/home2/Model/Beans/CalculateRecipeBean.java,6\0\6007ea9ba2e6c5ea02b3d0f759df2dda4fa47986
-a
-1src/main/java/home/home2/DynamicCBController.java,7\7\7756059778034a791ca86abe2c58d428166ae5c4
