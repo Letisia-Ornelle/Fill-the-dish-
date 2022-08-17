@@ -7,10 +7,10 @@ import java.util.List;
 
 public class fridgeSubject {
 
-    List<fridgeObserver> observers = new ArrayList<fridgeObserver>();
+    public static List<fridgeObserver> observers = new ArrayList<fridgeObserver>();
 
 
-    public void attach(fridgeObserver observer ){
+    public static void attach(fridgeObserver observer){
         observers.add(observer);
     }
 

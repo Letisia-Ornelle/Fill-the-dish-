@@ -5,6 +5,7 @@ import home.home2.Controller.manageFridgeController;
 import home.home2.Model.Beans.fridgeBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.fridgeObserver;
+import home.home2.Model.fridgeSubject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -133,6 +134,9 @@ public class FridgeController implements Initializable, fridgeObserver {
         menu.setVisible(false);
         dark.setVisible(false);
 
+        // Definisco un nuovo observer --> Altro observer per questo caso d'uso dovrebbe essere InsertIngredientsController ?
+        fridgeSubject.attach(this);
+
         manageFridgeController fridge = new manageFridgeController();
         List<fridgeBean> fridgeBeans = new ArrayList<>();
         try {
@@ -186,11 +190,7 @@ public class FridgeController implements Initializable, fridgeObserver {
 
     }
 
-    public VBox getResults(){
-        return this.verticalBox;
-    }
-
-    public void AddToFridge(ActionEvent event) throws IOException, SQLException, duplicateIngredientException {
+    public void AddToFridge(ActionEvent event) throws SQLException, duplicateIngredientException {
 
 
         if(textField.getText() != "") {
@@ -202,11 +202,11 @@ public class FridgeController implements Initializable, fridgeObserver {
             manageFridgeController fridge = new manageFridgeController();
 
 
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
-            Pane anchorPane = fxmlloader.load();
+            //FXMLLoader fxmlloader = new FXMLLoader();
+            // fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
+            //Pane anchorPane = fxmlloader.load();
 
-            ElementController elementController = fxmlloader.getController();
+            //  ElementController elementController = fxmlloader.getController();
 
             //fridge.getImage(f);
 
@@ -214,10 +214,10 @@ public class FridgeController implements Initializable, fridgeObserver {
                 System.out.println("Ehi sono qui 1");
                 // Devo convertire l'immagine recuperata dal DATABASE in inputStream in modo da reinserirla ( In frigo)
                 // Quindi recupero il path dell'immagine restituita
-                elementController.setData2(f);
+                //elementController.setData2(f);
             } else {
 
-               // anchorPane.setOnMouseClicked(event1 -> addImageToIngredient(f));
+                // anchorPane.setOnMouseClicked(event1 -> addImageToIngredient(f));
 
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
@@ -235,26 +235,30 @@ public class FridgeController implements Initializable, fridgeObserver {
                     f.setIngredientImage(image);
 
 
-                    elementController.setData2(f);
+                    // elementController.setData2(f);
                 }
 
             }
             fridge.addIngredient(f);
-                verticalBox.getChildren().add(anchorPane);
-                verticalBox.setMargin(anchorPane, new Insets(5));
+            //  verticalBox.getChildren().add(anchorPane);
+            // verticalBox.setMargin(anchorPane, new Insets(5));
 
-                textField.setText("");
-            }
+            textField.setText("");
+        }
+
+        // ????
 
 
 
 
-            // Devo settare pure l'immagine di f prima di aggiungere
+        // Devo settare pure l'immagine di f prima di aggiungere
 
-            // Posso fare tipo else ... metto un alert ????
+        // Posso fare tipo else ... metto un alert ????
 
 
     }
+
+    // In teoria dovrei fare solo l'update della grafica all'inserimento di un nuovo ingrediente
 
     @Override
     public void update(fridgeBean fridgebean) {
@@ -263,5 +267,24 @@ public class FridgeController implements Initializable, fridgeObserver {
         // L'immagine --> Come ? forse a l'onClick devo solo recuperare l'immagine
         // e poi su update, devo aggiungere le diverse componenti al VBox????....
         // cioè fare l'update della lista, ma come ?
+
+
+        FXMLLoader fxmlloader = new FXMLLoader();
+        fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
+
+        try{
+            Pane anchorPane = fxmlloader.load();
+
+            ElementController elementController = fxmlloader.getController();
+            elementController.setData2(fridgebean);
+
+            verticalBox.getChildren().add(anchorPane);
+            verticalBox.setMargin(anchorPane, new Insets(5));
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }
