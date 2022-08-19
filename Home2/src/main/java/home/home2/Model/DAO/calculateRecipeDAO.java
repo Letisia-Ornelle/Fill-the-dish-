@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class  calculateRecipeDAO {
 
@@ -33,7 +34,56 @@ public class  calculateRecipeDAO {
 
 
     }
+// questo metodo restituisce array di ricette e asseggna alla variabile nomeRicetta un nome alla volta
+    
+    public ArrayList<String> listOfRecipes() throws SQLException {
+        ArrayList<String> recipeArray = new ArrayList<String>();
+        String nomeRicetta;
+        conn = DBConnection.getInstance().getConnection();
+        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs = queries.getRecipesName(stmt);
+        while (rs.next()) {
+            recipeArray.add(rs.getString("id_ricetta"));
+            for (int i = 0; i < recipeArray.size(); i++) {
+                //stampo per controllare
+                nomeRicetta = (recipeArray.get(i));
+
+                System.out.println(nomeRicetta);
+
+            }
+
+        }
+        return recipeArray;
+    }
+
+    public void RecipesIngredients() throws SQLException {
+
+        /*   per ora lo commento perche non funge questa funzione
+
+       ResultSet ingredienti;
+        ArrayList<String> ricette;
+
+        conn = DBConnection.getInstance().getConnection();
+        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+        ricette = listOfRecipes();
+
+        for (int i = 0; i < ricette.size(); i++) {
+            ingredienti = queries.selectRecipesIngredients(stmt, ricette.get(i));
 
 
+        }
+
+
+
+*/
+    }
 
 }
+
+
+
+
+
+
+

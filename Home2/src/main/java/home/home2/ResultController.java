@@ -1,5 +1,6 @@
 package home.home2;
 
+import home.home2.Model.DAO.calculateRecipeDAO;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,6 +36,34 @@ public class ResultController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //questa parte serve solo a verificare se stampa la lista delle ricette
+
+        int i;
+        calculateRecipeDAO crDao = new calculateRecipeDAO();
+        ArrayList<String> arr = null;
+        try {
+            arr = crDao.listOfRecipes();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (arr == null) {
+            System.out.println("array vuoto");
+        } else {
+
+            for (i = 0; i < arr.size(); i++) {
+                //stampo per controllare
+                String rec = (arr.get(i));
+
+                System.out.println(rec);
+            }
+        }
+
+        // la parte di controllo della lista di ricette finisce qui
+
+
+
+
         dark.setVisible(false);
         menu.setVisible(false);
 
@@ -42,7 +72,7 @@ public class ResultController implements Initializable {
         int column = 0;
         int row = 1;
         try {
-            for (int i = 0; i < ricette.size(); i++) {
+            for (i = 0; i < ricette.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
 
                 fxmlLoader.setLocation(getClass().getResource("items.fxml"));

@@ -9,8 +9,6 @@ _
 /src/main/java/home/home2/Search2Controller.java,f\b\fb64fe30345133e7c7c3141462334256f3659d90
 i
 9src/main/java/home/home2/Controller/enrollController.java,6\f\6f656f7ce6709b7940b1cb24089c49b0b300ce2a
-g
-7src/main/java/home/home2/Model/DAO/Queries/queries.java,3\9\392124ec99c9551309839dafaf64195ab409a2ad
 a
 1src/main/java/home/home2/FavouriteController.java,6\8\68c74ff1d55ed54047df48f0ac2e8242f80ee875
 j

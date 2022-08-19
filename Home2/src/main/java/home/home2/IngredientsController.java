@@ -1,6 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
+import home.home2.Model.DAO.calculateRecipeDAO;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.Observable;
@@ -25,6 +26,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class IngredientsController implements Initializable {
@@ -55,7 +58,8 @@ public class IngredientsController implements Initializable {
     int column = 0 ;
     int row  = 3;
 
-
+    public IngredientsController() throws SQLException {
+    }
 
 
     public void choiceBoxButtonPushed(){
@@ -142,12 +146,12 @@ public class IngredientsController implements Initializable {
         choiceBox8.setValue("Seleziona un ingrediente");*/
 
 
-        int column = 0 ;
-        int row  = 1;
+        int column = 0;
+        int row = 1;
         try {
 
 
-            for(int i=0;i<22;i++) {
+            for (int i = 0; i < 22; i++) {
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
@@ -180,7 +184,11 @@ public class IngredientsController implements Initializable {
 
 
 
+
     }
+
+
+
 
 
 

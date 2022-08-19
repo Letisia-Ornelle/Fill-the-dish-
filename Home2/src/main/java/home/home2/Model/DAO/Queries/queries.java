@@ -5,6 +5,7 @@ import home.home2.Model.IngredientEntity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class queries {
 
@@ -39,15 +40,15 @@ public class queries {
     public static void insertIntoFridge(Connection conn, String username, IngredientEntity ingredient, InputStream ingredientImageInputStream) throws SQLException {
 
         PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `frigo`(utente,ingrediente,immagine) values (?,?,?)");
-        try{
+        try {
             pstmt.setString(1, username);
-            pstmt.setString(2,ingredient.getIngredient());
-            pstmt.setBlob(3,ingredientImageInputStream);
+            pstmt.setString(2, ingredient.getIngredient());
+            pstmt.setBlob(3, ingredientImageInputStream);
 
             pstmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally{
+        } finally {
             pstmt.close();
         }
 
@@ -69,10 +70,34 @@ public class queries {
         return stmt.executeQuery(ingredients);
     }
 
-    public static void deleteFromFridge(Statement stmt,String username, String ingredient) throws SQLException{
-        String delete = String.format("DELETE FROM `frigo` WHERE `utente` = '%s' AND `ingrediente` = '%s' ",username,ingredient);
+    public static void deleteFromFridge(Statement stmt, String username, String ingredient) throws SQLException {
+        String delete = String.format("DELETE FROM `frigo` WHERE `utente` = '%s' AND `ingrediente` = '%s' ", username, ingredient);
         stmt.executeUpdate(delete);
     }
+
+
+    public static ResultSet getRecipesName(Statement stmt) throws SQLException {
+
+
+        String selectRecipeName = String.format("SELECT `id_ricetta` FROM `ricetta`");
+        return stmt.executeQuery(selectRecipeName);
+
+
+    }
+
+    public static ResultSet selectRecipesIngredients(Statement stmt, String Ricetta) throws SQLException {
+
+        String RecIngredients = String.format("SELECT `ingrediente` FROM `componenti` WHERE `ricetta` = %s ", Ricetta);
+
+        return stmt.executeQuery(RecIngredients);
+
+
+    }
 }
+
+
+
+
+
 
 
