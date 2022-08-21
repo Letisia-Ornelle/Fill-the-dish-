@@ -34,7 +34,7 @@ public class  calculateRecipeDAO {
 
 
     }
-// questo metodo restituisce array di ricette e asseggna alla variabile nomeRicetta un nome alla volta
+// questo metodo restituisce array di ricette e assegna alla variabile nomeRicetta un nome alla volta
     
     public ArrayList<String> listOfRecipes() throws SQLException {
         ArrayList<String> recipeArray = new ArrayList<String>();

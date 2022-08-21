@@ -221,6 +221,8 @@ public class SubscribeController implements Initializable {
         enrollController ec = new enrollController();
 
         if (ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())) {
+
+            System.out.println("Nuovo utente registrato con successo!");
             General.changeScene(General.setSource("Login"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

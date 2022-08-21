@@ -2,6 +2,7 @@ package home.home2;
 
 import home.home2.Controller.manageFridgeController;
 import home.home2.Model.Beans.fridgeBean;
+import home.home2.Model.fridgeObserver;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -22,7 +23,7 @@ import java.util.ResourceBundle;
 
 import static home.home2.Home.ps;
 
-public class SelectIngredientsController implements  Initializable {
+public class SelectIngredientsController implements  Initializable, fridgeObserver {
     @FXML
     Button backButton;
     @FXML
@@ -172,5 +173,8 @@ public class SelectIngredientsController implements  Initializable {
     }
 
 
+    @Override
+    public void update(fridgeBean fridgebean) {
 
+    }
 }

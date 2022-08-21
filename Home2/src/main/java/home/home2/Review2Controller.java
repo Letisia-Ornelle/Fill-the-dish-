@@ -138,4 +138,43 @@ public class Review2Controller implements Initializable {
 
         System.out.println(title + "\n" + vote + "/5\n" + description);
     }
+
+    public void clickInterfaceButton(ActionEvent event) {
+    }
+
+    public void clickReviewButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Review2"));
+
+    }
+
+    public void clickFridgeButton(ActionEvent event) {
+    }
+
+    public void clickFavouriteButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Favourite2"));
+
+    }
+
+    public void clickLoginButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Login2"));
+
+    }
+
+    public void clickAddButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Add2"));
+
+    }
+
+    public void clickSearchButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Search2"));
+
+    }
+
+    public void clickHomeButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Home2"));
+
+    }
+
+    public void clickBackButton(ActionEvent event) {
+    }
 }

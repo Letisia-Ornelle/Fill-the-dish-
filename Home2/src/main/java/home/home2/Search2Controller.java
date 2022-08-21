@@ -1,4 +1,4 @@
-/*package home.home2;
+package home.home2;
 
 import home.home2.Element;
 import javafx.event.ActionEvent;
@@ -17,6 +17,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static home.home2.Home.ps;
 
 public class Search2Controller implements Initializable {
     Boolean[] portata = new Boolean[6];
@@ -222,4 +224,46 @@ public class Search2Controller implements Initializable {
         return elements;
     }
 
-}*/
+    public void clickInterfaceButton(ActionEvent event) {
+        // No
+    }
+
+    public void clickReviewButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Review2"));
+    }
+
+    public void clickFridgeButton(ActionEvent event) throws IOException {
+        if (General.loginState) {
+            General.changeScene(General.setSource("Fridge2"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge2.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login2"));
+        }
+    }
+
+    public void clickFavouriteButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Favourite2"));
+    }
+
+    public void clickLoginButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Login2"));
+    }
+
+    public void clickAddButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Add2"));
+    }
+
+    public void clickSearchButton(ActionEvent event) throws IOException {
+       // General.changeScene(General.setSource("Search2"));
+    }
+
+    public void clickHomeButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Home2"));
+    }
+
+    public void clickBackButton(ActionEvent event) {
+    }
+}

@@ -12,22 +12,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class Home2Controller implements Initializable {
     public static ArrayList list;
     @FXML
-    private GridPane grid;
+    private GridPane grid ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Main2.fxml"));
-            Pane anchorPane = fxmlloader.load();
 
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
@@ -52,113 +46,52 @@ public class Home2Controller implements Initializable {
 
     }
 
-    @FXML
-    public void clickHomeButton() {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Main2.fxml"));
-            Pane anchorPane = fxmlloader.load();
 
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void clickHomeButton(ActionEvent event) throws IOException {
 
-        Home m = new Home();
-        list = m.getList();
-        list.clear();
-        list.add("Main2.fxml");
+
     }
 
     public void clickSearchButton(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Search2.fxml"));
-            Pane anchorPane = fxmlloader.load();
+        General.changeScene(General.setSource("Search2"));
 
-            grid.add(anchorPane, 0,0);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Home m = new Home();
-        list = m.getList();
-        list.add("Search2.fxml");
     }
     public void clickAddButton(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Add2.fxml"));
-            Pane anchorPane = fxmlloader.load();
+        General.changeScene(General.setSource("Add2"));
 
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Home m = new Home();
-        list = m.getList();
-        list.add("Add2.fxml");
     }
     public void clickLoginButton(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Login2.fxml"));
-            Pane anchorPane = fxmlloader.load();
+        General.changeScene(General.setSource("Login2"));
 
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Home m = new Home();
-        list = m.getList();
-        list.add("Login2.fxml");
     }
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Favourite2.fxml"));
-            Pane anchorPane = fxmlloader.load();
-
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Home m = new Home();
-        list = m.getList();
-        list.add("Favourite2.fxml");
+        General.changeScene(General.setSource("Favourite2"));
     }
+
+    // Scrivere un metodo che mi prende in input una stringa e la aggiunge alla griglia ????
+    // Si ma perche la griglia dovrebbe essere vuota ????
+
+/*
+    public void setData(String  view) throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader();
+        fxmlloader.setLocation(getClass().getResource(view));
+        Pane anchorPane = fxmlloader.load();
+        grid.add(anchorPane, 0,0);
+    }*/
+
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Fridge2.fxml"));
-            Pane anchorPane = fxmlloader.load();
-
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (General.loginState) {
+            General.changeScene(General.setSource("Fridge2"));
+        } else {
+            Home m = new Home();
+            ps = m.getPS();
+            ps.add("Fridge2.fxml");
+            //System.out.println();
+            General.changeScene(General.setSource("Login2"));
         }
-
-        Home m = new Home();
-        list = m.getList();
-        list.add("Fridge2.fxml");
     }
     public void clickReviewButton(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("Review2.fxml"));
-            Pane anchorPane = fxmlloader.load();
-
-            grid.add(anchorPane, 0,0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Home m = new Home();
-        list = m.getList();
-        list.add("Review2.fxml");
+       General.changeScene(General.setSource("Review2"));
 
     }
     public void clickInterfaceButton(ActionEvent event) throws IOException {
