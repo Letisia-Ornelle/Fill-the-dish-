@@ -20,3 +20,36 @@
     -fx-border-radius: 5;
 }
 
+
+#menuBar{
+    -fx-background-color: red;
+}
+
+#home{
+    -fx-background-color: #00000000;
+    -fx-background-image: url(home2.png);
+    -fx-border-radius: 5;
+    -fx-background-size: 50 30;
+}
+
+#home:hover{
+    -fx-background-image: url(home2.png);
+    -fx-border-radius: 5;
+    -fx-background-color: #00000055;
+    -fx-background-size: 50 30;
+}
+
+#back{
+    -fx-background-color: #00000000;
+    -fx-background-image: url(back2.png);
+    -fx-border-radius: 5;
+    -fx-background-size: 50 30;
+}
+
+#back:hover{
+    -fx-background-image: url(back2.png);
+    -fx-border-radius: 5;
+    -fx-background-color: #00000055;
+    -fx-background-size: 50 30;
+}
+
