@@ -1,5 +1,5 @@
 #background{
-    -fx-background-color: white;
+    -fx-background-image: url("sfondoo.jpg");
 }
 
 .button{
@@ -21,9 +21,10 @@
 }
 
 .text-area{
-    -fx-background-color: #D2D2D2;
+    -fx-background-color: #D2D2D2 ;
     -fx-border-color: black;
-    -fx-border-radius: 5;
+    -fx-border-radius: 0;
+
 }
 
 
