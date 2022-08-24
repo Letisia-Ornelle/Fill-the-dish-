@@ -1,5 +1,5 @@
 #background{
-    -fx-background-color: white;
+    -fx-background-image: url("sfondoo.jpg");
 }
 
 
@@ -33,4 +33,11 @@
     -fx-border-radius: 5;
     -fx-background-color: #00000055;
     -fx-background-size: 50 30;
+}
+
+.scroll-pane{
+    -fx-background-color: transparent;
+}
+.scroll-pane .viewport{
+    -fx-background-color: transparent;
 }
