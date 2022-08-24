@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.control.Label?>
-<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.InsertRecipe2Controller">
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.InsertRecipe2Controller">
    <stylesheets>
       <URL value="@Search2.css" />
       <URL value="@Add2.css" />
@@ -27,43 +21,38 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="Search2" mnemonicParsing="false" onAction="#clickSearchButton" prefHeight="35.0" prefWidth="183.0" text="Cerca" textFill="WHITE">
+                  <Button fx:id="Search2" mnemonicParsing="false" onAction="#clickSearchButton" prefHeight="35.0" prefWidth="183.0" style="-fx-border-color: transaprent;" text="Cerca" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="50.0" prefWidth="183.0" text="Aggiungi la tua Ricetta" textFill="WHITE" GridPane.columnIndex="1">
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="50.0" prefWidth="183.0" style="-fx-border-color: transparent;" text="Aggiungi la tua Ricetta" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="login" mnemonicParsing="false" onAction="#clickLoginButton" prefHeight="50.0" prefWidth="183.0" text="Accedi" textFill="WHITE" GridPane.columnIndex="2">
+                  <Button fx:id="login" mnemonicParsing="false" onAction="#clickLoginButton" prefHeight="50.0" prefWidth="183.0" style="-fx-border-color: transparent;" text="Accedi" textFill="WHITE" GridPane.columnIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickFavouriteButton" prefHeight="50.0" prefWidth="183.0" text="Lista dei Preferiti" textFill="WHITE" GridPane.columnIndex="3">
+                  <Button mnemonicParsing="false" onAction="#clickFavouriteButton" prefHeight="50.0" prefWidth="183.0" style="-fx-border-color: transparent;" text="Lista dei Preferiti" textFill="WHITE" GridPane.columnIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickFridgeButton" prefHeight="50.0" prefWidth="183.0" text="Frigo Virtuale" textFill="WHITE" GridPane.columnIndex="4">
+                  <Button mnemonicParsing="false" onAction="#clickFridgeButton" prefHeight="50.0" prefWidth="183.0" style="-fx-border-color: transparent;" text="Frigo Virtuale" textFill="WHITE" GridPane.columnIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickReviewButton" prefHeight="50.0" prefWidth="183.0" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#clickInterfaceButton" prefHeight="50.0" prefWidth="183.0" text="Cambia Interfaccia" textFill="WHITE" GridPane.columnIndex="6">
+                  <Button mnemonicParsing="false" onAction="#clickReviewButton" prefHeight="50.0" prefWidth="183.0" style="-fx-border-color: transparent;" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -78,9 +67,9 @@
       </Label>
       <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButton" prefHeight="30.0" prefWidth="50.0" />
       <Button fx:id="back" layoutX="70.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="30.0" prefWidth="50.0" />
-      <TextField layoutX="540.0" layoutY="40.0" prefHeight="25.0" prefWidth="200.0" promptText="Titolo Ricetta" />
-      <TextArea layoutX="195.0" layoutY="120.0" prefHeight="300.0" prefWidth="250.0" promptText="Ingredienti" wrapText="true" />
-      <TextArea layoutX="710.0" layoutY="120.0" prefHeight="300.0" prefWidth="500.0" promptText="Preparazione Ricetta" />
-      <Button layoutX="590.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Inserisci Ricetta" />
+      <TextField layoutX="226.0" layoutY="158.0" prefHeight="30.0" prefWidth="258.0" promptText="Titolo Ricetta" style="-fx-background-radius: 30px; -fx-border-radius: 30px; -fx-border-color: black;" />
+      <TextArea layoutX="226.0" layoutY="204.0" prefHeight="300.0" prefWidth="258.0" promptText="Ingredienti" style="-fx-background-color: #D2D2D2;" wrapText="true" />
+      <TextArea layoutX="647.0" layoutY="208.0" prefHeight="300.0" prefWidth="500.0" promptText="Preparazione Ricetta" style="-fx-background-color: transparent; -fx-background-radius: 20px;" />
+      <Button layoutX="562.0" layoutY="528.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" style="-fx-border-radius: 30; -fx-background-color: transparent; -fx-background-radius: 30px; -fx-border-color: black;" text="Inserisci Ricetta" />
    </children>
 </Pane>
