@@ -78,16 +78,14 @@ public class queries {
 
     public static ResultSet getRecipesName(Statement stmt) throws SQLException {
 
-
-        String selectRecipeName = String.format("SELECT `id_ricetta` FROM `ricetta`");
+        String selectRecipeName = String.format("SELECT * FROM `ricetta`");
         return stmt.executeQuery(selectRecipeName);
-
 
     }
 
     public static ResultSet selectRecipesIngredients(Statement stmt, String Ricetta) throws SQLException {
 
-        String RecIngredients = String.format("SELECT `ingrediente` FROM `componenti` WHERE `ricetta` = %s ", Ricetta);
+        String RecIngredients = String.format("SELECT `ingrediente` FROM `componenti` WHERE `ricetta` = '%s' ", Ricetta);
 
         return stmt.executeQuery(RecIngredients);
 

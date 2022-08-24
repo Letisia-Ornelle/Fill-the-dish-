@@ -9,10 +9,11 @@ public class RecipeEntity {
     Image immagine;
     String tipo;
 
-    public RecipeEntity(String nomeRicetta, Image imm, String tipologia){
+    public RecipeEntity(String nomeRicetta){
         this.id_ricetta = nomeRicetta;
-        this.immagine = imm;
-        this.tipo = tipologia;
+        //this.immagine = imm;
+       // this.descrizione = descrizione;
+       // this.tipo = tipologia;
 
     }
 

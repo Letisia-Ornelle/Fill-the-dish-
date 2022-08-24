@@ -37,13 +37,14 @@ public class ResultController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         //questa parte serve solo a verificare se stampa la lista delle ricette
 
-        int i;
-        calculateRecipeDAO crDao = new calculateRecipeDAO();
+       int i;
+        /*calculateRecipeDAO crDao = new calculateRecipeDAO();
         ArrayList<String> arr = null;
         try {
-            arr = crDao.listOfRecipes();
+           arr = crDao.listOfRecipes();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -57,7 +58,7 @@ public class ResultController implements Initializable {
 
                 System.out.println(rec);
             }
-        }
+        }*/
 
         // la parte di controllo della lista di ricette finisce qui
 

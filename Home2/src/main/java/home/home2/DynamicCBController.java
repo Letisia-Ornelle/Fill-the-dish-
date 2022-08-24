@@ -3,12 +3,16 @@ package home.home2;
 import home.home2.Controller.calculateRecipeController;
 import home.home2.Model.Beans.calculateRecipeBean;
 import home.home2.Model.DAO.calculateRecipeDAO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.InputMethodEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DynamicCBController implements Initializable {
@@ -61,7 +65,6 @@ public class DynamicCBController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
 
 }

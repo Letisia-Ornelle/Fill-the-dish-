@@ -1,6 +1,8 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
+import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.Model.RecipeEntity;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.Observable;
@@ -25,6 +27,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class InsertIngredientsController implements Initializable {
@@ -196,6 +200,16 @@ public class InsertIngredientsController implements Initializable {
 
     @FXML
     private void clickRecipeButton() throws IOException {
+
+        calculateRecipeDAO c = new calculateRecipeDAO();
+        List<RecipeEntity> a= c.Recipes();
+
+        for(RecipeEntity i : a){
+            System.out.println( i.getRecipe());
+        }
+
+
+
         General.changeScene(General.setSource("Result"));
     }
     @FXML
