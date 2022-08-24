@@ -1,9 +1,8 @@
 package home.home2.Model.DAO;
 
 import home.home2.Model.DAO.Queries.queries;
-import home.home2.Model.Ingredients;
+import home.home2.Model.Ingredient;
 import home.home2.Model.RecipeEntity;
-import home.home2.Recipe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -46,7 +45,7 @@ public class  calculateRecipeDAO {
         List<RecipeEntity> recipes = new ArrayList<>();
         RecipeEntity recipe ;
 
-        List<Ingredients> ingredients = new ArrayList<>();
+        List<Ingredient> ingredients = new ArrayList<>();
        // Ingredients ingredient;
 
         try{
@@ -79,12 +78,12 @@ public class  calculateRecipeDAO {
                 // Recuperata questa lista, dovrei confrontarla con la lista passata come parametro
 
                 res.first();
-                Ingredients ingredient ;
+                Ingredient ingredient ;
 
                 do{
                     // Devo reinizializzare questa lista in modo da non agggiungere alla lista precedente , ma ad una nuova lista
                     String nameIngr = res.getString("ingrediente");
-                    ingredient = new Ingredients(nameIngr);
+                    ingredient = new Ingredient(nameIngr);
                     ingredients.add(ingredient);
                    // ingredients.set(1,ingredient);
 
@@ -94,7 +93,7 @@ public class  calculateRecipeDAO {
 
                 System.out.println("Ingredienti della Ricetta:\n");
                 System.out.println(name);
-                for(Ingredients i : ingredients){
+                for(Ingredient i : ingredients){
                     System.out.println(i.getName());
                 }
                 System.out.println("\n");
