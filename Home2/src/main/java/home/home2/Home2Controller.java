@@ -48,6 +48,8 @@ public class Home2Controller implements Initializable {
 
 
     public void clickHomeButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Home2"));
+
 
 
     }
@@ -67,7 +69,9 @@ public class Home2Controller implements Initializable {
     public void clickFavouriteButton(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Favourite2"));
     }
-
+    public void clickReviewButton(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Review2"));
+    }
     // Scrivere un metodo che mi prende in input una stringa e la aggiunge alla griglia ????
     // Si ma perche la griglia dovrebbe essere vuota ????
 
@@ -90,10 +94,7 @@ public class Home2Controller implements Initializable {
             General.changeScene(General.setSource("Login2"));
         }
     }
-    public void clickReviewButton(ActionEvent event) throws IOException {
-       General.changeScene(General.setSource("Review2"));
 
-    }
     public void clickInterfaceButton(ActionEvent event) throws IOException {
         Home.GUI=0;
         General.changeScene(General.setSource("Home"));
