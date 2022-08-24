@@ -158,4 +158,13 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     public void clickSearchButton(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Search2"));
     }
+
+    public void clickBackButton(ActionEvent actionEvent) {
+
+
+    }
+
+    public void clickHomeButton(ActionEvent actionEvent) throws IOException {
+        General.changeScene(General.setSource("Home2"));
+    }
 }
