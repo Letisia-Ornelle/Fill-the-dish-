@@ -1,5 +1,6 @@
 #background{
-    -fx-background-color: white;
+    -fx-background-image: url("sfondoo.jpg");
+
 }
 
 .button{
@@ -52,4 +53,5 @@
     -fx-background-color: #00000055;
     -fx-background-size: 50 30;
 }
+
 
