@@ -1,5 +1,7 @@
 package home.home2;
 
+import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Model.RecipeEntity;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -18,18 +20,18 @@ public class ItemsController {
     @FXML
     private Hyperlink recipeName;
 
-    private Recipe recipe;
+    private calculateRecipeBean recipe;
 
     public void clickRecipeImage(MouseEvent mouseEvent) throws IOException {
         General.changeScene(General.setSource("Recipe"));
     }
 
-    public void setData(Recipe recipe) {
+    public void setData(calculateRecipeBean recipe) {
         this.recipe = recipe;
         recipeName.setText(recipe.getName());
 
-        Image image = new Image(getClass().getResourceAsStream(recipe.getImgSrc()));
-        recipeImage.setImage(image);
+        //Image image = new Image(getClass().getResourceAsStream(recipe.getImgSrc()));
+        recipeImage.setImage(recipe.getImage());
     }
 
 

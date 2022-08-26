@@ -1,14 +1,22 @@
 package home.home2.Model.Beans;
 
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 
 import java.sql.Blob;
 
 public class calculateRecipeBean {
 
     String name;
-    Blob image;
+    Image image;
     ObservableList<String> IngrList;
+
+    public calculateRecipeBean(String name, Image image){
+        this.name = name;
+        this.image = image;
+    }
+
+    public calculateRecipeBean(){}
 
     public ObservableList<String> setListIng(ObservableList<String> listOfIngredients){
         this.IngrList = listOfIngredients;
@@ -27,11 +35,11 @@ public class calculateRecipeBean {
 
     }
 
-    public void setImage(Blob immagine){
+    public void setImage(Image immagine){
         this.image = immagine;
     }
 
-    public Blob getImage(){
+    public Image getImage(){
         return image;
     }
 }

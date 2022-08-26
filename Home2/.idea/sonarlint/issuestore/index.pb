@@ -1,8 +1,6 @@
 
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
-T
-$src/main/java/home/home2/Recipe.java,4\0\408196c21085789c2a3df552e671ec672d829b9b
 X
 (src/main/java/home/home2/ScreenList.java,c\9\c9c2d1364e62fbfda628c4c64d422a40e7308c48
 _
@@ -17,3 +15,21 @@ r
 Bsrc/main/java/home/home2/Controller/CalculateRecipeController.java,a\f\afc1a9e51e63c6c7040572f4068f597bcb77f429
 m
 =src/main/java/home/home2/Model/Beans/CalculateRecipeBean.java,6\0\6007ea9ba2e6c5ea02b3d0f759df2dda4fa47986
+a
+1src/main/java/home/home2/Model/DAO/enrollDAO.java,6\6\667ab8634bf668510cbbc007ed1846e917a2409e
+a
+1src/main/java/home/home2/Model/DAO/fridgeDAO.java,d\1\d185199e2038badb962f4a12260e2706d773e1ba
+o
+?src/main/java/home/home2/Controller/manageFridgeController.java,0\3\03b3d559dd171bb2d026e9d190aca6b850f2b29c
+i
+9src/main/java/home/home2/SelectIngredientsController.java,f\c\fc7ccad28e20395805b827895fe9f12dcf56714e
+^
+.src/main/java/home/home2/Model/userEntity.java,0\e\0e02aaf2453a53e385b2c7ce828c77d8ecaf963e
+c
+3src/main/java/home/home2/IngredientsController.java,b\8\b8d318e9da36d183f1a601ea2d05eb5c8879313b
+i
+9src/main/java/home/home2/Model/fridgeSingletonEntity.java,9\4\94399174182df20efc2828a04d9ea343a5c752f1
+d
+4src/main/java/home/home2/Model/IngredientEntity.java,a\b\ab8c643fdacd92a1b83a30db7c50b023be3f9f96
+g
+7src/main/java/home/home2/Model/DAO/Queries/queries.java,3\9\392124ec99c9551309839dafaf64195ab409a2ad

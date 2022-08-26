@@ -201,14 +201,6 @@ public class InsertIngredientsController implements Initializable {
     @FXML
     private void clickRecipeButton() throws IOException {
 
-        calculateRecipeDAO c = new calculateRecipeDAO();
-        List<RecipeEntity> a= c.Recipes();
-
-        for(RecipeEntity i : a){
-            System.out.println( i.getRecipe());
-        }
-
-
 
         General.changeScene(General.setSource("Result"));
     }

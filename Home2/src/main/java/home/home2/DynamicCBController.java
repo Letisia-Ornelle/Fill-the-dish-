@@ -3,12 +3,15 @@ package home.home2;
 import home.home2.Controller.calculateRecipeController;
 import home.home2.Model.Beans.calculateRecipeBean;
 import home.home2.Model.DAO.calculateRecipeDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.InputMethodEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -64,7 +67,31 @@ public class DynamicCBController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
+    public calculateRecipeBean getChoiceBoxValue(ActionEvent event) throws IOException {
+
+      ObservableList<String> SelectedIngredients = FXCollections.observableArrayList();
+
+
+        String ingrediente = (String) choiceBoxD.getValue();
+        if(!ingrediente.equals("Inserisci un nuovo ingrediente")){
+            System.out.println(ingrediente);
+           SelectedIngredients.add(ingrediente);
+            // attenzione! risolvere il problema che se cambio una scelta mette nella lista anche le scelte precedenti
+
+
+
+
+        }
+       calculateRecipeBean Rbean = new calculateRecipeBean();
+
+         Rbean.setListIng(SelectedIngredients);
+       return Rbean;
+    }
+
+
 
 
 }

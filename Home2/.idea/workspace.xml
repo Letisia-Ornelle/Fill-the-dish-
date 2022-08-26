@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/home/home2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/home/home2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -58,13 +58,14 @@
       <recent name="home.home2" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\987229\Desktop\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\copiaPROG\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\ISPW\progetto\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources" />
-      <recent name="C:\Users\Matteo\IdeaProjects\Home2\target\classes\home\home2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\987229\Desktop\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\copiaPROG\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\ISPW\progetto\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\ISPW\progetto\Fill-the-dish-.git\trunk\Home2\src\main\java\home\home2" />
@@ -239,7 +240,8 @@
       <workItem from="1660465677303" duration="3186000" />
       <workItem from="1660727711417" duration="281000" />
       <workItem from="1660831390821" duration="25000" />
-      <workItem from="1660918462240" duration="5878000" />
+      <workItem from="1660918462240" duration="24730000" />
+      <workItem from="1661351089293" duration="14011000" />
     </task>
     <servers />
   </component>
