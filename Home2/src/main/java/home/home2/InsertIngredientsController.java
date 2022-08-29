@@ -146,6 +146,7 @@ public class InsertIngredientsController implements Initializable {
         choiceBox8.setValue("Seleziona un ingrediente");*/
 
 
+
         int column = 0 ;
         int row  = 1;
         try {
@@ -157,6 +158,7 @@ public class InsertIngredientsController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
                 Pane pane = fxmlLoader.load();
                 // pane = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+
                 if (column == 2) {
                     column = 0;
                     row++;
@@ -203,6 +205,7 @@ public class InsertIngredientsController implements Initializable {
 
 
         General.changeScene(General.setSource("Result"));
+
     }
     @FXML
     private void clickFridgeButton() throws IOException {

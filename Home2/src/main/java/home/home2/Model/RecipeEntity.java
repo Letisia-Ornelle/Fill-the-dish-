@@ -12,11 +12,11 @@ public class RecipeEntity {
     String tipo;
     List<IngredientEntity> ingredients;
 
-    public RecipeEntity(String nomeRicetta){
+    public RecipeEntity(String nomeRicetta, Image imm, String descrizione, String tipologia){
         this.id_ricetta = nomeRicetta;
-        //this.immagine = imm;
-       // this.descrizione = descrizione;
-       // this.tipo = tipologia;
+        this.immagine = imm;
+       this.descrizione = descrizione;
+        this.tipo = tipologia;
 
     }
 

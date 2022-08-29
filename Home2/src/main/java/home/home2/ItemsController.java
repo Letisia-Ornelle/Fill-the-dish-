@@ -20,6 +20,7 @@ public class ItemsController {
     @FXML
     private Hyperlink recipeName;
 
+
     private calculateRecipeBean recipe;
 
     public void clickRecipeImage(MouseEvent mouseEvent) throws IOException {
@@ -30,8 +31,9 @@ public class ItemsController {
         this.recipe = recipe;
         recipeName.setText(recipe.getName());
 
-        //Image image = new Image(getClass().getResourceAsStream(recipe.getImgSrc()));
+       // Image image = new Image(getClass().getResourceAsStream(recipe.getImgSrc()));
         recipeImage.setImage(recipe.getImage());
+
     }
 
 

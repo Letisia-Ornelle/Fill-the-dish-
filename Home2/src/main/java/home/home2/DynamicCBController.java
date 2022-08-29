@@ -70,7 +70,7 @@ public class DynamicCBController implements Initializable {
 
 
     }
-    public calculateRecipeBean getChoiceBoxValue(ActionEvent event) throws IOException {
+ /*   public calculateRecipeBean getChoiceBoxValue(ActionEvent event) throws IOException {
 
       ObservableList<String> SelectedIngredients = FXCollections.observableArrayList();
 
@@ -80,16 +80,28 @@ public class DynamicCBController implements Initializable {
             System.out.println(ingrediente);
            SelectedIngredients.add(ingrediente);
             // attenzione! risolvere il problema che se cambio una scelta mette nella lista anche le scelte precedenti
-
+            System.out.println(SelectedIngredients);
 
 
 
         }
-       calculateRecipeBean Rbean = new calculateRecipeBean();
+
+        calculateRecipeBean Rbean = new calculateRecipeBean();
 
          Rbean.setListIng(SelectedIngredients);
        return Rbean;
     }
+*/
+
+    public ArrayList<String> setData(){
+        ArrayList<String> SelectedIngredients = null;
+        if(!choiceBoxD.getValue().equals("Inserisci un nuovo ingrediente")){
+            SelectedIngredients.add((String) choiceBoxD.getValue());
+        }
+        System.out.println(SelectedIngredients);
+        return SelectedIngredients;
+    }
+
 
 
 

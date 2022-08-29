@@ -26,7 +26,7 @@ public class calculateRecipeController {
 
 
         for (RecipeEntity i : recipes) {
-            recipesresultBeans.add(new calculateRecipeBean(i.getRecipe(), i.getRecipeSrc()));
+            recipesresultBeans.add(new calculateRecipeBean(i.getRecipe(), i.getRecipeSrc(), i.getDescrizione(),i.getType()));
         }
 
         return recipesresultBeans; // ritorna una lista di ricette complete (nome..descrizione..)

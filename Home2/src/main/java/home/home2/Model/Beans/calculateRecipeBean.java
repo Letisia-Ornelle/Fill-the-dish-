@@ -9,11 +9,15 @@ public class calculateRecipeBean {
 
     String name;
     Image image;
+    String description;
+    String type;
     ObservableList<String> IngrList;
 
-    public calculateRecipeBean(String name, Image image){
+    public calculateRecipeBean(String name, Image image, String description, String type){
         this.name = name;
         this.image = image;
+        this.description = description;
+        this.type = type;
     }
 
     public calculateRecipeBean(){}
