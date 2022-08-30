@@ -42,14 +42,14 @@ public class manageFridgeController {
     }
 
 
-     public static List<fridgeBean> showFridge() throws SQLException {
+     public List<fridgeBean> showFridge() throws SQLException {
         List<IngredientEntity> ingredients;
         List<fridgeBean> ingredientListBean = new ArrayList<>();
 
          userEntity entity = new userEntity(fridge,user.getInstance().getUser().getUsername());
 
-         ingredients = entity.getFridge().getIngredientList();
-
+        // ingredients = entity.getFridge().getIngredientList();
+         ingredients = fridge.getIngredientList();
 
         for(IngredientEntity ingr : ingredients){
            ingredientListBean.add(new fridgeBean(ingr.getIngredient(), ingr.getIngredientSrc()));
@@ -92,5 +92,5 @@ public class manageFridgeController {
         fridgeDAO.delete(fridgebean.getIngredientName());
     }
 
-    public static void modifyService(){}
+    public static void modifyIngredient(){}
 }

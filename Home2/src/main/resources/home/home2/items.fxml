@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane prefHeight="198.0" prefWidth="402.0" styleClass="ricetta" stylesheets="style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ItemsController">
+<Pane prefHeight="198.0" prefWidth="402.0" styleClass="ricetta" stylesheets="style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.ItemsController">
    <children>
       <ImageView fx:id="recipeImage" fitHeight="145.0" fitWidth="158.0" layoutX="14.0" layoutY="27.0" onMouseClicked="#clickRecipeImage">
          <image>
@@ -14,10 +13,26 @@
          </image>
       </ImageView>
 
-      <Hyperlink fx:id="recipeName" layoutX="168.0" layoutY="14.0" prefHeight="60.0" prefWidth="200.0" text="Nome Ricetta" wrapText="true">
+      <Hyperlink fx:id="recipeName" layoutX="172.0" layoutY="14.0" prefHeight="60.0" prefWidth="236.0" text="Nome Ricetta" wrapText="true">
          <font>
-            <Font name="Inter Semi Bold" size="23.0" />
+            <Font size="22.0" />
          </font>
       </Hyperlink>
+      <Label fx:id="recipeDescription" layoutX="268.0" layoutY="86.0" prefHeight="33.0" prefWidth="76.0" text="Descrizione">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="recipeDescription1" layoutX="180.0" layoutY="86.0" prefHeight="33.0" prefWidth="88.0" text="Descrizione:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <Label fx:id="recipeType" layoutX="268.0" layoutY="62.0" prefHeight="24.0" prefWidth="68.0" text="Tipologia">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="recipeType1" layoutX="180.0" layoutY="62.0" prefHeight="24.0" prefWidth="68.0" text="Tipologia:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
    </children>
 </Pane>

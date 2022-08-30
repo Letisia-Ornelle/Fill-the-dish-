@@ -1,6 +1,7 @@
 package home.home2;
 
-import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.Controller.allRecipesController;
+import home.home2.Model.Beans.calculateRecipeBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -31,11 +33,65 @@ public class ResultController implements Initializable {
     @FXML
     private Pane menu, dark;
 
-    private static PendentScreen ps;
+    @FXML
+    Label category;
 
+    private static PendentScreen ps;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Home m = new Home();
+        ps = m.getPS();
+
+        category.setText(ps.getLabel());
+
+        allRecipesController recipe = new allRecipesController();
+        List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+
+        try {
+            recipeBeans = recipe.allRecipes();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (int j = 0; j < recipeBeans.size(); j++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource("items.fxml"));
+
+                Pane anchorPane = fxmlLoader.load();
+
+                ItemsController itemController = fxmlLoader.getController();
+                itemController.setData(recipeBeans.get(j));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                // set grid width
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                // set grid height
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                grid.add(anchorPane, column++, row);
+                grid.setMargin(anchorPane, new Insets(100));
+                grid.setAlignment(Pos.CENTER);
+                grid.setHalignment(anchorPane, HPos.LEFT);
+                grid.setGridLinesVisible(false);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         //questa parte serve solo a verificare se stampa la lista delle ricette
@@ -67,7 +123,7 @@ public class ResultController implements Initializable {
 
         dark.setVisible(false);
         menu.setVisible(false);
-
+/*
 
         ricette.addAll(getData());
         int column = 0;
@@ -106,7 +162,7 @@ public class ResultController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
     }
@@ -160,7 +216,7 @@ public class ResultController implements Initializable {
 
     // forse c'è già un altro metodo identico in itemsController
     private void clickRecipeButton() throws IOException {
-        General.changeScene(General.setSource("Recipe"));
+      ///  General.changeScene(General.setSource("Recipe"));
     }
 
 
@@ -258,6 +314,49 @@ public class ResultController implements Initializable {
 
         }
         return ricette;
+    }
+
+
+    public void init(List<calculateRecipeBean> recipeBeans) {
+        int column = 0;
+        int row = 1;
+        for (int i = 0; i < recipeBeans.size(); i++) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource("items.fxml"));
+
+                Pane anchorPane = fxmlLoader.load();
+
+                ItemsController itemController = fxmlLoader.getController();
+                itemController.setData(recipeBeans.get(i));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                // set grid width
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                // set grid height
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                grid.add(anchorPane, column++, row);
+                grid.setMargin(anchorPane, new Insets(100));
+                grid.setAlignment(Pos.CENTER);
+                grid.setHalignment(anchorPane, HPos.LEFT);
+                grid.setGridLinesVisible(false);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 }
 

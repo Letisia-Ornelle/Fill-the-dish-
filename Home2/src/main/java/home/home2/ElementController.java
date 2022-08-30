@@ -63,11 +63,6 @@ public class ElementController implements Initializable {
         // Però vabbè.....
 
 
-        List<fridgeBean> fridgeBeans = fridgeController.showFridge();
-
-
-
-
     }
 
     // Non serve a niente....
@@ -98,6 +93,7 @@ public class ElementController implements Initializable {
 
 
     // Ok fa inserire l'ingrediente all'utente, ma devo fare in modo che tale ingrediente venga inserita sul dataBase
+    // Necessaria per la modifica !
     public void addImage(MouseEvent mouseEvent) throws SQLException {
       // addToIngredient();
     }

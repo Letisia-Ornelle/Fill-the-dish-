@@ -1,11 +1,13 @@
 package home.home2;
 
+import home.home2.Model.Beans.calculateRecipeBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -19,8 +21,8 @@ import java.util.ResourceBundle;
 public class RecipeController implements Initializable {
     Boolean inFavourite;
     private static PendentScreen ps;
-    Image heart = new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png");
-    Image check = new Image("C:\\Users\\Matteo\\IdeaProjects\\Fill-the-dish-\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
+    Image heart = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png");
+    Image check = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
 
     @FXML
     Button menuButton, homeButton, backButton;
@@ -29,12 +31,30 @@ public class RecipeController implements Initializable {
     @FXML
     private ImageView favButton;
 
+    @FXML
+    private ImageView recipeImg;
+    @FXML
+    private Label recipeName;
+
+    @FXML
+    private Label recipeDescription;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
         favButton.setImage(heart);
         inFavourite = false;
+
+        Home m = new Home();
+        ps = m.getPS();
+
+        recipeName.setText(ps.getName());
+        recipeImg.setImage(ps.getImage());
+        recipeDescription.setText(ps.getDescription());
+        System.out.println(ps.getDescription());
+        System.out.println(ps.getType());
+
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {

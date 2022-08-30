@@ -5,7 +5,10 @@ import home.home2.Model.Ingredient;
 import home.home2.Model.RecipeEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +43,14 @@ public class  calculateRecipeDAO {
     }
 // questo metodo restituisce array di ricette e assegna alla variabile nomeRicetta un nome alla volta
 
-    public List<RecipeEntity> Recipes(){
+    public List<RecipeEntity> Recipes(ObservableList<String> userIngredients ){
 
+        // FXCollections.observableArrayList();
         List<RecipeEntity> recipes = new ArrayList<>();
         RecipeEntity recipe ;
-
+        Image image = null;
+        int count = 0;
+        //ObservableList<String> userIngredients = FXCollections.observableArrayList();
         List<Ingredient> ingredients = new ArrayList<>();
        // Ingredients ingredient;
 
@@ -61,15 +67,20 @@ public class  calculateRecipeDAO {
 
             resultSet.first();
             while(resultSet.next()){
+                // Ok tutto preso dal DB in modo opportuno
                 // ho tralasciato l'immagine per il momento
                 String name = resultSet.getString("id_ricetta");
                 String tipologia = resultSet.getString("tipo");
                 String descrizione = resultSet.getString("descrizione");
-                System.out.println(name);
+                Blob bl = resultSet.getBlob("immagine");
+                if(bl != null){
+                    InputStream inputStream = bl.getBinaryStream();
+                    image = new Image(inputStream);
+                }
+              //  System.out.println(name);
 
-                recipe = new RecipeEntity(name) ;
-                //Faccio ad solo in caso di corrispondenze... Quindi va fatto più sotto
-                recipes.add(recipe);
+                recipe = new RecipeEntity(name,image,descrizione,tipologia) ;
+
 
                // recipe.setRecipe(name); // è necessario ?
                 // Recupero la lista d'ingredienti della ricetta precisa ?
@@ -85,20 +96,32 @@ public class  calculateRecipeDAO {
                     String nameIngr = res.getString("ingrediente");
                     ingredient = new Ingredient(nameIngr);
                     ingredients.add(ingredient);
-                   // ingredients.set(1,ingredient);
-
-                    //ingredient.setName(nameIngr);
 
                 } while(res.next());
 
-                System.out.println("Ingredienti della Ricetta:\n");
-                System.out.println(name);
-                for(Ingredient i : ingredients){
-                    System.out.println(i.getName());
+               // System.out.println("Ingredienti della Ricetta:\n");
+               // System.out.println(name);
+               // System.out.println(descrizione);
+               // for(Ingredient i : ingredients){
+                  //  System.out.println(i.getName());
+               // }
+                //System.out.println("\n");
+
+                // Itero sulla lista di ingredienti del dataBase , e per ogni elemento , verifico che ci sia una corrispondenza
+                // Con gli elementi della lista dell'utente. In caso positivo, incremento il contatore.
+                // Se alla fine il contatore è maggiore o uguale a 3, aggiungo la ricetta alla lista di ricette.
+                for(Ingredient ingr : ingredients){
+                    //for(int i = 0; i< userIngredients.size();i++){
+                        if(userIngredients.contains(ingr.getName())){
+                            count++;
+                        }
+                   // }
                 }
-                System.out.println("\n");
 
-
+               if(count >= 1){
+                    //Faccio ad solo in caso di corrispondenze... Quindi va fatto più sotto
+                    recipes.add(recipe);
+                }
 
 
                // A questo punto , dovrei avere la lista della prima ricetta // Penso -->  e quindi faccio il confronto
@@ -117,6 +140,9 @@ public class  calculateRecipeDAO {
 
          return recipes;
     }
+
+    // Metodo che prende dal DB tutte le ricette in modo che se non c'è una corrispondenza con gli ingredienti dell'utente
+    // Vengono restituite tutte le ricette..................
     
    /*public ArrayList<String> listOfRecipes() throws SQLException {
         ArrayList<String> recipeArray = new ArrayList<String>();

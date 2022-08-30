@@ -12,7 +12,7 @@
 
 <Pane fx:id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.RecipeController">
    <children>
-      <Label layoutX="538.0" layoutY="13.0" prefHeight="62.0" prefWidth="313.0" text="Titolo Ricetta" textAlignment="CENTER">
+      <Label fx:id="recipeName" layoutX="538.0" layoutY="13.0" prefHeight="62.0" prefWidth="313.0" text="Titolo Ricetta" textAlignment="CENTER">
          <font>
             <Font name=" Inter Semi Bold" size="35.0" />
          </font>
@@ -27,7 +27,7 @@
       <ImageView fx:id="favButton" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="150.0" onMouseClicked="#clickFavButton" onMouseEntered="#hoveredButton" onMouseExited="#ReleaseButton" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="backButton" layoutX="1135.0" layoutY="15.0" onAction="#clickBackButton" stylesheets="@MenuButton.css">
       </Button>
-      <Pane fx:id="RecipeScrollDescription" layoutX="615.0" layoutY="150.0" prefHeight="900.0" prefWidth="640.0" stylesheets="@Recipe.css">
+      <Pane fx:id="recipeScrollDescription" layoutX="615.0" layoutY="150.0" prefHeight="900.0" prefWidth="640.0" stylesheets="@Recipe.css">
          <children>
             <ImageView fx:id="recipeImg" fitHeight="300.0" fitWidth="600.0" layoutX="15.0">
                <image>

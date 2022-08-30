@@ -30,7 +30,7 @@
                 <Font size="22.0" />
             </font>
         </Label>
-        <ScrollPane hbarPolicy="NEVER" layoutY="200.0" prefHeight="440.0" prefWidth="1280.0" stylesheets="@style.css">
+        <ScrollPane hbarPolicy="NEVER" layoutY="150.0" prefHeight="440.0" prefWidth="1280.0" stylesheets="@style.css">
             <content>
                 <GridPane fx:id="grid" prefHeight="0.0" prefWidth="31.0" styleClass="transparent" stylesheets="style.css">
                     <rowConstraints>

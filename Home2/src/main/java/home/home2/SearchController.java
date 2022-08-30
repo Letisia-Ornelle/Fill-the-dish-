@@ -23,7 +23,7 @@ public class SearchController implements Initializable {
     @FXML
     private TextField search;
     @FXML
-    private Button primi, secondi, contorni, spuntini, dolci, colazioni;
+    private Button primi, secondi, contorni, dessert, antipasti, colazioni;
     @FXML
     private Button menuButton;
     @FXML
@@ -33,6 +33,9 @@ public class SearchController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
+
+        Home m = new Home();
+        ps = m.getPS();
     }
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -144,25 +147,35 @@ public class SearchController implements Initializable {
 
     @FXML
     public void clickPortata(MouseEvent event) throws IOException {
-        click = event.getPickResult().getIntersectedNode().getId();
-        switch (click) {
+        Button  click ;
+        //click = event.getPickResult().getIntersectedNode().getId();
+        click = (Button)event.getSource();
+        switch (click.getId()) {
             case "primi":
                 System.out.println("Mostra i primi");
+                ps.setLabel(primi.getText());
                 break;
             case "secondi":
                 System.out.println("Mostra i secondi");
+                ps.setLabel(secondi.getText());
                 break;
             case "contorni":
                 System.out.println("Mostra i contorni");
+                ps.setLabel(contorni.getText());
                 break;
             case "colazioni":
                 System.out.println("Mostra le colazioni");
+                ps.setLabel(colazioni.getText());
                 break;
             case "dessert":
                 System.out.println("Mostra i dessert");
+                ps.setLabel(dessert.getText());
                 break;
             case "antipasti":
+                ps.setLabel(antipasti.getText());
                 System.out.println("Mostra gli antipasti");
+                break;
+            default:
                 break;
         }
         General.changeScene(General.setSource("Result"));
