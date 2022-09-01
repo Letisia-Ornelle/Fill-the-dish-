@@ -49,7 +49,7 @@ public class ElementController implements Initializable {
 
     public void removeIngredient(ActionEvent event) throws SQLException {
 
-        // Devo rimuovere l'emento grafico, sia dalla lista che dalla View !!!!
+        // Devo rimuovere l'elemento grafico, sia dalla lista che dalla View !!!!
 
         fridgeBean fridgebean = new fridgeBean();
         fridgebean.setIngredientName(name.getText());

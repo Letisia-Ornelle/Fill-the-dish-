@@ -45,19 +45,22 @@ public class fridgeSingletonEntity extends fridgeSubject{
     //public fridgeSingleton(List<Ingredient> ingredientList, String userName) throws SQLException {
     // Composizione tra frigo e ingredienti
 
+
     public static synchronized fridgeSingletonEntity createFridge(List<IngredientEntity> ingredientList, String userName){
 
-        if(instance == null){
-            return new fridgeSingletonEntity(ingredientList,userName);
+        if(instance != null){
+            // Eccezione
         }
+        instance =  new fridgeSingletonEntity(ingredientList,userName);
+
         return instance;
 
     }
 
     // In teoria non dovrei più fare la new
-    public static synchronized fridgeSingletonEntity getInstance(){
+    public static  fridgeSingletonEntity getInstance(){
         if(instance == null){
-                return new fridgeSingletonEntity();
+                // Eccezione
         }
         return instance;
     }

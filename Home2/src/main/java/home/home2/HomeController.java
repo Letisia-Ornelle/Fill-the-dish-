@@ -36,6 +36,7 @@ public class HomeController implements Initializable {
         dark.setVisible(false);
 
         Home m = new Home();
+        ps = m.getPS();
         list = m.getList();
     }
     @FXML
@@ -88,6 +89,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML

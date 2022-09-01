@@ -1,21 +1,28 @@
 package home.home2;
 
+import home.home2.Controller.calculateRecipeController;
 import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Model.Beans.ingredientBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class RecipeController implements Initializable {
@@ -39,6 +46,9 @@ public class RecipeController implements Initializable {
     @FXML
     private Label recipeDescription;
 
+    @FXML
+    private VBox verticalBox;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
@@ -55,7 +65,39 @@ public class RecipeController implements Initializable {
         System.out.println(ps.getDescription());
         System.out.println(ps.getType());
 
+        // A questo punto , chiamo la bean e poi il controller applicativo passando la bean come parametro
+        // Recuperando cosi la lista di ingredienti
+
+        calculateRecipeBean recipeBean = new calculateRecipeBean();
+        recipeBean.setName(recipeName.getText());
+
+
+        calculateRecipeController recipeController = new calculateRecipeController();
+        List<ingredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
+
+        // Ok devo iterare su questa lista e aggiungere in modo progressivo il coso nel verticalBox
+
+        for(int i=0; i<ingredientBeanList.size();i++){
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("ingredient.fxml"));
+
+                Pane anchorPane = fxmlLoader.load();
+
+                IngredientController ingredientController = fxmlLoader.getController();
+                ingredientController.setData(ingredientBeanList.get(i));
+
+                verticalBox.getChildren().add(anchorPane);
+                verticalBox.setMargin(anchorPane, new Insets(2));
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+
+        }
+
     }
+
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
         if (menu.isVisible()) {

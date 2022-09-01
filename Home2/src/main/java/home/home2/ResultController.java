@@ -41,131 +41,74 @@ public class ResultController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        dark.setVisible(false);
+        menu.setVisible(false);
+
         Home m = new Home();
         ps = m.getPS();
 
+
+        int column = 0;
+        int row = 1;
+
         category.setText(ps.getLabel());
+        System.out.println("1 Ehi ciao provengo dalla schermata di ingredienti");
 
-        allRecipesController recipe = new allRecipesController();
-        List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+        if(ps.getScreen() == "1"){
+            allRecipesController recipe = new allRecipesController();
+            List<calculateRecipeBean> recipeBeans = new ArrayList<>();
 
-        try {
-            recipeBeans = recipe.allRecipes();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            try {
+                recipeBeans = recipe.allRecipes();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
-        int column = 0;
-        int row = 1;
-        try {
-            for (int j = 0; j < recipeBeans.size(); j++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
+            try {
+                for (int j = 0; j < recipeBeans.size(); j++) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
 
-                fxmlLoader.setLocation(getClass().getResource("items.fxml"));
+                    fxmlLoader.setLocation(getClass().getResource("items.fxml"));
 
-                Pane anchorPane = fxmlLoader.load();
+                    Pane anchorPane = fxmlLoader.load();
 
-                ItemsController itemController = fxmlLoader.getController();
-                itemController.setData(recipeBeans.get(j));
+                    ItemsController itemController = fxmlLoader.getController();
+                    itemController.setData(recipeBeans.get(j));
 
-                if (column == 2) {
-                    column = 0;
-                    row++;
+                    if (column == 2) {
+                        column = 0;
+                        row++;
+                    }
+
+                    // set grid width
+                    grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+                    grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                    // set grid height
+                    grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                    grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                    grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                    grid.add(anchorPane, column++, row);
+                    grid.setMargin(anchorPane, new Insets(100));
+                    grid.setAlignment(Pos.CENTER);
+                    grid.setHalignment(anchorPane, HPos.LEFT);
+                    grid.setGridLinesVisible(false);
                 }
-
-                // set grid width
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                // set grid height
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                grid.add(anchorPane, column++, row);
-                grid.setMargin(anchorPane, new Insets(100));
-                grid.setAlignment(Pos.CENTER);
-                grid.setHalignment(anchorPane, HPos.LEFT);
-                grid.setGridLinesVisible(false);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
         }
 
 
-        //questa parte serve solo a verificare se stampa la lista delle ricette
-
-       int i;
-        /*calculateRecipeDAO crDao = new calculateRecipeDAO();
-        ArrayList<String> arr = null;
-        try {
-           arr = crDao.listOfRecipes();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        if (arr == null) {
-            System.out.println("array vuoto");
-        } else {
-
-            for (i = 0; i < arr.size(); i++) {
-                //stampo per controllare
-                String rec = (arr.get(i));
-
-                System.out.println(rec);
-            }
-        }*/
-
-        // la parte di controllo della lista di ricette finisce qui
+        else{}
 
 
+       }
 
 
-        dark.setVisible(false);
-        menu.setVisible(false);
-/*
-
-        ricette.addAll(getData());
-        int column = 0;
-        int row = 1;
-        try {
-            for (i = 0; i < ricette.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-
-                fxmlLoader.setLocation(getClass().getResource("items.fxml"));
-
-                Pane anchorPane = fxmlLoader.load();
-
-                ItemsController itemController = fxmlLoader.getController();
-                itemController.setData(ricette.get(i));
-
-                if (column == 2) {
-                    column = 0;
-                    row++;
-                }
-
-                // set grid width
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                // set grid height
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                grid.add(anchorPane, column++, row);
-                grid.setMargin(anchorPane, new Insets(100));
-                grid.setAlignment(Pos.CENTER);
-                grid.setHalignment(anchorPane, HPos.LEFT);
-                grid.setGridLinesVisible(false);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-
-    }
 
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -222,7 +165,6 @@ public class ResultController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
-
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
@@ -279,44 +221,6 @@ public class ResultController implements Initializable {
 
     }
 
-
-    private List<Recipe> ricette = new ArrayList<>();
-
-    private List<Recipe> getData() {
-        List<Recipe> ricette = new ArrayList<>();
-        Recipe ricetta;
-
-        for (int i = 0; i < 40; i++) {
-            ricetta = new Recipe();
-            ricetta.setName("Carbonara");
-            ricetta.setImgSrc("Carbonara.png");
-
-            ricette.add(ricetta);
-
-            ricetta = new Recipe();
-            ricetta.setName("Panna");
-            ricetta.setImgSrc("im2.jpg");
-
-            ricette.add(ricetta);
-
-            ricetta = new Recipe();
-            ricetta.setName("Pasta");
-            ricetta.setImgSrc("im1.png");
-
-            ricette.add(ricetta);
-
-
-            ricetta = new Recipe();
-            ricetta.setName("carne");
-            ricetta.setImgSrc("carne.jpg");
-
-            ricette.add(ricetta);
-
-        }
-        return ricette;
-    }
-
-
     public void init(List<calculateRecipeBean> recipeBeans) {
         int column = 0;
         int row = 1;
@@ -357,6 +261,10 @@ public class ResultController implements Initializable {
             }
 
         }
+    }
+
+    public void visualize(){
+
     }
 }
 

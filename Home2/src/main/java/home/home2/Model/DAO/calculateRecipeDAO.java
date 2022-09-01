@@ -15,42 +15,47 @@ import java.util.List;
 
 public class  calculateRecipeDAO {
 
-    Statement stmt = null;
+    static Statement stmt = null;
     Statement stmt1 = null;
-    Connection conn = null;
+    static Connection conn = null;
 
 
-    public ObservableList<String> ingredients() throws SQLException {
-        conn = DBConnection.getInstance().getConnection();
-        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        ObservableList<String> listaIng = FXCollections.observableArrayList();
-        ResultSet res = queries.takeIngredientsDB(stmt);
+    public static ObservableList<Ingredient> ingredients() {
+        ObservableList<Ingredient> listaIng = FXCollections.observableArrayList();
+        Ingredient ingredient = null;
+        try{
+            conn = DBConnection.getInstance().getConnection();
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-        if (res.first() == false) {
-            System.out.println("ResultSetIngredienti vuoto\n");
-            return null;
+            ResultSet res = queries.takeIngredientsDB(stmt);
 
-        } else {
-            while (res.next()) {
-                String ingredientName = res.getString("nome");
-                listaIng.add(ingredientName);
+            if (res.first() == false) {
+                System.out.println("ResultSetIngredienti vuoto\n");
+                return null;
+
+            } else {
+                while (res.next()) {
+                    String ingredientName = res.getString("nome");
+                    listaIng.add(new Ingredient(ingredientName));
+                }
             }
-            return listaIng;
+        }catch(SQLException e){
+                e.printStackTrace();
+            }
 
-        }
+            return listaIng;
 
 
     }
 // questo metodo restituisce array di ricette e assegna alla variabile nomeRicetta un nome alla volta
 
-    public List<RecipeEntity> Recipes(ObservableList<String> userIngredients ){
+    public List<RecipeEntity> Recipes(ObservableList<Ingredient> userIngredients){
 
         // FXCollections.observableArrayList();
         List<RecipeEntity> recipes = new ArrayList<>();
         RecipeEntity recipe ;
         Image image = null;
         int count = 0;
-        //ObservableList<String> userIngredients = FXCollections.observableArrayList();
         List<Ingredient> ingredients = new ArrayList<>();
        // Ingredients ingredient;
 
@@ -79,7 +84,7 @@ public class  calculateRecipeDAO {
                 }
               //  System.out.println(name);
 
-                recipe = new RecipeEntity(name,image,descrizione,tipologia) ;
+               // recipe = new RecipeEntity(name,image,descrizione,tipologia) ;
 
 
                // recipe.setRecipe(name); // è necessario ?
@@ -99,94 +104,63 @@ public class  calculateRecipeDAO {
 
                 } while(res.next());
 
-               // System.out.println("Ingredienti della Ricetta:\n");
-               // System.out.println(name);
-               // System.out.println(descrizione);
-               // for(Ingredient i : ingredients){
-                  //  System.out.println(i.getName());
-               // }
-                //System.out.println("\n");
+                // Ok prende gli elementi in comune.... Cioè se hanno minimo 2 elementi in comune viene restituita la ricetta
 
-                // Itero sulla lista di ingredienti del dataBase , e per ogni elemento , verifico che ci sia una corrispondenza
-                // Con gli elementi della lista dell'utente. In caso positivo, incremento il contatore.
-                // Se alla fine il contatore è maggiore o uguale a 3, aggiungo la ricetta alla lista di ricette.
                 for(Ingredient ingr : ingredients){
-                    //for(int i = 0; i< userIngredients.size();i++){
-                        if(userIngredients.contains(ingr.getName())){
+                    for(Ingredient ingr1 : userIngredients){
+                        if(ingr.getName().equals(ingr1.getName())){
                             count++;
+                           // System.out.println("Ciao ecco qui il confronto per gli ingredienti");
                         }
-                   // }
+                    }
                 }
 
-               if(count >= 1){
-                    //Faccio ad solo in caso di corrispondenze... Quindi va fatto più sotto
-                    recipes.add(recipe);
+                System.out.println(count);
+               if(count >= 2){
+                   recipes.add(new RecipeEntity(name,image,descrizione,tipologia));
                 }
 
-
-               // A questo punto , dovrei avere la lista della prima ricetta // Penso -->  e quindi faccio il confronto
-                // Confronto tra gli elementi delle  2 liste..... faccio il count degli elementi in comune, e se sono
-                // Maggiori o uguali di 3, metto nella lista di ricette che restituirò.
-                // Ovviamente faccio la rimozione dopo aver fatto in confronto
                 ingredients.removeAll(ingredients);
+               count = 0;
 
             }
 
         }catch(SQLException e){
             e.printStackTrace();
         }
-
-        // Ricette dell'utente in corrispondenza della lista di ingredienti dell'utente ovviamente
-
-         return recipes;
+        return recipes;
     }
 
-    // Metodo che prende dal DB tutte le ricette in modo che se non c'è una corrispondenza con gli ingredienti dell'utente
-    // Vengono restituite tutte le ricette..................
-    
-   /*public ArrayList<String> listOfRecipes() throws SQLException {
-        ArrayList<String> recipeArray = new ArrayList<String>();
-        String nomeRicetta;
-        conn = DBConnection.getInstance().getConnection();
-        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs = queries.getRecipesName(stmt);
-        while (rs.next()) {
-            recipeArray.add(rs.getString("id_ricetta"));
+    // Data una ricetta , restituisce la lista di ingredienti , in modo da settare mostrare tali ingredienti sulla View all'utente
 
-        }
-        for (int i = 0; i < recipeArray.size(); i++) {
-            //stampo per controllare
-            nomeRicetta = (recipeArray.get(i));
+    public static List<Ingredient> RecipesIngredients(String recipe)  {
 
-            System.out.println(nomeRicetta);
+        List<Ingredient> ingredients = new ArrayList<>();
 
-        }
-       // System.out.println(recipeArray);
+        try{
+            conn = DBConnection.getInstance().getConnection();
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-        return recipeArray;
-    }*/
+            ResultSet resultSet = queries.selectRecipesIngredients(stmt,recipe);
+            if(!resultSet.first()){
+                return ingredients;
+            }
 
-    public void RecipesIngredients() throws SQLException {
+            resultSet.first();
+            do{
+                String name = resultSet.getString("ingrediente");
 
-        /*   per ora lo commento perche non funge questa funzione
+                ingredients.add(new Ingredient(name));
 
-       ResultSet ingredienti;
-        ArrayList<String> ricette;
-
-        conn = DBConnection.getInstance().getConnection();
-        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-
-        ricette = listOfRecipes();
-
-        for (int i = 0; i < ricette.size(); i++) {
-            ingredienti = queries.selectRecipesIngredients(stmt, ricette.get(i));
+            }while(resultSet.next());
 
 
+        }catch(SQLException e){
+            e.printStackTrace();
         }
 
+        return ingredients;
 
-
-*/
     }
 
 }

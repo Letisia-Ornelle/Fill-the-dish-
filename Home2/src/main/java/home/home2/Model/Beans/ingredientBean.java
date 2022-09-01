@@ -7,18 +7,14 @@ import java.util.List;
 public class ingredientBean {
 
     String ingredient;
-
-    List<String> ingredientList ;
-
     Image image;
-    /*
-    public List<String> getIngredientList(){
-        return ingredientList;
+
+    public ingredientBean(String ingredient){
+        this.ingredient = ingredient;
     }
 
-    public void setIngredientList(String ingr){
-        this.ingredientList.add(ingr);
-    }*/
+    public ingredientBean(){
+    }
 
     public void setIngredientName(String ingr){
         this.ingredient = ingr;

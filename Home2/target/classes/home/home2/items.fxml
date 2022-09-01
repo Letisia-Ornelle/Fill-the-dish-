@@ -26,11 +26,11 @@
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="recipeType" layoutX="268.0" layoutY="62.0" prefHeight="24.0" prefWidth="68.0" text="Tipologia">
+      <Label layoutX="268.0" layoutY="62.0" prefHeight="24.0" prefWidth="68.0" text="Tipologia">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="recipeType1" layoutX="180.0" layoutY="62.0" prefHeight="24.0" prefWidth="68.0" text="Tipologia:">
+      <Label layoutX="180.0" layoutY="62.0" prefHeight="24.0" prefWidth="68.0" text="Tipologia:">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>

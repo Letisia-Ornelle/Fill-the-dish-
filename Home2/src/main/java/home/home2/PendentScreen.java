@@ -17,6 +17,7 @@ public class PendentScreen {
     Image image;
     String type;
     String description;
+    String fxml;
 
     public PendentScreen() {
         screen = "";
@@ -82,6 +83,14 @@ public class PendentScreen {
 
     public String getDescription(){
         return description;
+    }
+
+    public void setScreen(String fxml){
+        this.fxml = fxml;
+    }
+
+    public String getScreen(){
+        return fxml;
     }
 
 }
