@@ -1,32 +1,37 @@
 package home.home2.Model.Beans;
 
+import home.home2.Model.Ingredient;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
 import java.sql.Blob;
+import java.util.List;
 
 public class calculateRecipeBean {
 
     String name;
     Image image;
     String description;
+    ObservableList<Ingredient> IngrList ;
     String type;
-    ObservableList<String> IngrList;
 
-    public calculateRecipeBean(String name, Image image, String description, String type){
+
+    public calculateRecipeBean(String name, String description, Image image,String type){
         this.name = name;
-        this.image = image;
         this.description = description;
+        this.image = image;
         this.type = type;
     }
 
     public calculateRecipeBean(){}
 
-    public ObservableList<String> setListIng(ObservableList<String> listOfIngredients){
+
+    public List<Ingredient> setListIng(ObservableList<Ingredient> listOfIngredients){
         this.IngrList = listOfIngredients;
         return listOfIngredients;
     }
-    public ObservableList<String> getListIng(){
+    public ObservableList<Ingredient> getListIng(){
         return IngrList;
     }
 
@@ -36,6 +41,24 @@ public class calculateRecipeBean {
 
     public String getName(){
         return name;
+
+    }
+
+    public void setType(String type){
+        this.type = type;
+    }
+
+    public String getType(){
+        return type;
+
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+    public String getDescription(){
+        return description;
 
     }
 
