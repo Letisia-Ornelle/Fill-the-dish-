@@ -6,9 +6,9 @@ import java.io.InputStream;
 
 public class fridgeBean {
 
-    String ingredient;
-    Image image;
-    InputStream ingredientInputStream;
+    private String ingredient;
+    private Image image;
+    private  InputStream ingredientInputStream;
 
     public fridgeBean(){}
 
