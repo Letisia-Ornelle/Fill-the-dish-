@@ -60,11 +60,6 @@ public class queries {
     }
 
 
-    public static ResultSet getIngredients(Statement stmt) throws SQLException {
-        String ingredients = String.format("SELECT `nome`  FROM `ingredienti`");
-        return stmt.executeQuery(ingredients);
-    }
-
     public static ResultSet getIngredientsFromFridge(Statement stmt, String username) throws SQLException {
         String ingredients = String.format("SELECT * FROM `frigo` where `utente` = '%s'", username);
         return stmt.executeQuery(ingredients);
@@ -89,7 +84,26 @@ public class queries {
 
         return stmt.executeQuery(RecIngredients);
 
+    }
 
+    public static void  insertIntoFavourites(Statement stmt, String username, String recipeName) throws SQLException {
+        String insertQuery = String.format("INSERT INTO `ricettePreferiteUtente`(utente,ricetta) VALUES ('%s', '%s')", username, recipeName);
+        stmt.executeUpdate(insertQuery);
+    }
+
+    public static ResultSet favouritesRecipes(Statement stmt, String username) throws SQLException {
+        String favourites = String.format("SELECT * FROM `ricettePreferiteUtente` WHERE `utente` = '%s'", username);
+        return stmt.executeQuery(favourites);
+    }
+
+    public static ResultSet getRecipeImage(Statement stmt, String recipeName) throws SQLException {
+        String image = String.format("SELECT *  FROM `ricetta` WHERE `id_ricetta` = '%s' ",recipeName);
+        return stmt.executeQuery(image);
+    }
+
+    public static void deleteFromFavourites(Statement stmt, String username, String recipeName) throws SQLException {
+        String deleteQuery = String.format("DELETE FROM `ricettePreferiteUtente` WHERE utente = '%s' and ricetta = '%s' ", username,recipeName);
+        stmt.executeUpdate(deleteQuery);
     }
 
 }
