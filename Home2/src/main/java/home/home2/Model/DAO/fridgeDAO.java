@@ -15,13 +15,7 @@ public class fridgeDAO {
     static Statement stmt = null;
     static Connection conn = null;
 
-    // Devo fare un metodo che mi restituisce l'imagine presa dal DB ....
-
-    // Devo fare un metodo che mi restituisce l'ingrediente ( Come oggetto , e settare l'immagine corrispondente al nome inserito)
-
-    // Ad un certo punto avrò Ingredient ingrediente = new Ingredient () , ingrediente.setImageSrc(imagine presa dal DB)
-
-    public static IngredientEntity ingredientImage(String ingredient) throws SQLException {
+    public  IngredientEntity ingredientImage(String ingredient) {
 
         IngredientEntity insertIngredient = null;
 
@@ -55,19 +49,8 @@ public class fridgeDAO {
         return insertIngredient;
     }
 
-    // Metodo per l'inserimento in frigo dell'ingrediente username + ingrediente + immagine ????
 
-    /*public static void insertInFridge(String username, String ingredient, Image image) throws SQLException {
-
-        conn = DBConnection.getInstance().getConnection();
-        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-
-
-       queries.insertIntoFridge(stmt,username,ingredient,image);
-
-    }*/
-
-    public static void insertInFridge(String username, IngredientEntity ingredient, InputStream ingredientInputStream) throws SQLException {
+    public  void insertInFridge(String username, IngredientEntity ingredient, InputStream ingredientInputStream){
 
         try{
             conn = DBConnection.getInstance().getConnection();
@@ -79,7 +62,7 @@ public class fridgeDAO {
 
     }
 
-    public static IngredientEntity createIngredient(ResultSet resultSet) throws SQLException {
+    public  IngredientEntity createIngredient(ResultSet resultSet) throws SQLException {
 
         Image image = null;
         String ingredientName = resultSet.getString("ingrediente");
@@ -97,8 +80,7 @@ public class fridgeDAO {
     }
 
 
-    // Forse devo ritornare la lista di ingredienti come lista di stringhe e recuperare l'immagine dal dataBase come ho fatto prima ????
-    public static List<IngredientEntity> ingredientUser(String username) throws SQLException {
+    public  List<IngredientEntity> ingredientUser(String username) {
 
         List<IngredientEntity> ingredients = new ArrayList<>() ;
 
@@ -125,7 +107,7 @@ public class fridgeDAO {
         return ingredients;
     }
 
-    public static void delete(String ingredient){
+    public  void delete(String ingredient){
 
         try{
             conn = DBConnection.getInstance().getConnection();
