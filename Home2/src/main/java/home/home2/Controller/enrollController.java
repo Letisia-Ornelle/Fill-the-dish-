@@ -1,13 +1,12 @@
 package home.home2.Controller;
 
-import home.home2.Model.Beans.enrollBean;
-import home.home2.Model.DAO.enrollDAO;
+import home.home2.Beans.enrollBean;
 import home.home2.Model.user;
 import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
-import static home.home2.Model.Beans.enrollBean.verifyEmail;
+import static home.home2.Beans.enrollBean.verifyEmail;
 
 public class enrollController {
 

@@ -1,9 +1,8 @@
 package home.home2.Controller;
 
 import home.home2.Model.*;
-import home.home2.Model.Beans.favouritesBean;
+import home.home2.Beans.favouritesBean;
 import home.home2.Model.DAO.favouritesDAO;
-import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.Exceptions.duplicateRecipeException;
 import home.home2.Model.Exceptions.provideLoginException;
 

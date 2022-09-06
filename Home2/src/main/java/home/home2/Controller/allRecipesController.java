@@ -1,6 +1,6 @@
 package home.home2.Controller;
 
-import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Beans.calculateRecipeBean;
 import home.home2.Model.DAO.allRecipesDAO;
 import home.home2.Model.RecipeEntity;
 

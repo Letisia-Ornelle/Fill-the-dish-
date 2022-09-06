@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.manageFridgeController;
-import home.home2.Model.Beans.fridgeBean;
+import home.home2.Beans.fridgeBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.fridgeObserver;
 import home.home2.Model.fridgeSubject;

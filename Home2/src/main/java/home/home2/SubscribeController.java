@@ -1,9 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.enrollController;
-import home.home2.Model.Beans.enrollBean;
-import home.home2.Model.DAO.Queries.queries;
-import home.home2.Model.DAO.enrollDAO;
+import home.home2.Beans.enrollBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -17,8 +15,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import static home.home2.Model.Beans.enrollBean.verifyEmail;
 
 public class SubscribeController implements Initializable {
     private String c1, c2, c3, c4, c5, c6;

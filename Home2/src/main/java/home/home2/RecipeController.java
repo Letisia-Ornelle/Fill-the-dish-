@@ -2,10 +2,9 @@ package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
 import home.home2.Controller.favouritesController;
-import home.home2.Model.Beans.calculateRecipeBean;
-import home.home2.Model.Beans.favouritesBean;
-import home.home2.Model.Beans.ingredientBean;
-import home.home2.Model.Exceptions.duplicateIngredientException;
+import home.home2.Beans.calculateRecipeBean;
+import home.home2.Beans.favouritesBean;
+import home.home2.Beans.ingredientBean;
 import home.home2.Model.Exceptions.duplicateRecipeException;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.animation.FadeTransition;
@@ -28,7 +27,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 

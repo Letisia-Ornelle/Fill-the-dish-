@@ -1,6 +1,6 @@
 package home.home2.Controller;
 
-import home.home2.Model.Beans.loginBean;
+import home.home2.Beans.loginBean;
 import home.home2.Model.DAO.userDAO;
 import home.home2.Model.Exceptions.loginFailedException;
 import home.home2.Model.user;

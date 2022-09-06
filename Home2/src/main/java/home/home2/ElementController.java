@@ -2,9 +2,9 @@ package home.home2;
 
 import home.home2.Controller.favouritesController;
 import home.home2.Controller.manageFridgeController;
-import home.home2.Model.Beans.favouritesBean;
-import home.home2.Model.Beans.fridgeBean;
-import home.home2.Model.Beans.ingredientBean;
+import home.home2.Beans.favouritesBean;
+import home.home2.Beans.fridgeBean;
+import home.home2.Beans.ingredientBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.event.ActionEvent;

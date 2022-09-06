@@ -1,14 +1,10 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
-import home.home2.Model.Beans.calculateRecipeBean;
-import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.Beans.calculateRecipeBean;
 import home.home2.Model.Ingredient;
-import home.home2.Model.RecipeEntity;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,10 +14,6 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;

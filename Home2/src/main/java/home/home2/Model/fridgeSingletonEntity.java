@@ -1,6 +1,6 @@
 package home.home2.Model;
 
-import home.home2.Model.Beans.fridgeBean;
+import home.home2.Beans.fridgeBean;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.allRecipesController;
-import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Beans.calculateRecipeBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;

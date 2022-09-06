@@ -2,13 +2,12 @@ package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
 import home.home2.Controller.manageFridgeController;
-import home.home2.Model.Beans.calculateRecipeBean;
-import home.home2.Model.Beans.fridgeBean;
+import home.home2.Beans.calculateRecipeBean;
+import home.home2.Beans.fridgeBean;
 import home.home2.Model.Ingredient;
 import home.home2.Model.fridgeObserver;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +21,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;

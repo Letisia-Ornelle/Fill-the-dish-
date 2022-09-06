@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
-import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Beans.calculateRecipeBean;
 import home.home2.Model.Ingredient;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

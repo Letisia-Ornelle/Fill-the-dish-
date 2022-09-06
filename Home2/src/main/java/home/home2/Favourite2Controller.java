@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.favouritesController;
-import home.home2.Model.Beans.favouritesBean;
+import home.home2.Beans.favouritesBean;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

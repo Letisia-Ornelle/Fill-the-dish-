@@ -1,6 +1,6 @@
 package home.home2;
 
-import home.home2.Model.Beans.fridgeBean;
+import home.home2.Beans.fridgeBean;
 import home.home2.Model.Ingredient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

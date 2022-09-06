@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.Controller.loginController;
-import home.home2.Model.Beans.loginBean;
+import home.home2.Beans.loginBean;
 import home.home2.Model.Exceptions.loginFailedException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;

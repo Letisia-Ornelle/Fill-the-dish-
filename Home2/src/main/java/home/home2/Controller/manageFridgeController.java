@@ -1,12 +1,11 @@
 package home.home2.Controller;
 
-import home.home2.Model.Beans.fridgeBean;
+import home.home2.Beans.fridgeBean;
 import home.home2.Model.DAO.fridgeDAO;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.IngredientEntity;
 import home.home2.Model.fridgeSingletonEntity;
 import home.home2.Model.user;
-import home.home2.Model.userEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

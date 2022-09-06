@@ -1,6 +1,6 @@
 package home.home2;
 
-import home.home2.Model.Beans.ingredientBean;
+import home.home2.Beans.ingredientBean;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

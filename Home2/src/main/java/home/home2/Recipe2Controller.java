@@ -1,15 +1,14 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
-import home.home2.Model.Beans.calculateRecipeBean;
-import home.home2.Model.Beans.ingredientBean;
+import home.home2.Beans.calculateRecipeBean;
+import home.home2.Beans.ingredientBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
