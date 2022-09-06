@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Beans.calculateRecipeBean;
+import home.home2.controller.CalculateRecipeController;
+import home.home2.beans.CalculateRecipeBean;
 import home.home2.Model.Ingredient;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -135,9 +135,9 @@ public class InsertIngredients2Controller implements Initializable {
         }
     }
 
-    private static List<calculateRecipeBean> recipeBeans2 = new ArrayList<>();
+    private static List<CalculateRecipeBean> recipeBeans2 = new ArrayList<>();
 
-    public List<calculateRecipeBean> getRecipes(){
+    public List<CalculateRecipeBean> getRecipes(){
         return recipeBeans2;
     }
 
@@ -148,10 +148,10 @@ public class InsertIngredients2Controller implements Initializable {
         ObservableList<Ingredient> ingredients;
         ingredients = choiceBox2Controller.getValues();
 
-        calculateRecipeBean recipeBean = new calculateRecipeBean();
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
         recipeBean.setListIng(ingredients);
 
-        calculateRecipeController recipeController = new calculateRecipeController();
+        CalculateRecipeController recipeController = new CalculateRecipeController();
 
         recipeBeans2 = recipeController.checkIngredients(recipeBean);
 

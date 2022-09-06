@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.favouritesController;
-import home.home2.Beans.favouritesBean;
+import home.home2.controller.FavouritesController;
+import home.home2.beans.FavouritesBean;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -40,11 +40,11 @@ public class FavouriteController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
 
-        List<favouritesBean> favouritesBeans;
+        List<FavouritesBean> favouritesBeans;
 
-        favouritesController favController = null;
+        FavouritesController favController = null;
         try {
-            favController = new favouritesController();
+            favController = new FavouritesController();
         } catch (provideLoginException e) {
             e.printStackTrace();
         }

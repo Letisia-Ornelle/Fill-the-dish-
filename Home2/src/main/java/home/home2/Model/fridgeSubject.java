@@ -1,6 +1,6 @@
 package home.home2.Model;
 
-import home.home2.Beans.fridgeBean;
+import home.home2.beans.FridgeBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class fridgeSubject {
         observers.remove(observer);
     }
 
-    public void notifyObserversNewIngredient(fridgeBean fridgebean){
+    public void notifyObserversNewIngredient(FridgeBean fridgebean){
         for(fridgeObserver observer : observers){
             observer.update(fridgebean);
         }

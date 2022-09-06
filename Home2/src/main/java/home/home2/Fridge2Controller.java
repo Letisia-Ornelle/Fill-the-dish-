@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.manageFridgeController;
-import home.home2.Beans.fridgeBean;
+import home.home2.controller.ManageFridgeController;
+import home.home2.beans.FridgeBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.fridgeObserver;
 import home.home2.Model.fridgeSubject;
@@ -44,8 +44,8 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
 
         fridgeSubject.attach(this);
 
-        List<fridgeBean> fridgeBeans ;
-        manageFridgeController fridgeController = new manageFridgeController();
+        List<FridgeBean> fridgeBeans ;
+        ManageFridgeController fridgeController = new ManageFridgeController();
 
         fridgeBeans = fridgeController.showFridge();
 
@@ -73,10 +73,10 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     public void AddToFridge(ActionEvent event) throws SQLException, duplicateIngredientException {
 
         if(textField.getText() != "") {
-            fridgeBean fridge = new fridgeBean();
+            FridgeBean fridge = new FridgeBean();
             fridge.setIngredientName(textField.getText());
 
-            manageFridgeController manageFridge = new manageFridgeController();
+            ManageFridgeController manageFridge = new ManageFridgeController();
 
 
                 if (manageFridge.getImage(fridge) == true) {
@@ -107,7 +107,7 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
         }
 
     @Override
-    public void update(fridgeBean fridgebean) {
+    public void update(FridgeBean fridgebean) {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("ElementFridge2.fxml"));

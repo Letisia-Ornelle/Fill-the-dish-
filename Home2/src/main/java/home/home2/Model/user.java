@@ -5,7 +5,7 @@ import home.home2.Model.DAO.userDAO;
 
 import java.sql.SQLException;
 
-public class user {
+public  class user {
 
     private static user instance = null;
     private static userEntity userE ;

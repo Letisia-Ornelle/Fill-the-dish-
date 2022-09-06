@@ -1,9 +1,9 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Controller.manageFridgeController;
-import home.home2.Beans.calculateRecipeBean;
-import home.home2.Beans.fridgeBean;
+import home.home2.controller.CalculateRecipeController;
+import home.home2.controller.ManageFridgeController;
+import home.home2.beans.CalculateRecipeBean;
+import home.home2.beans.FridgeBean;
 import home.home2.Model.Ingredient;
 import home.home2.Model.fridgeObserver;
 import javafx.collections.ObservableList;
@@ -30,7 +30,7 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
     @FXML
     private VBox verticalBox;
 
-    private static List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+    private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,8 +38,8 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
         Home2 m = new Home2();
         ps = m.getPS2();
 
-        manageFridgeController fridgeController = new manageFridgeController();
-        List<fridgeBean> fridgeBeans;
+        ManageFridgeController fridgeController = new ManageFridgeController();
+        List<FridgeBean> fridgeBeans;
         fridgeBeans = fridgeController.showFridge();
 
         for(int i = 0; i<fridgeBeans.size(); i++){
@@ -63,7 +63,7 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
 
     }
 
-    public List<calculateRecipeBean> getRecipesBeans(){
+    public List<CalculateRecipeBean> getRecipesBeans(){
         return recipeBeans;
     }
 
@@ -78,8 +78,8 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
         ps.setScreen2("3");
         ElementSelection2Controller elementController = new ElementSelection2Controller();
 
-        calculateRecipeController recipeController = new calculateRecipeController();
-        calculateRecipeBean recipeBean = new calculateRecipeBean();
+        CalculateRecipeController recipeController = new CalculateRecipeController();
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
 
         ObservableList<Ingredient> FridgeIngredients = elementController.getFridgeIngredients();
 
@@ -91,7 +91,7 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
     }
 
     @Override
-    public void update(fridgeBean fridgebean) {
+    public void update(FridgeBean fridgebean) {
 
     }
 

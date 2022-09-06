@@ -1,9 +1,9 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Controller.manageFridgeController;
-import home.home2.Beans.calculateRecipeBean;
-import home.home2.Beans.fridgeBean;
+import home.home2.controller.CalculateRecipeController;
+import home.home2.controller.ManageFridgeController;
+import home.home2.beans.CalculateRecipeBean;
+import home.home2.beans.FridgeBean;
 import home.home2.Model.Ingredient;
 import home.home2.Model.fridgeObserver;
 import javafx.animation.FadeTransition;
@@ -55,8 +55,8 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
         menu.setVisible(false);
         dark.setVisible(false);
 
-        manageFridgeController manageFridge = new manageFridgeController();
-        List<fridgeBean> fridgeBeans ;
+        ManageFridgeController manageFridge = new ManageFridgeController();
+        List<FridgeBean> fridgeBeans ;
 
         fridgeBeans = manageFridge.showFridge();
 
@@ -166,7 +166,7 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
         General.changeScene(General.setSource("Home2"));
     }
 
-    private static List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+    private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @FXML
     private void recipesFridge(ActionEvent event) throws IOException {
@@ -174,8 +174,8 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
         pendent.setScreen("3");
         ElementSelectionController elementController = new ElementSelectionController();
 
-        calculateRecipeController recipeController = new calculateRecipeController();
-        calculateRecipeBean recipeBean = new calculateRecipeBean();
+        CalculateRecipeController recipeController = new CalculateRecipeController();
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
 
         ObservableList<Ingredient> FridgeIngredients = elementController.getFridgeIngredients();
 
@@ -187,12 +187,12 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
         General.changeScene(General.setSource("Result"));
     }
 
-    public List<calculateRecipeBean> getRecipesBeans(){
+    public List<CalculateRecipeBean> getRecipesBeans(){
         return recipeBeans;
     }
 
     @Override
-    public void update(fridgeBean fridgebean) {
+    public void update(FridgeBean fridgebean) {
     }
 
     public void clickMenuLink1(ActionEvent actionEvent) throws IOException {

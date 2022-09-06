@@ -1,8 +1,8 @@
 package home.home2.Model;
 
-import home.home2.Beans.fridgeBean;
+import home.home2.beans.FridgeBean;
 
 public interface fridgeObserver {
 
-    void update(fridgeBean fridgebean);
+    void update(FridgeBean fridgebean);
 }

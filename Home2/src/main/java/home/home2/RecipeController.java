@@ -1,10 +1,10 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Controller.favouritesController;
-import home.home2.Beans.calculateRecipeBean;
-import home.home2.Beans.favouritesBean;
-import home.home2.Beans.ingredientBean;
+import home.home2.controller.CalculateRecipeController;
+import home.home2.controller.FavouritesController;
+import home.home2.beans.CalculateRecipeBean;
+import home.home2.beans.FavouritesBean;
+import home.home2.beans.IngredientBean;
 import home.home2.Model.Exceptions.duplicateRecipeException;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.animation.FadeTransition;
@@ -73,12 +73,12 @@ public class RecipeController implements Initializable {
         // A questo punto , chiamo la bean e poi il controller applicativo passando la bean come parametro
         // Recuperando cosi la lista di ingredienti
 
-        calculateRecipeBean recipeBean = new calculateRecipeBean();
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
         recipeBean.setName(recipeName.getText());
 
 
-        calculateRecipeController recipeController = new calculateRecipeController();
-        List<ingredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
+        CalculateRecipeController recipeController = new CalculateRecipeController();
+        List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
 
         // Ok devo iterare su questa lista e aggiungere in modo progressivo il coso nel verticalBox
 
@@ -215,11 +215,11 @@ public class RecipeController implements Initializable {
     @FXML
     private void clickFavButton(MouseEvent event) throws IOException {
 
-        favouritesBean favBean = new favouritesBean();
+        FavouritesBean favBean = new FavouritesBean();
         favBean.setRecipeName(recipeName.getText());
-        favouritesController favController;
+        FavouritesController favController;
         try{
-            favController = new favouritesController();
+            favController = new FavouritesController();
 
                 if (General.loginState) {
 

@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.allRecipesController;
-import home.home2.Beans.calculateRecipeBean;
+import home.home2.controller.AllRecipesController;
+import home.home2.beans.CalculateRecipeBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -55,8 +55,8 @@ public class ResultController implements Initializable {
         switch (ps.getScreen()) {
             case "1":
                 System.out.println("entro nel 1");
-                allRecipesController recipe = new allRecipesController();
-                List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+                AllRecipesController recipe = new AllRecipesController();
+                List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
                 try {
                     recipeBeans = recipe.allRecipes();

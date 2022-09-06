@@ -28,7 +28,7 @@ public class favouritesDAO {
 
     }
 
-    public static  List<RecipeEntity> userFavourites(String username){
+    public  List<RecipeEntity> userFavourites(String username){
 
         List<RecipeEntity> recipes = new ArrayList<>();
         String recipeName;

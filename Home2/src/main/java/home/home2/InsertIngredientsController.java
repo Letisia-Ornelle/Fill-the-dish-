@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Beans.calculateRecipeBean;
+import home.home2.controller.CalculateRecipeController;
+import home.home2.beans.CalculateRecipeBean;
 import home.home2.Model.Ingredient;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -141,12 +141,12 @@ public class InsertIngredientsController implements Initializable {
         General.setBackScene();
     }
 
-    private static List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+    private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     // Pensavo a questo in modo da recuperare la lista su ResultController... ma ???? Boh
     // Cioè facendo la new di questa classe su resultController e chiamando questo metodo per recuperare la lista di ricette ?
     // Può essere . o no
-    public List<calculateRecipeBean> getRecipes(){
+    public List<CalculateRecipeBean> getRecipes(){
         return recipeBeans;
     }
 
@@ -159,10 +159,10 @@ public class InsertIngredientsController implements Initializable {
 
         ObservableList<Ingredient> ingredients = choiceBoxController.getValues();
 
-        calculateRecipeBean  recipeBean = new calculateRecipeBean();
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
         recipeBean.setListIng(ingredients);
 
-        calculateRecipeController recipeController = new calculateRecipeController();
+        CalculateRecipeController recipeController = new CalculateRecipeController();
 
         recipeBeans = recipeController.checkIngredients(recipeBean);
 

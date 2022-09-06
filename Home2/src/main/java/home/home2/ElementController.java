@@ -1,10 +1,10 @@
 package home.home2;
 
-import home.home2.Controller.favouritesController;
-import home.home2.Controller.manageFridgeController;
-import home.home2.Beans.favouritesBean;
-import home.home2.Beans.fridgeBean;
-import home.home2.Beans.ingredientBean;
+import home.home2.controller.FavouritesController;
+import home.home2.controller.ManageFridgeController;
+import home.home2.beans.FavouritesBean;
+import home.home2.beans.FridgeBean;
+import home.home2.beans.IngredientBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.event.ActionEvent;
@@ -37,10 +37,10 @@ public class ElementController implements Initializable {
 
     private Image image1;
 
-    private fridgeBean fridgebean;
+    private FridgeBean fridgebean;
     public static ArrayList list = new ArrayList();
     private   Image image;
-    private favouritesBean favBean;
+    private FavouritesBean favBean;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,9 +48,9 @@ public class ElementController implements Initializable {
 
     public void removeIngredient(ActionEvent event) throws SQLException, IOException {
 
-        fridgeBean fridgebean = new fridgeBean();
+        FridgeBean fridgebean = new FridgeBean();
         fridgebean.setIngredientName(name.getText());
-        manageFridgeController fridgeController = new manageFridgeController();
+        ManageFridgeController fridgeController = new ManageFridgeController();
         fridgeController.deleteIngredient(fridgebean);
 
        // cover.setVisible(false);
@@ -58,13 +58,13 @@ public class ElementController implements Initializable {
 
     }
 
-    public void setData(favouritesBean favBean) {
+    public void setData(FavouritesBean favBean) {
         this.favBean = favBean;
         name.setText(favBean.getRecipeName());
         img.setImage(favBean.getRecipeImage());
     }
 
-    public void setData3(ingredientBean ingredientbean){
+    public void setData3(IngredientBean ingredientbean){
         name.setText(ingredientbean.getIngredientName());
         img.setImage(ingredientbean.getIngredientImage());
     }
@@ -75,7 +75,7 @@ public class ElementController implements Initializable {
         img.setImage(image);
     }
 
-    public void setData2(fridgeBean fridgebean) {
+    public void setData2(FridgeBean fridgebean) {
         this.fridgebean = fridgebean;
         name.setText(fridgebean.getIngredientName());
         img.setImage(fridgebean.getIngredientImage());
@@ -91,8 +91,8 @@ public class ElementController implements Initializable {
 
     private Image addToIngredient() throws SQLException , duplicateIngredientException {
 
-        fridgeBean f = new fridgeBean();
-        manageFridgeController m = new manageFridgeController();
+        FridgeBean f = new FridgeBean();
+        ManageFridgeController m = new ManageFridgeController();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png","*.jpg","*.png"));
@@ -118,11 +118,11 @@ public class ElementController implements Initializable {
     @FXML
     public void clickRemoveRecipe(MouseEvent event) throws IOException, provideLoginException {
 
-        favouritesBean favBean = new favouritesBean();
+        FavouritesBean favBean = new FavouritesBean();
         favBean.setRecipeName(name.getText());
         favBean.setRecipeImage(img.getImage());
 
-        favouritesController favController = new favouritesController();
+        FavouritesController favController = new FavouritesController();
         favController.deleteFromFavourites(favBean);
 
         General.changeScene(General.setSource("Favourite"));

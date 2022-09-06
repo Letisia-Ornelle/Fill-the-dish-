@@ -1,6 +1,6 @@
 package home.home2.Model;
 
-import home.home2.Beans.fridgeBean;
+import home.home2.beans.FridgeBean;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class fridgeSingletonEntity extends fridgeSubject{
 
     private List<IngredientEntity> ingredientList ;
     private static fridgeSingletonEntity instance = null;
-    private String username ;
+    public static String username ;
 
     // Prima l'ho pensata cosi, ma poi mi sono accorta che non andava bene con il fatto
     public fridgeSingletonEntity(List<IngredientEntity> ingredientList, String userName) {
@@ -56,7 +56,7 @@ public class fridgeSingletonEntity extends fridgeSubject{
 
         ingredientList.add(ingrediente);
 
-        fridgeBean f = new fridgeBean();
+        FridgeBean f = new FridgeBean();
         f.setIngredientName(name);
         f.setIngredientImage(image);
 

@@ -1,9 +1,9 @@
 package home.home2;
 
-import home.home2.Controller.enrollController;
-import home.home2.Controller.loginController;
-import home.home2.Beans.enrollBean;
-import home.home2.Beans.loginBean;
+import home.home2.controller.EnrollController;
+import home.home2.controller.LoginController;
+import home.home2.beans.EnrollBean;
+import home.home2.beans.LoginBean;
 import home.home2.Model.Exceptions.loginFailedException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,14 +50,14 @@ public class Login2Controller {
 
         General2.loginState = true;
 
-        loginBean loginB = new loginBean();
+        LoginBean loginB = new LoginBean();
         loginB.setUsername(username.getText());
         loginB.setPassword(password.getText());
 
         username.setText("");
         password.setText("");
 
-        loginController loginC = new loginController();
+        LoginController loginC = new LoginController();
         if(loginC.login(loginB) == false){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Credenziali Errate!");
@@ -78,14 +78,14 @@ public class Login2Controller {
 
     public void clickRegister(ActionEvent event) throws IOException, SQLException {
 
-        enrollBean enrollbean = new enrollBean();
+        EnrollBean enrollbean = new EnrollBean();
         enrollbean.setUsername(userName.getText());
         enrollbean.setName(name.getText());
         enrollbean.setCognome(lastname.getText());
         enrollbean.setEmail(email.getText());
         enrollbean.setPassword(passWord.getText());
 
-        enrollController controller = new enrollController();
+        EnrollController controller = new EnrollController();
 
         if (controller.addUser(enrollbean) == true && enrollbean.getPassword().equals(repeatPassword.getText())) {
 

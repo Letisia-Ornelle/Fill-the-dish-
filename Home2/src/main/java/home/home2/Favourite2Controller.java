@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.favouritesController;
-import home.home2.Beans.favouritesBean;
+import home.home2.controller.FavouritesController;
+import home.home2.beans.FavouritesBean;
 import home.home2.Model.Exceptions.provideLoginException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,11 +28,11 @@ public class Favourite2Controller implements Initializable {
         int i;
 
 
-        List<favouritesBean> favouritesBeans;
+        List<FavouritesBean> favouritesBeans;
 
-        favouritesController favController = null;
+        FavouritesController favController = null;
         try {
-            favController = new favouritesController();
+            favController = new FavouritesController();
         } catch (provideLoginException e) {
             e.printStackTrace();
         }

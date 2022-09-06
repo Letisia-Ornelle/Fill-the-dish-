@@ -1,12 +1,8 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.controller.CalculateRecipeController;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,9 +12,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -27,7 +20,6 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class IngredientsController implements Initializable {
@@ -279,7 +271,7 @@ public class IngredientsController implements Initializable {
         General.changeScene(General.setSource("Home2"));
     }
 
-    calculateRecipeController c = new calculateRecipeController();
+    CalculateRecipeController c = new CalculateRecipeController();
 
 
 

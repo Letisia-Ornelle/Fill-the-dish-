@@ -1,8 +1,8 @@
 package home.home2;
 
 
-import home.home2.Controller.manageFridgeController;
-import home.home2.Beans.fridgeBean;
+import home.home2.controller.ManageFridgeController;
+import home.home2.beans.FridgeBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.fridgeObserver;
 import home.home2.Model.fridgeSubject;
@@ -138,8 +138,8 @@ public class FridgeController implements Initializable, fridgeObserver {
         // Definisco un nuovo observer --> Altro observer per questo caso d'uso dovrebbe essere InsertIngredientsController ?
         fridgeSubject.attach(this);
 
-        manageFridgeController fridge = new manageFridgeController();
-        List<fridgeBean> fridgeBeans ;
+        ManageFridgeController fridge = new ManageFridgeController();
+        List<FridgeBean> fridgeBeans ;
         fridgeBeans = fridge.showFridge();
 
 
@@ -163,7 +163,7 @@ public class FridgeController implements Initializable, fridgeObserver {
 
     }
 
-    public void addImageToIngredient(fridgeBean fridgebean){
+    public void addImageToIngredient(FridgeBean fridgebean){
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png","*.jpg","*.png"));
@@ -188,12 +188,12 @@ public class FridgeController implements Initializable, fridgeObserver {
 
 
         if(textField.getText() != "") {
-            fridgeBean f = new fridgeBean();
+            FridgeBean f = new FridgeBean();
 
             f.setIngredientName(textField.getText());
             //  f.setIngredientInputStream(new FileInputStream(imageURL));
 
-            manageFridgeController fridge = new manageFridgeController();
+            ManageFridgeController fridge = new ManageFridgeController();
 
 
             //FXMLLoader fxmlloader = new FXMLLoader();
@@ -250,7 +250,7 @@ public class FridgeController implements Initializable, fridgeObserver {
     // In teoria dovrei fare solo l'update della grafica all'inserimento di un nuovo ingrediente
 
     @Override
-    public void update(fridgeBean fridgebean) {
+    public void update(FridgeBean fridgebean) {
 
         FXMLLoader fxmlloader = new FXMLLoader();
         fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));

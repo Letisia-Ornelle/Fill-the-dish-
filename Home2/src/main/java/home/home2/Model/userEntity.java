@@ -37,7 +37,7 @@ public class userEntity {
         return favourites;
     }
 
-    public fridgeSingletonEntity getFridge(){
+    public static fridgeSingletonEntity getFridge(){
         fridge = fridgeSingletonEntity.getInstance();
         return fridge;
     }

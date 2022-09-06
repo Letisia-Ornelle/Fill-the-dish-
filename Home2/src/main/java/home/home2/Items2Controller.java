@@ -1,6 +1,6 @@
 package home.home2;
 
-import home.home2.Beans.calculateRecipeBean;
+import home.home2.beans.CalculateRecipeBean;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,7 +21,7 @@ public class Items2Controller {
     @FXML
     private Label recipeType;
     private static PendentScreen2 ps;
-    calculateRecipeBean recipe;
+    CalculateRecipeBean recipe;
 
     public void clickRecipeIm(MouseEvent mouseEvent) throws IOException {
         Home2 m = new Home2();
@@ -34,7 +34,7 @@ public class Items2Controller {
         General2.changeScene(General2.setSource("Recipe2"));
     }
 
-    public void setData(calculateRecipeBean recipe) {
+    public void setData(CalculateRecipeBean recipe) {
         this.recipe = recipe;
         recipeName.setText(recipe.getName());
         recipeImage.setImage(recipe.getImage());

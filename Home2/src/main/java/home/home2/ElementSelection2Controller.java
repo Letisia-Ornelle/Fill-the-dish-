@@ -1,6 +1,6 @@
 package home.home2;
 
-import home.home2.Beans.fridgeBean;
+import home.home2.beans.FridgeBean;
 import home.home2.Model.Ingredient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,9 +21,9 @@ public class ElementSelection2Controller {
     @FXML
     private Button name;
 
-    fridgeBean fridgebean;
+    FridgeBean fridgebean;
 
-    public void setData(fridgeBean fridgebean){
+    public void setData(FridgeBean fridgebean){
         this.fridgebean = fridgebean;
         name.setText(fridgebean.getIngredientName());
         img.setImage(fridgebean.getIngredientImage());

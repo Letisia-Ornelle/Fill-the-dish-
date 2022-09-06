@@ -1,8 +1,8 @@
 package home.home2;
 
-import home.home2.Controller.calculateRecipeController;
-import home.home2.Beans.calculateRecipeBean;
-import home.home2.Beans.ingredientBean;
+import home.home2.controller.CalculateRecipeController;
+import home.home2.beans.CalculateRecipeBean;
+import home.home2.beans.IngredientBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,12 +48,12 @@ public class Recipe2Controller implements Initializable {
         System.out.println(ps.getDescription());
         System.out.println(ps.getType());
 
-        calculateRecipeBean recipeBean = new calculateRecipeBean();
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
         recipeBean.setName(recipeName.getText());
 
 
-        calculateRecipeController recipeController = new calculateRecipeController();
-        List<ingredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
+        CalculateRecipeController recipeController = new CalculateRecipeController();
+        List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
 
         // Ok devo iterare su questa lista e aggiungere in modo progressivo il coso nel verticalBox
 

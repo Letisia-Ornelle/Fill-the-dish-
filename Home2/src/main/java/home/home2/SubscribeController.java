@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Controller.enrollController;
-import home.home2.Beans.enrollBean;
+import home.home2.controller.EnrollController;
+import home.home2.beans.EnrollBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -171,14 +171,14 @@ public class SubscribeController implements Initializable {
     @FXML
     private void clickSubscribe(ActionEvent event) throws IOException, SQLException {
 
-        enrollBean eb = new enrollBean();
+        EnrollBean eb = new EnrollBean();
         eb.setUsername(username.getText());
         eb.setName(name.getText());
         eb.setCognome(lastname.getText());
         eb.setEmail(email.getText());
         eb.setPassword(pwd.getText());
 
-        enrollController ec = new enrollController();
+        EnrollController ec = new EnrollController();
 
         if (ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())) {
 

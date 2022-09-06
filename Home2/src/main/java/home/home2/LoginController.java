@@ -1,7 +1,6 @@
 package home.home2;
 
-import home.home2.Controller.loginController;
-import home.home2.Beans.loginBean;
+import home.home2.beans.LoginBean;
 import home.home2.Model.Exceptions.loginFailedException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -100,11 +99,11 @@ public class LoginController implements Initializable {
 
         General.loginState = true;
 
-        loginBean lb = new loginBean();
+        LoginBean lb = new LoginBean();
         lb.setUsername(username.getText());
         lb.setPassword(password.getText());
 
-        loginController lc = new loginController();
+        home.home2.controller.LoginController lc = new home.home2.controller.LoginController();
         try{
             if (lc.login(lb) == false) {
                 alert.setVisible(true);
