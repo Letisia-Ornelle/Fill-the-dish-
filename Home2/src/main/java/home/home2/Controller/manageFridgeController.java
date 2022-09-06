@@ -16,42 +16,39 @@ public class manageFridgeController {
 
    private static fridgeSingletonEntity fridge = null;
     List<IngredientEntity> ingredients;
+    fridgeDAO fridgeDAO = new fridgeDAO();
 
     public manageFridgeController(){
-        try{
-            ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
-            this.fridge = fridgeSingletonEntity.createFridge(ingredients,user.getInstance().getUser().getUsername());
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
+        this.fridge = user.getInstance().getUser().getFridge().createFridge(ingredients,user.getInstance().getUser().getUsername());
 
-   }
+    }
 
-    // Devo implementare Observer sul frigo --> Come cacchio funziona sto pattern ?
-
-    public void addIngredient(fridgeBean fridgebean) throws SQLException, duplicateIngredientException {
+    public void addIngredient(fridgeBean fridgebean) throws duplicateIngredientException {
 
         for(IngredientEntity ingr : ingredients){
             if(ingr.getIngredient().equals(fridgebean.getIngredientName())){
                throw new duplicateIngredientException("This ingredient already exist !");
             }
         }
+
         IngredientEntity ingredient = fridge.addIngredient(fridgebean.getIngredientName(), fridgebean.getIngredientImage());
         fridgeDAO.insertInFridge(user.getInstance().getUser().getUsername(),ingredient, fridgebean.getIngredientInputStream());
 
     }
 
 
-     public List<fridgeBean> showFridge() throws SQLException {
+     public List<fridgeBean> showFridge(){
         List<IngredientEntity> ingredients;
         List<fridgeBean> ingredientListBean = new ArrayList<>();
 
-         userEntity entity = new userEntity(fridge,user.getInstance().getUser().getUsername());
+        ingredients = fridge.getIngredientList();
 
-        // ingredients = entity.getFridge().getIngredientList();
-         ingredients = fridge.getIngredientList();
+        for(IngredientEntity ingredient : fridgeSingletonEntity.getInstance().getIngredientList()){
+            System.out.println(ingredient.getIngredient());
+        }
 
-        for(IngredientEntity ingr : ingredients){
+        for(IngredientEntity ingr : user.getInstance().getUser().getFridge().getIngredientList()){
            ingredientListBean.add(new fridgeBean(ingr.getIngredient(), ingr.getIngredientSrc()));
         }
 
@@ -60,10 +57,8 @@ public class manageFridgeController {
 
 
 
-    public static boolean getImage(fridgeBean fb) throws SQLException {
+    public  boolean getImage(fridgeBean fb) throws SQLException {
 
-        // Anche se in realtà è l'ingrediente come oggetto e non solo l'immagine
-        // Nella DAO , è stata settata sia nome che immagine dell'ingrediente (immagine con quella presa dal Database)
         IngredientEntity ingredient =  fridgeDAO.ingredientImage(fb.getIngredientName());
 
         if(ingredient != null){
@@ -81,13 +76,11 @@ public class manageFridgeController {
     }
 
 
-    public static void deleteIngredient(fridgeBean fridgebean) {
+    public void deleteIngredient(fridgeBean fridgebean) {
 
         IngredientEntity ingredient = new IngredientEntity(fridgebean.getIngredientName(), fridgebean.getIngredientImage());
 
         fridgeSingletonEntity.getInstance().removeIngredient(ingredient);
-
-        //fridgeSingletonEntity fridge = fridgeSingletonEntity.getInstance();
 
         fridgeDAO.delete(fridgebean.getIngredientName());
     }
