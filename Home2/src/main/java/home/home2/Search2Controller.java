@@ -1,24 +1,16 @@
 package home.home2;
 
-import home.home2.Element;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-
-import static home.home2.Home.ps;
 
 public class Search2Controller implements Initializable {
     Boolean[] portata = new Boolean[6];
@@ -26,6 +18,8 @@ public class Search2Controller implements Initializable {
     private ImageView primi, secondi, contorni, colazioni, dessert, antipasti;
     @FXML
     private GridPane grid;
+
+    private PendentScreen2 ps;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,7 +53,7 @@ public class Search2Controller implements Initializable {
         antipasti.setScaleX(0.5);
         antipasti.setScaleY(0.5);
 
-        elements.addAll(getData());
+       /* elements.addAll(getData());
 
         try {
             for (i=0;i<elements.size();i++) {
@@ -67,8 +61,8 @@ public class Search2Controller implements Initializable {
                 fxmlloader.setLocation(getClass().getResource("ListElement.fxml"));
                 Pane anchorPane = fxmlloader.load();
 
-                ElementController elementController = fxmlloader.getController();
-                elementController.setData(elements.get(i));
+               // ElementController elementController = fxmlloader.getController();
+               // elementController.setData(elements.get(i));
 
                 grid.add(anchorPane, column, row++);
                 grid.setMargin(anchorPane, new Insets(5));
@@ -76,7 +70,7 @@ public class Search2Controller implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void clickSearch(ActionEvent event) throws IOException {
@@ -208,7 +202,7 @@ public class Search2Controller implements Initializable {
 
     }
 
-    private List<Element> elements = new ArrayList<>();
+    /*private List<Element> elements = new ArrayList<>();
 
     private List<Element> getData() {
         int i;
@@ -222,7 +216,7 @@ public class Search2Controller implements Initializable {
             elements.add(elem);
         }
         return elements;
-    }
+    }*/
 
     public void clickInterfaceButton(ActionEvent event) {
         // No
@@ -233,11 +227,11 @@ public class Search2Controller implements Initializable {
     }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        if (General.loginState) {
-            General.changeScene(General.setSource("Fridge2"));
+        if (General2.loginState) {
+            General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            Home2 m = new Home2();
+            ps = m.getPS2();
             ps.add("Fridge2.fxml");
             //System.out.println();
             General.changeScene(General.setSource("Login2"));
@@ -245,25 +239,41 @@ public class Search2Controller implements Initializable {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite2"));
+        if (General2.loginState) {
+            General2.changeScene(General2.setSource("Favourite2"));
+        } else {
+            Home2 m = new Home2();
+            ps = m.getPS2();
+            ps.add("Favourite2.fxml");
+            General2.changeScene(General2.setSource("Login2"));
+        }
     }
 
     public void clickLoginButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login2"));
+        General2.changeScene(General.setSource("Login2"));
     }
 
     public void clickAddButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Add2"));
+        General2.changeScene(General2.setSource("Add2"));
     }
 
     public void clickSearchButton(ActionEvent event) throws IOException {
-       // General.changeScene(General.setSource("Search2"));
+     // General2.changeScene(General2.setSource("Search2"));
     }
 
     public void clickHomeButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home2"));
+        General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickBackButton(ActionEvent event) {
+    public void clickBackButton(ActionEvent event) throws IOException {
+    }
+
+    public void clickInsertIngredients(ActionEvent event) throws IOException {
+        General2.changeScene(General2.setSource("Ingredients2"));
+    }
+
+    public void clickRecipesButton(ActionEvent event) throws IOException {
+        ps.setScreen2("1");
+        General2.changeScene(General2.setSource("Result2"));
     }
 }
