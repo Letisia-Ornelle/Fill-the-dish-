@@ -2,8 +2,10 @@ package home.home2.Controller;
 
 import home.home2.Model.Beans.calculateRecipeBean;
 import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Model.Beans.ingredientBean;
 import home.home2.Model.DAO.calculateRecipeDAO;
 import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.Model.Ingredient;
 import home.home2.Model.RecipeEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,56 +18,40 @@ import java.util.List;
 
 public class calculateRecipeController {
 
-    calculateRecipeDAO Rdao = new calculateRecipeDAO();
+
 
     public List<calculateRecipeBean> checkIngredients(calculateRecipeBean RecipeBean) {
 
         List<calculateRecipeBean> recipesresultBeans = new ArrayList<>();
 
+        calculateRecipeDAO Rdao = new calculateRecipeDAO();
+
         List<RecipeEntity> recipes = Rdao.Recipes(RecipeBean.getListIng());
 
-
-        for (RecipeEntity i : recipes) {
-            recipesresultBeans.add(new calculateRecipeBean(i.getRecipe(), i.getRecipeSrc(), i.getDescrizione(),i.getType()));
+        for(RecipeEntity i : recipes ){
+            recipesresultBeans.add(new calculateRecipeBean(i.getRecipe(),i.getDescrizione(),i.getRecipeSrc(),i.getType()));
         }
+
 
         return recipesresultBeans; // ritorna una lista di ricette complete (nome..descrizione..)
     }
 
 
 
+    public  List<ingredientBean> getIngredients(calculateRecipeBean recipeBean){
 
-  /*  public void fillChoiceBox(CalculateRecipeBean CRbean) throws SQLException {
+        List<ingredientBean> ingredientBeans = new ArrayList<>();
+        List<Ingredient> ingredients = calculateRecipeDAO.RecipesIngredients(recipeBean.getName());
 
-        // Forse ci va ingredientBean come parametro ;
-
-        final ObservableList options = FXCollections.observableArrayList();
-
-      /*  while( Rdao.ingredients(CRbean.getName(), CRbean.getImage()).next() ){
-
-           // CRbean.setName(("nome"));
-            options.add(Rdao.ingredients(CRbean.getName(), CRbean.getImage()).getString("nome"));
+        for(Ingredient ingr : ingredients){
+            ingredientBeans.add(new ingredientBean(ingr.getName()));
         }
+
+        return ingredientBeans;
+
     }
 
- }}
-*/
 
-    /*  public ObservableList<String> retList() throws SQLException {
-      return Rdao.ingredients();
 
-      } */
-    public boolean verifyList( calculateRecipeBean CRbean ) throws SQLException {
-        ObservableList<String> IngredientList = Rdao.ingredients();
-
-        ObservableList<String> ingredienti = CRbean.setListIng(IngredientList);
-
-        if( ingredienti.equals(null)){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
 }
 
