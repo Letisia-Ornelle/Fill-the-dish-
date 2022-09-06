@@ -1,8 +1,10 @@
 package home.home2.Model;
 
 import home.home2.Model.DAO.fridgeDAO;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class userEntity {
 
@@ -12,41 +14,32 @@ public class userEntity {
     String surname;
     String email;
 
-    private fridgeSingletonEntity fridge;
-
-    // Composizione tra utente frigo ? --> Penso di si
-    // Teoricamente , chiamo la DAO per recuperare il frigo dell'utente con username username --> Trovato un'altro modo
+    private static fridgeSingletonEntity fridge;
+    private static List<RecipeEntity> favourites;
 
 
-    public userEntity(fridgeSingletonEntity fridge, String username){
+    public userEntity(fridgeSingletonEntity fridge,List<RecipeEntity> favourites, String username){
         this.fridge = fridge;
         this.username = username;
+        this.favourites = favourites;
+    }
 
+    // Non va bene perche in questo istante ancora non e stato loggato, quindi non posso recuperare
+    // Le credenziali dell'utente in modo da avere le istanze di fridge e favourites però vabbè
+    public userEntity(){
+        this.fridge= null;
+        this.favourites = new ArrayList<>();
     }
 
 
-    // Penso che dovrebbe essere uguale all'istanza di fridge !?
-    public userEntity(){
-        this.fridge= fridgeSingletonEntity.getInstance();
+    public List<RecipeEntity> getFavourites(){
+        favourites = favouritesEntity.getInstance().getUserFavouritesList();
+        return favourites;
     }
 
     public fridgeSingletonEntity getFridge(){
+        fridge = fridgeSingletonEntity.getInstance();
         return fridge;
-    }
-
-    public  void addIngredientIntoUserfridge(IngredientEntity ingredient){
-        this.fridge.addIngredient(ingredient.getIngredient(),ingredient.getIngredientSrc());
-    }
-
-    // Costruttore
-
-    public userEntity(String username, String password,String name,String surname,String email){
-        setUsername(username);
-        setPassword(password);
-        setName(name);
-        setSurname(surname);
-        setEmail(email);
-
     }
 
     public void setUsername(String userN){
@@ -88,5 +81,6 @@ public class userEntity {
     public String getSurname(){
         return surname;
     }
+
 
 }
