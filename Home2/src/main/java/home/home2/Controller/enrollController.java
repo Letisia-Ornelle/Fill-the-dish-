@@ -36,6 +36,7 @@ public class enrollController {
 
         }
         if( verifyEmail(eb.getEmail()) == false ){
+            // Qui dobbiamo lanciare l'eccezione
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Sintassi dell'email non valida!");
             alert.show();
