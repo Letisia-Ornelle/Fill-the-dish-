@@ -52,7 +52,7 @@ public class DynamicCBController implements Initializable {
     }
 
     public void getChoiceBoxValue(ActionEvent event) throws IOException {
-        
+
         String ingrediente = (String) choiceBoxD.getValue();
 
         systemFridge fridge = systemFridge.getInstance();
