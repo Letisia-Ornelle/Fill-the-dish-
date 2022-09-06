@@ -1,10 +1,15 @@
 package home.home2;
 
+import home.home2.Controller.calculateRecipeController;
 import home.home2.Controller.manageFridgeController;
+import home.home2.Model.Beans.calculateRecipeBean;
 import home.home2.Model.Beans.fridgeBean;
+import home.home2.Model.Ingredient;
 import home.home2.Model.fridgeObserver;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +23,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -29,7 +35,7 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
     @FXML
     Button homeButton;
     @FXML
-    Button buttonricetta;
+    Button calcolaRicetta;
 
     @FXML
     private Button menuButton;
@@ -38,38 +44,39 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
     @FXML
     private VBox verticalBox;
 
+    private static PendentScreen pendent ;
+
     // Devo semplicemente inizializzare la schermata con gli elementi presenti nella lista restituita nel controller di managefridge
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        Home h = new Home();
+        pendent = h.getPS();
+
         menu.setVisible(false);
         dark.setVisible(false);
 
-      manageFridgeController manageFridge = new manageFridgeController();
-       List<fridgeBean> fridgeBeans = null;
+        manageFridgeController manageFridge = new manageFridgeController();
+        List<fridgeBean> fridgeBeans ;
 
-       try{
-           fridgeBeans = manageFridge.showFridge();
-       }catch (SQLException e){
-           e.printStackTrace();
-       }
+        fridgeBeans = manageFridge.showFridge();
 
-       try{
-           for(int i =0; i<fridgeBeans.size();i++){
-               FXMLLoader fxmlLoader = new FXMLLoader();
-               fxmlLoader.setLocation(getClass().getResource("ElementFridgeSelection.fxml"));
-               Pane pane = fxmlLoader.load();
+        try{
+            for(int i =0; i<fridgeBeans.size();i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("ElementFridgeSelection.fxml"));
+                Pane pane = fxmlLoader.load();
 
-               ElementSelectionController elementSelectionController = fxmlLoader.getController();
-               elementSelectionController.setData(fridgeBeans.get(i));
+                ElementSelectionController elementSelectionController = fxmlLoader.getController();
+                elementSelectionController.setData(fridgeBeans.get(i));
 
-               verticalBox.getChildren().add(pane);
-               verticalBox.setMargin(pane,new Insets(5));
-           }
-       }catch(IOException e){
-           e.printStackTrace();
-       }
+                verticalBox.getChildren().add(pane);
+                verticalBox.setMargin(pane,new Insets(5));
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -121,10 +128,8 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
         General.setBackScene();
     }
 
-    @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Result"));
-    }
+
+
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Insert"));
@@ -163,18 +168,37 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
         General.changeScene(General.setSource("Home2"));
     }
 
-    @FXML
-    private void clickComputeRecipe(ActionEvent event) throws IOException {
-        int i;
-        for (i=0;i<ElementController.list.size();i++) {
-            System.out.println(ElementController.list.get(i));
-        }
+    private static List<calculateRecipeBean> recipeBeans = new ArrayList<>();
 
+    @FXML
+    private void recipesFridge(ActionEvent event) throws IOException {
+        System.out.println("ciao!!!!");
+        pendent.setScreen("3");
+        ElementSelectionController elementController = new ElementSelectionController();
+
+        calculateRecipeController recipeController = new calculateRecipeController();
+        calculateRecipeBean recipeBean = new calculateRecipeBean();
+
+        ObservableList<Ingredient> FridgeIngredients = elementController.getFridgeIngredients();
+
+        recipeBean.setListIng(FridgeIngredients);
+
+        recipeBeans =  recipeController.checkIngredients(recipeBean);
+
+
+        General.changeScene(General.setSource("Result"));
     }
 
+    public List<calculateRecipeBean> getRecipesBeans(){
+        return recipeBeans;
+    }
 
     @Override
     public void update(fridgeBean fridgebean) {
+    }
 
+    public void clickMenuLink1(ActionEvent actionEvent) throws IOException {
+        pendent.setScreen("1");
+        General.changeScene(General.setSource("Result"));
     }
 }
