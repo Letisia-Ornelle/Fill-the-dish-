@@ -46,6 +46,7 @@ public class enrollController {
         else {
 
             user.getInstance().registerNewUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
+            // Send email to the user
 
             return true;
 

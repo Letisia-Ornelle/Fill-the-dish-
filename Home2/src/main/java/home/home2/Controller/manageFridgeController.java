@@ -1,6 +1,7 @@
 package home.home2.Controller;
 
 import home.home2.Beans.fridgeBean;
+import home.home2.Boundary.manageFridgeSendEmail;
 import home.home2.Model.DAO.fridgeDAO;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.IngredientEntity;
@@ -33,6 +34,9 @@ public class manageFridgeController {
 
         IngredientEntity ingredient = fridge.addIngredient(fridgebean.getIngredientName(), fridgebean.getIngredientImage());
         fridgeDAO.insertInFridge(user.getInstance().getUser().getUsername(),ingredient, fridgebean.getIngredientInputStream());
+
+        manageFridgeSendEmail email = new manageFridgeSendEmail();
+        email.send(fridgebean);
 
     }
 

@@ -1,5 +1,6 @@
 package home.home2.Controller;
 
+import home.home2.Boundary.favouritesSendEmail;
 import home.home2.Model.*;
 import home.home2.Beans.favouritesBean;
 import home.home2.Model.DAO.favouritesDAO;
@@ -38,6 +39,9 @@ public class favouritesController {
         recipeEntity = favouritesEntity.getInstance().addToFavourites(favouritesbean.getRecipeName());
 
         favouritesDAO.insertIntoFavourites(user.getInstance().getUser().getUsername(),recipeEntity);
+
+        favouritesSendEmail fav = new favouritesSendEmail();
+        fav.send(favouritesbean);
 
     }
 
