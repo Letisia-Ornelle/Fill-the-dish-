@@ -12,9 +12,8 @@ import java.util.List;
 
 public class FavouritesController {
 
-    static favouritesEntity favouritesList;
-    private List<RecipeEntity> favourites;
-    favouritesDAO favouritesD = new favouritesDAO();
+     public final favouritesEntity favouritesList ;
+     List<RecipeEntity> favourites;
 
 
     public FavouritesController() throws provideLoginException {
@@ -24,12 +23,12 @@ public class FavouritesController {
             throw new provideLoginException();
         }
         favourites = favouritesD.userFavourites(user.getInstance().getUser().getUsername());
-        this.favouritesList = favouritesEntity.createFavouritesList(favourites,user.getInstance().getUser().getUsername());
+        favouritesList = favouritesEntity.createFavouritesList(favourites,user.getInstance().getUser().getUsername());
     }
 
     public void addToFavourites(FavouritesBean favouritesbean) throws duplicateRecipeException {
-
-        for(RecipeEntity recipe : favourites){
+        favouritesDAO favouritesD = new favouritesDAO();
+        for(RecipeEntity recipe : user.getInstance().getUser().getFavourites()){
             if(recipe.getRecipe().equals(favouritesbean.getRecipeName())){
                 throw new duplicateRecipeException("Ingrediente gia esistente nella lista di preferiti");
             }
@@ -47,6 +46,7 @@ public class FavouritesController {
     }
 
     public void deleteFromFavourites(FavouritesBean favouritesbean){
+        favouritesDAO favouritesD = new favouritesDAO();
         RecipeEntity recipeEntity = new RecipeEntity(favouritesbean.getRecipeName());
 
         favouritesEntity.getInstance().removeFromFavourites(recipeEntity);
@@ -56,6 +56,7 @@ public class FavouritesController {
     }
 
     public  List<FavouritesBean> showFavourites(){
+        favouritesDAO favouritesD = new favouritesDAO();
         List<FavouritesBean> favouritesBeans = new ArrayList<>();
         List<RecipeEntity> recipes = favouritesD.userFavourites(user.getInstance().getUser().getUsername());
 

@@ -12,18 +12,19 @@ import java.util.List;
 
 public class ManageFridgeController {
 
-    private fridgeSingletonEntity fridge;
+    public final fridgeSingletonEntity fridge;
     List<IngredientEntity> ingredients;
-    fridgeDAO fridgeDAO = new fridgeDAO();
+
 
     public ManageFridgeController(){
+        fridgeDAO fridgeDAO = new fridgeDAO();
         ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
-        this.fridge = user.getInstance().getUser().getFridge().createFridge(ingredients,user.getInstance().getUser().getUsername());
+        this.fridge = fridgeSingletonEntity.createFridge(ingredients,user.getInstance().getUser().getUsername());
 
     }
 
     public void addIngredient(FridgeBean fridgebean) throws duplicateIngredientException {
-
+        fridgeDAO fridgeDAO = new fridgeDAO();
         for(IngredientEntity ingr : ingredients){
             if(ingr.getIngredient().equals(fridgebean.getIngredientName())){
                throw new duplicateIngredientException("This ingredient already exist !");
@@ -44,7 +45,7 @@ public class ManageFridgeController {
 
         ingredients = fridge.getIngredientList();
 
-        for(IngredientEntity ingr : user.getInstance().getUser().getFridge().getIngredientList()){
+        for(IngredientEntity ingr : ingredients){
            ingredientListBean.add(new FridgeBean(ingr.getIngredient(), ingr.getIngredientSrc()));
         }
 
@@ -54,7 +55,7 @@ public class ManageFridgeController {
 
 
     public  boolean getImage(FridgeBean fb){
-
+        fridgeDAO fridgeDAO = new fridgeDAO();
         IngredientEntity ingredient =  fridgeDAO.ingredientImage(fb.getIngredientName());
 
         if(ingredient != null){
@@ -71,7 +72,7 @@ public class ManageFridgeController {
 
 
     public void deleteIngredient(FridgeBean fridgebean) {
-
+        fridgeDAO fridgeDAO = new fridgeDAO();
         IngredientEntity ingredient = new IngredientEntity(fridgebean.getIngredientName(), fridgebean.getIngredientImage());
 
         fridgeSingletonEntity.getInstance().removeIngredient(ingredient);
