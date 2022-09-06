@@ -1,8 +1,13 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
+import home.home2.Controller.favouritesController;
 import home.home2.Model.Beans.calculateRecipeBean;
+import home.home2.Model.Beans.favouritesBean;
 import home.home2.Model.Beans.ingredientBean;
+import home.home2.Model.Exceptions.duplicateIngredientException;
+import home.home2.Model.Exceptions.duplicateRecipeException;
+import home.home2.Model.Exceptions.provideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -10,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -44,7 +51,7 @@ public class RecipeController implements Initializable {
     private Label recipeName;
 
     @FXML
-    private Label recipeDescription;
+    private Text recipeDescription;
 
     @FXML
     private VBox verticalBox;
@@ -209,19 +216,33 @@ public class RecipeController implements Initializable {
 
     @FXML
     private void clickFavButton(MouseEvent event) throws IOException {
-        if (General.loginState) {
-            if (!inFavourite) {
-                favButton.setImage(check);
-                inFavourite = true;
-            } else {
-                favButton.setImage(heart);
-                inFavourite = false;
-            }
-        } else {
-            Home m = new Home();
-            ps = m.getPS();
-            ps.add("Recipe.fxml");
-            General.changeScene(General.setSource("Login"));
+
+        favouritesBean favBean = new favouritesBean();
+        favBean.setRecipeName(recipeName.getText());
+        favouritesController favController;
+        try{
+            favController = new favouritesController();
+
+                if (General.loginState) {
+
+                    favController.addToFavourites(favBean);
+
+                }
+            } catch (duplicateRecipeException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Attenzione, questa ricetta è già presente nella lista dei preferiti");
+                alert.show();
+            }catch(provideLoginException e1){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Attenzione, devi prima fare il login");
+                alert.show();
+            }finally {
+                if(!General.loginState){
+                    Home m = new Home();
+                    ps = m.getPS();
+                    ps.add("Recipe.fxml");
+                    General.changeScene(General.setSource("Login"));
+                }
         }
 
     }
