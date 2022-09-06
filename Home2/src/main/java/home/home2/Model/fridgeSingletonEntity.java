@@ -3,7 +3,6 @@ package home.home2.Model;
 import home.home2.Model.Beans.fridgeBean;
 import javafx.scene.image.Image;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,23 +11,8 @@ import java.util.List;
 public class fridgeSingletonEntity extends fridgeSubject{
 
 
-    // Lista di ingredienti --> setter et getter
-
-    // Metodo per aggiungere un ingrediente al frigo
-
-    // Utente che aggiunge l'ingrediente nel frigo --> setter et getter
-
-    // frigo come singleton ???? In modo che possa aggiungere gli elementi all'istanza di frigo creata
-
-    // Da ripensare a questa parte
-
-    // Devo recuperare la lista di ingredienti dal DAO ( Ingredienti dell'utente) --> Ho trovato un'altro modo .... forse
-
-    // Quale relazione esiste tra frigo e ingredienti ? --> Composizione
-
     private List<IngredientEntity> ingredientList ;
     private static fridgeSingletonEntity instance = null;
-    userEntity userentity;
     private String username ;
 
     // Prima l'ho pensata cosi, ma poi mi sono accorta che non andava bene con il fatto
@@ -36,14 +20,6 @@ public class fridgeSingletonEntity extends fridgeSubject{
         this.ingredientList = ingredientList;
         this.username = userName;
     }
-
-    // public fridgeSingleton(){
-
-   // }
-
-    // Costruttore
-    //public fridgeSingleton(List<Ingredient> ingredientList, String userName) throws SQLException {
-    // Composizione tra frigo e ingredienti
 
 
     public static synchronized fridgeSingletonEntity createFridge(List<IngredientEntity> ingredientList, String userName){
