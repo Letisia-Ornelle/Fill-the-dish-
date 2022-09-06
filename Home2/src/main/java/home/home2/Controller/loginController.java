@@ -12,22 +12,6 @@ public class loginController {
     private String username;
     private String pass;
 
-    /*public boolean verifyLogin(userBean b) throws SQLException {
-
-        userDAO dao = new userDAO();
-
-
-        Boolean risultato = dao.verify(b.getUsername(), b.getPassword());
-
-        if(risultato == true){
-            return true;
-        }
-
-        else{
-            return false;
-        }
-
-    }*/
 
     public boolean login(loginBean loginbean) throws SQLException, loginFailedException {
 
@@ -35,7 +19,7 @@ public class loginController {
 
         String s = userdao.verify(loginbean.getUsername(),loginbean.getPassword());
         if(s == null){
-            return false;
+            throw new loginFailedException("Account non registrato");
         }
         else {
            user.loginUser(loginbean.getUsername(), loginbean.getPassword());
@@ -59,8 +43,4 @@ public class loginController {
 
     }
 
-
-    public void loginFacebook(){
-
-    }
 }
