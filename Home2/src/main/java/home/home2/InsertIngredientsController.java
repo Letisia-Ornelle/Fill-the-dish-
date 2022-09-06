@@ -1,7 +1,9 @@
 package home.home2;
 
 import home.home2.Controller.calculateRecipeController;
+import home.home2.Model.Beans.calculateRecipeBean;
 import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.Model.Ingredient;
 import home.home2.Model.RecipeEntity;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -34,25 +36,8 @@ import java.util.ResourceBundle;
 public class InsertIngredientsController implements Initializable {
     private static PendentScreen ps;
 
-    //these items are for the chooseBox
     @FXML
-    private ChoiceBox choiceBox1;
-    @FXML
-    private ChoiceBox choiceBox2;
-    @FXML
-    private ChoiceBox choiceBox3;
-    @FXML
-    private ChoiceBox choiceBox4;
-    @FXML
-    private ChoiceBox choiceBox5;
-    @FXML
-    private ChoiceBox choiceBox6;
-    @FXML
-    private ChoiceBox choiceBox7;
-    @FXML
-    private ChoiceBox choiceBox8;
-    @FXML
-    private ChoiceBox choiceBoxN;
+    private Pane pane;
 
     @FXML
     private GridPane grid;
@@ -60,19 +45,7 @@ public class InsertIngredientsController implements Initializable {
     int row  = 3;
 
 
-
-
-    public void choiceBoxButtonPushed(){
-        choiceBox1.getValue();
-        choiceBox2.getValue();
-        choiceBox3.getValue();
-        choiceBox4.getValue();
-        choiceBox5.getValue();
-        choiceBox6.getValue();
-        choiceBox7.getValue();
-        choiceBox8.getValue();
-        choiceBoxN.getValue();
-    }
+    private static DynamicCBController choiceBoxController ;
 
     @FXML
     private void clickMenuButton() throws IOException, InterruptedException {
@@ -119,31 +92,13 @@ public class InsertIngredientsController implements Initializable {
     private Pane menu, dark;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
 
-        //configuring the choiceboxs
-       /* choiceBox1.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox2.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox3.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox4.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox5.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox6.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox7.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox8.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-
-
-        choiceBox1.setValue("Seleziona un ingrediente");
-        choiceBox2.setValue("Seleziona un ingrediente");
-        choiceBox3.setValue("Seleziona un ingrediente");
-        choiceBox4.setValue("Seleziona un ingrediente");
-        choiceBox5.setValue("Seleziona un ingrediente");
-        choiceBox6.setValue("Seleziona un ingrediente");
-        choiceBox7.setValue("Seleziona un ingrediente");
-        choiceBox8.setValue("Seleziona un ingrediente");*/
+        Home m = new Home();
+        ps = m.getPS();
 
 
 
@@ -151,19 +106,20 @@ public class InsertIngredientsController implements Initializable {
         int row  = 1;
         try {
 
-
             for(int i=0;i<22;i++) {
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
+
                 Pane pane = fxmlLoader.load();
-                // pane = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+                choiceBoxController = fxmlLoader.getController();
+                System.out.println(choiceBoxController);
+
 
                 if (column == 2) {
                     column = 0;
                     row++;
                 }
-
 
                 grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
@@ -182,13 +138,7 @@ public class InsertIngredientsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
-
-
 
     @FXML
     private void clickHomeButton() throws IOException {
@@ -199,22 +149,46 @@ public class InsertIngredientsController implements Initializable {
         General.setBackScene();
     }
 
+    private static List<calculateRecipeBean> recipeBeans = new ArrayList<>();
+
+    // Pensavo a questo in modo da recuperare la lista su ResultController... ma ???? Boh
+    // Cioè facendo la new di questa classe su resultController e chiamando questo metodo per recuperare la lista di ricette ?
+    // Può essere . o no
+    public List<calculateRecipeBean> getRecipes(){
+        return recipeBeans;
+    }
+
+
 
     @FXML
     private void clickRecipeButton() throws IOException {
 
+        ps.setScreen("2");
+
+        ObservableList<Ingredient> ingredients = choiceBoxController.getValues();
+
+        calculateRecipeBean  recipeBean = new calculateRecipeBean();
+        recipeBean.setListIng(ingredients);
+
+        calculateRecipeController recipeController = new calculateRecipeController();
+
+        recipeBeans = recipeController.checkIngredients(recipeBean);
 
         General.changeScene(General.setSource("Result"));
 
     }
+
+
+
+
     @FXML
     private void clickFridgeButton() throws IOException {
         if (General.loginState) {
-            General.changeScene(General.setSource("Fridge0"));
+            General.changeScene(General.setSource("SelectIngredients"));
         } else {
             Home m = new Home();
             ps = m.getPS();
-            ps.add("Fridge0.fxml");
+            ps.add("SelectIngredients.fxml");
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -223,6 +197,8 @@ public class InsertIngredientsController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        ps.setScreen("1");
+        //ps.setScreen("2");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
@@ -257,7 +233,7 @@ public class InsertIngredientsController implements Initializable {
             Home m = new Home();
             ps = m.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
+
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -280,13 +256,9 @@ public class InsertIngredientsController implements Initializable {
         General.changeScene(General.setSource("Home2"));
     }
 
-    //CalculateRecipeController c = new CalculateRecipeController();
 
 
 
 
 
 }
-
-
-
