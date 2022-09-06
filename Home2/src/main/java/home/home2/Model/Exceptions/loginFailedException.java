@@ -2,8 +2,6 @@ package home.home2.Model.Exceptions;
 
 public class loginFailedException extends Exception{
 
-    private final static  long serialVersion = 2L;
-
     public  loginFailedException() {
         super();
     }
