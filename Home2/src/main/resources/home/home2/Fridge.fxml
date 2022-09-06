@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" styleClass="#pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.FridgeController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" styleClass="#pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.home2.FridgeController">
 
    <Pane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" styleClass="#pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
 
@@ -87,8 +87,8 @@
                </Pane>
             </children>
          </Pane>
-         <ScrollPane hbarPolicy="NEVER" layoutX="640.0" layoutY="142.0" prefHeight="410.0" prefWidth="489.0" vbarPolicy="ALWAYS">
-           <VBox fx:id="verticalBox" minHeight="10.0"  />
+         <ScrollPane hbarPolicy="NEVER" layoutX="640.0" layoutY="142.0" prefHeight="498.0" prefWidth="489.0" vbarPolicy="ALWAYS">
+           <VBox fx:id="verticalBox" minHeight="10.0" />
          </ScrollPane>
       </Pane>
    </Pane>
