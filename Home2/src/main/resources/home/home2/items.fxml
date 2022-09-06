@@ -12,12 +12,6 @@
             <Image url="@pesto.png" />
          </image>
       </ImageView>
-
-      <Hyperlink fx:id="recipeName" layoutX="172.0" layoutY="14.0" prefHeight="60.0" prefWidth="236.0" text="Nome Ricetta" wrapText="true">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Hyperlink>
       <Label fx:id="recipeDescription" layoutX="268.0" layoutY="86.0" prefHeight="33.0" prefWidth="76.0" text="Descrizione">
          <font>
             <Font size="14.0" />
@@ -34,5 +28,10 @@
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
+      <Label fx:id="recipeName" layoutX="180.0" layoutY="32.0" prefHeight="30.0" prefWidth="205.0" text="Nome Ricetta" textFill="#41c97a">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
