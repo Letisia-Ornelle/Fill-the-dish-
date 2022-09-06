@@ -105,17 +105,27 @@ public class LoginController implements Initializable {
         lb.setPassword(password.getText());
 
         loginController lc = new loginController();
-        if (lc.login(lb) == false) {
-            alert.setVisible(true);
-        }
-        else{
-            if (ps.isNull()) {
-                General.changeScene(General.setSource("Home"));
-            } else {
-                General.changeScene(ps.get());
+        try{
+            if (lc.login(lb) == false) {
+                alert.setVisible(true);
             }
+            else{
+                if (ps.isNull()) {
+                    General.changeScene(General.setSource("Home"));
+                } else {
+                    General.changeScene(ps.get());
+                }
 
+            }
+        }catch(loginFailedException e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Account non registrato ! Creane uno prima di accedere al sistema");
+            alert.show();
+        }finally {
+            username.setText("");
+            password.setText("");
         }
+
 
     }
 
@@ -124,12 +134,11 @@ public class LoginController implements Initializable {
         General.changeScene(General.setSource("Subscribe"));
     }
 
-    // login tramite facebook || google
-
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
         ps.clear();
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
 
