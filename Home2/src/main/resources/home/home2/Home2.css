@@ -12,7 +12,21 @@
 
 .button:hover{
     -fx-background-color: #ffffff55;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+
+}
+
+.button{
+    -fx-background-color: #00000055;
     -fx-border-color: #00000000;
+}
+
+.button:hover{
+    -fx-background-color: #0000055;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+
 }
 
 #menuBar{
