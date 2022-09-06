@@ -1,10 +1,12 @@
 package home.home2;
 
+import home.home2.Controller.favouritesController;
 import home.home2.Controller.manageFridgeController;
+import home.home2.Model.Beans.favouritesBean;
 import home.home2.Model.Beans.fridgeBean;
 import home.home2.Model.Beans.ingredientBean;
-import home.home2.Element;
 import home.home2.Model.Exceptions.duplicateIngredientException;
+import home.home2.Model.Exceptions.provideLoginException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,7 +21,6 @@ import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ElementController implements Initializable {
@@ -36,41 +37,31 @@ public class ElementController implements Initializable {
 
     private Image image1;
 
-    private Element elem;
     private fridgeBean fridgebean;
     public static ArrayList list = new ArrayList();
     private   Image image;
-    //private static List<Element> elements = General.Elements;
+    private favouritesBean favBean;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       // image1 = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
     }
 
-    public void removeIngredient(ActionEvent event) throws SQLException {
-
-        // Devo rimuovere l'elemento grafico, sia dalla lista che dalla View !!!!
+    public void removeIngredient(ActionEvent event) throws SQLException, IOException {
 
         fridgeBean fridgebean = new fridgeBean();
         fridgebean.setIngredientName(name.getText());
         manageFridgeController fridgeController = new manageFridgeController();
         fridgeController.deleteIngredient(fridgebean);
 
-        cover.setVisible(false);
-
-        // Pensavo di recuperare la lista e trovare qualche algoritmo che mi consente di rimuovere proprio l'elemento dal
-        // VerticalBox, non solo di giocare con la visibilià ( Settanto a false come ho fatto io)
-        // Però vabbè.....
-
+       // cover.setVisible(false);
+        General.changeScene(General.setSource("Fridge"));
 
     }
 
-    // Non serve a niente....
-    public void setData(Element elem) {
-        this.elem = elem;
-        name.setText(elem.getTitle());
-        Image image = new Image(getClass().getResourceAsStream(elem.getImgSrc()));
-        img.setImage(image);
+    public void setData(favouritesBean favBean) {
+        this.favBean = favBean;
+        name.setText(favBean.getRecipeName());
+        img.setImage(favBean.getRecipeImage());
     }
 
     public void setData3(ingredientBean ingredientbean){
@@ -125,8 +116,15 @@ public class ElementController implements Initializable {
 
 
     @FXML
-    public void clickRemoveRecipe(MouseEvent event) throws IOException {
-        General.removeEl(this.elem.getTitle());
+    public void clickRemoveRecipe(MouseEvent event) throws IOException, provideLoginException {
+
+        favouritesBean favBean = new favouritesBean();
+        favBean.setRecipeName(name.getText());
+        favBean.setRecipeImage(img.getImage());
+
+        favouritesController favController = new favouritesController();
+        favController.deleteFromFavourites(favBean);
+
         General.changeScene(General.setSource("Favourite"));
     }
 
