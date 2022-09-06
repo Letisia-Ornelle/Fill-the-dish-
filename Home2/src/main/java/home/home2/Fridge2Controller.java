@@ -1,7 +1,6 @@
 package home.home2;
 
 import home.home2.Controller.manageFridgeController;
-import home.home2.Element;
 import home.home2.Model.Beans.fridgeBean;
 import home.home2.Model.Exceptions.duplicateIngredientException;
 import home.home2.Model.fridgeObserver;
@@ -14,7 +13,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -22,9 +20,10 @@ import javafx.stage.FileChooser;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static home.home2.Home2.ps;
 
 public class Fridge2Controller implements Initializable, fridgeObserver {
 
@@ -45,16 +44,10 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
 
         fridgeSubject.attach(this);
 
-        // All'inizializzazione , devo recuperare la lista di ingredienti dell'utente
-
-        List<fridgeBean> fridgeBeans = null;
+        List<fridgeBean> fridgeBeans ;
         manageFridgeController fridgeController = new manageFridgeController();
 
-        try{
-            fridgeBeans = fridgeController.showFridge();
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
+        fridgeBeans = fridgeController.showFridge();
 
         for(i = 0; i<fridgeBeans.size();i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -136,7 +129,7 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     }
 
     public void clickReviewButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Review2"));
+        General2.changeScene(General2.setSource("Review2"));
     }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
@@ -144,19 +137,25 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite2"));
-    }
+        if (General2.loginState) {
+            General2.changeScene(General2.setSource("Favourite2"));
+        } else {
+            Home2 m = new Home2();
+            ps = m.getPS2();
+            ps.add("Favourite2.fxml");
+            General2.changeScene(General2.setSource("Login2"));
+        }      }
 
     public void clickLoginButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login2"));
+        General2.changeScene(General2.setSource("Login2"));
     }
 
     public void clickAddButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Add2"));
+        General2.changeScene(General2.setSource("Add2"));
     }
 
     public void clickSearchButton(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Search2"));
+        General2.changeScene(General2.setSource("Search2"));
     }
 
     public void clickBackButton(ActionEvent actionEvent) {
@@ -165,6 +164,13 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     }
 
     public void clickHomeButton(ActionEvent actionEvent) throws IOException {
-        General.changeScene(General.setSource("Home2"));
+        General2.changeScene(General2.setSource("Home2"));
+    }
+
+    public void clickInsertIngredients(ActionEvent event) {
+    }
+
+    public void clickRecipesButton(ActionEvent event) throws IOException {
+        General2.changeScene(General2.setSource("Result2"));
     }
 }
