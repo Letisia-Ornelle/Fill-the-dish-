@@ -12,16 +12,14 @@ public class allRecipesController {
 
     public List<calculateRecipeBean> allRecipes() throws SQLException {
 
-        List<calculateRecipeBean> RecipesBeans = new ArrayList<>();
+        List<RecipeEntity> recipes = allRecipesDAO.getAllRecipes();
+        List<calculateRecipeBean> recipeBeans = new ArrayList<>();
 
-        allRecipesDAO RecipesDAO = new allRecipesDAO();
-
-        List<RecipeEntity> Recipes = RecipesDAO.getAllRecipes();
-
-        for(RecipeEntity i: Recipes){
-            RecipesBeans.add(new calculateRecipeBean(i.getRecipe(),i.getRecipeSrc(),i.getDescrizione(),i.getType()));
-
+        for(RecipeEntity i : recipes){
+            recipeBeans.add(new calculateRecipeBean(i.getRecipe(),i.getDescrizione(),i.getRecipeSrc(),i.getType()));
         }
-        return RecipesBeans;
+        return recipeBeans;
     }
+
+
 }
