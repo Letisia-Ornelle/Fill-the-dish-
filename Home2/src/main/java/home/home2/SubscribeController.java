@@ -174,38 +174,6 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickSubscribe(ActionEvent event) throws IOException, SQLException {
-        int i;
-       /* c1 = name.getText();
-        c2 = lastname.getText();
-        c3 = username.getText();
-        c4 = email.getText();
-        c5 = pwd.getText();
-        c6 = pwdRepeat.getText();
-
-        // controllo non corretto
-        if (c1 == "" || c2 == "" || c3 == "" || c4 == "" || c5 == "" || c6 == "") {
-            pwdAlert1.setVisible(false);
-            pwdAlert2.setVisible(false);
-            alert.setVisible(true);
-        } else {
-            alert.setVisible(false);
-            if (c5.length() != 8) {
-                pwdAlert1.setVisible(true);
-            } else {
-                pwdAlert1.setVisible(false);
-            }
-
-
-            if (c5.equals(c6)) {
-                pwdAlert2.setVisible(false);
-            } else {
-                pwdAlert2.setVisible(true);
-            }
-
-            // check also the email !!
-        }
-
-    } */
 
         enrollBean eb = new enrollBean();
         eb.setUsername(username.getText());
@@ -213,10 +181,6 @@ public class SubscribeController implements Initializable {
         eb.setCognome(lastname.getText());
         eb.setEmail(email.getText());
         eb.setPassword(pwd.getText());
-
-        enrollDAO ed;
-        ed = new enrollDAO();
-
 
         enrollController ec = new enrollController();
 
@@ -229,35 +193,6 @@ public class SubscribeController implements Initializable {
             alert.setContentText("Le due password non coincidono!");
             alert.show();
         }
-
-        /*if (ec.addUser(eb) == true) {
-            alert.setVisible(true);
-        } else {
-
-            if(eb.getUsername() != "" && eb.getName() != "" && eb.getCognome() != "" && eb.getEmail() != "" && eb.getPassword() != "") {
-                if ((verifyEmail(eb.getEmail())) == false) {
-
-                    pwdAlert3.setVisible(true);
-                }
-                //if (eb.getPassword().equals(pwdRepeat.getText())) non funziona
-                //    pwdAlert2.setVisible(true);
-
-                if (eb.getPassword().length() < 8) {
-                    pwdAlert1.setVisible(true);
-                }
-                if(ed.newUser(eb.getUsername(), eb.getName(), eb.getCognome(),eb.getEmail(),eb.getPassword()) == false){ //ho chiamato classe dao nel controller grafico
-                    alertUser.setVisible(true);
-                }
-
-            }
-            else{
-                    pwdAlert4.setVisible(true);
-                }
-
-            }
-
-
-        }*/
 
     }
 }
