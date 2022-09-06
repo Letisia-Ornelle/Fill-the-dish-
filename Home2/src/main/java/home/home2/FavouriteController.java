@@ -1,6 +1,8 @@
-/*package home.home2;
+package home.home2;
 
-import home.home2.Element;
+import home.home2.Controller.favouritesController;
+import home.home2.Model.Beans.favouritesBean;
+import home.home2.Model.Exceptions.provideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -14,9 +16,10 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static home.home2.Home.ps;
 
 public class FavouriteController implements Initializable {
     @FXML
@@ -28,10 +31,8 @@ public class FavouriteController implements Initializable {
     @FXML
     private GridPane grid;
 
-    //private static List<Element> elements = General.Elements;
-
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
         int i;
         int column = 0;
         int row = 1;
@@ -39,18 +40,25 @@ public class FavouriteController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
 
-        General.Elements.clear();
-        General.Elements.addAll(getData());
-        //System.out.println(General.Elements);
+        List<favouritesBean> favouritesBeans;
+
+        favouritesController favController = null;
+        try {
+            favController = new favouritesController();
+        } catch (provideLoginException e) {
+            e.printStackTrace();
+        }
+
+        favouritesBeans = favController.showFavourites();
 
         try {
-            for (i=0;i<General.Elements.size();i++) {
+            for (i=0;i<favouritesBeans.size();i++) {
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("ListElement.fxml"));
                 Pane anchorPane = fxmlloader.load();
 
                 ElementController elementController = fxmlloader.getController();
-                elementController.setData(General.Elements.get(i));
+                elementController.setData(favouritesBeans.get(i));
 
                 grid.add(anchorPane, column, row++);
                 grid.setMargin(anchorPane, new Insets(5));
@@ -111,6 +119,7 @@ public class FavouriteController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
@@ -135,7 +144,7 @@ public class FavouriteController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Fridge0"));
+        General.changeScene(General.setSource("Fridge"));
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
@@ -145,25 +154,4 @@ public class FavouriteController implements Initializable {
 
 
 
-    private List<Element> getData() {
-        int i;
-        List<Element> elements = new ArrayList<>();
-        Element elem;
-
-        i=0;
-
-        while (i < General.piatti.length) {
-            //System.out.println(General.piatti[i]);
-            if (!General.piatti[i].equals("")) {
-                elem = new Element();
-                elem.setTitle(General.piatti[i]);
-                elem.setImgSrc("im3.jpg");
-                elements.add(elem);
-            }
-            i++;
-        }
-
-        return elements;
-    }
-
-}*/
+}
