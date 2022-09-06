@@ -47,16 +47,12 @@ public class DynamicCBController implements Initializable {
     private static ObservableList<Ingredient> SelectedIngredients = FXCollections.observableArrayList();
 
     public ObservableList<Ingredient> getValues() {
-        for (Ingredient i : SelectedIngredients) {
-            // System.out.println(i);
-        }
 
         return SelectedIngredients;
     }
 
     public void getChoiceBoxValue(ActionEvent event) throws IOException {
-
-        System.out.println("Eccomi");
+        
         String ingrediente = (String) choiceBoxD.getValue();
 
         systemFridge fridge = systemFridge.getInstance();
