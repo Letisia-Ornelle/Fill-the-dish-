@@ -2,8 +2,6 @@ package home.home2.Model.Exceptions;
 
 public class duplicateIngredientException extends Exception{
 
-    private static final long serialVersionID = 1L;
-
     public duplicateIngredientException(){
         super();
     }
