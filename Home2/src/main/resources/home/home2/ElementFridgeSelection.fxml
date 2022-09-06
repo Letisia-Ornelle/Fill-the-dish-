@@ -13,6 +13,6 @@
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <CheckBox layoutX="389.0" layoutY="16.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="12.0" stylesheets="@style.css" />
+      <CheckBox fx:id="checkBox" onAction="#selectedIng" layoutX="389.0" layoutY="16.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="12.0" stylesheets="@style.css" />
    </children>
 </Pane>
