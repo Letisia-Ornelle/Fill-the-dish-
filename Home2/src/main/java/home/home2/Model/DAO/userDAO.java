@@ -18,7 +18,7 @@ public class userDAO {
     // Devo fare un metodo che mi restituisce l'utente loggato! --> getUserAccount
     // Verify mi restituisce lo username dell'utente. null se non c'e la corrispondenza sul db
 
-   public String verify( String username, String password) throws loginFailedException{
+   public String verify( String username, String password) {
        String result = null;
 
        try{
@@ -30,7 +30,6 @@ public class userDAO {
 
            if (!res.first()) {
                System.out.println("ResultSet vuoto\n");
-               throw new loginFailedException("Account non registered");
            } else {
                String UN = res.getString("username");
                String PW = res.getString("password");
@@ -43,10 +42,6 @@ public class userDAO {
        }catch (SQLException e){
            e.printStackTrace();
        }
-
-
-
-
 
        return result;
 
@@ -66,6 +61,7 @@ public class userDAO {
         }
 
         else{
+
             resultset.first();
 
             userentity = new userEntity();
