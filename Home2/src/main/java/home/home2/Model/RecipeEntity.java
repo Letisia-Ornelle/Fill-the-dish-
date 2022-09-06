@@ -1,9 +1,6 @@
 package home.home2.Model;
-
 import javafx.scene.image.Image;
-
 import java.util.List;
-
 public class RecipeEntity {
 
     String id_ricetta;
@@ -11,21 +8,17 @@ public class RecipeEntity {
     Image immagine;
     String tipo;
     List<IngredientEntity> ingredients;
-
     public RecipeEntity(String nomeRicetta, Image imm, String descrizione, String tipologia){
         this.id_ricetta = nomeRicetta;
         this.immagine = imm;
-       this.descrizione = descrizione;
+        this.descrizione = descrizione;
         this.tipo = tipologia;
-
     }
 
-    public void setIngredientList(List<IngredientEntity> ingredients){
-        this.ingredients = ingredients;
-    }
+    public RecipeEntity(){};
 
-    public List<IngredientEntity> getIngredientList(){
-        return ingredients;
+    public RecipeEntity(String recipeName) {
+        this.id_ricetta = recipeName;
     }
 
     public String getRecipe(){
