@@ -14,6 +14,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -29,6 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class FridgeController implements Initializable, fridgeObserver {
     private int row;
 
@@ -37,8 +40,6 @@ public class FridgeController implements Initializable, fridgeObserver {
 
     @FXML
     private Button aggiungi;
-
-    private String imageURL = "C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\basilico.jpg";
 
     @FXML
     private TextField textField;
@@ -59,6 +60,7 @@ public class FridgeController implements Initializable, fridgeObserver {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
@@ -138,16 +140,9 @@ public class FridgeController implements Initializable, fridgeObserver {
         fridgeSubject.attach(this);
 
         manageFridgeController fridge = new manageFridgeController();
-        List<fridgeBean> fridgeBeans = new ArrayList<>();
-        try {
-            fridgeBeans = fridge.showFridge();
-            System.out.println("Lista mantenuta?");
-            for(fridgeBean j : fridgeBeans){
-                System.out.println(j.getIngredientImage());
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        List<fridgeBean> fridgeBeans ;
+        fridgeBeans = fridge.showFridge();
+
 
 
         for(int i=0; i<fridgeBeans.size();i++){
@@ -190,7 +185,7 @@ public class FridgeController implements Initializable, fridgeObserver {
 
     }
 
-    public void AddToFridge(ActionEvent event) throws SQLException, duplicateIngredientException {
+    public void AddToFridge(ActionEvent event) throws SQLException {
 
 
         if(textField.getText() != "") {
@@ -234,26 +229,21 @@ public class FridgeController implements Initializable, fridgeObserver {
                     Image image = new Image(inputStream);
                     f.setIngredientImage(image);
 
-
-                    // elementController.setData2(f);
                 }
 
             }
-            fridge.addIngredient(f);
-            //  verticalBox.getChildren().add(anchorPane);
-            // verticalBox.setMargin(anchorPane, new Insets(5));
+
+            try{
+                fridge.addIngredient(f);
+            } catch (duplicateIngredientException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Attenzione, stai per inserire un ingrediente esistente");
+                alert.show();
+            }
+
 
             textField.setText("");
         }
-
-        // ????
-
-
-
-
-        // Devo settare pure l'immagine di f prima di aggiungere
-
-        // Posso fare tipo else ... metto un alert ????
 
 
     }
@@ -262,12 +252,6 @@ public class FridgeController implements Initializable, fridgeObserver {
 
     @Override
     public void update(fridgeBean fridgebean) {
-        // Ahahahahahahha bella merda -- > in che modo voglio fare l'update ? i don't knowwwwwwwwwwww
-        // Teoricamente voglio aggiungere l'ingrediente alla lista ogni volta che l'utente sceglie
-        // L'immagine --> Come ? forse a l'onClick devo solo recuperare l'immagine
-        // e poi su update, devo aggiungere le diverse componenti al VBox????....
-        // cioè fare l'update della lista, ma come ?
-
 
         FXMLLoader fxmlloader = new FXMLLoader();
         fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
@@ -287,4 +271,5 @@ public class FridgeController implements Initializable, fridgeObserver {
         }
 
     }
+
 }
