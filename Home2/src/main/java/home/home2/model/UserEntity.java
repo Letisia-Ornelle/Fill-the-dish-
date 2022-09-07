@@ -12,8 +12,8 @@ public class UserEntity {
     String surname;
     String email;
 
-    private final  FridgeSingletonEntity fridge;
-    private final List<RecipeEntity> favourites;
+    public final  FridgeSingletonEntity fridge;
+    public final List<RecipeEntity> favourites;
 
 
     public UserEntity(FridgeSingletonEntity fridge,List<RecipeEntity> favourites, String username){
