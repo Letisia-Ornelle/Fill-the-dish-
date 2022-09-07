@@ -2,37 +2,37 @@ package home.home2.controller;
 
 import home.home2.beans.FridgeBean;
 import home.home2.boundary.ManageFridgeSendEmailBoundary;
-import home.home2.Model.DAO.fridgeDAO;
-import home.home2.Model.Exceptions.duplicateIngredientException;
-import home.home2.Model.IngredientEntity;
-import home.home2.Model.fridgeSingletonEntity;
-import home.home2.Model.user;
+import home.home2.model.dao.FridgeDAO;
+import home.home2.model.exceptions.DuplicateIngredientException;
+import home.home2.model.IngredientEntity;
+import home.home2.model.FridgeSingletonEntity;
+import home.home2.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ManageFridgeController {
 
-    public final fridgeSingletonEntity fridge;
+    public final FridgeSingletonEntity fridge;
     List<IngredientEntity> ingredients;
 
 
     public ManageFridgeController(){
-        fridgeDAO fridgeDAO = new fridgeDAO();
-        ingredients = fridgeDAO.ingredientUser(user.getInstance().getUser().getUsername());
-        this.fridge = fridgeSingletonEntity.createFridge(ingredients,user.getInstance().getUser().getUsername());
+        FridgeDAO fridgeDAO = new FridgeDAO();
+        ingredients = fridgeDAO.ingredientUser(User.getInstance().getUser().getUsername());
+        this.fridge = FridgeSingletonEntity.createFridge(ingredients,User.getInstance().getUser().getUsername());
 
     }
 
-    public void addIngredient(FridgeBean fridgebean) throws duplicateIngredientException {
-        fridgeDAO fridgeDAO = new fridgeDAO();
+    public void addIngredient(FridgeBean fridgebean) throws DuplicateIngredientException {
+        FridgeDAO fridgeDAO = new FridgeDAO();
         for(IngredientEntity ingr : ingredients){
             if(ingr.getIngredient().equals(fridgebean.getIngredientName())){
-               throw new duplicateIngredientException("This ingredient already exist !");
+               throw new DuplicateIngredientException("This ingredient already exist !");
             }
         }
 
         IngredientEntity ingredient = fridge.addIngredient(fridgebean.getIngredientName(), fridgebean.getIngredientImage());
-        fridgeDAO.insertInFridge(user.getInstance().getUser().getUsername(),ingredient, fridgebean.getIngredientInputStream());
+        fridgeDAO.insertInFridge(User.getInstance().getUser().getUsername(),ingredient, fridgebean.getIngredientInputStream());
 
         ManageFridgeSendEmailBoundary email = new ManageFridgeSendEmailBoundary();
         email.send(fridgebean);
@@ -55,7 +55,8 @@ public class ManageFridgeController {
 
 
     public  boolean getImage(FridgeBean fb){
-        fridgeDAO fridgeDAO = new fridgeDAO();
+        FridgeDAO fridgeDAO = new FridgeDAO();
+
         IngredientEntity ingredient =  fridgeDAO.ingredientImage(fb.getIngredientName());
 
         if(ingredient != null){
@@ -72,10 +73,11 @@ public class ManageFridgeController {
 
 
     public void deleteIngredient(FridgeBean fridgebean) {
-        fridgeDAO fridgeDAO = new fridgeDAO();
+        FridgeDAO fridgeDAO = new FridgeDAO();
+
         IngredientEntity ingredient = new IngredientEntity(fridgebean.getIngredientName(), fridgebean.getIngredientImage());
 
-        fridgeSingletonEntity.getInstance().removeIngredient(ingredient);
+        FridgeSingletonEntity.getInstance().removeIngredient(ingredient);
 
         fridgeDAO.delete(fridgebean.getIngredientName());
     }

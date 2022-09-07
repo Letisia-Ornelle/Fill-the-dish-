@@ -1,44 +1,44 @@
 package home.home2.controller;
 
 import home.home2.boundary.FavouritesSendEmailBoundary;
-import home.home2.Model.*;
+import home.home2.model.*;
 import home.home2.beans.FavouritesBean;
-import home.home2.Model.DAO.favouritesDAO;
-import home.home2.Model.Exceptions.duplicateRecipeException;
-import home.home2.Model.Exceptions.provideLoginException;
+import home.home2.model.dao.FavouritesDAO;
+import home.home2.model.exceptions.DuplicateRecipeException;
+import home.home2.model.exceptions.ProvideLoginException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FavouritesController {
 
-     public final favouritesEntity favouritesList ;
+     public final FavouritesEntity favouritesList ;
      List<RecipeEntity> favourites;
 
 
-    public FavouritesController() throws provideLoginException {
-        favouritesDAO favouritesD = new favouritesDAO();
+    public FavouritesController() throws ProvideLoginException {
+        FavouritesDAO favouritesD = new FavouritesDAO();
 
-        if(user.getInstance().getUser() == null){
-            throw new provideLoginException();
+        if(User.getInstance().getUser() == null){
+            throw new ProvideLoginException();
         }
-        favourites = favouritesD.userFavourites(user.getInstance().getUser().getUsername());
-        favouritesList = favouritesEntity.createFavouritesList(favourites,user.getInstance().getUser().getUsername());
+        favourites = favouritesD.userFavourites(User.getInstance().getUser().getUsername());
+        favouritesList = FavouritesEntity.createFavouritesList(favourites,User.getInstance().getUser().getUsername());
     }
 
-    public void addToFavourites(FavouritesBean favouritesbean) throws duplicateRecipeException {
-        favouritesDAO favouritesD = new favouritesDAO();
-        for(RecipeEntity recipe : user.getInstance().getUser().getFavourites()){
+    public void addToFavourites(FavouritesBean favouritesbean) throws DuplicateRecipeException {
+        FavouritesDAO favouritesD = new FavouritesDAO();
+        for(RecipeEntity recipe : User.getInstance().getUser().getFavourites()){
             if(recipe.getRecipe().equals(favouritesbean.getRecipeName())){
-                throw new duplicateRecipeException("Ingrediente gia esistente nella lista di preferiti");
+                throw new DuplicateRecipeException("Ingrediente gia esistente nella lista di preferiti");
             }
         }
 
         RecipeEntity recipeEntity;
 
-        recipeEntity = favouritesEntity.getInstance().addToFavourites(favouritesbean.getRecipeName());
+        recipeEntity = FavouritesEntity.getInstance().addToFavourites(favouritesbean.getRecipeName());
 
-        favouritesD.insertIntoFavourites(user.getInstance().getUser().getUsername(),recipeEntity);
+        favouritesD.insertIntoFavourites(User.getInstance().getUser().getUsername(),recipeEntity);
 
         FavouritesSendEmailBoundary fav = new FavouritesSendEmailBoundary();
         fav.send(favouritesbean);
@@ -46,19 +46,19 @@ public class FavouritesController {
     }
 
     public void deleteFromFavourites(FavouritesBean favouritesbean){
-        favouritesDAO favouritesD = new favouritesDAO();
+        FavouritesDAO favouritesD = new FavouritesDAO();
         RecipeEntity recipeEntity = new RecipeEntity(favouritesbean.getRecipeName());
 
-        favouritesEntity.getInstance().removeFromFavourites(recipeEntity);
+        FavouritesEntity.getInstance().removeFromFavourites(recipeEntity);
 
-        favouritesD.deleteFromFavourites(user.getInstance().getUser().getUsername(), favouritesbean.getRecipeName());
+        favouritesD.deleteFromFavourites(User.getInstance().getUser().getUsername(), favouritesbean.getRecipeName());
 
     }
 
     public  List<FavouritesBean> showFavourites(){
-        favouritesDAO favouritesD = new favouritesDAO();
+        FavouritesDAO favouritesD = new FavouritesDAO();
         List<FavouritesBean> favouritesBeans = new ArrayList<>();
-        List<RecipeEntity> recipes = favouritesD.userFavourites(user.getInstance().getUser().getUsername());
+        List<RecipeEntity> recipes = favouritesD.userFavourites(User.getInstance().getUser().getUsername());
 
         for(RecipeEntity recipe : recipes){
             favouritesBeans.add(new FavouritesBean(recipe.getRecipe(), recipe.getRecipeSrc()));

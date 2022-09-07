@@ -1,7 +1,7 @@
 package home.home2.controller;
 
 import home.home2.beans.EnrollBean;
-import home.home2.Model.user;
+import home.home2.model.User;
 import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
@@ -37,7 +37,7 @@ public class EnrollController {
         }
         else {
 
-            user.getInstance().registerNewUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
+            User.getInstance().registerNewUser(eb.getUsername(), eb.getName(), eb.getCognome(), eb.getEmail(), eb.getPassword());
 
             return true;
 

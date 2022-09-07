@@ -2,9 +2,9 @@ package home.home2.controller;
 
 import home.home2.beans.CalculateRecipeBean;
 import home.home2.beans.IngredientBean;
-import home.home2.Model.DAO.calculateRecipeDAO;
-import home.home2.Model.Ingredient;
-import home.home2.Model.RecipeEntity;
+import home.home2.model.dao.CalculateRecipeDAO;
+import home.home2.model.Ingredient;
+import home.home2.model.RecipeEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +17,9 @@ public class CalculateRecipeController {
 
         List<CalculateRecipeBean> recipesresultBeans = new ArrayList<>();
 
-        calculateRecipeDAO rDao = new calculateRecipeDAO();
+        CalculateRecipeDAO rDao = new CalculateRecipeDAO();
 
-        List<RecipeEntity> recipes = rDao.Recipes(recipeBean.getListIng());
+        List<RecipeEntity> recipes = rDao.recipes(recipeBean.getListIng());
 
         for(RecipeEntity i : recipes ){
             recipesresultBeans.add(new CalculateRecipeBean(i.getRecipe(),i.getDescrizione(),i.getRecipeSrc(),i.getType()));
@@ -34,7 +34,7 @@ public class CalculateRecipeController {
     public  List<IngredientBean> getIngredients(CalculateRecipeBean recipeBean){
 
         List<IngredientBean> ingredientBeans = new ArrayList<>();
-        List<Ingredient> ingredients = calculateRecipeDAO.RecipesIngredients(recipeBean.getName());
+        List<Ingredient> ingredients = CalculateRecipeDAO.recipesIngredients(recipeBean.getName());
 
         for(Ingredient ingr : ingredients){
             ingredientBeans.add(new IngredientBean(ingr.getName()));

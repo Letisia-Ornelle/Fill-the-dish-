@@ -1,8 +1,8 @@
 package home.home2.controller;
 
 import home.home2.beans.CalculateRecipeBean;
-import home.home2.Model.DAO.allRecipesDAO;
-import home.home2.Model.RecipeEntity;
+import home.home2.model.dao.AllRecipesDAO;
+import home.home2.model.RecipeEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class AllRecipesController {
 
     public List<CalculateRecipeBean> allRecipes() throws SQLException {
 
-        List<RecipeEntity> recipes = allRecipesDAO.getAllRecipes();
+        List<RecipeEntity> recipes = AllRecipesDAO.getAllRecipes();
         List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
         for(RecipeEntity i : recipes){
