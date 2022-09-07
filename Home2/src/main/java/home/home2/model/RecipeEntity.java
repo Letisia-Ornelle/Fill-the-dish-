@@ -1,13 +1,12 @@
 package home.home2.model;
 import javafx.scene.image.Image;
-import java.util.List;
 public class RecipeEntity {
 
     String idRicetta;
     String descrizione;
     Image immagine;
     String tipo;
-    List<IngredientEntity> ingredients;
+
     public RecipeEntity(String nomeRicetta, Image imm, String descrizione, String tipologia){
         this.idRicetta = nomeRicetta;
         this.immagine = imm;
@@ -17,6 +16,10 @@ public class RecipeEntity {
 
     public RecipeEntity(String recipeName) {
         this.idRicetta = recipeName;
+    }
+
+    public RecipeEntity() {
+
     }
 
     public String getRecipe(){
@@ -35,13 +38,16 @@ public class RecipeEntity {
 
     public Image getRecipeSrc(){ return immagine;}
 
-    public void setRecipeSrc(Image im){ this.immagine = im;}
+    public void setRecipeSrc(Image immagine){
+        this.immagine = immagine;
+    }
+
 
     public String getType(){ return tipo;}
 
 
-    public void setType( String tiporicetta){
-        this.tipo = tiporicetta;
+    public void setType( String tipoRicetta){
+        this.tipo = tipoRicetta;
     }
 
 
