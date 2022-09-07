@@ -1,6 +1,6 @@
 package home.home2.beans;
 
-import home.home2.Model.Ingredient;
+import home.home2.model.Ingredient;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
