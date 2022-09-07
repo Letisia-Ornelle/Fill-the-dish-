@@ -1,4 +1,4 @@
-package home.home2.Model.Exceptions;
+package home.home2.model.exceptions;
 
-public class invalidSyntaxEmailException {
+public class InvalidSyntaxEmailException {
 }

@@ -1,8 +1,9 @@
-package home.home2.Model.DAO;
+package home.home2.model.dao;
 
-import home.home2.Model.DAO.Queries.queries;
-import home.home2.Model.IngredientEntity;
-import home.home2.Model.user;
+import home.home2.model.dao.queries.DBConnection;
+import home.home2.model.dao.queries.Queries;
+import home.home2.model.IngredientEntity;
+import home.home2.model.User;
 import javafx.scene.image.Image;
 
 import java.io.InputStream;
@@ -10,12 +11,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class fridgeDAO {
+public class FridgeDAO {
 
-    static Statement stmt = null;
-    static Connection conn = null;
+
 
     public  IngredientEntity ingredientImage(String ingredient) {
+        Statement stmt = null;
+        Connection conn = null;
 
         IngredientEntity insertIngredient = null;
 
@@ -24,7 +26,7 @@ public class fridgeDAO {
             conn = DBConnection.getInstance().getConnection();
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-            ResultSet resultSet = queries.getImageFromIng(stmt, ingredient);
+            ResultSet resultSet = Queries.getImageFromIng(stmt, ingredient);
 
             if (!resultSet.first()) {
                 return insertIngredient;
@@ -51,10 +53,11 @@ public class fridgeDAO {
 
 
     public  void insertInFridge(String username, IngredientEntity ingredient, InputStream ingredientInputStream){
+        Connection conn = null;
 
         try{
             conn = DBConnection.getInstance().getConnection();
-            queries.insertIntoFridge(conn,username,ingredient,ingredientInputStream);
+            Queries.insertIntoFridge(conn,username,ingredient,ingredientInputStream);
 
         }catch(SQLException e){
             e.printStackTrace();
@@ -81,14 +84,16 @@ public class fridgeDAO {
 
 
     public  List<IngredientEntity> ingredientUser(String username) {
+        Statement stmt = null;
+        Connection conn = null;
 
         List<IngredientEntity> ingredients = new ArrayList<>() ;
 
         try{
             conn = DBConnection.getInstance().getConnection();
-            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-            ResultSet resultSet = queries.getIngredientsFromFridge(stmt, username);
+            ResultSet resultSet = Queries.getIngredientsFromFridge(stmt, username);
 
             if(!resultSet.first()){
                 return ingredients;
@@ -108,12 +113,14 @@ public class fridgeDAO {
     }
 
     public  void delete(String ingredient){
+        Statement stmt = null;
+        Connection conn = null;
 
         try{
             conn = DBConnection.getInstance().getConnection();
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-            queries.deleteFromFridge(stmt, user.getInstance().getUser().getUsername(), ingredient);
+            Queries.deleteFromFridge(stmt, User.getInstance().getUser().getUsername(), ingredient);
 
         } catch (SQLException e) {
             e.printStackTrace();

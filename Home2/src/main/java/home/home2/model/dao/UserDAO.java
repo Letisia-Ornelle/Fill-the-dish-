@@ -1,41 +1,39 @@
-package home.home2.Model.DAO;
-import home.home2.Model.DAO.Queries.queries;
-import home.home2.Model.Exceptions.loginFailedException;
-import home.home2.Model.userEntity;
+package home.home2.model.dao;
+import home.home2.model.dao.queries.DBConnection;
+import home.home2.model.dao.queries.Queries;
+import home.home2.model.exceptions.LoginFailedException;
+import home.home2.model.UserEntity;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class userDAO {
-
-    static Statement stmt = null;
-    static Connection con = null;
-    String UserName = null;
-    private static List<userEntity> all = new ArrayList<>();
+public class UserDAO {
 
 
-    // Devo fare un metodo che mi restituisce l'utente loggato! --> getUserAccount
-    // Verify mi restituisce lo username dell'utente. null se non c'e la corrispondenza sul db
+    String userName = null;
+
 
    public String verify( String username, String password) {
+       Statement stmt = null;
+       Connection con = null;
        String result = null;
 
        try{
            con = DBConnection.getInstance().getConnection();
            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-           ResultSet res = queries.credentials(stmt, username, password);
+           ResultSet res = Queries.credentials(stmt, username, password);
 
 
            if (!res.first()) {
-               System.out.println("ResultSet vuoto\n");
+               //
            } else {
-               String UN = res.getString("username");
-               String PW = res.getString("password");
+               String username1 = res.getString("username");
+               String pass = res.getString("password");
 
 
-               if (UN.equals(username) && PW.equals(password)) {
+               if (username1.equals(username) && pass.equals(password)) {
                    result = res.getString("username");
                }
            }
@@ -48,13 +46,15 @@ public class userDAO {
 
    }
 
-    public static userEntity getUserAccount(String username, String password) throws SQLException {
+    public static UserEntity getUserAccount(String username, String password) throws SQLException {
+        Statement stmt = null;
+        Connection con = null;
 
         con = DBConnection.getInstance().getConnection();
         stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet resultset = queries.credentials(stmt, username,password);
+        ResultSet resultset = Queries.credentials(stmt, username,password);
 
-        userEntity userentity;
+        UserEntity userentity;
 
         if(!resultset.first()){
             return null;
@@ -64,7 +64,7 @@ public class userDAO {
 
             resultset.first();
 
-            userentity = new userEntity();
+            userentity = new UserEntity();
 
             userentity.setUsername(resultset.getString("username"));
             userentity.setName(resultset.getString("nome"));

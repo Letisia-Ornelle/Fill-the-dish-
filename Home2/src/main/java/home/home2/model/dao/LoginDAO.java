@@ -1,12 +1,13 @@
-package home.home2.Model.DAO;
-import home.home2.Model.DAO.Queries.queries;
+package home.home2.model.dao;
+import home.home2.model.dao.queries.DBConnection;
+import home.home2.model.dao.queries.Queries;
 
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-public class loginDAO {
+public class LoginDAO {
 
     Statement stmt = null;
     Connection con = null;
@@ -16,18 +17,17 @@ public class loginDAO {
         con = DBConnection.getInstance().getConnection();
         stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 
-        ResultSet res = queries.credentials(stmt, username, password);
+        ResultSet res = Queries.credentials(stmt, username, password);
 
-        if(res.first() == false){
-            System.out.println("ResultSet vuoto\n");
-
+        if(!res.first()){
+            //
         }
         else {
-            String UN = res.getString("username");
-            String PW = res.getString("password");
+            String username1 = res.getString("username");
+            String pass = res.getString("password");
 
 
-            if (UN.equals(username) && PW.equals(password)) {
+            if (username1.equals(username) && pass.equals(password)) {
                 return true;
             }
         }

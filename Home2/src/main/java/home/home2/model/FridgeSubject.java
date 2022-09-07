@@ -1,25 +1,25 @@
-package home.home2.Model;
+package home.home2.model;
 
 import home.home2.beans.FridgeBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class fridgeSubject {
+public class FridgeSubject {
 
-    public static List<fridgeObserver> observers = new ArrayList<fridgeObserver>();
+    private static List<FridgeObserver> observers = new ArrayList<>();
 
 
-    public static void attach(fridgeObserver observer){
+    public static void attach(FridgeObserver observer){
         observers.add(observer);
     }
 
-    public void dettach(fridgeObserver observer){
+    public void dettach(FridgeObserver observer){
         observers.remove(observer);
     }
 
     public void notifyObserversNewIngredient(FridgeBean fridgebean){
-        for(fridgeObserver observer : observers){
+        for(FridgeObserver observer : observers){
             observer.update(fridgebean);
         }
 

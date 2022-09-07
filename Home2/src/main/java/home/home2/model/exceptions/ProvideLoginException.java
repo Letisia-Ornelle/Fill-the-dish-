@@ -1,20 +1,20 @@
-package home.home2.Model.Exceptions;
+package home.home2.model.exceptions;
 
-public class provideLoginException extends Exception {
+public class ProvideLoginException extends Exception {
 
-    public  provideLoginException() {
+    public  ProvideLoginException() {
         super();
     }
 
-    public provideLoginException(String message){
+    public ProvideLoginException(String message){
         super(message);
     }
 
-    public provideLoginException(Throwable cause){
+    public ProvideLoginException(Throwable cause){
         super (cause);
     }
 
-    public provideLoginException(String message, Throwable cause){
+    public ProvideLoginException(String message, Throwable cause){
         super("+++"+message+"+++",cause);
     }
 }

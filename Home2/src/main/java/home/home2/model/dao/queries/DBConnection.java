@@ -1,4 +1,4 @@
-package home.home2.Model.DAO;
+package home.home2.model.dao.queries;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

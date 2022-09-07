@@ -1,4 +1,4 @@
-package home.home2.Model;
+package home.home2.model;
 
 import javafx.scene.image.Image;
 

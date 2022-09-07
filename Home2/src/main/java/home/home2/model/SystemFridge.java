@@ -1,6 +1,6 @@
-package home.home2.Model;
+package home.home2.model;
 
-import home.home2.Model.DAO.calculateRecipeDAO;
+import home.home2.model.dao.CalculateRecipeDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -8,21 +8,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class systemFridge {
+public class SystemFridge {
 
-    public static ObservableList<Ingredient> ingredients = FXCollections.observableArrayList();
+    public final ObservableList<Ingredient> ingredients;
 
-    private static systemFridge instance = null;
+    private static SystemFridge instance = null;
 
-    public static synchronized systemFridge getInstance(){
+    public static synchronized SystemFridge getInstance(){
         if(instance == null){
-            instance = new systemFridge();
+            instance = new SystemFridge();
         }
         return instance;
     }
 
-    private systemFridge(){
-        this.ingredients = calculateRecipeDAO.ingredients();
+    private SystemFridge(){
+        this.ingredients = CalculateRecipeDAO.ingredients();
     }
 
     public ObservableList<Ingredient> getIngredients() {

@@ -1,20 +1,20 @@
-package home.home2.Model.Exceptions;
+package home.home2.model.exceptions;
 
-public class duplicateIngredientException extends Exception{
+public class DuplicateIngredientException extends Exception{
 
-    public duplicateIngredientException(){
+    public DuplicateIngredientException(){
         super();
     }
 
-    public duplicateIngredientException(String message){
+    public DuplicateIngredientException(String message){
         super(message);
     }
 
-    public duplicateIngredientException(Throwable cause){
+    public DuplicateIngredientException(Throwable cause){
         super(cause);
     }
 
-    public duplicateIngredientException (String message, Throwable cause){
+    public DuplicateIngredientException (String message, Throwable cause){
         super("+++"+message+"+++",cause);
     }
 

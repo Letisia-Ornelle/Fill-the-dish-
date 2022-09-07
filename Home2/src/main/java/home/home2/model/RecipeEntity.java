@@ -1,32 +1,30 @@
-package home.home2.Model;
+package home.home2.model;
 import javafx.scene.image.Image;
 import java.util.List;
 public class RecipeEntity {
 
-    String id_ricetta;
+    String idRicetta;
     String descrizione;
     Image immagine;
     String tipo;
     List<IngredientEntity> ingredients;
     public RecipeEntity(String nomeRicetta, Image imm, String descrizione, String tipologia){
-        this.id_ricetta = nomeRicetta;
+        this.idRicetta = nomeRicetta;
         this.immagine = imm;
         this.descrizione = descrizione;
         this.tipo = tipologia;
     }
 
-    public RecipeEntity(){};
-
     public RecipeEntity(String recipeName) {
-        this.id_ricetta = recipeName;
+        this.idRicetta = recipeName;
     }
 
     public String getRecipe(){
-        return id_ricetta;
+        return idRicetta;
     }
 
     public void setRecipe( String recipe){
-        this.id_ricetta = recipe;
+        this.idRicetta = recipe;
     }
 
     public String getDescrizione(){ return descrizione;}

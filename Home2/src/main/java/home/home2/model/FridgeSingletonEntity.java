@@ -1,4 +1,4 @@
-package home.home2.Model;
+package home.home2.model;
 
 import home.home2.beans.FridgeBean;
 import javafx.scene.image.Image;
@@ -6,42 +6,40 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 import java.util.List;
 
-// Forse devo fare in modo che implementa fridgeObserver , in modo tale che quando viene aggiunto un nuovo ingrediente, viene notificato
 
-public class fridgeSingletonEntity extends fridgeSubject{
+public class FridgeSingletonEntity extends FridgeSubject{
 
 
     private List<IngredientEntity> ingredientList ;
-    private static fridgeSingletonEntity instance = null;
-    public static String username ;
+    private static FridgeSingletonEntity instance = null;
+    String username ;
 
-    // Prima l'ho pensata cosi, ma poi mi sono accorta che non andava bene con il fatto
-    public fridgeSingletonEntity(List<IngredientEntity> ingredientList, String userName) {
+    public FridgeSingletonEntity(List<IngredientEntity> ingredientList, String userName) {
         this.ingredientList = ingredientList;
         this.username = userName;
     }
 
 
-    public static synchronized fridgeSingletonEntity createFridge(List<IngredientEntity> ingredientList, String userName){
+    public static synchronized FridgeSingletonEntity createFridge(List<IngredientEntity> ingredientList, String userName){
 
         if(instance != null){
             // Eccezione
         }
-        instance =  new fridgeSingletonEntity(ingredientList,userName);
+        instance =  new FridgeSingletonEntity(ingredientList,userName);
 
         return instance;
 
     }
 
     // In teoria non dovrei più fare la new
-    public static  fridgeSingletonEntity getInstance(){
+    public static  FridgeSingletonEntity getInstance(){
         if(instance == null){
                 // Eccezione
         }
         return instance;
     }
 
-    public fridgeSingletonEntity(){
+    public FridgeSingletonEntity(){
         this.ingredientList = new ArrayList<>();
     }
 

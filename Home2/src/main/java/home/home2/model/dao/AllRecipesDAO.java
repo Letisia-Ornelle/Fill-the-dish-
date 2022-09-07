@@ -1,35 +1,40 @@
-package home.home2.Model.DAO;
-import home.home2.Model.DAO.Queries.queries;
-import home.home2.Model.RecipeEntity;
+package home.home2.model.dao;
+import home.home2.model.dao.queries.Queries;
+import home.home2.model.dao.queries.DBConnection;
+
+import home.home2.model.RecipeEntity;
 import javafx.scene.image.Image;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class allRecipesDAO {
+public class AllRecipesDAO {
 
     static Statement stmt = null;
     static Connection conn = null;
+
+    private AllRecipesDAO(){}
+
     public static List<RecipeEntity> getAllRecipes() throws SQLException {
 
         List<RecipeEntity> allRecipes = new ArrayList<>();
-        String RecipeName;
-        Image RecipeIm = null;
-        String Description;
-        String Tipo;
+        String recipeName;
+        Image recipeIm = null;
+        String description;
+        String tipo;
         conn = DBConnection.getInstance().getConnection();
         stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs = queries.getRecipesName(stmt);
+        ResultSet rs = Queries.getRecipesName(stmt);
         while(rs.next()) {
-            RecipeName = rs.getString("id_ricetta");
+            recipeName = rs.getString("id_ricetta");
             Blob bl = rs.getBlob("immagine");
             if (bl != null) {
                 InputStream inputStream = bl.getBinaryStream();
-                RecipeIm = new Image(inputStream);
+                recipeIm = new Image(inputStream);
             }
-            Description = rs.getString("descrizione");
-            Tipo = rs.getString("tipo");
-            allRecipes.add(new RecipeEntity(RecipeName, RecipeIm, Description, Tipo));
+            description = rs.getString("descrizione");
+            tipo = rs.getString("tipo");
+            allRecipes.add(new RecipeEntity(recipeName, recipeIm, description, tipo));
         }
         return allRecipes;
     }

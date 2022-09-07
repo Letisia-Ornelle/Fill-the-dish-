@@ -1,12 +1,10 @@
-package home.home2.Model;
+package home.home2.model;
 
-import home.home2.Model.DAO.fridgeDAO;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class userEntity {
+public class UserEntity {
 
     String username;
     String password;
@@ -14,11 +12,11 @@ public class userEntity {
     String surname;
     String email;
 
-    private static fridgeSingletonEntity fridge;
-    private static List<RecipeEntity> favourites;
+    private final  FridgeSingletonEntity fridge;
+    private final List<RecipeEntity> favourites;
 
 
-    public userEntity(fridgeSingletonEntity fridge,List<RecipeEntity> favourites, String username){
+    public UserEntity(FridgeSingletonEntity fridge,List<RecipeEntity> favourites, String username){
         this.fridge = fridge;
         this.username = username;
         this.favourites = favourites;
@@ -26,20 +24,18 @@ public class userEntity {
 
     // Non va bene perche in questo istante ancora non e stato loggato, quindi non posso recuperare
     // Le credenziali dell'utente in modo da avere le istanze di fridge e favourites però vabbè
-    public userEntity(){
+    public UserEntity(){
         this.fridge= null;
         this.favourites = new ArrayList<>();
     }
 
 
     public List<RecipeEntity> getFavourites(){
-        favourites = favouritesEntity.getInstance().getUserFavouritesList();
-        return favourites;
+      return FavouritesEntity.getInstance().getUserFavouritesList();
     }
 
-    public static fridgeSingletonEntity getFridge(){
-        fridge = fridgeSingletonEntity.getInstance();
-        return fridge;
+    public static FridgeSingletonEntity getFridge(){
+        return FridgeSingletonEntity.getInstance();
     }
 
     public void setUsername(String userN){

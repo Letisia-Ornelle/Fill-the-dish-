@@ -1,20 +1,20 @@
-package home.home2.Model.Exceptions;
+package home.home2.model.exceptions;
 
-public class loginFailedException extends Exception{
+public class LoginFailedException extends Exception{
 
-    public  loginFailedException() {
+    public  LoginFailedException() {
         super();
     }
 
-    public loginFailedException(String message){
+    public LoginFailedException(String message){
         super(message);
     }
 
-    public loginFailedException(Throwable cause){
+    public LoginFailedException(Throwable cause){
         super (cause);
     }
 
-    public loginFailedException(String message, Throwable cause){
+    public LoginFailedException(String message, Throwable cause){
         super("+++"+message+"+++",cause);
     }
 

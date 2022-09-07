@@ -1,27 +1,27 @@
-package home.home2.Model;
+package home.home2.model;
 
 import java.util.List;
 
-public class favouritesEntity {
+public class FavouritesEntity {
 
-    private static favouritesEntity instance = null;
-    private static List<RecipeEntity> favourites;
-    private String username;
+    private static FavouritesEntity instance = null;
+    public final List<RecipeEntity> favourites;
+     String username;
 
-    public favouritesEntity(List<RecipeEntity> favourites, String username){
+    public FavouritesEntity(List<RecipeEntity> favourites, String username){
         this.favourites = favourites;
         this.username = username;
     }
 
-    public static synchronized favouritesEntity createFavouritesList(List<RecipeEntity> favourites, String username){
+    public static synchronized FavouritesEntity createFavouritesList(List<RecipeEntity> favourites, String username){
         if (instance != null){
-
+//
         }
-        instance = new favouritesEntity(favourites, username);
+        instance = new FavouritesEntity(favourites, username);
         return instance;
     }
 
-    public static   favouritesEntity getInstance(){
+    public static FavouritesEntity getInstance(){
         if(instance == null){
             //exception
         }

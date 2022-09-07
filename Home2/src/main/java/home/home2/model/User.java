@@ -1,43 +1,44 @@
-package home.home2.Model;
+package home.home2.model;
 
-import home.home2.Model.DAO.enrollDAO;
-import home.home2.Model.DAO.userDAO;
+import home.home2.model.dao.EnrollDAO;
+import home.home2.model.dao.UserDAO;
+
 
 import java.sql.SQLException;
 
-public  class user {
+public  class User {
 
-    private static user instance = null;
-    private static userEntity userE ;
+    private static User instance = null;
+    private static UserEntity userE ;
 
-    public static synchronized user getInstance(){
+    public static synchronized User getInstance(){
         if(instance == null){
-            instance = new user();
+            instance = new User();
         }
         return instance;
     }
 
-    private user(){
+    private User(){
     }
 
-    public userEntity getUser(){
+    public UserEntity getUser(){
         return userE;
     }
 
     public static void loginUser(String userName , String passWord) throws SQLException {
 
-        userDAO userdao = new userDAO();
-        user.userE = new userEntity();
+        UserDAO userdao = new UserDAO();
+        User.userE = new UserEntity();
         userE.setUsername(userName);
         userE.setPassword(passWord);
-        user.userE = userdao.getUserAccount(userName, passWord);
+        User.userE = userdao.getUserAccount(userName, passWord);
 
     }
 
     // Mantiene gli utenti registrati
 
     public void registerNewUser(String username, String nome, String cognome, String email, String password ) throws SQLException {
-       enrollDAO enrolldao = new enrollDAO();
+       EnrollDAO enrolldao = new EnrollDAO();
        enrolldao.newUser(username,nome,cognome,email,password);
     }
 
