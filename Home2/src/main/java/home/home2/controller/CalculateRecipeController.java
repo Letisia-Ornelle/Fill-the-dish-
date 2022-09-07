@@ -12,7 +12,6 @@ import java.util.List;
 public class CalculateRecipeController {
 
 
-
     public List<CalculateRecipeBean> checkIngredients(CalculateRecipeBean recipeBean) {
 
         List<CalculateRecipeBean> recipesresultBeans = new ArrayList<>();

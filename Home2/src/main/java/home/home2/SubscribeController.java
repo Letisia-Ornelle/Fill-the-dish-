@@ -2,6 +2,9 @@ package home.home2;
 
 import home.home2.controller.EnrollController;
 import home.home2.beans.EnrollBean;
+import home.home2.model.exceptions.FailedRegistrationException;
+import home.home2.model.exceptions.InvalidSyntaxEmailException;
+import home.home2.model.exceptions.LoginFailedException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -172,16 +175,20 @@ public class SubscribeController implements Initializable {
         eb.setPassword(pwd.getText());
 
         EnrollController ec = new EnrollController();
-
-        if (ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())) {
-
-            System.out.println("Nuovo utente registrato con successo!");
-            General.changeScene(General.setSource("Login"));
-        } else {
+        try {
+            if (ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())) {
+                General.changeScene(General.setSource("Login"));
+            } else {
+               //
+            }
+        }catch (InvalidSyntaxEmailException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Le due password non coincidono!");
+            alert.setContentText("Inserisci un indirizzo mail valido");
+            alert.show();
+        }catch (FailedRegistrationException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Registrazione fallita");
             alert.show();
         }
-
-    }
+        }
 }

@@ -4,6 +4,8 @@ import home.home2.controller.EnrollController;
 import home.home2.controller.LoginController;
 import home.home2.beans.EnrollBean;
 import home.home2.beans.LoginBean;
+import home.home2.model.exceptions.FailedRegistrationException;
+import home.home2.model.exceptions.InvalidSyntaxEmailException;
 import home.home2.model.exceptions.LoginFailedException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,23 +89,32 @@ public class Login2Controller {
 
         EnrollController controller = new EnrollController();
 
-        if (controller.addUser(enrollbean) == true && enrollbean.getPassword().equals(repeatPassword.getText())) {
+        try{
+            if (controller.addUser(enrollbean) == true && enrollbean.getPassword().equals(repeatPassword.getText())) {
 
-            System.out.println("Nuovo utente registrato con successo!");
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Account registrato con successo! Ora puoi accedere.");
-            alert.show();
+                System.out.println("Nuovo utente registrato con successo!");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("Account registrato con successo! Ora puoi accedere.");
+                alert.show();
 
-            userName.setText("");
-            name.setText("");
-            lastname.setText("");
-            email.setText("");
-            passWord.setText("");
-            repeatPassword.setText("");
+                userName.setText("");
+                name.setText("");
+                lastname.setText("");
+                email.setText("");
+                passWord.setText("");
+                repeatPassword.setText("");
 
-        } else {
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Le due password non coincidono!");
+                //alert.show();
+            }
+
+        }catch (FailedRegistrationException e){
+            e.printStackTrace();
+        }catch (InvalidSyntaxEmailException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Le due password non coincidono!");
+            alert.setContentText("Inserisci un indirizzo mail valido");
             alert.show();
         }
 

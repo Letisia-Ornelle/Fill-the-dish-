@@ -10,7 +10,7 @@ import java.util.List;
 public class FridgeSingletonEntity extends FridgeSubject{
 
 
-    private List<IngredientEntity> ingredientList ;
+    private final List<IngredientEntity> ingredientList ;
     private static FridgeSingletonEntity instance = null;
     String username ;
 
