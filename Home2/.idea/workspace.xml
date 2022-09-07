@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/home/home2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/home/home2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/activation-1.1.1.jar" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -120,6 +120,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.General" />
+      <item itemvalue="Application.userDAO" />
+      <item itemvalue="Application.Home" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Home" />
@@ -261,5 +266,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Home2$Home2.ic" NAME="Home2 Coverage Results" MODIFIED="1662365023731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>home.home2.Model.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -75,11 +75,7 @@
                                         <Font name="SansSerif Regular" size="14.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="menuLink8" mnemonicParsing="false" onAction="#clickMenuLink8" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Cambia Interfaccia">
-                                    <font>
-                                        <Font name="SansSerif Regular" size="14.0" />
-                                    </font>
-                                </Button>
+
                             </children>
                         </VBox>
                         <Pane prefHeight="57.0" prefWidth="225.0">
