@@ -1,6 +1,6 @@
-package home.home2.Model.dao.Queries;
+package home.home2.model.dao.queries;
 
-import home.home2.Model.IngredientEntity;
+import home.home2.model.IngredientEntity;
 
 import java.io.InputStream;
 import java.sql.*;
@@ -8,7 +8,7 @@ import java.sql.*;
 public class Queries {
 
 
-    public Queries() {
+    private Queries() {
     }
 
 
@@ -53,7 +53,7 @@ public class Queries {
     }
 
     public static ResultSet takeIngredientsDB(Statement stmt) throws SQLException {
-        String takeIng = String.format("SELECT nome FROM ingredienti");
+        String takeIng = "SELECT nome FROM ingredienti";
         return stmt.executeQuery(takeIng);
     }
 
@@ -71,16 +71,16 @@ public class Queries {
 
     public static ResultSet getRecipesName(Statement stmt) throws SQLException {
 
-        String selectRecipeName = String.format("SELECT * FROM `ricetta`");
+        String selectRecipeName = "SELECT * FROM `ricetta`";
         return stmt.executeQuery(selectRecipeName);
 
     }
 
-    public static ResultSet selectRecipesIngredients(Statement stmt, String Ricetta) throws SQLException {
+    public static ResultSet selectRecipesIngredients(Statement stmt, String ricetta) throws SQLException {
 
-        String RecIngredients = String.format("SELECT `ingrediente` FROM `componenti` WHERE `ricetta` = '%s' ", Ricetta);
+        String recIngredients = String.format("SELECT `ingrediente` FROM `componenti` WHERE `ricetta` = '%s' ", ricetta);
 
-        return stmt.executeQuery(RecIngredients);
+        return stmt.executeQuery(recIngredients);
 
     }
 
