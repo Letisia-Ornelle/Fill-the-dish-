@@ -3,9 +3,9 @@ package home.home2;
 
 import home.home2.controller.ManageFridgeController;
 import home.home2.beans.FridgeBean;
-import home.home2.Model.Exceptions.duplicateIngredientException;
-import home.home2.Model.fridgeObserver;
-import home.home2.Model.fridgeSubject;
+import home.home2.model.exceptions.DuplicateIngredientException;
+import home.home2.model.FridgeObserver;
+import home.home2.model.FridgeSubject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -25,75 +25,187 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
-import java.sql.SQLException;
+
 import java.util.List;
 import java.util.ResourceBundle;
 
 import static home.home2.Home.ps;
 
-public class FridgeController implements Initializable, fridgeObserver {
-    private int row;
+public class FridgeController implements Initializable, FridgeObserver {
 
     @FXML
     private VBox verticalBox;
 
     @FXML
-    private Button aggiungi;
-
-    @FXML
     private TextField textField;
 
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
     @FXML
-    private Button recipeButton, fridgeButton, menuButton;
+    private Pane dark;
+    @FXML
+    private Button  menuButton;
 
-    public void clickBackButton(ActionEvent actionEvent) throws IOException {
+
+    @Override
+    public  void initialize(URL url, ResourceBundle resourceBundle) {
+        menu.setVisible(false);
+        dark.setVisible(false);
+
+        FridgeSubject.attach(this);
+
+        ManageFridgeController fridge = new ManageFridgeController();
+        List<FridgeBean> fridgeBeans ;
+        fridgeBeans = fridge.showFridge();
+
+
+        for (FridgeBean fridgeBean : fridgeBeans) {
+            FXMLLoader fxmlloader = new FXMLLoader();
+            fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
+            try {
+                Pane anchorPane = fxmlloader.load();
+                ElementController elementController = fxmlloader.getController();
+
+                elementController.setData2(fridgeBean);
+
+                verticalBox.getChildren().add(anchorPane);
+                VBox.setMargin(anchorPane, new Insets(5));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void addImageToIngredient(FridgeBean fridgebean){
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png","*.jpg","*.png"));
+        File file = fileChooser.showOpenDialog(null);
+        if(file!=null) {
+            String imagePath = file.getAbsolutePath();
+            InputStream inputStream = null;
+            try {
+                inputStream = new FileInputStream(imagePath);
+                fridgebean.setIngredientInputStream(new FileInputStream(imagePath));
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            Image image = new Image(inputStream);
+            fridgebean.setIngredientImage(image);
+        }
+
+    }
+
+    public void AddToFridge() {
+
+
+        if(!textField.getText().equals("")) {
+            FridgeBean f = new FridgeBean();
+
+            f.setIngredientName(textField.getText());
+
+            ManageFridgeController fridge = new ManageFridgeController();
+
+            if (fridge.getImage(f)) {
+               //
+            } else {
+
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
+                File file = fileChooser.showOpenDialog(null);
+                if (file != null) {
+                    String imagePath = file.getAbsolutePath();
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = new FileInputStream(imagePath);
+                        f.setIngredientInputStream(new FileInputStream(imagePath));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Image image = new Image(inputStream);
+                    f.setIngredientImage(image);
+
+                }
+
+            }
+
+            try{
+                fridge.addIngredient(f);
+            } catch (DuplicateIngredientException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Attenzione, stai per inserire un ingrediente esistente");
+                alert.show();
+            }
+
+
+            textField.setText("");
+        }
+
+
+    }
+
+    @Override
+    public void update(FridgeBean fridgebean) {
+
+        FXMLLoader fxmlloader = new FXMLLoader();
+        fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
+
+        try{
+            Pane anchorPane = fxmlloader.load();
+
+            ElementController elementController = fxmlloader.getController();
+            elementController.setData2(fridgebean);
+
+            verticalBox.getChildren().add(anchorPane);
+            VBox.setMargin(anchorPane, new Insets(5));
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void clickBackButton() throws IOException {
         General.setBackScene();
     }
 
 
-    public void clickHomeButton(ActionEvent actionEvent) throws IOException {
+    public void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1() throws IOException {
         ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
+    private void clickMenuLink2() throws IOException {
         General.changeScene(General.setSource("Insert"));
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
+    private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource("Login"));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
+    private void clickMenuLink6() throws IOException {
         General.changeScene(General.setSource("Favourite"));
     }
-    @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
-        // niente
-    }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-    }
 
 
-    public void clickMenuButton(ActionEvent actionEvent) {
+    public void clickMenuButton() {
         if (menu.isVisible()) {
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
@@ -128,147 +240,6 @@ public class FridgeController implements Initializable, fridgeObserver {
             translateTransition1.play();
             translateTransition2.play();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
-        dark.setVisible(false);
-
-        // Definisco un nuovo observer --> Altro observer per questo caso d'uso dovrebbe essere InsertIngredientsController ?
-        fridgeSubject.attach(this);
-
-        ManageFridgeController fridge = new ManageFridgeController();
-        List<FridgeBean> fridgeBeans ;
-        fridgeBeans = fridge.showFridge();
-
-
-
-        for(int i=0; i<fridgeBeans.size();i++){
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
-            try{
-                Pane anchorPane = fxmlloader.load();
-                ElementController elementController = fxmlloader.getController();
-
-                elementController.setData2(fridgeBeans.get(i));
-
-                verticalBox.getChildren().add(anchorPane);
-                verticalBox.setMargin(anchorPane, new Insets(5));
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    public void addImageToIngredient(FridgeBean fridgebean){
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png","*.jpg","*.png"));
-        File file = fileChooser.showOpenDialog(null);
-        if(file!=null) {
-            String imagePath = file.getAbsolutePath();
-            InputStream inputStream = null;
-            try {
-                inputStream = new FileInputStream(imagePath);
-                fridgebean.setIngredientInputStream(new FileInputStream(imagePath));
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            Image image = new Image(inputStream);
-            fridgebean.setIngredientImage(image);
-        }
-
-    }
-
-    public void AddToFridge(ActionEvent event) throws SQLException {
-
-
-        if(textField.getText() != "") {
-            FridgeBean f = new FridgeBean();
-
-            f.setIngredientName(textField.getText());
-            //  f.setIngredientInputStream(new FileInputStream(imageURL));
-
-            ManageFridgeController fridge = new ManageFridgeController();
-
-
-            //FXMLLoader fxmlloader = new FXMLLoader();
-            // fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
-            //Pane anchorPane = fxmlloader.load();
-
-            //  ElementController elementController = fxmlloader.getController();
-
-            //fridge.getImage(f);
-
-            if (fridge.getImage(f) == true) {
-                System.out.println("Ehi sono qui 1");
-                // Devo convertire l'immagine recuperata dal DATABASE in inputStream in modo da reinserirla ( In frigo)
-                // Quindi recupero il path dell'immagine restituita
-                //elementController.setData2(f);
-            } else {
-
-                // anchorPane.setOnMouseClicked(event1 -> addImageToIngredient(f));
-
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
-                File file = fileChooser.showOpenDialog(null);
-                if (file != null) {
-                    String imagePath = file.getAbsolutePath();
-                    InputStream inputStream = null;
-                    try {
-                        inputStream = new FileInputStream(imagePath);
-                        f.setIngredientInputStream(new FileInputStream(imagePath));
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    Image image = new Image(inputStream);
-                    f.setIngredientImage(image);
-
-                }
-
-            }
-
-            try{
-                fridge.addIngredient(f);
-            } catch (duplicateIngredientException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Attenzione, stai per inserire un ingrediente esistente");
-                alert.show();
-            }
-
-
-            textField.setText("");
-        }
-
-
-    }
-
-    // In teoria dovrei fare solo l'update della grafica all'inserimento di un nuovo ingrediente
-
-    @Override
-    public void update(FridgeBean fridgebean) {
-
-        FXMLLoader fxmlloader = new FXMLLoader();
-        fxmlloader.setLocation(getClass().getResource("ElementFridge.fxml"));
-
-        try{
-            Pane anchorPane = fxmlloader.load();
-
-            ElementController elementController = fxmlloader.getController();
-            elementController.setData2(fridgebean);
-
-            verticalBox.getChildren().add(anchorPane);
-            verticalBox.setMargin(anchorPane, new Insets(5));
-
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
     }
 
 }

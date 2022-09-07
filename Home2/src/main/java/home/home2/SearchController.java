@@ -93,7 +93,7 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             Home m = new Home();
@@ -117,7 +117,7 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -129,7 +129,7 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -139,45 +139,34 @@ public class SearchController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-    }
 
     @FXML
     public void clickPortata(MouseEvent event) throws IOException {
         Button  click ;
-        //click = event.getPickResult().getIntersectedNode().getId();
         click = (Button)event.getSource();
         switch (click.getId()) {
             case "primi":
-                System.out.println("Mostra i primi");
                 ps.setLabel(primi.getText());
                 break;
             case "secondi":
-                System.out.println("Mostra i secondi");
                 ps.setLabel(secondi.getText());
                 break;
             case "contorni":
-                System.out.println("Mostra i contorni");
                 ps.setLabel(contorni.getText());
                 break;
             case "colazioni":
-                System.out.println("Mostra le colazioni");
                 ps.setLabel(colazioni.getText());
                 break;
             case "dessert":
-                System.out.println("Mostra i dessert");
                 ps.setLabel(dessert.getText());
                 break;
             case "antipasti":
                 ps.setLabel(antipasti.getText());
-                System.out.println("Mostra gli antipasti");
                 break;
             default:
                 break;
         }
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML

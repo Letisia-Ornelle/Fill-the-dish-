@@ -2,7 +2,7 @@ package home.home2;
 
 import home.home2.controller.CalculateRecipeController;
 import home.home2.beans.CalculateRecipeBean;
-import home.home2.Model.Ingredient;
+import home.home2.model.Ingredient;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +45,7 @@ public class InsertIngredients2Controller implements Initializable {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             Home2 m = new Home2();
@@ -55,7 +55,7 @@ public class InsertIngredients2Controller implements Initializable {
         }    }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             Home2 m = new Home2();
@@ -125,7 +125,7 @@ public class InsertIngredients2Controller implements Initializable {
     }
 
     public void clickFridge(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("SelectIngredients2"));
         } else {
             Home2 m = new Home2();

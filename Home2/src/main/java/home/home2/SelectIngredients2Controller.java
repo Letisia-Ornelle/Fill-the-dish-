@@ -4,8 +4,8 @@ import home.home2.controller.CalculateRecipeController;
 import home.home2.controller.ManageFridgeController;
 import home.home2.beans.CalculateRecipeBean;
 import home.home2.beans.FridgeBean;
-import home.home2.Model.Ingredient;
-import home.home2.Model.fridgeObserver;
+import home.home2.model.Ingredient;
+import home.home2.model.FridgeObserver;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 
 
-public class SelectIngredients2Controller implements Initializable, fridgeObserver {
+public class SelectIngredients2Controller implements Initializable, FridgeObserver {
 
     private static PendentScreen2 ps;
 
@@ -74,16 +74,15 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
     }
 
     public void ClickRecipe(ActionEvent event) throws IOException {
-        System.out.println("ciao!!!!");
         ps.setScreen2("3");
         ElementSelection2Controller elementController = new ElementSelection2Controller();
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
         CalculateRecipeBean recipeBean = new CalculateRecipeBean();
 
-        ObservableList<Ingredient> FridgeIngredients = elementController.getFridgeIngredients();
+        ObservableList<Ingredient> fridgeIngredients = elementController.getFridgeIngredients();
 
-        recipeBean.setListIng(FridgeIngredients);
+        recipeBean.setListIng(fridgeIngredients);
 
         recipeBeans =  recipeController.checkIngredients(recipeBean);
         General2.changeScene(General2.setSource("Result2"));
@@ -108,7 +107,7 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             Home2 m = new Home2();
@@ -118,7 +117,7 @@ public class SelectIngredients2Controller implements Initializable, fridgeObserv
         }      }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             Home2 m = new Home2();

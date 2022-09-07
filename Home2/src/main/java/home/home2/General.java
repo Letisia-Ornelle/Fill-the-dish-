@@ -2,11 +2,14 @@ package home.home2;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class General {
 
-    public static Boolean loginState = false;
-    public static ArrayList list;
+    private General(){}
+
+    public static Boolean LOGINSTATE = false;
+    private static List<String> list = new ArrayList<>();
 
 
     public static String setSource(String newScreen) {
@@ -17,17 +20,12 @@ public class General {
 
     public static void changeScene(String newSource) throws IOException {
         Home m = new Home();
-        list = m.getList();
+        list = Home.getList();
         list.add(newSource);
 
         if (newSource.equals("Home.fxml")) {
             list.clear();
             list.add(newSource);
-        }
-
-        if (newSource.equals("Home2.fxml")) {
-            list.clear();
-            list.add("Main2.fxml");
         }
 
         m.setNewScene(newSource);
@@ -37,12 +35,12 @@ public class General {
         Home m = new Home();
         String newScene;
 
-        list = m.getList();
+        list = Home.getList();
         if (list.size() > 1) {
-            newScene = (String)list.get(list.size() - 2);
+            newScene = list.get(list.size() - 2);
             m.setNewScene(newScene);
 
-            if (newScene == "Home") {
+            if (newScene.equals("Home")) {
                 list.clear();
             } else {
                 list.remove(list.size()-1);

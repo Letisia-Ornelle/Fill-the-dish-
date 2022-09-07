@@ -25,49 +25,68 @@ import java.util.ResourceBundle;
 public class IngredientsController implements Initializable {
     private static PendentScreen ps;
 
-    //these items are for the chooseBox
+    private static final String LOGINSTRING = "Login";
+
+
     @FXML
-    private ChoiceBox choiceBox1;
+    private Pane menu;
     @FXML
-    private ChoiceBox choiceBox2;
-    @FXML
-    private ChoiceBox choiceBox3;
-    @FXML
-    private ChoiceBox choiceBox4;
-    @FXML
-    private ChoiceBox choiceBox5;
-    @FXML
-    private ChoiceBox choiceBox6;
-    @FXML
-    private ChoiceBox choiceBox7;
-    @FXML
-    private ChoiceBox choiceBox8;
-    @FXML
-    private ChoiceBox choiceBoxN;
+    private Pane dark;
 
     @FXML
     private GridPane grid;
-    int column = 0 ;
-    int row  = 3;
-
-    public IngredientsController() throws SQLException {
-    }
-
-
-    public void choiceBoxButtonPushed(){
-        choiceBox1.getValue();
-        choiceBox2.getValue();
-        choiceBox3.getValue();
-        choiceBox4.getValue();
-        choiceBox5.getValue();
-        choiceBox6.getValue();
-        choiceBox7.getValue();
-        choiceBox8.getValue();
-        choiceBoxN.getValue();
-    }
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private Button menuButton;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        menu.setVisible(false);
+        dark.setVisible(false);
+
+        int column = 0;
+        int row = 1;
+        try {
+
+
+            for (int i = 0; i < 22; i++) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
+                Pane pane = fxmlLoader.load();
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+                // set grid height
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+                grid.add(pane, column++, row);
+                GridPane.setMargin(pane, new Insets(50));
+                grid.setAlignment(Pos.CENTER);
+                GridPane.setHalignment(pane, HPos.CENTER);
+                grid.setGridLinesVisible(false);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public IngredientsController()  {
+        //
+    }
+
+
+    @FXML
+    private void clickMenuButton()  {
         if (menu.isVisible()) {
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
@@ -104,85 +123,6 @@ public class IngredientsController implements Initializable {
         }
     }
 
-    @FXML
-    private Button recipeButton, fridgeButton, menuButton;
-
-    @FXML
-    private Pane menu, dark;
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
-        dark.setVisible(false);
-
-        //configuring the choiceboxs
-       /* choiceBox1.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox2.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox3.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox4.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox5.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox6.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox7.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-        choiceBox8.getItems().addAll("ingrediente1      ","ingrediente2      ","ingrediente3      ");
-
-
-        choiceBox1.setValue("Seleziona un ingrediente");
-        choiceBox2.setValue("Seleziona un ingrediente");
-        choiceBox3.setValue("Seleziona un ingrediente");
-        choiceBox4.setValue("Seleziona un ingrediente");
-        choiceBox5.setValue("Seleziona un ingrediente");
-        choiceBox6.setValue("Seleziona un ingrediente");
-        choiceBox7.setValue("Seleziona un ingrediente");
-        choiceBox8.setValue("Seleziona un ingrediente");*/
-
-
-        int column = 0;
-        int row = 1;
-        try {
-
-
-            for (int i = 0; i < 22; i++) {
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
-                Pane pane = fxmlLoader.load();
-                // pane = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-                if (column == 2) {
-                    column = 0;
-                    row++;
-                }
-
-
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-                // set grid height
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-                grid.add(pane, column++, row);
-                grid.setMargin(pane, new Insets(50));
-                grid.setAlignment(Pos.CENTER);
-                grid.setHalignment(pane, HPos.CENTER);
-                grid.setGridLinesVisible(false);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
-    }
-
-
-
-
-
 
     @FXML
     private void clickHomeButton() throws IOException {
@@ -199,14 +139,13 @@ public class IngredientsController implements Initializable {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickFridgeButton() throws IOException {
-        if (General.loginState) {
+    private static void clickFridgeButton() throws IOException {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
 
@@ -217,20 +156,18 @@ public class IngredientsController implements Initializable {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+    private static void clickMenuLink2(ActionEvent event) throws IOException {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+        General.changeScene(General.setSource(LOGINSTRING));
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
@@ -241,43 +178,27 @@ public class IngredientsController implements Initializable {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+    private static void clickMenuLink6(ActionEvent event) throws IOException {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+    private static void clickMenuLink7(ActionEvent event) throws IOException {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
 
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-    }
-
-    CalculateRecipeController c = new CalculateRecipeController();
-
-
-
-
-
-    }
+}
 
 
 

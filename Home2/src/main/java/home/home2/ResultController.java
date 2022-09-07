@@ -195,7 +195,7 @@ public class ResultController implements Initializable {
 
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton()  {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -252,7 +252,7 @@ public class ResultController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             Home m = new Home();
@@ -276,7 +276,7 @@ public class ResultController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -288,7 +288,7 @@ public class ResultController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -297,12 +297,6 @@ public class ResultController implements Initializable {
             //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
-    }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI = 1;
-        General.changeScene(General.setSource("Home2"));
-
     }
 
 }

@@ -3,44 +3,40 @@ package home.home2;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import static javafx.application.Application.launch;
+
 
 public class HomeController implements Initializable {
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
+    @FXML
+    private Pane dark;
 
-    private static ArrayList list;
     private static PendentScreen ps;
+
+    private static final String LOGINSTRING = "Login";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         menu.setVisible(false);
         dark.setVisible(false);
 
-        Home m = new Home();
-        ps = m.getPS();
-        list = m.getList();
     }
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton() {
         if (menu.isVisible()) {
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
@@ -93,20 +89,18 @@ public class HomeController implements Initializable {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+    private  void clickMenuLink2(ActionEvent event) throws IOException {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+        General.changeScene(General.setSource(LOGINSTRING));
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
@@ -117,35 +111,25 @@ public class HomeController implements Initializable {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+    private  void clickMenuLink6(ActionEvent event) throws IOException {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
       } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGINSTRING));
         }
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-    }
-
 
 
     @FXML

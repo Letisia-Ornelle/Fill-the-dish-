@@ -4,7 +4,7 @@ import home.home2.controller.EnrollController;
 import home.home2.controller.LoginController;
 import home.home2.beans.EnrollBean;
 import home.home2.beans.LoginBean;
-import home.home2.Model.Exceptions.loginFailedException;
+import home.home2.model.exceptions.LoginFailedException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -46,9 +46,9 @@ public class Login2Controller {
 
 
      @FXML
-    public void clickLogin(ActionEvent event) throws IOException, SQLException, loginFailedException {
+    public void clickLogin(ActionEvent event) throws IOException, SQLException, LoginFailedException {
 
-        General2.loginState = true;
+        General2.LOGINSTATE = true;
 
         LoginBean loginB = new LoginBean();
         loginB.setUsername(username.getText());
@@ -76,7 +76,7 @@ public class Login2Controller {
 
     }
 
-    public void clickRegister(ActionEvent event) throws IOException, SQLException {
+    public void clickRegister(ActionEvent event) throws SQLException {
 
         EnrollBean enrollbean = new EnrollBean();
         enrollbean.setUsername(userName.getText());
@@ -119,7 +119,7 @@ public class Login2Controller {
     }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             Home2 m = new Home2();
@@ -132,7 +132,7 @@ public class Login2Controller {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             Home2 m = new Home2();

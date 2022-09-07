@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.beans.FridgeBean;
-import home.home2.Model.Ingredient;
+import home.home2.model.Ingredient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,19 +32,18 @@ public class ElementSelection2Controller {
 
     private static ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
 
-    public void selectedIng(ActionEvent actionEvent) {
+    public void selectedIng() {
 
-        String IngredientName ;
+        String ingredientName ;
 
         if (checkBox.isSelected()){
-            IngredientName = name.getText() ;
-            selectedIngredients.add(new Ingredient(IngredientName));
+            ingredientName = name.getText() ;
+            selectedIngredients.add(new Ingredient(ingredientName));
         }
 
     }
 
     public ObservableList<Ingredient> getFridgeIngredients(){
-        System.out.println(selectedIngredients);
         return selectedIngredients;
     }
 }

@@ -2,37 +2,14 @@ package home.home2;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class General2 {
 
-    public static Boolean loginState = false;
-    public static ArrayList list;
+    public static boolean LOGINSTATE = false;
+    private static List<String> list = new ArrayList<>();
 
-    // esempio lista di piatti inseriti nella lista dei preferiti
-    public static String[] piatti = {"Pasta alla carbonara", "Pasta al tonno", "Pasta al sugo", "Pasta ai funghi"};
-
-    public static void addElement() {
-        // ee
-    }
-
-    public static void removeEl(String string) {
-        int k=0;
-        for (int i=0;i<piatti.length;i++) {
-            if (piatti[i].equals(string)) {
-                k++;
-            }
-
-            if (k>=piatti.length) {
-                piatti[i] = "";
-            } else {
-                piatti[i] = piatti[k];
-            }
-
-
-            k++;
-        }
-
-    }
+    private General2(){}
 
     public static String setSource(String newScreen) {
         String tempSrc = newScreen;
@@ -43,7 +20,7 @@ public class General2 {
     public static void changeScene(String newSource) throws IOException {
 
         Home2 m = new Home2();
-        list = m.getList();
+        list = Home2.getList();
         list.add(newSource);
 
         m.setNewScene(newSource);
@@ -54,12 +31,12 @@ public class General2 {
         Home2 m = new Home2();
         String newScene;
 
-        list = m.getList();
+        list = Home2.getList();
         if (list.size() > 1) {
-            newScene = (String)list.get(list.size() - 2);
+            newScene = list.get(list.size() - 2);
             m.setNewScene(newScene);
 
-            if (newScene == "Home") {
+            if (newScene.equals("Home")) {
                 list.clear();
             } else {
                 list.remove(list.size()-1);

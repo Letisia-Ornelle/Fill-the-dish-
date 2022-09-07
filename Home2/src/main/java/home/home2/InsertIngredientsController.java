@@ -2,7 +2,7 @@ package home.home2;
 
 import home.home2.controller.CalculateRecipeController;
 import home.home2.beans.CalculateRecipeBean;
-import home.home2.Model.Ingredient;
+import home.home2.model.Ingredient;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
@@ -40,7 +40,7 @@ public class InsertIngredientsController implements Initializable {
     private static DynamicCBController choiceBoxController ;
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton(){
         if (menu.isVisible()) {
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
@@ -143,9 +143,6 @@ public class InsertIngredientsController implements Initializable {
 
     private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
-    // Pensavo a questo in modo da recuperare la lista su ResultController... ma ???? Boh
-    // Cioè facendo la new di questa classe su resultController e chiamando questo metodo per recuperare la lista di ricette ?
-    // Può essere . o no
     public List<CalculateRecipeBean> getRecipes(){
         return recipeBeans;
     }
@@ -156,7 +153,7 @@ public class InsertIngredientsController implements Initializable {
     private void clickRecipeButton() throws IOException {
 
         ps.setScreen("2");
-
+             // no
         ObservableList<Ingredient> ingredients = choiceBoxController.getValues();
 
         CalculateRecipeBean recipeBean = new CalculateRecipeBean();
@@ -175,7 +172,7 @@ public class InsertIngredientsController implements Initializable {
 
     @FXML
     private void clickFridgeButton() throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("SelectIngredients"));
         } else {
             Home m = new Home();
@@ -195,7 +192,7 @@ public class InsertIngredientsController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             Home m = new Home();
@@ -219,7 +216,7 @@ public class InsertIngredientsController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -231,7 +228,7 @@ public class InsertIngredientsController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -243,8 +240,6 @@ public class InsertIngredientsController implements Initializable {
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-
-        Home.GUI=1;
         General.changeScene(General.setSource("Home2"));
     }
 

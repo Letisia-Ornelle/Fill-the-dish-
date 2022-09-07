@@ -2,9 +2,9 @@ package home.home2;
 
 import home.home2.controller.ManageFridgeController;
 import home.home2.beans.FridgeBean;
-import home.home2.Model.Exceptions.duplicateIngredientException;
-import home.home2.Model.fridgeObserver;
-import home.home2.Model.fridgeSubject;
+import home.home2.model.exceptions.DuplicateIngredientException;
+import home.home2.model.FridgeObserver;
+import home.home2.model.FridgeSubject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,13 +19,13 @@ import javafx.stage.FileChooser;
 
 import java.io.*;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static home.home2.Home2.ps;
 
-public class Fridge2Controller implements Initializable, fridgeObserver {
+public class Fridge2Controller implements Initializable, FridgeObserver {
+
+
 
     @FXML
     private VBox verticalBox;
@@ -42,7 +42,7 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int i;
 
-        fridgeSubject.attach(this);
+        FridgeSubject.attach(this);
 
         List<FridgeBean> fridgeBeans ;
         ManageFridgeController fridgeController = new ManageFridgeController();
@@ -70,17 +70,17 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
     }
 
 
-    public void AddToFridge(ActionEvent event) throws SQLException, duplicateIngredientException {
+    public void AddToFridge() throws  DuplicateIngredientException {
 
-        if(textField.getText() != "") {
+        if(!textField.getText().equals("")) {
             FridgeBean fridge = new FridgeBean();
             fridge.setIngredientName(textField.getText());
 
             ManageFridgeController manageFridge = new ManageFridgeController();
 
 
-                if (manageFridge.getImage(fridge) == true) {
-                    System.out.println("Qui bisogna inserire l'immagine presa dal dataBase");
+                if (manageFridge.getImage(fridge)) {
+                    //
                 }
                 else{
                     FileChooser fileChooser = new FileChooser();
@@ -125,49 +125,48 @@ public class Fridge2Controller implements Initializable, fridgeObserver {
 
     }
 
-    public void clickInterfaceButton(ActionEvent event) {
-    }
 
-    public void clickReviewButton(ActionEvent event) throws IOException {
+    public void clickReviewButton() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
     }
 
-    public void clickFridgeButton(ActionEvent event) throws IOException {
+    public void clickFridgeButton() throws IOException {
 
     }
 
-    public void clickFavouriteButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+    public  void clickFavouriteButton() throws IOException {
+        PendentScreen2 ps;
+
+        if (Boolean.TRUE.equals(General2.LOGINSTATE)) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
+            ps = Home2.getPS2();
             ps.add("Favourite2.fxml");
             General2.changeScene(General2.setSource("Login2"));
         }      }
 
-    public void clickLoginButton(ActionEvent event) throws IOException {
+    public void clickLoginButton() throws IOException {
         General2.changeScene(General2.setSource("Login2"));
     }
 
-    public void clickAddButton(ActionEvent event) throws IOException {
+    public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
     }
 
-    public void clickSearchButton(ActionEvent event) throws IOException {
+    public void clickSearchButton() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
     }
 
-    public void clickBackButton(ActionEvent actionEvent) {
-
-
+    public void clickBackButton() {
     }
 
-    public void clickHomeButton(ActionEvent actionEvent) throws IOException {
+    public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickInsertIngredients(ActionEvent event) {
+    public void clickInsertIngredients() throws IOException {
+        General2.changeScene(General2.setSource("Result2"));
+
     }
 
     public void clickRecipesButton(ActionEvent event) throws IOException {

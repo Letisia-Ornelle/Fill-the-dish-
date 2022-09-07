@@ -4,33 +4,27 @@ package home.home2;
 import home.home2.beans.CalculateRecipeBean;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
 public class ItemsController {
 
     @FXML
-    private Button recipeButton;
-    @FXML
     private ImageView recipeImage;
     @FXML
     private Label recipeName;
     @FXML
     private Label recipeDescription;
-    @FXML
-    private Label recipeType;
-    private static PendentScreen ps;
 
     CalculateRecipeBean recipe;
 
 
-    public void clickRecipeImage(MouseEvent mouseEvent) throws IOException {
-        Home m = new Home();
-        ps = m.getPS();
+    public void clickRecipeImage() throws IOException {
+         PendentScreen ps;
+        ps = Home.getPS();
 
         ps.setName(recipeName.getText());
         ps.setImage(recipeImage.getImage());

@@ -23,7 +23,7 @@ public class InsertRecipe2Controller {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             Home2 m = new Home2();
@@ -34,7 +34,7 @@ public class InsertRecipe2Controller {
     }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             Home2 m = new Home2();

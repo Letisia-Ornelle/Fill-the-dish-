@@ -106,7 +106,7 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
@@ -132,7 +132,7 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -145,7 +145,7 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -155,13 +155,6 @@ public class SubscribeController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI = 1;
-        General.changeScene(General.setSource("Home2"));
-    }
-
 
     @FXML
     private void clickLogin() throws IOException {

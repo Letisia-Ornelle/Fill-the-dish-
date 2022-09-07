@@ -45,8 +45,8 @@ public class ReviewController implements Initializable {
         alert.setVisible(false);
 
         vote = 0;
-        star = new Image("C:\\Users\\987229\\Desktop\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png");
-        starfilled = new Image("C:\\Users\\987229\\Desktop\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png");
+        star = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png");
+        starfilled = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png");
 
         star1.setImage(star);
         star2.setImage(star);
@@ -106,11 +106,12 @@ public class ReviewController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             Home m = new Home();
@@ -134,7 +135,7 @@ public class ReviewController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -146,7 +147,7 @@ public class ReviewController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -156,12 +157,7 @@ public class ReviewController implements Initializable {
             General.changeScene(General.setSource("Login"));
         }
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
 
-    }
 
     public void clickStar(MouseEvent event) throws IOException {
         click = event.getPickResult().getIntersectedNode().getId();

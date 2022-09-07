@@ -5,8 +5,8 @@ import home.home2.controller.FavouritesController;
 import home.home2.beans.CalculateRecipeBean;
 import home.home2.beans.FavouritesBean;
 import home.home2.beans.IngredientBean;
-import home.home2.Model.Exceptions.duplicateRecipeException;
-import home.home2.Model.Exceptions.provideLoginException;
+import home.home2.model.exceptions.DuplicateRecipeException;
+import home.home2.model.exceptions.ProvideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -104,7 +104,7 @@ public class RecipeController implements Initializable {
     }
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton()  {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -158,7 +158,7 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             Home m = new Home();
@@ -182,7 +182,7 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -194,7 +194,7 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -203,12 +203,6 @@ public class RecipeController implements Initializable {
             //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
-    }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-
     }
 
 
@@ -221,21 +215,21 @@ public class RecipeController implements Initializable {
         try{
             favController = new FavouritesController();
 
-                if (General.loginState) {
+                if (General.LOGINSTATE) {
 
                     favController.addToFavourites(favBean);
 
                 }
-            } catch (duplicateRecipeException e) {
+            } catch (DuplicateRecipeException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Attenzione, questa ricetta è già presente nella lista dei preferiti");
                 alert.show();
-            }catch(provideLoginException e1){
+            }catch(ProvideLoginException e1){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Attenzione, devi prima fare il login");
                 alert.show();
             }finally {
-                if(!General.loginState){
+                if(!General.LOGINSTATE){
                     Home m = new Home();
                     ps = m.getPS();
                     ps.add("Recipe.fxml");
@@ -246,12 +240,12 @@ public class RecipeController implements Initializable {
     }
 
     @FXML
-    private void hoveredButton(MouseEvent event) throws IOException {
+    private void hoveredButton() {
         favButton.setScaleX(1.2);
         favButton.setScaleY(1.2);
     }
     @FXML
-    private void ReleaseButton(MouseEvent event) throws IOException {
+    private void ReleaseButton() {
         favButton.setScaleX(1);
         favButton.setScaleY(1);
     }

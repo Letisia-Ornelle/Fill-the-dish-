@@ -53,24 +53,7 @@ public class Search2Controller implements Initializable {
         antipasti.setScaleX(0.5);
         antipasti.setScaleY(0.5);
 
-       /* elements.addAll(getData());
 
-        try {
-            for (i=0;i<elements.size();i++) {
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("ListElement.fxml"));
-                Pane anchorPane = fxmlloader.load();
-
-               // ElementController elementController = fxmlloader.getController();
-               // elementController.setData(elements.get(i));
-
-                grid.add(anchorPane, column, row++);
-                grid.setMargin(anchorPane, new Insets(5));
-                grid.setGridLinesVisible(false);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
 
     public void clickSearch(ActionEvent event) throws IOException {
@@ -227,7 +210,7 @@ public class Search2Controller implements Initializable {
     }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             Home2 m = new Home2();
@@ -239,7 +222,7 @@ public class Search2Controller implements Initializable {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
-        if (General2.loginState) {
+        if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             Home2 m = new Home2();

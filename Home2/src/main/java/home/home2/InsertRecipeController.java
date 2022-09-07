@@ -20,15 +20,25 @@ public class InsertRecipeController implements Initializable {
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
+    @FXML
+    private Pane dark;
 
     @FXML
-    private ImageView dish1, dish2, dish3, dish4, dish5, dish6;
-
-    private int i;
-    private Boolean[] clicked = {false, false, false, false, false, false};
+    private ImageView dish1;
     @FXML
-    private ChoiceBox portata;
+    private ImageView dish2;
+    @FXML
+    private ImageView dish3;
+    @FXML
+    private ImageView dish4;
+    @FXML
+    private ImageView dish5;
+    @FXML
+    private ImageView dish6;
+
+    @FXML
+    private ChoiceBox<String> portata;
 
 
 
@@ -40,7 +50,7 @@ public class InsertRecipeController implements Initializable {
         portata.setValue("Seleziona un ingrediente");
     }
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton() {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -88,8 +98,8 @@ public class InsertRecipeController implements Initializable {
     }
 
     @FXML
-    private void clickSubmitButton() throws IOException{
-
+    private void clickSubmitButton() {
+        //
     }
 
 
@@ -98,8 +108,8 @@ public class InsertRecipeController implements Initializable {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        // niente
+    private void clickMenuLink2(ActionEvent event) {
+        //
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
@@ -123,7 +133,6 @@ public class InsertRecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
         General.changeScene(General.setSource("Home2"));
     }
 

@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Model.Ingredient;
-import home.home2.Model.systemFridge;
+import home.home2.model.Ingredient;
+import home.home2.model.SystemFridge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,14 +15,14 @@ import java.util.ResourceBundle;
 
 public class DynamicCBController implements Initializable {
     @FXML
-    private ChoiceBox choiceBoxD;
+    private ChoiceBox<String> choiceBoxD;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
         choiceBoxD.setValue("Inserisci un nuovo ingrediente");
 
-        systemFridge fridge = systemFridge.getInstance();
+        SystemFridge fridge = SystemFridge.getInstance();
 
         ObservableList<Ingredient> ingredients = fridge.getIngredients();
 
@@ -37,24 +37,24 @@ public class DynamicCBController implements Initializable {
     }
 
 
-    private static ObservableList<Ingredient> SelectedIngredients = FXCollections.observableArrayList();
+    private static ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
 
     public ObservableList<Ingredient> getValues() {
 
-        return SelectedIngredients;
+        return selectedIngredients;
     }
 
-    public void getChoiceBoxValue(ActionEvent event) throws IOException {
+    public void getChoiceBoxValue() throws IOException {
 
-        String ingrediente = (String) choiceBoxD.getValue();
+        String ingrediente = choiceBoxD.getValue();
 
-        systemFridge fridge = systemFridge.getInstance();
+        SystemFridge fridge = SystemFridge.getInstance();
 
         ObservableList<Ingredient> ingredients = fridge.getIngredients();
 
         for (Ingredient i : ingredients) {
             if (ingrediente.equals(i.getName())) {
-                SelectedIngredients.add(new Ingredient(ingrediente));
+                selectedIngredients.add(new Ingredient(ingrediente));
             }
         }
 

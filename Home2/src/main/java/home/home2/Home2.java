@@ -8,25 +8,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Home2 extends Application {
 
     private static Stage stg;
-    private static ArrayList screenList;
+    private static List<String> screenList;
     public static PendentScreen2 ps;
-    public static int GUI=0;
 
     @Override
     public void start(Stage stage) throws Exception {
 
         stg = stage;
 
-        ArrayList list = new ArrayList();
+        List<String> list = new ArrayList<>();
         list.add("Home2.fxml");              // potrebbe dare bug se la app si apre in una schermata diversa dalla home
         screenList = list;
 
-        PendentScreen2 pendentScreen = new PendentScreen2();
-        ps = pendentScreen;
+        ps = new PendentScreen2();
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(Home.class.getResource("Home2.fxml"));
@@ -37,7 +36,7 @@ public class Home2 extends Application {
         stage.show();
     }
 
-    public static ArrayList getList() {
+    public static List<String> getList() {
         return screenList;
     }
     public static PendentScreen2 getPS2() {

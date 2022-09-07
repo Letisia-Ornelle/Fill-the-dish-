@@ -4,7 +4,7 @@ import home.home2.controller.FavouritesController;
 import home.home2.controller.ManageFridgeController;
 import home.home2.beans.FavouritesBean;
 import home.home2.beans.FridgeBean;
-import home.home2.Model.Exceptions.provideLoginException;
+import home.home2.model.exceptions.ProvideLoginException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,9 +25,9 @@ public class ElementController2 {
     @FXML
     private Pane cover;
 
-    private FavouritesBean favBean;
+    FavouritesBean favBean;
 
-    private FridgeBean fridgebean;
+    FridgeBean fridgebean;
 
     public void setData(FridgeBean fridgebean){
         this.fridgebean = fridgebean;
@@ -41,25 +41,25 @@ public class ElementController2 {
         img.setImage(favBean.getRecipeImage());
     }
 
-    public void removeIngredient(ActionEvent event) throws IOException {
+    public void removeIngredient() throws IOException {
 
-        FridgeBean fridgebean = new FridgeBean();
-        fridgebean.setIngredientName(name.getText());
+        FridgeBean fridgebean1 = new FridgeBean();
+        fridgebean1.setIngredientName(name.getText());
         ManageFridgeController fridgeController = new ManageFridgeController();
-        fridgeController.deleteIngredient(fridgebean);
+        fridgeController.deleteIngredient(fridgebean1);
 
         General2.changeScene(General2.setSource("Fridge2"));
     }
 
     @FXML
-    public void clickRemoveRecipe(MouseEvent event) throws IOException, provideLoginException {
+    public void clickRemoveRecipe() throws IOException, ProvideLoginException {
 
-        FavouritesBean favBean = new FavouritesBean();
-        favBean.setRecipeName(name.getText());
-        favBean.setRecipeImage(img.getImage());
+        FavouritesBean favBean1 = new FavouritesBean();
+        favBean1.setRecipeName(name.getText());
+        favBean1.setRecipeImage(img.getImage());
 
         FavouritesController favController = new FavouritesController();
-        favController.deleteFromFavourites(favBean);
+        favController.deleteFromFavourites(favBean1);
 
         General2.changeScene(General2.setSource("Favourite2"));
     }

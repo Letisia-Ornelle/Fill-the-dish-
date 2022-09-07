@@ -1,7 +1,7 @@
 package home.home2;
 
 import home.home2.beans.LoginBean;
-import home.home2.Model.Exceptions.loginFailedException;
+import home.home2.model.exceptions.LoginFailedException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -42,7 +42,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton() {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -95,9 +95,9 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void clickLoginButton() throws IOException, SQLException , loginFailedException {
+    private void clickLoginButton() throws IOException, SQLException , LoginFailedException {
 
-        General.loginState = true;
+        General.LOGINSTATE = true;
 
         LoginBean lb = new LoginBean();
         lb.setUsername(username.getText());
@@ -116,7 +116,7 @@ public class LoginController implements Initializable {
                 }
 
             }
-        }catch(loginFailedException e){
+        }catch(LoginFailedException e){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Account non registrato ! Creane uno prima di accedere al sistema");
             alert.show();
@@ -143,7 +143,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
@@ -170,7 +170,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
@@ -183,7 +183,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -194,11 +194,5 @@ public class LoginController implements Initializable {
         }
     }
 
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        ps.clear();
-        Home.GUI = 1;
-        General.changeScene(General.setSource("Home2"));
-    }
 
 }

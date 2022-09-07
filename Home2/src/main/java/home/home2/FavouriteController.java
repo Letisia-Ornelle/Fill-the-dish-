@@ -2,7 +2,7 @@ package home.home2;
 
 import home.home2.controller.FavouritesController;
 import home.home2.beans.FavouritesBean;
-import home.home2.Model.Exceptions.provideLoginException;
+import home.home2.model.exceptions.ProvideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -45,7 +45,7 @@ public class FavouriteController implements Initializable {
         FavouritesController favController = null;
         try {
             favController = new FavouritesController();
-        } catch (provideLoginException e) {
+        } catch (ProvideLoginException e) {
             e.printStackTrace();
         }
 
@@ -135,22 +135,18 @@ public class FavouriteController implements Initializable {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
-        //General.changeScene(General.setSource("Favourites"));
+    private void clickMenuLink6()  {
+        //
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7() throws IOException {
         General.changeScene(General.setSource("Fridge"));
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-    }
+
 
 
 

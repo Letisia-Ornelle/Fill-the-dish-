@@ -4,8 +4,8 @@ import home.home2.controller.CalculateRecipeController;
 import home.home2.controller.ManageFridgeController;
 import home.home2.beans.CalculateRecipeBean;
 import home.home2.beans.FridgeBean;
-import home.home2.Model.Ingredient;
-import home.home2.Model.fridgeObserver;
+import home.home2.model.Ingredient;
+import home.home2.model.FridgeObserver;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 import static home.home2.Home.ps;
 
-public class SelectIngredientsController implements  Initializable, fridgeObserver {
+public class SelectIngredientsController implements  Initializable, FridgeObserver {
     @FXML
     Button backButton;
     @FXML
@@ -150,7 +150,7 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.loginState) {
+        if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
@@ -160,26 +160,21 @@ public class SelectIngredientsController implements  Initializable, fridgeObserv
             General.changeScene(General.setSource("Login"));
         }
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        Home.GUI=1;
-        General.changeScene(General.setSource("Home2"));
-    }
+
 
     private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @FXML
     private void recipesFridge(ActionEvent event) throws IOException {
-        System.out.println("ciao!!!!");
         pendent.setScreen("3");
         ElementSelectionController elementController = new ElementSelectionController();
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
         CalculateRecipeBean recipeBean = new CalculateRecipeBean();
 
-        ObservableList<Ingredient> FridgeIngredients = elementController.getFridgeIngredients();
+        ObservableList<Ingredient> fridgeIngredients = elementController.getFridgeIngredients();
 
-        recipeBean.setListIng(FridgeIngredients);
+        recipeBean.setListIng(fridgeIngredients);
 
         recipeBeans =  recipeController.checkIngredients(recipeBean);
 

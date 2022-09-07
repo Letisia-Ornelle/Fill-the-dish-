@@ -1,7 +1,7 @@
 package home.home2;
 
-import home.home2.Model.Ingredient;
-import home.home2.Model.systemFridge;
+import home.home2.model.Ingredient;
+import home.home2.model.SystemFridge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,13 +16,13 @@ import java.util.ResourceBundle;
 public class DynamicCB2Controller implements Initializable {
 
     @FXML
-    private ChoiceBox choiceBox;
+    private ChoiceBox<String> choiceBox;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         choiceBox.setValue("Inserisci un nuovo ingrediente");
 
-        systemFridge fridge = systemFridge.getInstance();
+        SystemFridge fridge = SystemFridge.getInstance();
 
         ObservableList<Ingredient> ingredients = fridge.getIngredients();
 
@@ -37,24 +37,23 @@ public class DynamicCB2Controller implements Initializable {
     }
 
 
-    private static final ObservableList<Ingredient> SelectedIngredients =FXCollections.observableArrayList();
+    private static final ObservableList<Ingredient> selectedIngredients =FXCollections.observableArrayList();
 
     public ObservableList<Ingredient> getValues() {
-        return SelectedIngredients;
+        return selectedIngredients;
     }
 
-    public void getChoiceBoxValue(ActionEvent event) throws IOException {
+    public void getChoiceBoxValue() throws IOException {
 
-        System.out.println("Eccomi");
-        String ingrediente = (String) choiceBox.getValue();
+        String ingrediente = choiceBox.getValue();
 
-        systemFridge fridge = systemFridge.getInstance();
+        SystemFridge fridge = SystemFridge.getInstance();
 
         ObservableList<Ingredient> ingredients = fridge.getIngredients();
 
         for (Ingredient i : ingredients) {
             if (ingrediente.equals(i.getName())) {
-                SelectedIngredients.add(new Ingredient(ingrediente));
+                selectedIngredients.add(new Ingredient(ingrediente));
             }
         }
 
