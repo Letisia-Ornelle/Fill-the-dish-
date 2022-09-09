@@ -1,17 +1,17 @@
 package home.home2;
 
 import home.home2.controller.FavouritesController;
-import home.home2.beans.FavouritesBean;
+import javafx.event.ActionEvent;
 import home.home2.model.exceptions.ProvideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
+import home.home2.beans.FavouritesBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
+import javafx.fxml.Initializable;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -31,44 +31,6 @@ public class FavouriteController implements Initializable {
     @FXML
     private GridPane grid;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)  {
-        int i;
-        int column = 0;
-        int row = 1;
-
-        menu.setVisible(false);
-        dark.setVisible(false);
-
-        List<FavouritesBean> favouritesBeans;
-
-        FavouritesController favController = null;
-        try {
-            favController = new FavouritesController();
-        } catch (ProvideLoginException e) {
-            e.printStackTrace();
-        }
-
-        assert favController != null;
-        favouritesBeans = favController.showFavourites();
-
-        try {
-            for (i=0;i<favouritesBeans.size();i++) {
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("ListElement.fxml"));
-                Pane anchorPane = fxmlloader.load();
-
-                ElementController elementController = fxmlloader.getController();
-                elementController.setData(favouritesBeans.get(i));
-
-                grid.add(anchorPane, column, row++);
-                GridPane.setMargin(anchorPane, new Insets(5));
-                grid.setGridLinesVisible(false);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     private void clickMenuButton() {
@@ -108,6 +70,48 @@ public class FavouriteController implements Initializable {
             translateTransition2.play();
         }
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
+        menu.setVisible(false);
+        dark.setVisible(false);
+        int i;
+        int column = 0;
+        int row = 1;
+
+
+        FavouritesController controller = null;
+
+        List<FavouritesBean> beans = null;
+
+        try {
+            controller = new FavouritesController();
+        } catch (ProvideLoginException e) {
+            e.printStackTrace();
+        }
+
+        assert controller != null;
+        beans = controller.showFavourites();
+
+        try {
+            for (i=0;i<beans.size();i++) {
+                FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("ListElement.fxml"));
+                Pane pane = fxmlloader.load();
+
+                ElementController elementController = fxmlloader.getController();
+                elementController.setData(beans.get(i));
+
+                grid.add(pane, column, row++);
+                grid.setGridLinesVisible(false);
+                GridPane.setMargin(pane, new Insets(5));
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void clickHomeButton() throws IOException {

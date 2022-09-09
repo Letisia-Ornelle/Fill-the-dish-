@@ -26,7 +26,6 @@ public class Favourite2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int i;
 
-
         List<FavouritesBean> favouritesBeans;
 
         FavouritesController favController = null;
