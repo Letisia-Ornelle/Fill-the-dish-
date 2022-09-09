@@ -74,6 +74,9 @@ public class FavouritesDAO {
                 if(stmt1 != null){
                     stmt1.close();
                 }
+                if(stmt != null){
+                    stmt.close();
+                }
 
             } catch (SQLException e){
                 e.printStackTrace();
