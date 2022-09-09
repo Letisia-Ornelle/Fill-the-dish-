@@ -76,7 +76,10 @@ public class SelectIngredientsController implements  Initializable {
     private void clickBackButton() throws IOException {
         General.setBackScene();
     }
-
+    @FXML
+    private void clickMenuLink2() throws IOException {
+        General.changeScene(General.setSource("Insert"));
+    }
     @FXML
     private void clickMenuButton()  {
         if (menu.isVisible()) {
@@ -105,10 +108,7 @@ public class SelectIngredientsController implements  Initializable {
             menu.setVisible(true);
             dark.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(0);
-            fadeTransition.setToValue(1);
-            fadeTransition.play();
+
 
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
@@ -116,13 +116,15 @@ public class SelectIngredientsController implements  Initializable {
             translateTransition2.setByX(221);
             translateTransition1.play();
             translateTransition2.play();
+            
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            fadeTransition.setFromValue(0);
+            fadeTransition.setToValue(1);
+            fadeTransition.play();
         }
     }
 
-    @FXML
-    private void clickMenuLink2() throws IOException {
-            General.changeScene(General.setSource("Insert"));
-    }
+
     @FXML
     private void clickMenuLink1() throws IOException {
         PendentScreen ps3;
