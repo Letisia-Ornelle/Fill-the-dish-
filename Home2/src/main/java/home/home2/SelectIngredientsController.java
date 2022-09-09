@@ -91,12 +91,13 @@ public class SelectIngredientsController implements  Initializable {
 
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition2.setByX(-220);
+            translateTransition2.play();
+
             fadeTransition.setOnFinished(event -> {
                 menu.setVisible(false);
                 dark.setVisible(false);
             });
             translateTransition1.play();
-            translateTransition2.play();
 
 
 
@@ -111,15 +112,12 @@ public class SelectIngredientsController implements  Initializable {
 
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(320);
-            translateTransition2.setByX(220);
+            translateTransition1.setByX(321);
+            translateTransition2.setByX(221);
             translateTransition1.play();
             translateTransition2.play();
         }
     }
-
-
-
 
     @FXML
     private void clickMenuLink2() throws IOException {
