@@ -154,6 +154,12 @@ public class InsertIngredients2Controller implements Initializable {
         General2.changeScene(General2.setSource("Result2"));
     }
 
+
+
+
+    public void clickHomeButton() throws IOException {
+        General2.changeScene(General2.setSource("Home2"));
+    }
     public void clickFridge() throws IOException {
         if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("SelectIngredients2"));
@@ -162,12 +168,6 @@ public class InsertIngredients2Controller implements Initializable {
             General2.changeScene(General2.setSource(LOGIN));
         }
     }
-
-
-    public void clickHomeButton() throws IOException {
-        General2.changeScene(General2.setSource("Home2"));
-    }
-
     public void clickBackButton() {
         //
     }

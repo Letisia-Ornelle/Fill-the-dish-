@@ -91,7 +91,7 @@ public class Recipe2Controller implements Initializable {
 
     }
     public void clickFavouriteButton() throws IOException {
-        if (General2.getLoginStateSView()) {
+        if (Boolean.TRUE.equals(General2.getLoginStateSView())) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             ps.add("Favourite2.fxml");
@@ -102,7 +102,7 @@ public class Recipe2Controller implements Initializable {
     }
 
     public void clickFridgeButton() throws IOException {
-        if (General2.getLoginStateSView()) {
+        if (Boolean.TRUE.equals(General2.getLoginStateSView())) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             ps.add("Fridge2.fxml");

@@ -62,7 +62,6 @@ public class LoginController implements Initializable {
         PendentScreen ps = Home.getPS();
 
         General.setloginState(true);
-        //assert General.LOGINSTATE;
 
 
         LoginBean lb = new LoginBean();
