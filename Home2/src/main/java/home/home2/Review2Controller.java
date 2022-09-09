@@ -155,12 +155,12 @@ public class Review2Controller implements Initializable {
     }
 
 
-    public void clickReviewButton() throws IOException {
+    public void clickReviewButtonR2() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
 
     }
 
-    public void clickFridgeButton() throws IOException {
+    public void clickFridgeButtonR2() throws IOException {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
@@ -169,7 +169,7 @@ public class Review2Controller implements Initializable {
         }
     }
 
-    public void clickFavouriteButton() throws IOException {
+    public void clickFavouriteButtonR2() throws IOException {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
@@ -178,12 +178,12 @@ public class Review2Controller implements Initializable {
         }
     }
 
-    public void clickLoginButton() throws IOException {
+    public void clickLoginButtonR2() throws IOException {
         General2.changeScene(General2.setSource(LOGIN));
 
     }
 
-    public void clickAddButton() throws IOException {
+    public void clickAddButtonR2() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
 
     }
@@ -206,7 +206,7 @@ public class Review2Controller implements Initializable {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton() throws IOException {
+    public void clickRecipesButtonR2() throws IOException {
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
