@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class SearchController implements Initializable {
 
     private static final String LOGIN = "Login";
@@ -92,19 +94,15 @@ public class SearchController implements Initializable {
 
     @FXML
     private void clickMenuLink1() throws IOException {
-        PendentScreen ps3;
-        ps3 = Home.getPS();
-        ps3.setScreen("1");
+        ps.setScreen("1");
         General.changeScene(General.setSource(RESULT));
     }
     @FXML
     private void clickMenuLink2() throws IOException {
-        PendentScreen ps4;
-        ps4 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            ps4.add("Insert.fxml");
+            ps.add("Insert.fxml");
             General.changeScene(General.setSource(LOGIN));
         }
     }
@@ -115,19 +113,17 @@ public class SearchController implements Initializable {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink4() throws IOException {
+    private void clickMenuLink4OnMenu() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
 
 
     @FXML
-    private void clickMenuLink7() throws IOException {
-        PendentScreen ps6;
-        ps6 = Home.getPS();
+    private void clickMenuLink7Fridge() throws IOException {
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            ps6.add("Fridge.fxml");
+            ps.add("Fridge.fxml");
             General.changeScene(General.setSource(LOGIN));
         }
     }
@@ -138,26 +134,15 @@ public class SearchController implements Initializable {
         Button  click ;
         click = (Button)event.getSource();
         switch (click.getId()) {
-            case "primi":
-                ps.setLabel(primi.getText());
-                break;
-            case "secondi":
-                ps.setLabel(secondi.getText());
-                break;
-            case "contorni":
-                ps.setLabel(contorni.getText());
-                break;
-            case "colazioni":
-                ps.setLabel(colazioni.getText());
-                break;
-            case "dessert":
-                ps.setLabel(dessert.getText());
-                break;
-            case "antipasti":
-                ps.setLabel(antipasti.getText());
-                break;
-            default:
-                break;
+            case "primi" -> ps.setLabel(primi.getText());
+            case "secondi" -> ps.setLabel(secondi.getText());
+            case "contorni" -> ps.setLabel(contorni.getText());
+            case "colazioni" -> ps.setLabel(colazioni.getText());
+            case "dessert" -> ps.setLabel(dessert.getText());
+            case "antipasti" -> ps.setLabel(antipasti.getText());
+            default -> {
+                //
+            }
         }
         ps.setScreen("1");
         General.changeScene(General.setSource(RESULT));
