@@ -39,17 +39,17 @@ public class FridgeController implements Initializable, FridgeObserver {
     private TextField textField;
 
     @FXML
-    private Pane menu;
+    private Pane menuFridge;
     @FXML
-    private Pane dark;
+    private Pane darkFridge;
     @FXML
     private Button  menuButton;
 
 
     @Override
     public  void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
-        dark.setVisible(false);
+        menuFridge.setVisible(false);
+        darkFridge.setVisible(false);
 
         FridgeSubject.attach(this);
 
@@ -182,14 +182,14 @@ public class FridgeController implements Initializable, FridgeObserver {
     }
 
 
-    public void clickMenuButton() {
-        if (menu.isVisible()) {
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+    public void clickMenuButtonFridge() {
+        if (menuFridge.isVisible()) {
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkFridge);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuFridge);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
@@ -197,20 +197,20 @@ public class FridgeController implements Initializable, FridgeObserver {
             translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuFridge.setVisible(false);
+                darkFridge.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuFridge.setVisible(true);
+            darkFridge.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkFridge);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuFridge);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);

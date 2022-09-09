@@ -95,7 +95,7 @@
 
                </children>
             </Pane>
-            <Button fx:id="menuButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButtonIn" stylesheets="@MenuButton.css" />
+            <Button fx:id="menuButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButton" stylesheets="@MenuButton.css" />
             <ScrollPane hbarPolicy="NEVER" layoutX="250.0" layoutY="120.0" prefHeight="360.0" prefWidth="882.0" stylesheets="@style.css">
                <content>
                   <GridPane fx:id="grid" alignment="TOP_CENTER" prefHeight="0.0" prefWidth="31.0" styleClass="transparent" stylesheets="style.css">
