@@ -41,24 +41,24 @@ public class InsertRecipe2Controller {
 
     }
 
-    public void clickReviewButton() throws IOException {
+    public void clickReviewButtonIns2() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
 
     }
 
-    public void clickHomeButton() throws IOException {
+    public void clickHomeButtonIns2() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickBackButton() {
+    public void clickBackButtonIns2() {
         //
     }
 
-    public void clickInsertIngredients() throws IOException {
+    public void clickInsertIngredientsIns2() throws IOException {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton() throws IOException {
+    public void clickRecipesButtonIns2() throws IOException {
         PendentScreen2 ps = Home2.getPS2();
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));

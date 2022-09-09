@@ -60,7 +60,7 @@ public class LoginController implements Initializable {
     @FXML
     private void clickLoginButton() throws IOException {
         PendentScreen ps = Home.getPS();
-        
+
         General.LOGINSTATE = true;
 
         LoginBean lb = new LoginBean();

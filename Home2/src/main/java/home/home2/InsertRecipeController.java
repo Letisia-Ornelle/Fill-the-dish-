@@ -20,9 +20,9 @@ public class InsertRecipeController implements Initializable {
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu;
+    private Pane menuIns;
     @FXML
-    private Pane dark;
+    private Pane darkIns;
 
     @FXML
     private ImageView dish1;
@@ -44,8 +44,8 @@ public class InsertRecipeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dark.setVisible(false);
-        menu.setVisible(false);
+        darkIns.setVisible(false);
+        menuIns.setVisible(false);
         portata.getItems().addAll(" ","primo      ","secondo      ","colazione      ","antipasto      ","contorno      ","dessert      ");
         portata.setValue("Seleziona un ingrediente");
     }
@@ -64,15 +64,15 @@ public class InsertRecipeController implements Initializable {
         //
     }
     @FXML
-    private void clickMenuButton() {
-        if (menu.isVisible()) {
+    private void clickMenuButtonIns() {
+        if (menuIns.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkIns);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuIns);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
@@ -80,20 +80,20 @@ public class InsertRecipeController implements Initializable {
             translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuIns.setVisible(false);
+                darkIns.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuIns.setVisible(true);
+            darkIns.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkIns);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuIns);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);
@@ -104,41 +104,35 @@ public class InsertRecipeController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1Ins() throws IOException {
         PendentScreen ps = Home.getPS();
         ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) {
+    private void clickMenuLink2Ins() {
         //
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
+    private void clickMenuLink3Ins() throws IOException {
         General.changeScene(General.setSource("Login"));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4Ins() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5Ins() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
+    private void clickMenuLink6Ins() throws IOException {
         General.changeScene(General.setSource("Favourite"));
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7Ins() throws IOException {
         General.changeScene(General.setSource("Fridge"));
     }
-    @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Home2"));
-    }
 
-    public void choiceBoxButtonPushed() {
-        portata.getValue();
-    }
+
 }

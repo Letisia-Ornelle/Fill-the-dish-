@@ -48,7 +48,7 @@ public class Login2Controller {
      @FXML
     public void clickLogin() throws IOException,LoginFailedException {
 
-         assert General2.LOGINSTATE ;
+        General.LOGINSTATE = true;
 
          LoginBean loginB = new LoginBean();
         loginB.setUsername(username.getText());
@@ -157,12 +157,12 @@ public class Login2Controller {
 
     }
 
-    public void clickSearchButton() throws IOException {
+    public void clickSearchButtonLog2() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
 
     }
 
-    public void clickHomeButton() throws IOException {
+    public void clickHomeButtonLog2() throws IOException {
          General2.changeScene(General2.setSource("Home2"));
     }
 
@@ -170,11 +170,11 @@ public class Login2Controller {
          //
     }
 
-    public void clickInsertIngredients() throws IOException {
+    public void clickInsertIngredientsLog2() throws IOException {
          General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton() throws IOException {
+    public void clickRecipesButtonLog2() throws IOException {
          PendentScreen2 ps = Home2.getPS2();
          ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));

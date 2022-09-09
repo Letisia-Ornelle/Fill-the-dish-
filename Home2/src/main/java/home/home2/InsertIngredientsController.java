@@ -39,22 +39,20 @@ public class InsertIngredientsController implements Initializable {
     private Button  menuButton;
 
     @FXML
-    private Pane menu;
+    private Pane menuIn;
     @FXML
-    private Pane dark;
+    private Pane darkIn;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
-        menu.setVisible(false);
-        dark.setVisible(false);
-
-
+        int row  = 1;
+        menuIn.setVisible(false);
+        darkIn.setVisible(false);
 
         int column = 0 ;
-        int row  = 1;
+
         try {
 
             for(int i=0;i<22;i++) {
@@ -167,15 +165,15 @@ public class InsertIngredientsController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink3() throws IOException {
+    private void clickMenuLink3Ins() throws IOException {
         General.changeScene(General.setSource(LOGIN));
     }
     @FXML
-    private void clickMenuLink4() throws IOException {
+    private void clickMenuLink4Ins() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5() throws IOException {
+    private void clickMenuLink5Ins() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
@@ -209,38 +207,38 @@ public class InsertIngredientsController implements Initializable {
 
     @FXML
     private void clickMenuButton(){
-        if (Boolean.TRUE.equals(menu.isVisible())) {
+        if (Boolean.TRUE.equals(menuIn.isVisible())) {
 
             TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5), menuButton);
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuIn);
 
             translateTransition1.setByX(-320);
             translateTransition.setByX(-220);
             translateTransition1.play();
             translateTransition.play();
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkIn);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuIn.setVisible(false);
+                darkIn.setVisible(false);
             });
 
         } else {
-            dark.setVisible(true);
-            menu.setVisible(true);
+            darkIn.setVisible(true);
+            menuIn.setVisible(true);
 
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkIn);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuIn);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);

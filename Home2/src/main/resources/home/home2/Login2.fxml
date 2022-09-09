@@ -28,12 +28,12 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="Search2" mnemonicParsing="false" onAction="#clickSearchButton" prefHeight="35.0" prefWidth="183.0" style="-fx-background-color: red;" text="Cerca" textFill="WHITE">
+                  <Button fx:id="Search2" mnemonicParsing="false" onAction="#clickSearchButtonLog2" prefHeight="35.0" prefWidth="183.0" style="-fx-background-color: red;" text="Cerca" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="insertIngredients" mnemonicParsing="false" onAction="#clickInsertIngredients" prefHeight="34.0" prefWidth="253.0" style="-fx-background-color: red;" text="Inserisci i tuoi ingredienti" textFill="WHITE" GridPane.columnIndex="1">
+                  <Button fx:id="insertIngredients" mnemonicParsing="false" onAction="#clickInsertIngredientsLog2" prefHeight="34.0" prefWidth="253.0" style="-fx-background-color: red;" text="Inserisci i tuoi ingredienti" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="recipes" mnemonicParsing="false" onAction="#clickRecipesButton" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red;" text="Elenco ricette" textFill="WHITE" GridPane.columnIndex="4">
+                  <Button fx:id="recipes" mnemonicParsing="false" onAction="#clickRecipesButtonLog2" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red;" text="Elenco ricette" textFill="WHITE" GridPane.columnIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -100,7 +100,7 @@
             <Font size="35.0" />
          </font>
       </Label>
-      <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButton" prefHeight="30.0" prefWidth="50.0" />
+      <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButtonLog2" prefHeight="30.0" prefWidth="50.0" />
       <Button fx:id="back" layoutX="70.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="30.0" prefWidth="50.0" />
    </children>
 </Pane>
