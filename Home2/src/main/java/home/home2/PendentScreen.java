@@ -11,7 +11,7 @@ package home.home2;
 import javafx.scene.image.Image;
 
 public class PendentScreen {
-    private String screen;
+    private String scr;
     private String label;
     String name;
     Image image;
@@ -20,28 +20,28 @@ public class PendentScreen {
     String fxml;
 
     public PendentScreen() {
-        screen = "";
+        scr = "";
     }
 
     public String get() {
-        String next = screen;
-        screen = "";
+        String next = scr;
+        scr = "";
         return next;
     }
 
     public void add(String pendentScreen) {
-        screen = pendentScreen;
+        scr = pendentScreen;
     }
 
     public Boolean isNull() {
-        if (screen.equals("")) {
+        if (scr.equals("")) {
             return true;
         }
         return false;
     }
 
     public void clear() {
-        screen = "";
+        scr = "";
     }
 
     public String getLabel(){
