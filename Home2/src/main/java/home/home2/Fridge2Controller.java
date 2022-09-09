@@ -45,12 +45,12 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
 
         FridgeSubject.attach(this);
 
-        List<FridgeBean> fridgeBeans ;
-        ManageFridgeController fridgeController = new ManageFridgeController();
+        ManageFridgeController fridge = new ManageFridgeController();
+        List<FridgeBean> beans ;
 
-        fridgeBeans = fridgeController.showFridge();
+        beans = fridge.showFridge();
 
-        for(i = 0; i<fridgeBeans.size();i++) {
+        for(i = 0; i<beans.size();i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("ElementFridge2.fxml"));
 
@@ -58,7 +58,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
                 Pane anchorPane = fxmlLoader.load();
                 ElementController2 elementController2 = fxmlLoader.getController();
 
-                elementController2.setData(fridgeBeans.get(i));
+                elementController2.setData(beans.get(i));
 
                 verticalBox.getChildren().add(anchorPane);
                 VBox.setMargin(anchorPane, new Insets(5));
@@ -107,24 +107,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
             }
         }
 
-    @Override
-    public void update(FridgeBean fridgebean) {
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("ElementFridge2.fxml"));
-        try{
-            Pane anchorPane = fxmlLoader.load();
-
-            ElementController2 elementController2 = fxmlLoader.getController();
-            elementController2.setData(fridgebean);
-
-            verticalBox.getChildren().add(anchorPane);
-            VBox.setMargin(anchorPane, new Insets(5));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
 
 
     public void clickReviewButton() throws IOException {
@@ -133,6 +116,25 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
 
     public void clickFridgeButton() throws IOException {
         //
+    }
+
+    @Override
+    public void update(FridgeBean fridgebean) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("ElementFridge2.fxml"));
+        try{
+            Pane anchorPane = fxmlLoader.load();
+
+            ElementController2 element = fxmlLoader.getController();
+            element.setData(fridgebean);
+
+            verticalBox.getChildren().add(anchorPane);
+            VBox.setMargin(anchorPane, new Insets(5));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     public  void clickFavouriteButton() throws IOException {
