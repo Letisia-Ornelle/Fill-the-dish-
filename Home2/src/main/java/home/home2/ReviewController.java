@@ -28,28 +28,31 @@ public class ReviewController implements Initializable {
     @FXML
     private TextArea note;
     @FXML
-    private Button menuButton;
-    @FXML
     private ImageView star1;
     @FXML
-    private ImageView star2;
+    private Button menuButton;
+
+    @FXML
+    private ImageView star4;
+
     @FXML
     private ImageView star3;
     @FXML
-    private ImageView star4;
+    private ImageView star2;
+
     @FXML
     private ImageView star5;
     @FXML
-    private Pane menu;
+    private Pane menuReview;
     @FXML
-    private Pane dark;
+    private Pane darkReview;
     private static final String LOGIN = "Login";
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
-        dark.setVisible(false);
+        menuReview.setVisible(false);
+        darkReview.setVisible(false);
         alert.setVisible(false);
 
         vote = 0;
@@ -72,15 +75,15 @@ public class ReviewController implements Initializable {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuButton() {
-        if (menu.isVisible()) {
+    private void clickMenuButtonReview() {
+        if (menuReview.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkReview);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuReview);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
@@ -88,20 +91,20 @@ public class ReviewController implements Initializable {
             translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuReview.setVisible(false);
+                darkReview.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuReview.setVisible(true);
+            darkReview.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkReview);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuReview);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);
