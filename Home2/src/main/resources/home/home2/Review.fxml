@@ -14,11 +14,11 @@
             <Font name="Inter Semi Bold" size="35.0" />
          </font>
       </Label>
-      <ImageView fx:id="star1" fitHeight="50.0" fitWidth="50.0" layoutX="415.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStar" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="star2" fitHeight="50.0" fitWidth="50.0" layoutX="515.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStar" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="star3" fitHeight="50.0" fitWidth="50.0" layoutX="615.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStar" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="star4" fitHeight="50.0" fitWidth="50.0" layoutX="715.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStar" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="star5" fitHeight="50.0" fitWidth="50.0" layoutX="815.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStar" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star1" fitHeight="50.0" fitWidth="50.0" layoutX="415.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStarReview" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star2" fitHeight="50.0" fitWidth="50.0" layoutX="515.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStarReview" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star3" fitHeight="50.0" fitWidth="50.0" layoutX="615.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStarReview" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star4" fitHeight="50.0" fitWidth="50.0" layoutX="715.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStarReview" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="star5" fitHeight="50.0" fitWidth="50.0" layoutX="815.0" layoutY="130.0" onMouseClicked="#clickStarReview" onMouseEntered="#hoverStarReview" onMouseExited="#releaseStarReview" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="email" layoutX="515.0" layoutY="225.0" prefHeight="40.0" prefWidth="250.0" promptText="Inserisci la tua e-mail" styleClass="tendina" stylesheets="@style.css">
          <font>
             <Font size="15.0" />

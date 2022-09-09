@@ -188,29 +188,30 @@ public class ReviewController implements Initializable {
                 vote = 1;
                 break;
             case "star2":
-                star1.setImage(starfilled);
                 star2.setImage(starfilled);
+                star1.setImage(starfilled);
+
                 vote = 2;
                 break;
             case "star3":
+                star3.setImage(starfilled);
                 star1.setImage(starfilled);
                 star2.setImage(starfilled);
-                star3.setImage(starfilled);
                 vote = 3;
                 break;
             case "star4":
                 star1.setImage(starfilled);
                 star2.setImage(starfilled);
-                star3.setImage(starfilled);
                 star4.setImage(starfilled);
+                star3.setImage(starfilled);
                 vote = 4;
                 break;
             case "star5":
                 star1.setImage(starfilled);
-                star2.setImage(starfilled);
                 star3.setImage(starfilled);
-                star4.setImage(starfilled);
+                star2.setImage(starfilled);
                 star5.setImage(starfilled);
+                star4.setImage(starfilled);
                 vote = 5;
                 break;
             default:
@@ -224,60 +225,58 @@ public class ReviewController implements Initializable {
                 star1.setImage(starfilled);
                 break;
             case "star2":
-                star1.setImage(starfilled);
                 star2.setImage(starfilled);
+                star1.setImage(starfilled);
                 break;
             case "star3":
-                star1.setImage(starfilled);
                 star2.setImage(starfilled);
+                star1.setImage(starfilled);
                 star3.setImage(starfilled);
                 break;
             case "star4":
-                star1.setImage(starfilled);
-                star2.setImage(starfilled);
-                star3.setImage(starfilled);
                 star4.setImage(starfilled);
+                star2.setImage(starfilled);
+                star1.setImage(starfilled);
+                star3.setImage(starfilled);
                 break;
             case "star5":
-                star1.setImage(starfilled);
-                star2.setImage(starfilled);
-                star3.setImage(starfilled);
-                star4.setImage(starfilled);
                 star5.setImage(starfilled);
+                star4.setImage(starfilled);
+                star2.setImage(starfilled);
+                star1.setImage(starfilled);
+                star3.setImage(starfilled);
                 break;
             default:
                 break;
         }
     }
-    public void releaseStar()  {
+    public void releaseStarReview()  {
         switch (vote) {
-            case 0:
+            case 0 -> {
+                star3.setImage(star);
                 star1.setImage(star);
                 star2.setImage(star);
-                star3.setImage(star);
-                star4.setImage(star);
                 star5.setImage(star);
-                break;
-            case 1:
+                star4.setImage(star);
+            }
+            case 1 -> {
+                star4.setImage(star);
+                star3.setImage(star);
                 star2.setImage(star);
+                star5.setImage(star);
+            }
+            case 2 -> {
                 star3.setImage(star);
+                star5.setImage(star);
                 star4.setImage(star);
+            }
+            case 3 -> {
                 star5.setImage(star);
-                break;
-            case 2:
-                star3.setImage(star);
                 star4.setImage(star);
-                star5.setImage(star);
-                break;
-            case 3:
-                star4.setImage(star);
-                star5.setImage(star);
-                break;
-            case 4:
-                star5.setImage(star);
-                break;
-            default :
-                break;
+            }
+            case 4 -> star5.setImage(star);
+            default -> {
+            }
         }
     }
 
