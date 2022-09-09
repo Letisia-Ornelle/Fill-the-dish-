@@ -87,16 +87,18 @@ public class SelectIngredientsController implements  Initializable {
             fadeTransition.play();
 
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
-            translateTransition2.setByX(-220);
-            translateTransition1.play();
-            translateTransition2.play();
 
+            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
+            translateTransition2.setByX(-220);
             fadeTransition.setOnFinished(event -> {
                 menu.setVisible(false);
                 dark.setVisible(false);
             });
+            translateTransition1.play();
+            translateTransition2.play();
+
+
 
         } else {
             menu.setVisible(true);
