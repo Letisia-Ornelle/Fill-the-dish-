@@ -209,12 +209,10 @@ public class SubscribeController implements Initializable {
         }
     @FXML
     private void clickMenuLink6() throws IOException {
-        PendentScreen ps5 ;
-        ps5 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            ps5.add("Favourite.fxml");
+            ps.add("Favourite.fxml");
 
             General.changeScene(General.setSource(LOGIN));
         }
