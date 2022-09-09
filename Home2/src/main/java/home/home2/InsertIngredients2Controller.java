@@ -73,6 +73,8 @@ public class InsertIngredients2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        recipeBeans2 = null;
+
         int column = 0 ;
         int row  = 1;
 

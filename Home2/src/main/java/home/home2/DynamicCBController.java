@@ -4,12 +4,9 @@ import home.home2.model.Ingredient;
 import home.home2.model.SystemFridge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,6 +16,7 @@ public class DynamicCBController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        selectedIngredients.clear();
 
         choiceBoxD.setValue("Inserisci un nuovo ingrediente");
 
@@ -44,7 +42,7 @@ public class DynamicCBController implements Initializable {
         return selectedIngredients;
     }
 
-    public void getChoiceBoxValue() throws IOException {
+    public void getChoiceBoxValue() {
 
         String ingrediente = choiceBoxD.getValue();
 

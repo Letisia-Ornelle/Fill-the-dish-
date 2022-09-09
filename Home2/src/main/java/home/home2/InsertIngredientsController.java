@@ -86,6 +86,8 @@ public class InsertIngredientsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         menu.setVisible(false);
         dark.setVisible(false);
 
@@ -141,7 +143,7 @@ public class InsertIngredientsController implements Initializable {
         General.setBackScene();
     }
 
-    private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
+    private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>() ;
 
     public List<CalculateRecipeBean> getRecipes(){
         return recipeBeans;

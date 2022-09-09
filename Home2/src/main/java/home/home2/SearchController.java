@@ -16,29 +16,38 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
-    private String content;
-    private String click;
     private static PendentScreen ps;
 
     @FXML
     private TextField search;
     @FXML
-    private Button primi, secondi, contorni, dessert, antipasti, colazioni;
+    private Button primi;
+    @FXML
+    private Button secondi;
+    @FXML
+    private Button contorni;
+    @FXML
+    private Button dessert;
+    @FXML
+    private Button antipasti;
+    @FXML
+    private Button colazioni;
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
+    @FXML
+    private Pane dark;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
 
-        Home m = new Home();
-        ps = m.getPS();
+        ps = Home.getPS();
     }
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton() {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -93,13 +102,11 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -117,25 +124,21 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -175,8 +178,6 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickSearchButton() throws IOException {
-        content = search.getText();
-        System.out.println(content);
         General.changeScene(General.setSource("Result"));
     }
 

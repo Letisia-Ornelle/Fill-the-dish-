@@ -3,9 +3,6 @@ import home.home2.model.dao.queries.DBConnection;
 import home.home2.model.dao.queries.Queries;
 
 import java.sql.*;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.Executor;
 
 public class LoginDAO {
 

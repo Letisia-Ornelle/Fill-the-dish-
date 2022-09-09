@@ -13,7 +13,7 @@ public class EnrollDAO {
     Statement stmt = null;
     Connection conn = null;
 
-    public void newUser(String username, String nome, String cognome, String email, String password ) throws SQLException {
+    public void newUser(String username, String nome, String cognome, String email, String password ){
 
         try{
             conn = DBConnection.getInstance().getConnection();

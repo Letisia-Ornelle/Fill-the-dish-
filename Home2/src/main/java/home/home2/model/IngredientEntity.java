@@ -15,6 +15,9 @@ public class IngredientEntity {
         this.image = immagine;
     }
 
+    public IngredientEntity(String ingredientName) {
+    }
+
     public String getIngredient(){
         return name;
     }

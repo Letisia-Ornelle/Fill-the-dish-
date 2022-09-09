@@ -5,11 +5,9 @@ import home.home2.controller.ManageFridgeController;
 import home.home2.beans.FavouritesBean;
 import home.home2.beans.FridgeBean;
 import home.home2.model.exceptions.ProvideLoginException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;

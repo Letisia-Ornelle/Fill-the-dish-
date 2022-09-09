@@ -1,17 +1,12 @@
 package home.home2.model.dao;
 import home.home2.model.dao.queries.DBConnection;
 import home.home2.model.dao.queries.Queries;
-import home.home2.model.exceptions.LoginFailedException;
 import home.home2.model.UserEntity;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class UserDAO {
-
-
-    String userName = null;
 
 
    public String verify( String username, String password) {

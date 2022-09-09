@@ -5,11 +5,10 @@ import home.home2.model.dao.UserDAO;
 import home.home2.model.exceptions.LoginFailedException;
 import home.home2.model.User;
 
-import java.sql.SQLException;
 
 public class LoginController {
 
-    public boolean login(LoginBean loginbean) throws SQLException, LoginFailedException {
+    public boolean login(LoginBean loginbean) throws LoginFailedException {
 
         UserDAO userdao = new UserDAO();
 

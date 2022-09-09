@@ -28,7 +28,7 @@ public class  CalculateRecipeDAO {
             ResultSet res = Queries.takeIngredientsDB(stmt);
 
             if (!res.first()) {
-                return null;
+                return listaIng;
 
             } else {
                 while (res.next()) {
@@ -96,7 +96,7 @@ public class  CalculateRecipeDAO {
                    recipes.add(new RecipeEntity(name,image,descrizione,tipologia));
                 }
 
-                ingredients.removeAll(ingredients);
+                ingredients.clear();
                count = 0;
 
             }

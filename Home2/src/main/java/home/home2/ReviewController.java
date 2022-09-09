@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -20,9 +19,9 @@ import java.util.ResourceBundle;
 public class ReviewController implements Initializable {
     private int vote;
     private String click;
-    private String address, comment;
     private static PendentScreen ps;
-    private Image star, starfilled;
+    private Image star;
+    private Image starfilled;
 
     @FXML
     private Label alert;
@@ -33,9 +32,20 @@ public class ReviewController implements Initializable {
     @FXML
     private Button menuButton;
     @FXML
-    private ImageView star1, star2, star3, star4, star5;
+    private ImageView star1;
     @FXML
-    private Pane menu, dark;
+    private ImageView star2;
+    @FXML
+    private ImageView star3;
+    @FXML
+    private ImageView star4;
+    @FXML
+    private ImageView star5;
+    @FXML
+    private Pane menu;
+    @FXML
+    private Pane dark;
+    private static final String LOGIN = "Login";
 
 
     @Override
@@ -43,6 +53,8 @@ public class ReviewController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
         alert.setVisible(false);
+
+        ps = Home.getPS();
 
         vote = 0;
         star = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png");
@@ -56,7 +68,7 @@ public class ReviewController implements Initializable {
 
     }
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton() {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -111,19 +123,17 @@ public class ReviewController implements Initializable {
     }
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+        General.changeScene(General.setSource(LOGIN));
     }
     @FXML
     private void clickMenuLink4(ActionEvent event) throws IOException {
@@ -135,31 +145,27 @@ public class ReviewController implements Initializable {
     }
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink7() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
 
 
-    public void clickStar(MouseEvent event) throws IOException {
+    public void clickStar(MouseEvent event) {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
             case "star1":
@@ -192,9 +198,11 @@ public class ReviewController implements Initializable {
                 star5.setImage(starfilled);
                 vote = 5;
                 break;
+            default:
+                break;
         }
     }
-    public void hoverStar(MouseEvent event) throws IOException {
+    public void hoverStar(MouseEvent event)  {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
             case "star1":
@@ -222,9 +230,11 @@ public class ReviewController implements Initializable {
                 star4.setImage(starfilled);
                 star5.setImage(starfilled);
                 break;
+            default:
+                break;
         }
     }
-    public void releaseStar(MouseEvent event) throws IOException {
+    public void releaseStar()  {
         switch (vote) {
             case 0:
                 star1.setImage(star);
@@ -251,17 +261,17 @@ public class ReviewController implements Initializable {
             case 4:
                 star5.setImage(star);
                 break;
+            default :
+                break;
         }
     }
 
     @FXML
-    private void clickSubmitButton(ActionEvent event) throws IOException {
-        address = email.getText();
-        comment = note.getText();
-        if (address != "" && comment != "" && vote != 0) {
+    private void clickSubmitButton() {
+        String address = email.getText();
+        String comment = note.getText();
+        if (!address.equals("") && !comment.equals("") && vote != 0) {
             alert.setVisible(false);
-            System.out.println("Recensione di " + address + ": \n" + comment + "\nValutazione: " + String.valueOf(vote) + "/5");
-            // conferma di avvenuta sottomissione
         } else {
             alert.setVisible(true);
         }

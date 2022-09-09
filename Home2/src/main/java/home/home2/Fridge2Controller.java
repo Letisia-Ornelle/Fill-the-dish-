@@ -22,6 +22,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home2.ps;
+
 
 public class Fridge2Controller implements Initializable, FridgeObserver {
 
@@ -165,11 +167,11 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
     }
 
     public void clickInsertIngredients() throws IOException {
-        General2.changeScene(General2.setSource("Result2"));
-
+        General2.changeScene(General2.setSource("Ingredients2"));
     }
 
     public void clickRecipesButton(ActionEvent event) throws IOException {
+        ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
 }

@@ -1,12 +1,7 @@
 package home.home2.model;
 
 import home.home2.model.dao.CalculateRecipeDAO;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SystemFridge {
 

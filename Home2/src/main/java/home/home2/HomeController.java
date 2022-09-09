@@ -10,9 +10,10 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.ResourceBundle;
+import static home.home2.Home.ps;
+
 
 
 
@@ -24,7 +25,7 @@ public class HomeController implements Initializable {
     @FXML
     private Pane dark;
 
-    private static PendentScreen ps;
+
 
     private static final String LOGINSTRING = "Login";
 

@@ -5,7 +5,6 @@ import home.home2.controller.ManageFridgeController;
 import home.home2.beans.CalculateRecipeBean;
 import home.home2.beans.FridgeBean;
 import home.home2.model.Ingredient;
-import home.home2.model.FridgeObserver;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
@@ -27,18 +26,19 @@ import java.util.ResourceBundle;
 
 import static home.home2.Home.ps;
 
-public class SelectIngredientsController implements  Initializable, FridgeObserver {
+public class SelectIngredientsController implements  Initializable {
     @FXML
     Button backButton;
     @FXML
     Button homeButton;
-    @FXML
-    Button calcolaRicetta;
+
 
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
+    @FXML
+    private Pane dark;
     @FXML
     private VBox verticalBox;
 
@@ -49,8 +49,7 @@ public class SelectIngredientsController implements  Initializable, FridgeObserv
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Home h = new Home();
-        pendent = h.getPS();
+        pendent = Home.getPS();
 
         menu.setVisible(false);
         dark.setVisible(false);
@@ -70,7 +69,7 @@ public class SelectIngredientsController implements  Initializable, FridgeObserv
                 elementSelectionController.setData(fridgeBeans.get(i));
 
                 verticalBox.getChildren().add(pane);
-                verticalBox.setMargin(pane,new Insets(5));
+                VBox.setMargin(pane,new Insets(5));
             }
         }catch(IOException e){
             e.printStackTrace();
@@ -79,7 +78,7 @@ public class SelectIngredientsController implements  Initializable, FridgeObserv
     }
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton()  {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -150,13 +149,11 @@ public class SelectIngredientsController implements  Initializable, FridgeObserv
     }
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -186,11 +183,8 @@ public class SelectIngredientsController implements  Initializable, FridgeObserv
         return recipeBeans;
     }
 
-    @Override
-    public void update(FridgeBean fridgebean) {
-    }
 
-    public void clickMenuLink1(ActionEvent actionEvent) throws IOException {
+    public void clickMenuLink1() throws IOException {
         pendent.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }

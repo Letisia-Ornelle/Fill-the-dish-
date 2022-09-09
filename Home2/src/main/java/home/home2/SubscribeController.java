@@ -4,7 +4,6 @@ import home.home2.controller.EnrollController;
 import home.home2.beans.EnrollBean;
 import home.home2.model.exceptions.FailedRegistrationException;
 import home.home2.model.exceptions.InvalidSyntaxEmailException;
-import home.home2.model.exceptions.LoginFailedException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -16,21 +15,44 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SubscribeController implements Initializable {
-    private String c1, c2, c3, c4, c5, c6;
     private static PendentScreen ps;
 
     @FXML
-    private TextField name, lastname, username, email, pwd, pwdRepeat;
+    private TextField name;
     @FXML
-    private Label pwdAlert1, pwdAlert2, pwdAlert3, pwdAlert4, alert, alertfail, alertUser;
+    private TextField lastname;
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField pwd;
+    @FXML
+    private TextField pwdRepeat;
+    @FXML
+    private Label pwdAlert1;
+    @FXML
+    private Label pwdAlert2;
+    @FXML
+    private Label pwdAlert3;
+    @FXML
+    private Label pwdAlert4;
+    @FXML
+    private Label alert;
+    @FXML
+    private Label alertfail;
+    @FXML
+    private Label alertUser;
     @FXML
     private Hyperlink login;
     @FXML
-    private Pane menu, dark;
+    private Pane menu;
+
+    @FXML
+    private Pane dark;
     @FXML
     private Button menuButton;
     @FXML
@@ -53,7 +75,7 @@ public class SubscribeController implements Initializable {
     }
 
     @FXML
-    private void clickMenuButton() throws IOException, InterruptedException {
+    private void clickMenuButton()  {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
@@ -109,11 +131,10 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)){
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -135,26 +156,24 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             Home m = new Home();
             ps = m.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
 
     @FXML
     private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             Home m = new Home();
             ps = m.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
@@ -165,7 +184,7 @@ public class SubscribeController implements Initializable {
     }
 
     @FXML
-    private void clickSubscribe(ActionEvent event) throws IOException, SQLException {
+    private void clickSubscribe(ActionEvent event) throws IOException {
 
         EnrollBean eb = new EnrollBean();
         eb.setUsername(username.getText());
@@ -176,19 +195,19 @@ public class SubscribeController implements Initializable {
 
         EnrollController ec = new EnrollController();
         try {
-            if (ec.addUser(eb) == true && eb.getPassword().equals(pwdRepeat.getText())) {
+            if (ec.addUser(eb)  && eb.getPassword().equals(pwdRepeat.getText())) {
                 General.changeScene(General.setSource("Login"));
             } else {
                //
             }
         }catch (InvalidSyntaxEmailException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Inserisci un indirizzo mail valido");
-            alert.show();
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setContentText("Inserisci un indirizzo mail valido");
+            alert1.show();
         }catch (FailedRegistrationException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Registrazione fallita");
-            alert.show();
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setContentText("Registrazione fallita");
+            alert2.show();
         }
         }
 }

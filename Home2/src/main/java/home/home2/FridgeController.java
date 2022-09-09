@@ -6,7 +6,6 @@ import home.home2.beans.FridgeBean;
 import home.home2.model.exceptions.DuplicateIngredientException;
 import home.home2.model.FridgeObserver;
 import home.home2.model.FridgeSubject;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.animation.FadeTransition;

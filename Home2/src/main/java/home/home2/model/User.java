@@ -25,19 +25,21 @@ public  class User {
         return userE;
     }
 
-    public static void loginUser(String userName , String passWord) throws SQLException {
+    public static void loginUser(String userName , String passWord) {
 
-        UserDAO userdao = new UserDAO();
-        User.userE = new UserEntity();
-        userE.setUsername(userName);
-        userE.setPassword(passWord);
-        User.userE = userdao.getUserAccount(userName, passWord);
+        try{
+            User.userE = new UserEntity();
+            userE.setUsername(userName);
+            userE.setPassword(passWord);
+            User.userE = UserDAO.getUserAccount(userName, passWord);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
 
     }
 
-    // Mantiene gli utenti registrati
-
-    public void registerNewUser(String username, String nome, String cognome, String email, String password ) throws SQLException {
+    public void registerNewUser(String username, String nome, String cognome, String email, String password ) {
        EnrollDAO enrolldao = new EnrollDAO();
        enrolldao.newUser(username,nome,cognome,email,password);
     }

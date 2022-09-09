@@ -5,9 +5,7 @@ import home.home2.controller.ManageFridgeController;
 import home.home2.beans.CalculateRecipeBean;
 import home.home2.beans.FridgeBean;
 import home.home2.model.Ingredient;
-import home.home2.model.FridgeObserver;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,7 +21,7 @@ import java.util.ResourceBundle;
 
 
 
-public class SelectIngredients2Controller implements Initializable, FridgeObserver {
+public class SelectIngredients2Controller implements Initializable {
 
     private static PendentScreen2 ps;
 
@@ -34,9 +32,7 @@ public class SelectIngredients2Controller implements Initializable, FridgeObserv
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        Home2 m = new Home2();
-        ps = m.getPS2();
+        ps = Home2.getPS2();
 
         ManageFridgeController fridgeController = new ManageFridgeController();
         List<FridgeBean> fridgeBeans;
@@ -52,7 +48,7 @@ public class SelectIngredients2Controller implements Initializable, FridgeObserv
                 selection2Controller.setData(fridgeBeans.get(i));
 
                 verticalBox.getChildren().add(anchorPane);
-                verticalBox.setMargin(anchorPane, new Insets(5));
+                VBox.setMargin(anchorPane, new Insets(5));
 
             }catch(IOException e){
                 e.printStackTrace();
@@ -68,12 +64,12 @@ public class SelectIngredients2Controller implements Initializable, FridgeObserv
     }
 
 
-    public void clickRecipesButton(ActionEvent event) throws IOException {
+    public void clickRecipesButton() throws IOException {
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
 
-    public void ClickRecipe(ActionEvent event) throws IOException {
+    public void clickRecipe() throws IOException {
         ps.setScreen2("3");
         ElementSelection2Controller elementController = new ElementSelection2Controller();
 
@@ -89,57 +85,51 @@ public class SelectIngredients2Controller implements Initializable, FridgeObserv
 
     }
 
-    @Override
-    public void update(FridgeBean fridgebean) {
 
-    }
-
-    public void clickSearchButton(ActionEvent event) throws IOException {
+    public void clickSearchButton() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
     }
 
-    public void clickAddButton(ActionEvent event) throws IOException {
+    public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
     }
 
-    public void clickLoginButton(ActionEvent event) throws IOException {
+    public void clickLoginButton() throws IOException {
         General2.changeScene(General2.setSource("Login2"));
     }
 
-    public void clickFavouriteButton(ActionEvent event) throws IOException {
+    public void clickFavouriteButton() throws IOException {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
+            ps = Home2.getPS2();
             ps.add("Favourite2.fxml");
             General2.changeScene(General2.setSource("Login2"));
         }      }
 
-    public void clickFridgeButton(ActionEvent event) throws IOException {
+    public void clickFridgeButton() throws IOException {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
+            ps = Home2.getPS2();
             ps.add("Fridge2.fxml");
             General2.changeScene(General2.setSource("Login2"));
         }
     }
 
-    public void clickReviewButton(ActionEvent event) throws IOException {
+    public void clickReviewButton() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
     }
 
-    public void clickBackButton(ActionEvent event) {
-        //General2.changeScene(General2.setSource());
+    public void clickBackButton() {
+        //
     }
 
-    public void clickHomeButton(ActionEvent event) throws IOException {
+    public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickInsertIngredients(ActionEvent event) throws IOException {
+    public void clickInsertIngredients() throws IOException {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
 }

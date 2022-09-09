@@ -25,7 +25,6 @@ public class RecipeEntity {
     public String getRecipe(){
         return idRicetta;
     }
-
     public void setRecipe( String recipe){
         this.idRicetta = recipe;
     }
