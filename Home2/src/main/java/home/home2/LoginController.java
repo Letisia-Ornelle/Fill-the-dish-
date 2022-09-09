@@ -28,14 +28,14 @@ public class LoginController implements Initializable {
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu;
+    private Pane menuLog;
     @FXML
-    private Pane dark;
+    private Pane darkLog;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
-        dark.setVisible(false);
+        menuLog.setVisible(false);
+        darkLog.setVisible(false);
         alert.setVisible(false);
 
     }
@@ -60,8 +60,8 @@ public class LoginController implements Initializable {
     @FXML
     private void clickLoginButton() throws IOException {
         PendentScreen ps = Home.getPS();
-
-        assert General.LOGINSTATE;
+        
+        General.LOGINSTATE = true;
 
         LoginBean lb = new LoginBean();
         lb.setUsername(username.getText());
@@ -97,15 +97,15 @@ public class LoginController implements Initializable {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuButton() {
-        if (menu.isVisible()) {
+    private void clickMenuButtonLog() {
+        if (menuLog.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkLog);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuLog);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
@@ -113,20 +113,20 @@ public class LoginController implements Initializable {
             translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuLog.setVisible(false);
+                darkLog.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuLog.setVisible(true);
+            darkLog.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkLog);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuLog);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);
@@ -137,7 +137,7 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1() throws IOException {
+    private void clickMenuLink1Log() throws IOException {
         PendentScreen ps = Home.getPS();
         ps.clear();
         ps.setScreen("1");
@@ -145,7 +145,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void clickMenuLink2() throws IOException {
+    private void clickMenuLink2Log() throws IOException {
         PendentScreen ps = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
@@ -156,24 +156,24 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void clickMenuLink3() {
+    private void clickMenuLink3Log() {
         // niente
     }
 
     @FXML
-    private void clickMenuLink4() throws IOException {
+    private void clickMenuLink4Log() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
 
     @FXML
-    private void clickMenuLink5() throws IOException {
+    private void clickMenuLink5Log() throws IOException {
         PendentScreen ps = Home.getPS();
         ps.clear();
         General.changeScene(General.setSource("Review"));
     }
 
     @FXML
-    private void clickMenuLink6() throws IOException {
+    private void clickMenuLink6Log() throws IOException {
         PendentScreen ps = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
@@ -184,7 +184,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7Log(ActionEvent event) throws IOException {
         PendentScreen ps = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
