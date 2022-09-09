@@ -69,7 +69,9 @@ public class SelectIngredients2Controller implements Initializable {
         ps1.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
-
+    public void clickAddButton() throws IOException {
+        General2.changeScene(General2.setSource("Add2"));
+    }
     public void clickRecipe() throws IOException {
         PendentScreen2 ps2;
         ps2 = Home2.getPS2();
@@ -96,9 +98,7 @@ public class SelectIngredients2Controller implements Initializable {
         General2.changeScene(General2.setSource("Search2"));
     }
 
-    public void clickAddButton() throws IOException {
-        General2.changeScene(General2.setSource("Add2"));
-    }
+
 
     public void clickLoginButton() throws IOException {
         General2.changeScene(General2.setSource(LOGIN));
@@ -116,6 +116,20 @@ public class SelectIngredients2Controller implements Initializable {
             General2.changeScene(General2.setSource(LOGIN));
         }      }
 
+
+    public void clickReviewButton() throws IOException {
+        General2.changeScene(General2.setSource("Review2"));
+    }
+
+    public void clickBackButton() {
+        //
+    }
+
+
+
+    public void clickInsertIngredients() throws IOException {
+        General2.changeScene(General2.setSource("Ingredients2"));
+    }
     public void clickFridgeButton() throws IOException {
         PendentScreen2 ps4;
         ps4 = Home2.getPS2();
@@ -128,20 +142,8 @@ public class SelectIngredients2Controller implements Initializable {
             General2.changeScene(General2.setSource(LOGIN));
         }
     }
-
-    public void clickReviewButton() throws IOException {
-        General2.changeScene(General2.setSource("Review2"));
-    }
-
-    public void clickBackButton() {
-        //
-    }
-
     public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickInsertIngredients() throws IOException {
-        General2.changeScene(General2.setSource("Ingredients2"));
-    }
 }

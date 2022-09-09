@@ -116,7 +116,7 @@ public class SelectIngredientsController implements  Initializable {
             translateTransition2.setByX(221);
             translateTransition1.play();
             translateTransition2.play();
-            
+
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
