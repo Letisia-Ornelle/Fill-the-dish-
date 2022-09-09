@@ -33,51 +33,51 @@ public class SearchController implements Initializable {
     @FXML
     private Button dessert;
     @FXML
-    private Pane dark;
+    private Pane darkSearch;
     @FXML
     private Button colazioni;
     @FXML
     private Button menuButton;
     @FXML
-    private Pane menu;
+    private Pane menuSearch;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dark.setVisible(false);
-        menu.setVisible(false);
+        darkSearch.setVisible(false);
+        menuSearch.setVisible(false);
     }
     @FXML
-    private void clickMenuButton() {
-        if (menu.isVisible()) {
+    private void clickMenuButtonSearch() {
+        if (menuSearch.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(1);
-            fadeTransition.setToValue(0);
-            fadeTransition.play();
+            FadeTransition transition = new FadeTransition(Duration.seconds(0.5), darkSearch);
+            transition.setFromValue(1);
+            transition.setToValue(0);
+            transition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuSearch);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
             translateTransition1.play();
             translateTransition2.play();
 
-            fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+            transition.setOnFinished(event -> {
+                darkSearch.setVisible(false);
+                menuSearch.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuSearch.setVisible(true);
+            darkSearch.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkSearch);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuSearch);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);
