@@ -50,7 +50,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/target/classes/home/home2/Home.fxml" />
   </component>
   <component name="RecentsManager">
@@ -65,11 +65,11 @@
       <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\letis\OneDrive\Bureau\Fill-the-dish-.git\trunk\Home2\src\tests\java" />
       <recent name="C:\Users\987229\Desktop\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\copiaPROG\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\ISPW\progetto\Fill-the-dish-.git\trunk\Home2\src\main\resources\home\home2" />
       <recent name="C:\Users\987229\Desktop\ISPW\progetto\Fill-the-dish-.git\trunk\Home2\src\main\java\home\home2" />
-      <recent name="C:\Users\Matteo\IdeaProjects\Home2\src\main\resources\home\home2" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="home.home2" />
@@ -81,20 +81,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Home">
-    <configuration name="General" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="home.home2.General" />
-      <module name="Home2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="home.home2.Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Home" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Home" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="home.home2.Home" />
       <module name="Home2" />
       <extension name="coverage">
@@ -107,29 +94,107 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="home.home2.Model.DAO.userDAO" />
+    <configuration name="Home2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="home.home2.Home2" />
+      <module name="Home2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestEnrollController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Home2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="home.home2.Model.*" />
+          <option name="PATTERN" value="junit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="junit" />
+      <option name="MAIN_CLASS_NAME" value="junit.TestEnrollController" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestEnrollController.TestEnrollInvalidSyntaxEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Home2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="junit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="junit" />
+      <option name="MAIN_CLASS_NAME" value="junit.TestEnrollController" />
+      <option name="METHOD_NAME" value="TestEnrollInvalidSyntaxEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLoginController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Home2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="junit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="junit" />
+      <option name="MAIN_CLASS_NAME" value="junit.TestLoginController" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLoginController.testLoginWrongCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Home2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="junit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="junit" />
+      <option name="MAIN_CLASS_NAME" value="junit.TestLoginController" />
+      <option name="METHOD_NAME" value="testLoginWrongCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLoginController.testLoginWrongUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Home2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="junit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="junit" />
+      <option name="MAIN_CLASS_NAME" value="junit.TestLoginController" />
+      <option name="METHOD_NAME" value="testLoginWrongUsername" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.General" />
-      <item itemvalue="Application.userDAO" />
+      <item itemvalue="Application.Home2" />
       <item itemvalue="Application.Home" />
+      <item itemvalue="JUnit.TestLoginController.testLoginWrongUsername" />
+      <item itemvalue="JUnit.TestLoginController.testLoginWrongCredentials" />
+      <item itemvalue="JUnit.TestEnrollController.TestEnrollInvalidSyntaxEmail" />
+      <item itemvalue="JUnit.TestEnrollController" />
+      <item itemvalue="JUnit.TestLoginController" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Home" />
-        <item itemvalue="Application.userDAO" />
-        <item itemvalue="Application.General" />
+        <item itemvalue="JUnit.TestLoginController" />
+        <item itemvalue="JUnit.TestEnrollController.TestEnrollInvalidSyntaxEmail" />
+        <item itemvalue="JUnit.TestEnrollController" />
+        <item itemvalue="JUnit.TestLoginController.testLoginWrongCredentials" />
+        <item itemvalue="JUnit.TestLoginController.testLoginWrongUsername" />
       </list>
     </recent_temporary>
   </component>
@@ -247,6 +312,16 @@
       <workItem from="1660831390821" duration="25000" />
       <workItem from="1660918462240" duration="24730000" />
       <workItem from="1661351089293" duration="23883000" />
+      <workItem from="1662544252140" duration="80000" />
+      <workItem from="1662544936994" duration="3715000" />
+      <workItem from="1662556523202" duration="13740000" />
+      <workItem from="1662618031749" duration="2146000" />
+      <workItem from="1662644612128" duration="3608000" />
+      <workItem from="1662648600358" duration="9416000" />
+      <workItem from="1662668050407" duration="1501000" />
+      <workItem from="1662679104231" duration="3949000" />
+      <workItem from="1662683312318" duration="1840000" />
+      <workItem from="1662706111083" duration="26838000" />
     </task>
     <servers />
   </component>
@@ -260,6 +335,11 @@
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/home/home2/ResultController.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
