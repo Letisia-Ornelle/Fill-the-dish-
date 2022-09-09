@@ -63,7 +63,7 @@ public class ResultController implements Initializable {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                getAllRecipesDB(recipeBeans);
+                getAllRecipesDBFInt(recipeBeans);
             }
             case "2" -> {
                 InsertIngredientsController insertIngController = new InsertIngredientsController();
@@ -80,12 +80,12 @@ public class ResultController implements Initializable {
 
     }
 
-    private void getAllRecipesDB(List<CalculateRecipeBean> recipeBeans) {
+    private void getAllRecipesDBFInt(List<CalculateRecipeBean> recipeBeans) {
         int column = 0;
         int row = 1;
         try {
 
-            for (int j = 0; j < recipeBeans.size(); j++) {
+            for (CalculateRecipeBean recipeBean : recipeBeans) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
 
                 fxmlLoader.setLocation(getClass().getResource(ITEM));
@@ -93,7 +93,7 @@ public class ResultController implements Initializable {
                 Pane anchorPane = fxmlLoader.load();
 
                 ItemsController itemController = fxmlLoader.getController();
-                itemController.setData(recipeBeans.get(j));
+                itemController.setData(recipeBean);
 
                 if (column == 2) {
                     column = 0;
@@ -101,7 +101,7 @@ public class ResultController implements Initializable {
                 }
                 grid.add(anchorPane, column++, row);
 
-                setGridProperties(grid);
+                setGridPropertiesFInt(grid);
                 GridPane.setMargin(anchorPane, new Insets(100));
                 GridPane.setHalignment(anchorPane, HPos.LEFT);
 
@@ -132,7 +132,7 @@ public class ResultController implements Initializable {
 
                 grid.add(anchorPane, column++, row);
 
-                setGridProperties(grid);
+                setGridPropertiesFInt(grid);
                 GridPane.setMargin(anchorPane, new Insets(100));
                 GridPane.setHalignment(anchorPane, HPos.LEFT);
             }
@@ -143,8 +143,9 @@ public class ResultController implements Initializable {
     }
 
     private void getInsertedIngredientsRecipes(InsertIngredientsController insertIngController) {
-        int column = 0;
         int row = 1;
+        int column = 0;
+
         try {
             for (int j = 0; j < insertIngController.getRecipes().size(); j++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -163,7 +164,7 @@ public class ResultController implements Initializable {
 
                 grid.add(anchorPane, column++, row);
 
-                setGridProperties(grid);
+                setGridPropertiesFInt(grid);
                 GridPane.setMargin(anchorPane, new Insets(100));
                 GridPane.setHalignment(anchorPane, HPos.LEFT);
             }
@@ -172,16 +173,15 @@ public class ResultController implements Initializable {
         }
     }
 
-    private void setGridProperties(GridPane grid) {
-        // set grid width
+    private void setGridPropertiesFInt(GridPane grid) {
         grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-        grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-        // set grid height
-        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
         grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
         grid.setMaxHeight(Region.USE_PREF_SIZE);
+        grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+
 
         grid.setAlignment(Pos.CENTER);
         grid.setGridLinesVisible(false);
