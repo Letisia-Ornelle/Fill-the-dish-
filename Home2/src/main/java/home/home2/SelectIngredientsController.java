@@ -8,7 +8,6 @@ import home.home2.model.Ingredient;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,8 +22,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import static home.home2.Home.ps;
 
 public class SelectIngredientsController implements  Initializable {
     @FXML
@@ -42,14 +39,12 @@ public class SelectIngredientsController implements  Initializable {
     @FXML
     private VBox verticalBox;
 
-    private static PendentScreen pendent ;
+    private static final String LOGIN = "Login";
 
-    // Devo semplicemente inizializzare la schermata con gli elementi presenti nella lista restituita nel controller di managefridge
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        pendent = Home.getPS();
 
         menu.setVisible(false);
         dark.setVisible(false);
@@ -60,16 +55,16 @@ public class SelectIngredientsController implements  Initializable {
         fridgeBeans = manageFridge.showFridge();
 
         try{
-            for(int i =0; i<fridgeBeans.size();i++){
+            for (FridgeBean fridgeBean : fridgeBeans) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("ElementFridgeSelection.fxml"));
                 Pane pane = fxmlLoader.load();
 
                 ElementSelectionController elementSelectionController = fxmlLoader.getController();
-                elementSelectionController.setData(fridgeBeans.get(i));
+                elementSelectionController.setData(fridgeBean);
 
                 verticalBox.getChildren().add(pane);
-                VBox.setMargin(pane,new Insets(5));
+                VBox.setMargin(pane, new Insets(5));
             }
         }catch(IOException e){
             e.printStackTrace();
@@ -126,35 +121,57 @@ public class SelectIngredientsController implements  Initializable {
     }
 
 
-
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Insert"));
+    private void clickMenuLink1() throws IOException {
+        PendentScreen ps3;
+        ps3 = Home.getPS();
+        ps3.setScreen("1");
+        General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+    private void clickMenuLink2() throws IOException {
+        PendentScreen ps4;
+        ps4 = Home.getPS();
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+            General.changeScene(General.setSource("Insert"));
+        } else {
+            ps4.add("Insert.fxml");
+            General.changeScene(General.setSource(LOGIN));
+        }
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink3() throws IOException {
+        General.changeScene(General.setSource(LOGIN));
+    }
+    @FXML
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Favourite"));
+    private void clickMenuLink6() throws IOException {
+        PendentScreen ps5 ;
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            ps5 = Home.getPS();
+            ps5.add("Favourite.fxml");
+
+            General.changeScene(General.setSource(LOGIN));
+        }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7() throws IOException {
+        PendentScreen ps6;
+        ps6 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            ps = Home.getPS();
-            ps.add("Fridge.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps6.add("Fridge.fxml");
+            General.changeScene(General.setSource(LOGIN));
         }
     }
 
@@ -162,8 +179,10 @@ public class SelectIngredientsController implements  Initializable {
     private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @FXML
-    private void recipesFridge(ActionEvent event) throws IOException {
-        pendent.setScreen("3");
+    private void recipesFridge() throws IOException {
+        PendentScreen ps7;
+        ps7 = Home.getPS();
+        ps7.setScreen("3");
         ElementSelectionController elementController = new ElementSelectionController();
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
@@ -173,7 +192,9 @@ public class SelectIngredientsController implements  Initializable {
 
         recipeBean.setListIng(fridgeIngredients);
 
-        recipeBeans =  recipeController.checkIngredients(recipeBean);
+        for(CalculateRecipeBean i : recipeController.checkIngredients(recipeBean)){
+            recipeBeans.add(i);
+        }
 
 
         General.changeScene(General.setSource("Result"));
@@ -183,9 +204,4 @@ public class SelectIngredientsController implements  Initializable {
         return recipeBeans;
     }
 
-
-    public void clickMenuLink1() throws IOException {
-        pendent.setScreen("1");
-        General.changeScene(General.setSource("Result"));
-    }
 }

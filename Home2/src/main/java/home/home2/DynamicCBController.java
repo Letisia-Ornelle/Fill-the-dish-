@@ -35,7 +35,7 @@ public class DynamicCBController implements Initializable {
     }
 
 
-    private static ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
+    private static final ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
 
     public ObservableList<Ingredient> getValues() {
 

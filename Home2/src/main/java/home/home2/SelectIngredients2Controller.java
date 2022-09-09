@@ -23,38 +23,37 @@ import java.util.ResourceBundle;
 
 public class SelectIngredients2Controller implements Initializable {
 
-    private static PendentScreen2 ps;
-
     @FXML
     private VBox verticalBox;
+
+    private static final String LOGIN = "Login2";
 
     private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ps = Home2.getPS2();
 
         ManageFridgeController fridgeController = new ManageFridgeController();
         List<FridgeBean> fridgeBeans;
         fridgeBeans = fridgeController.showFridge();
 
-        for(int i = 0; i<fridgeBeans.size(); i++){
+        for (FridgeBean fridgeBean : fridgeBeans) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("ElementFridgeSelection2.fxml"));
                 Pane anchorPane = fxmlLoader.load();
 
                 ElementSelection2Controller selection2Controller = fxmlLoader.getController();
-                selection2Controller.setData(fridgeBeans.get(i));
+                selection2Controller.setData(fridgeBean);
 
                 verticalBox.getChildren().add(anchorPane);
                 VBox.setMargin(anchorPane, new Insets(5));
 
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
 
+            }
         }
-    }
 
 
     }
@@ -65,12 +64,17 @@ public class SelectIngredients2Controller implements Initializable {
 
 
     public void clickRecipesButton() throws IOException {
-        ps.setScreen2("1");
+        PendentScreen2 ps1;
+        ps1 = Home2.getPS2();
+        ps1.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
 
     public void clickRecipe() throws IOException {
-        ps.setScreen2("3");
+        PendentScreen2 ps2;
+        ps2 = Home2.getPS2();
+        ps2.setScreen2("1");
+        ps2.setScreen2("3");
         ElementSelection2Controller elementController = new ElementSelection2Controller();
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
@@ -80,7 +84,9 @@ public class SelectIngredients2Controller implements Initializable {
 
         recipeBean.setListIng(fridgeIngredients);
 
-        recipeBeans =  recipeController.checkIngredients(recipeBean);
+        for(CalculateRecipeBean i : recipeController.checkIngredients(recipeBean)){
+            recipeBeans.add(i);
+        }
         General2.changeScene(General2.setSource("Result2"));
 
     }
@@ -95,25 +101,31 @@ public class SelectIngredients2Controller implements Initializable {
     }
 
     public void clickLoginButton() throws IOException {
-        General2.changeScene(General2.setSource("Login2"));
+        General2.changeScene(General2.setSource(LOGIN));
     }
 
     public void clickFavouriteButton() throws IOException {
+        PendentScreen2 ps3;
+        ps3 = Home2.getPS2();
+        ps3.setScreen2("1");
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            ps = Home2.getPS2();
-            ps.add("Favourite2.fxml");
-            General2.changeScene(General2.setSource("Login2"));
+            ps3 = Home2.getPS2();
+            ps3.add("Favourite2.fxml");
+            General2.changeScene(General2.setSource(LOGIN));
         }      }
 
     public void clickFridgeButton() throws IOException {
+        PendentScreen2 ps4;
+        ps4 = Home2.getPS2();
+        ps4.setScreen2("1");
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            ps = Home2.getPS2();
-            ps.add("Fridge2.fxml");
-            General2.changeScene(General2.setSource("Login2"));
+            ps4 = Home2.getPS2();
+            ps4.add("Fridge2.fxml");
+            General2.changeScene(General2.setSource(LOGIN));
         }
     }
 

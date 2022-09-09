@@ -1,12 +1,5 @@
 package home.home2;
 
-// Bisogna vedere se non è necessario trasformare questa classe in bean .... non so se 2 controller grafici per communicare hanno
-// Esclusivamente bisogno di farlo tramite le beans.
-// Qui bisogna anche definire metodi setter e getter che permettono di verificare la schermata da cui si proveniva
-// in modo da sapere quando popolare result nel metodo Initialize... cioè.... // Ok
-// ora tocca implementare la lista dei preferiti .
-// Sulla schermata recipe, bisogna anche vedere come fare sia per ingredienti che per la descrizione.
-// La ricetta entity deve prendere come parametro anche la lista di ingredienti ?
 
 import javafx.scene.image.Image;
 

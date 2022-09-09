@@ -18,7 +18,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SubscribeController implements Initializable {
-    private static PendentScreen ps;
+
+    private static final String LOGIN = "Login";
+
 
     @FXML
     private TextField name;
@@ -42,12 +44,9 @@ public class SubscribeController implements Initializable {
     private Label pwdAlert4;
     @FXML
     private Label alert;
-    @FXML
-    private Label alertfail;
+
     @FXML
     private Label alertUser;
-    @FXML
-    private Hyperlink login;
     @FXML
     private Pane menu;
 
@@ -70,8 +69,6 @@ public class SubscribeController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
 
-        Home m = new Home();
-        ps = m.getPS();
     }
 
     @FXML
@@ -125,62 +122,62 @@ public class SubscribeController implements Initializable {
     }
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1() throws IOException {
+        PendentScreen ps3;
+        ps3 = Home.getPS();
+        ps3.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
-
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)){
+    private void clickMenuLink2() throws IOException {
+        PendentScreen ps4;
+        ps4 = Home.getPS();
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            ps.add("Insert.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps4.add("Insert.fxml");
+            General.changeScene(General.setSource(LOGIN));
         }
     }
-
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+    private void clickMenuLink3() throws IOException {
+        General.changeScene(General.setSource(LOGIN));
     }
-
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
-
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
-
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
+    private void clickMenuLink6() throws IOException {
+        PendentScreen ps5 ;
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
-            ps.add("Favourite.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps5 = Home.getPS();
+            ps5.add("Favourite.fxml");
+
+            General.changeScene(General.setSource(LOGIN));
         }
     }
-
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7() throws IOException {
+        PendentScreen ps6;
+        ps6 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
-            ps.add("Fridge.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps6.add("Fridge.fxml");
+            General.changeScene(General.setSource(LOGIN));
         }
     }
 
     @FXML
     private void clickLogin() throws IOException {
-        General.changeScene(General.setSource("Login"));
+        General.changeScene(General.setSource(LOGIN));
     }
 
     @FXML
@@ -196,7 +193,7 @@ public class SubscribeController implements Initializable {
         EnrollController ec = new EnrollController();
         try {
             if (ec.addUser(eb)  && eb.getPassword().equals(pwdRepeat.getText())) {
-                General.changeScene(General.setSource("Login"));
+                General.changeScene(General.setSource(LOGIN));
             } else {
                //
             }

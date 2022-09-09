@@ -2,7 +2,6 @@ package home.home2;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,8 +15,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
-    private static PendentScreen ps;
 
+    private static final String LOGIN = "Login";
+    private static final String RESULT = "Result";
     @FXML
     private TextField search;
     @FXML
@@ -43,8 +43,6 @@ public class SearchController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.setVisible(false);
         dark.setVisible(false);
-
-        ps = Home.getPS();
     }
     @FXML
     private void clickMenuButton() {
@@ -97,54 +95,62 @@ public class SearchController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Result"));
+    private void clickMenuLink1() throws IOException {
+        PendentScreen ps3;
+        ps3 = Home.getPS();
+        ps3.setScreen("1");
+        General.changeScene(General.setSource(RESULT));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
+    private void clickMenuLink2() throws IOException {
+        PendentScreen ps4;
+        ps4 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            ps = Home.getPS();
-            ps.add("Insert.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps4.add("Insert.fxml");
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+    private void clickMenuLink3() throws IOException {
+        General.changeScene(General.setSource(LOGIN));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
+    private void clickMenuLink6() throws IOException {
+        PendentScreen ps5 ;
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            ps = Home.getPS();
-            ps.add("Favourite.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps5 = Home.getPS();
+            ps5.add("Favourite.fxml");
+
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7() throws IOException {
+        PendentScreen ps6;
+        ps6 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            ps = Home.getPS();
-            ps.add("Fridge.fxml");
-            General.changeScene(General.setSource("Login"));
+            ps6.add("Fridge.fxml");
+            General.changeScene(General.setSource(LOGIN));
         }
     }
 
     @FXML
     public void clickPortata(MouseEvent event) throws IOException {
+        PendentScreen ps = Home.getPS();
         Button  click ;
         click = (Button)event.getSource();
         switch (click.getId()) {
@@ -170,7 +176,7 @@ public class SearchController implements Initializable {
                 break;
         }
         ps.setScreen("1");
-        General.changeScene(General.setSource("Result"));
+        General.changeScene(General.setSource(RESULT));
     }
     @FXML
     private void clickIngredientsButton() throws IOException {
@@ -178,7 +184,7 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void clickSearchButton() throws IOException {
-        General.changeScene(General.setSource("Result"));
+        General.changeScene(General.setSource(RESULT));
     }
 
 }

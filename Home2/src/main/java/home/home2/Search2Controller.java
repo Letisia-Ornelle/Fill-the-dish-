@@ -28,6 +28,8 @@ public class Search2Controller implements Initializable {
 
     public static final String LOGIN = "Login2";
 
+    static final String IMAGESRC1 = "C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png";
+    static final String IMAGESRC2 = "C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int i;
@@ -37,27 +39,27 @@ public class Search2Controller implements Initializable {
         for (i=0;i<6;i++) {
             portata[i] = false;
         }
-        primi.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+        primi.setImage(new Image(IMAGESRC1));
         primi.setScaleX(0.5);
         primi.setScaleY(0.5);
 
-        secondi.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+        secondi.setImage(new Image(IMAGESRC1));
         secondi.setScaleX(0.5);
         secondi.setScaleY(0.5);
 
-        contorni.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+        contorni.setImage(new Image(IMAGESRC1));
         contorni.setScaleX(0.5);
         contorni.setScaleY(0.5);
 
-        colazioni.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+        colazioni.setImage(new Image(IMAGESRC1));
         colazioni.setScaleX(0.5);
         colazioni.setScaleY(0.5);
 
-        dessert.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+        dessert.setImage(new Image(IMAGESRC1));
         dessert.setScaleX(0.5);
         dessert.setScaleY(0.5);
 
-        antipasti.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+        antipasti.setImage(new Image(IMAGESRC1));
         antipasti.setScaleX(0.5);
         antipasti.setScaleY(0.5);
 
@@ -71,55 +73,55 @@ public class Search2Controller implements Initializable {
     public void selectPrimi() {
         if (Boolean.TRUE.equals(portata[1])) {
             portata[0] = false;
-            primi.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+            primi.setImage(new Image(IMAGESRC1));
         } else {
             portata[0] = true;
-            primi.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
+            primi.setImage(new Image(IMAGESRC2));
         }
     }
     public void selectSecondi() {
         if (Boolean.TRUE.equals(portata[1])) {
             portata[1] = false;
-            secondi.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+            secondi.setImage(new Image(IMAGESRC1));
         } else {
             portata[1] = true;
-            secondi.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
+            secondi.setImage(new Image(IMAGESRC2));
         }
     }
     public void selectContorni() {
         if (Boolean.TRUE.equals(portata[2])) {
             portata[2] = false;
-            contorni.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+            contorni.setImage(new Image(IMAGESRC1));
         } else {
             portata[2] = true;
-            contorni.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
+            contorni.setImage(new Image(IMAGESRC2));
         }
     }
     public void selectColazioni() {
         if (Boolean.TRUE.equals(portata[3])) {
             portata[3] = false;
-            colazioni.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+            colazioni.setImage(new Image(IMAGESRC1));
         } else {
             portata[3] = true;
-            colazioni.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
+            colazioni.setImage(new Image(IMAGESRC2));
         }
     }
     public void selectDessert() {
         if (Boolean.TRUE.equals(portata[4])) {
             portata[4] = false;
-            dessert.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+            dessert.setImage(new Image(IMAGESRC1));
         } else {
             portata[4] = true;
-            dessert.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
+            dessert.setImage(new Image(IMAGESRC2));
         }
     }
     public void selectAntipasti() {
         if (Boolean.TRUE.equals(portata[5])) {
             portata[5] = false;
-            antipasti.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png"));
+            antipasti.setImage(new Image(IMAGESRC1));
         } else {
             portata[5] = true;
-            antipasti.setImage(new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\selectClick.png"));
+            antipasti.setImage(new Image(IMAGESRC2));
         }
     }
 
@@ -174,7 +176,7 @@ public class Search2Controller implements Initializable {
     }
 
     public void removeFilter() {
-        String img = "C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\sfondo_home2.png";
+        String img =IMAGESRC1;
         int i;
         for (i=0;i<6;i++) {
             portata[i] = false;
@@ -191,47 +193,47 @@ public class Search2Controller implements Initializable {
     }
 
 
-    public void clickInterfaceButton() {
-        // No
-    }
-
-    public void clickReviewButton() throws IOException {
-        General2.changeScene(General2.setSource("Review2"));
-    }
-
-    public void clickFridgeButton() throws IOException {
-        if (General2.LOGINSTATE) {
-            General2.changeScene(General2.setSource("Fridge2"));
-        } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
-            ps.add("Fridge2.fxml");
-            General2.changeScene(General2.setSource(LOGIN));
-        }
-    }
-
-    public void clickFavouriteButton() throws IOException {
-        if (General2.LOGINSTATE) {
-            General2.changeScene(General2.setSource(LOGIN));
-        } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
-            ps.add("Favourite2.fxml");
-            General2.changeScene(General2.setSource(LOGIN));
-        }
-    }
-
-    public void clickLoginButton() throws IOException {
-        General2.changeScene(General.setSource(LOGIN));
+    public void clickSearchButton() throws IOException {
+        General2.changeScene(General2.setSource("Search2"));
     }
 
     public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
     }
 
-    public void clickSearchButton() throws IOException {
-     //
+    public void clickLoginButton() throws IOException {
+        General2.changeScene(General2.setSource(LOGIN));
     }
+
+    public void clickFavouriteButton() throws IOException {
+        PendentScreen2 ps3;
+        ps3 = Home2.getPS2();
+        ps3.setScreen2("1");
+        if (General2.LOGINSTATE) {
+            General2.changeScene(General2.setSource("Favourite2"));
+        } else {
+            ps3 = Home2.getPS2();
+            ps3.add("Favourite2.fxml");
+            General2.changeScene(General2.setSource(LOGIN));
+        }      }
+
+    public void clickFridgeButton() throws IOException {
+        PendentScreen2 ps4;
+        ps4 = Home2.getPS2();
+        ps4.setScreen2("1");
+        if (General2.LOGINSTATE) {
+            General2.changeScene(General2.setSource("Fridge2"));
+        } else {
+            ps4 = Home2.getPS2();
+            ps4.add("Fridge2.fxml");
+            General2.changeScene(General2.setSource(LOGIN));
+        }
+    }
+
+    public void clickReviewButton() throws IOException {
+        General2.changeScene(General2.setSource("Review2"));
+    }
+
 
     public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
