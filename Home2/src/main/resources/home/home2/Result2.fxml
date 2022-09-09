@@ -28,22 +28,22 @@
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 </rowConstraints>
                 <children>
-                    <Button fx:id="Search2" mnemonicParsing="false" onAction="#clickSearchButton" prefHeight="35.0" prefWidth="183.0" style="-fx-background-color: red" text="Cerca" textFill="WHITE">
+                    <Button fx:id="Search2" mnemonicParsing="false" onAction="#clickSearchButtonResult" prefHeight="35.0" prefWidth="183.0" style="-fx-background-color: red" text="Cerca" textFill="WHITE">
                         <font>
                             <Font size="15.0" />
                         </font>
                     </Button>
-                    <Button fx:id="insertIngredients" mnemonicParsing="false" onAction="#clickInsertIngredients" prefHeight="34.0" prefWidth="253.0" style="-fx-background-color: red" text="Inserisci i tuoi ingredienti" textFill="WHITE" GridPane.columnIndex="1">
+                    <Button fx:id="insertIngredients" mnemonicParsing="false" onAction="#clickInsertIngredientsResult" prefHeight="34.0" prefWidth="253.0" style="-fx-background-color: red" text="Inserisci i tuoi ingredienti" textFill="WHITE" GridPane.columnIndex="1">
                         <font>
                             <Font size="15.0" />
                         </font>
                     </Button>
-                    <Button fx:id="add" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Aggiungi la tua Ricetta" textFill="WHITE" GridPane.columnIndex="2">
+                    <Button fx:id="add" mnemonicParsing="false" onAction="#clickAddButtonResult" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Aggiungi la tua Ricetta" textFill="WHITE" GridPane.columnIndex="2">
                         <font>
                             <Font size="15.0" />
                         </font>
                     </Button>
-                    <Button fx:id="login" mnemonicParsing="false" onAction="#clickLoginButton" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Accedi" textFill="WHITE" GridPane.columnIndex="3">
+                    <Button fx:id="login" mnemonicParsing="false" onAction="#clickLoginButtonResult" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Accedi" textFill="WHITE" GridPane.columnIndex="3">
                         <font>
                             <Font size="15.0" />
                         </font>
@@ -53,17 +53,17 @@
                             <Font size="15.0" />
                         </font>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#clickFavouriteButton" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Lista dei Preferiti" textFill="WHITE" GridPane.columnIndex="5">
+                    <Button mnemonicParsing="false" onAction="#clickFavouriteButtonResult" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Lista dei Preferiti" textFill="WHITE" GridPane.columnIndex="5">
                         <font>
                             <Font size="15.0" />
                         </font>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#clickFridgeButton" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Frigo Virtuale" textFill="WHITE" GridPane.columnIndex="6">
+                    <Button mnemonicParsing="false" onAction="#clickFridgeButtonResult" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Frigo Virtuale" textFill="WHITE" GridPane.columnIndex="6">
                         <font>
                             <Font size="15.0" />
                         </font>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#clickReviewButton" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="7">
+                    <Button mnemonicParsing="false" onAction="#clickReviewButtonResult" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: red" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="7">
                         <font>
                             <Font size="15.0" />
                         </font>
