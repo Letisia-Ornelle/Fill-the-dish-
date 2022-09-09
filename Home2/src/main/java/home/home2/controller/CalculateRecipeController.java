@@ -6,13 +6,14 @@ import home.home2.model.dao.CalculateRecipeDAO;
 import home.home2.model.Ingredient;
 import home.home2.model.RecipeEntity;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CalculateRecipeController {
 
 
-    public List<CalculateRecipeBean> checkIngredients(CalculateRecipeBean recipeBean) {
+    public List<CalculateRecipeBean> checkIngredients(CalculateRecipeBean recipeBean) throws SQLException {
 
         List<CalculateRecipeBean> recipesresultBeans = new ArrayList<>();
 

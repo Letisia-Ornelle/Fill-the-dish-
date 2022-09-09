@@ -15,11 +15,10 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import static home.home2.Home2.ps;
 
 
 public class SelectIngredients2Controller implements Initializable {
@@ -76,7 +75,7 @@ public class SelectIngredients2Controller implements Initializable {
     public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
     }
-    public void clickRecipe() throws IOException {
+    public void clickRecipe() throws IOException, SQLException {
         PendentScreen2 ps2;
         ps2 = Home2.getPS2();
         ps2.setScreen2("1");

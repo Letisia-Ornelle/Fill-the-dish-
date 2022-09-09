@@ -19,6 +19,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -160,7 +161,7 @@ public class SelectIngredientsController implements  Initializable {
     private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @FXML
-    private void recipesFridge() throws IOException {
+    private void recipesFridge() throws IOException, SQLException {
         PendentScreen ps7;
         ps7 = Home.getPS();
         ps7.setScreen("3");

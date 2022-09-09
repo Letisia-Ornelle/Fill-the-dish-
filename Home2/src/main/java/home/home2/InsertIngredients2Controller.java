@@ -16,6 +16,7 @@ import javafx.scene.layout.Region;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -85,7 +86,7 @@ public class InsertIngredients2Controller implements Initializable {
         return recipeBeans2;
     }
 
-    public void clickRecipe() throws IOException {
+    public void clickRecipe() throws IOException, SQLException {
         PendentScreen2 ps = Home2.getPS2();
         ps.setScreen2("2");
 

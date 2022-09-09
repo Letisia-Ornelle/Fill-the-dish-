@@ -33,7 +33,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="insertIngredients" mnemonicParsing="false" style="-fx-background-color: red" onAction="#clickInsertIngredients" prefHeight="34.0" prefWidth="253.0" text="Inserisci i tuoi ingredienti" textFill="WHITE" GridPane.columnIndex="1">
+                  <Button fx:id="insertIngredients" mnemonicParsing="false" style="-fx-background-color: red" onAction="#clickInsertIngredientsIns2" prefHeight="34.0" prefWidth="253.0" text="Inserisci i tuoi ingredienti" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="recipes" mnemonicParsing="false" onAction="#clickRecipesButton" style="-fx-background-color: red" prefHeight="50.0" prefWidth="183.0" text="Elenco ricette" textFill="WHITE" GridPane.columnIndex="4">
+                  <Button fx:id="recipes" mnemonicParsing="false" onAction="#clickRecipesButtonIns2" style="-fx-background-color: red" prefHeight="50.0" prefWidth="183.0" text="Elenco ricette" textFill="WHITE" GridPane.columnIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -63,7 +63,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickReviewButton" style="-fx-background-color: red" prefHeight="50.0" prefWidth="183.0" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="7">
+                  <Button mnemonicParsing="false" onAction="#clickReviewButtonIns2" style="-fx-background-color: red" prefHeight="50.0" prefWidth="183.0" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="7">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -77,8 +77,8 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButton" prefHeight="30.0" prefWidth="50.0" />
-      <Button fx:id="back" layoutX="70.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="30.0" prefWidth="50.0" />
+      <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButtonIns2" prefHeight="30.0" prefWidth="50.0" />
+      <Button fx:id="back" layoutX="70.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickBackButtonIns2" prefHeight="30.0" prefWidth="50.0" />
       <TextField layoutX="226.0" layoutY="158.0" prefHeight="30.0" prefWidth="258.0" promptText="Titolo Ricetta" style="-fx-background-radius: 30px; -fx-border-radius: 30px; -fx-border-color: black;" />
       <TextArea layoutX="226.0" layoutY="204.0" prefHeight="300.0" prefWidth="258.0" promptText="Ingredienti" style="-fx-background-color: #D2D2D2;" wrapText="true" />
       <TextArea layoutX="647.0" layoutY="208.0" prefHeight="300.0" prefWidth="500.0" promptText="Preparazione Ricetta" style="-fx-background-color: transparent; -fx-background-radius: 20px;" />

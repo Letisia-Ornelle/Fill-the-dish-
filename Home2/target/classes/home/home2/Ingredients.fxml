@@ -37,10 +37,10 @@
             <Button id="backButton" fx:id="backButton" layoutX="1135.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="50" prefWidth="50" style="-fx-background-radius: 100;" styleClass="backButton" stylesheets="@style.css" />
             <Button id="homeButton" fx:id="homeButton" layoutX="1215.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickHomeButton" prefHeight="50" prefWidth="50" style="-fx-background-image: 'bottonehome.png; -fx-background-radius: 30;" styleClass="homeButton" stylesheets="@style.css" />
 
-            <Pane fx:id="dark" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1280.0" style="-fx-border-radius: 30;" stylesheets="@style.css">
+            <Pane fx:id="darkIn" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1280.0" style="-fx-border-radius: 30;" stylesheets="@style.css">
 
                <children>
-                  <Pane fx:id="menu" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
+                  <Pane fx:id="menuIn" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
                      <children>
                         <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                            <children>
@@ -54,17 +54,17 @@
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
+                              <Button fx:id="menuLink3" mnemonicParsing="false" onAction="#clickMenuLink3Ins" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Log In">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Iscriviti">
+                              <Button fx:id="menuLink4" mnemonicParsing="false" onAction="#clickMenuLink4Ins" prefHeight="60.0" prefWidth="344.0" stylesheets="@menuLinks.css" text="Iscriviti">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lascia una Recensione">
+                              <Button fx:id="menuLink5" mnemonicParsing="false" onAction="#clickMenuLink5Ins" prefHeight="60.0" prefWidth="358.0" stylesheets="@menuLinks.css" text="Lascia una Recensione">
                                  <font>
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>

@@ -26,9 +26,9 @@
          </Label>
 
 
-         <Pane fx:id="dark" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeMenu.css">
+         <Pane fx:id="darkFridge" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@HomeMenu.css">
             <children>
-               <Pane fx:id="menu" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
+               <Pane fx:id="menuFridge" layoutX="-320.0" prefHeight="640.0" prefWidth="320.0" stylesheets="@HomeMenu.css">
                   <children>
                      <VBox layoutY="79.0" prefHeight="561.0" prefWidth="320.0">
                         <children>
@@ -88,5 +88,5 @@
          </ScrollPane>
       </Pane>
    </Pane>
-   <Button fx:id="menuButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButton" stylesheets="@MenuButton.css" />
+   <Button fx:id="menuButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickMenuButtonFridge" stylesheets="@MenuButton.css" />
 </Pane>

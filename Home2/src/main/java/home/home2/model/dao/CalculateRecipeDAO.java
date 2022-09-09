@@ -45,12 +45,11 @@ public class  CalculateRecipeDAO {
 
     }
 
-    public List<RecipeEntity> recipes(ObservableList<Ingredient> userIngredients){
+    public List<RecipeEntity> recipes(ObservableList<Ingredient> userIngredients) throws SQLException {
         Statement stmt = null;
         Statement stmt1 = null;
         Connection conn = null;
         List<RecipeEntity> recipes = new ArrayList<>();
-        Image image = null;
         int count = 0;
         List<Ingredient> ingredients = new ArrayList<>();
         try{
@@ -58,30 +57,17 @@ public class  CalculateRecipeDAO {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             stmt1 = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             ResultSet resultSet = Queries.getRecipesName(stmt);
-            if(!resultSet.first()){
-                return recipes;
-            }
+
             resultSet.first();
             while(resultSet.next()){
-                String name = resultSet.getString("id_ricetta");
-                String tipologia = resultSet.getString("tipo");
-                String descrizione = resultSet.getString("descrizione");
-                Blob bl = resultSet.getBlob("immagine");
-                if(bl != null){
-                    InputStream inputStream = bl.getBinaryStream();
-                    image = new Image(inputStream);
-                }
 
-                ResultSet res = Queries.selectRecipesIngredients(stmt1,name);
+                RecipeEntity recipe = createRecipe(resultSet);
+
+                ResultSet res = Queries.selectRecipesIngredients(stmt1,recipe.getRecipe());
 
                 res.first();
-                Ingredient ingredient ;
-
                 do{
-                    String nameIngr = res.getString("ingrediente");
-                    ingredient = new Ingredient(nameIngr);
-                    ingredients.add(ingredient);
-
+                    ingredients.add(createIngredient(res));
                 } while(res.next());
 
                 for(Ingredient ingr : ingredients){
@@ -93,7 +79,7 @@ public class  CalculateRecipeDAO {
                 }
 
                if(count >= 2){
-                   recipes.add(new RecipeEntity(name,image,descrizione,tipologia));
+                   recipes.add(new RecipeEntity(recipe.getRecipe(),recipe.getRecipeSrc(),recipe.getDescrizione(),recipe.getType()));
                 }
 
                 ingredients.clear();
@@ -104,19 +90,30 @@ public class  CalculateRecipeDAO {
         }catch(SQLException e){
             e.printStackTrace();
         }finally {
-            try{
-                if(stmt1 != null){
-                    stmt1.close();
-                }
-                if(stmt != null){
-                   stmt.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+           stmt1.close();
 
         }
         return recipes;
+    }
+
+    private RecipeEntity createRecipe(ResultSet resultSet) throws SQLException {
+        Image image = null;
+        String name = resultSet.getString("id_ricetta");
+        String tipologia = resultSet.getString("tipo");
+        String descrizione = resultSet.getString("descrizione");
+        Blob bl = resultSet.getBlob("immagine");
+        if(bl != null){
+            InputStream inputStream = bl.getBinaryStream();
+            image = new Image(inputStream);
+        }
+
+        return new RecipeEntity(name,image,descrizione,tipologia);
+    }
+
+    private Ingredient createIngredient(ResultSet res) throws SQLException {
+
+            String recipeName = res.getString("ingrediente");
+            return new Ingredient(recipeName);
     }
 
 

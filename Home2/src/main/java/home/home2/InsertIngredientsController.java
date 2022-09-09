@@ -20,6 +20,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -120,10 +121,14 @@ public class InsertIngredientsController implements Initializable {
         recipeBean.setListIng(ingredients);
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
-
-        for(CalculateRecipeBean i : recipeController.checkIngredients(recipeBean)){
-            recipeBeans.add(i);
+        try{
+            for(CalculateRecipeBean i : recipeController.checkIngredients(recipeBean)){
+                recipeBeans.add(i);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
 
         General.changeScene(General.setSource("Result"));
 
