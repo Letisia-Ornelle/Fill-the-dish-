@@ -71,12 +71,13 @@ public class FavouritesDAO {
             e.printStackTrace();
         }finally {
             try {
-                if(stmt1 != null){
-                    stmt1.close();
-                }
                 if(stmt != null){
                     stmt.close();
                 }
+                if(stmt1 != null){
+                    stmt1.close();
+                }
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
