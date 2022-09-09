@@ -70,7 +70,14 @@ public class FavouriteController implements Initializable {
             translateTransition2.play();
         }
     }
-
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
+    }
+    @FXML
+    private void clickBackButton() throws IOException {
+        General.setBackScene();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
         menu.setVisible(false);
@@ -113,31 +120,22 @@ public class FavouriteController implements Initializable {
     }
 
 
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
-    @FXML
-    private void clickBackButton() throws IOException {
-        General.setBackScene();
-    }
+
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
         ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
-    @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Insert"));
-    }
+
     @FXML
     private void clickMenuLink3(ActionEvent event) throws IOException {
         General.changeScene(General.setSource("Login"));
     }
+
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Subscribe"));
+    private void clickMenuLink2(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Insert"));
     }
     @FXML
     private void clickMenuLink5() throws IOException {
@@ -146,6 +144,10 @@ public class FavouriteController implements Initializable {
     @FXML
     private void clickMenuLink6()  {
         //
+    }
+    @FXML
+    private void clickMenuLink4(ActionEvent event) throws IOException {
+        General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
     private void clickMenuLink7() throws IOException {

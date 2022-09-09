@@ -121,13 +121,7 @@ public class SubscribeController implements Initializable {
         General.setBackScene();
     }
 
-    @FXML
-    private void clickMenuLink1() throws IOException {
-        PendentScreen ps3;
-        ps3 = Home.getPS();
-        ps3.setScreen("1");
-        General.changeScene(General.setSource("Result"));
-    }
+
     @FXML
     private void clickMenuLink2() throws IOException {
         PendentScreen ps4;
@@ -140,29 +134,26 @@ public class SubscribeController implements Initializable {
         }
     }
     @FXML
+    private void clickMenuLink1() throws IOException {
+        PendentScreen ps3;
+        ps3 = Home.getPS();
+        ps3.setScreen("1");
+        General.changeScene(General.setSource("Result"));
+    }
+    @FXML
     private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource(LOGIN));
     }
-    @FXML
-    private void clickMenuLink4() throws IOException {
-        General.changeScene(General.setSource("Subscribe"));
-    }
+
     @FXML
     private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6() throws IOException {
-        PendentScreen ps5 ;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Favourite"));
-        } else {
-            ps5 = Home.getPS();
-            ps5.add("Favourite.fxml");
-
-            General.changeScene(General.setSource(LOGIN));
-        }
+    private void clickMenuLink4() throws IOException {
+        General.changeScene(General.setSource("Subscribe"));
     }
+
     @FXML
     private void clickMenuLink7() throws IOException {
         PendentScreen ps6;
@@ -178,6 +169,18 @@ public class SubscribeController implements Initializable {
     @FXML
     private void clickLogin() throws IOException {
         General.changeScene(General.setSource(LOGIN));
+    }
+    @FXML
+    private void clickMenuLink6() throws IOException {
+        PendentScreen ps5 ;
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            ps5 = Home.getPS();
+            ps5.add("Favourite.fxml");
+
+            General.changeScene(General.setSource(LOGIN));
+        }
     }
 
     @FXML
