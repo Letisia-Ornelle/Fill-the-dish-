@@ -60,14 +60,15 @@ public class SubscribeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pwdAlert1.setVisible(false);
+        menu.setVisible(false);
+        dark.setVisible(false);
         pwdAlert2.setVisible(false);
         pwdAlert3.setVisible(false);
         pwdAlert4.setVisible(false);
         alert.setVisible(false);
         alertUser.setVisible(false);
 
-        menu.setVisible(false);
-        dark.setVisible(false);
+
 
     }
 
@@ -75,10 +76,7 @@ public class SubscribeController implements Initializable {
     private void clickMenuButton()  {
         if (menu.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(1);
-            fadeTransition.setToValue(0);
-            fadeTransition.play();
+
 
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
@@ -86,6 +84,11 @@ public class SubscribeController implements Initializable {
             translateTransition2.setByX(-220);
             translateTransition1.play();
             translateTransition2.play();
+
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            fadeTransition.setFromValue(1);
+            fadeTransition.setToValue(0);
+            fadeTransition.play();
 
             fadeTransition.setOnFinished(event -> {
                 menu.setVisible(false);
@@ -96,17 +99,19 @@ public class SubscribeController implements Initializable {
             menu.setVisible(true);
             dark.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(0);
-            fadeTransition.setToValue(1);
-            fadeTransition.play();
-
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(320);
             translateTransition2.setByX(220);
+            translateTransition1.setByX(320);
             translateTransition1.play();
             translateTransition2.play();
+
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            fadeTransition.setToValue(1);
+            fadeTransition.setFromValue(0);
+            fadeTransition.play();
+
+
         }
     }
 

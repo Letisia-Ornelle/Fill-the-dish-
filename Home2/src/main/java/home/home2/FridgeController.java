@@ -77,27 +77,6 @@ public class FridgeController implements Initializable, FridgeObserver {
 
     }
 
-    public void addImageToIngredient(FridgeBean fridgebean){
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png","*.jpg","*.png"));
-        File file = fileChooser.showOpenDialog(null);
-        if(file!=null) {
-            String imagePath = file.getAbsolutePath();
-            InputStream inputStream = null;
-            try {
-                inputStream = new FileInputStream(imagePath);
-                fridgebean.setIngredientInputStream(new FileInputStream(imagePath));
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            Image image = new Image(inputStream);
-            fridgebean.setIngredientImage(image);
-        }
-
-    }
-
     public void addToFridge() {
 
 
