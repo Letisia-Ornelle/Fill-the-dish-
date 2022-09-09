@@ -103,13 +103,8 @@ public class SelectIngredients2Controller implements Initializable {
 
 
     public void clickFavouriteButton() throws IOException {
-        ps.setScreen2("1");
-        if (General2.LOGINSTATE) {
-            General2.changeScene(General2.setSource("Favourite2"));
-        } else {
-            ps.add("Favourite2.fxml");
-            General2.changeScene(General2.setSource(LOGIN));
-        }      }
+        General2.changeScene(General2.setSource("Favourite2"));
+    }
 
 
     public void clickReviewButton() throws IOException {
