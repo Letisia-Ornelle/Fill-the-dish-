@@ -52,16 +52,18 @@ public class InsertIngredients2Controller implements Initializable {
                 }
 
                 grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                GridPane.setHalignment(pane, HPos.CENTER);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
                 // set grid height
                 grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                grid.setAlignment(Pos.CENTER);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
                 grid.add(pane, column++, row);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 GridPane.setMargin(pane, new Insets(50));
-                grid.setAlignment(Pos.CENTER);
-                GridPane.setHalignment(pane, HPos.CENTER);
+
+
                 grid.setGridLinesVisible(false);
             }
 
