@@ -4,7 +4,6 @@ import home.home2.controller.AllRecipesController;
 import home.home2.beans.CalculateRecipeBean;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,9 +28,15 @@ public class ResultController implements Initializable {
     @FXML
     GridPane grid;
     @FXML
-    Button homeButton, menuButton, backButton;
+    Button homeButton;
     @FXML
-    private Pane menu, dark;
+    Button menuButton;
+    @FXML
+    Button backButton;
+    @FXML
+    private Pane menu;
+    @FXML
+    private Pane dark;
 
     @FXML
     Label category;
@@ -43,9 +48,7 @@ public class ResultController implements Initializable {
 
         dark.setVisible(false);
         menu.setVisible(false);
-
-        Home m = new Home();
-        ps = m.getPS();
+        ps = Home.getPS();
 
 
         int column = 0;
@@ -54,7 +57,6 @@ public class ResultController implements Initializable {
 
         switch (ps.getScreen()) {
             case "1":
-                System.out.println("entro nel 1");
                 AllRecipesController recipe = new AllRecipesController();
                 List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
@@ -65,7 +67,7 @@ public class ResultController implements Initializable {
                 }
 
                 try {
-                    for (int j = 0; j < recipeBeans.size(); j++) {
+                    for (CalculateRecipeBean recipeBean : recipeBeans) {
                         FXMLLoader fxmlLoader = new FXMLLoader();
 
                         fxmlLoader.setLocation(getClass().getResource("items.fxml"));
@@ -73,7 +75,7 @@ public class ResultController implements Initializable {
                         Pane anchorPane = fxmlLoader.load();
 
                         ItemsController itemController = fxmlLoader.getController();
-                        itemController.setData(recipeBeans.get(j));
+                        itemController.setData(recipeBean);
 
                         if (column == 2) {
                             column = 0;
@@ -104,11 +106,10 @@ public class ResultController implements Initializable {
 
             case "2":
 
-                System.out.println("entro nel 2");
-                InsertIngredientsController InsertIngController = new InsertIngredientsController();
+                InsertIngredientsController insertIngController = new InsertIngredientsController();
 
                 try {
-                    for (int j = 0; j < InsertIngController.getRecipes().size(); j++) {
+                    for (int j = 0; j < insertIngController.getRecipes().size(); j++) {
                         FXMLLoader fxmlLoader = new FXMLLoader();
 
                         fxmlLoader.setLocation(getClass().getResource("items.fxml"));
@@ -116,7 +117,7 @@ public class ResultController implements Initializable {
                         Pane anchorPane = fxmlLoader.load();
 
                         ItemsController itemController = fxmlLoader.getController();
-                        itemController.setData(InsertIngController.getRecipes().get(j));
+                        itemController.setData(insertIngController.getRecipes().get(j));
 
                         if (column == 2) {
                             column = 0;
@@ -134,9 +135,9 @@ public class ResultController implements Initializable {
                         grid.setMaxHeight(Region.USE_PREF_SIZE);
 
                         grid.add(anchorPane, column++, row);
-                        grid.setMargin(anchorPane, new Insets(100));
+                        GridPane.setMargin(anchorPane, new Insets(100));
                         grid.setAlignment(Pos.CENTER);
-                        grid.setHalignment(anchorPane, HPos.LEFT);
+                        GridPane.setHalignment(anchorPane, HPos.LEFT);
                         grid.setGridLinesVisible(false);
                     }
                 } catch (IOException e) {
@@ -145,8 +146,6 @@ public class ResultController implements Initializable {
                 break;
 
             case "3":
-
-                System.out.println("entro nel 3");
                 SelectIngredientsController selectController = new SelectIngredientsController();
                 try {
                     for (int j = 0; j < selectController.getRecipesBeans().size(); j++) {
@@ -175,9 +174,9 @@ public class ResultController implements Initializable {
                         grid.setMaxHeight(Region.USE_PREF_SIZE);
 
                         grid.add(anchorPane, column++, row);
-                        grid.setMargin(anchorPane, new Insets(100));
+                        GridPane.setMargin(anchorPane, new Insets(100));
                         grid.setAlignment(Pos.CENTER);
-                        grid.setHalignment(anchorPane, HPos.LEFT);
+                        GridPane.setHalignment(anchorPane, HPos.LEFT);
                         grid.setGridLinesVisible(false);
                     }
                 } catch (IOException e) {
@@ -185,7 +184,8 @@ public class ResultController implements Initializable {
                 }
 
                 break;
-
+            default:
+                break;
 
         }
 
@@ -241,60 +241,52 @@ public class ResultController implements Initializable {
         General.setBackScene();
     }
 
-    // forse c'è già un altro metodo identico in itemsController
-    private void clickRecipeButton() throws IOException {
-      ///  General.changeScene(General.setSource("Recipe"));
-    }
+
 
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1(){
+        //
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink2() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
+    private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource("Login"));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink6() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink7() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)){
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }

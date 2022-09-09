@@ -187,37 +187,35 @@ public class InsertIngredientsController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1() throws IOException {
         ps.setScreen("1");
         //ps.setScreen("2");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
+    private void clickMenuLink2() throws IOException {
         if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
+            ps = Home.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
             General.changeScene(General.setSource("Login"));
         }
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
+    private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource("Login"));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
+    private void clickMenuLink6() throws IOException {
         if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Favourite"));
         } else {
@@ -229,7 +227,7 @@ public class InsertIngredientsController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
+    private void clickMenuLink7() throws IOException {
         if (General.LOGINSTATE) {
             General.changeScene(General.setSource("Fridge"));
         } else {
@@ -241,7 +239,7 @@ public class InsertIngredientsController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink8(ActionEvent event) throws IOException {
+    private void clickMenuLink8() throws IOException {
         General.changeScene(General.setSource("Home2"));
     }
 

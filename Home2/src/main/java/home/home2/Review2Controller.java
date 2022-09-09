@@ -1,10 +1,8 @@
 package home.home2;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -13,30 +11,35 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static home.home2.Home2.ps;
 
 public class Review2Controller implements Initializable {
+
+    private static final String LOGIN = "Login2";
     @FXML
-    private ImageView star1, star2, star3, star4, star5;
+    private ImageView star1;
     @FXML
-    private TextField textTitle;
+    private ImageView star2;
     @FXML
-    private TextArea textDesc;
+    private ImageView star3;
+    @FXML
+    private ImageView star4;
+    @FXML
+    private ImageView star5;
+
 
     private static int vote=0;
 
-    private Image star = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png");
-    private Image starfilled = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png");
+    private final Image star = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\star.png");
+    private final Image starfilled = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\starfilled.png");
 
-    private String click, title, description;
+    private String click;
 
     private static PendentScreen2 ps;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Home2 m = new Home2();
-        ps = m.getPS2();
+        ps = Home2.getPS2();
 
 
         star1.setImage(star);
@@ -46,7 +49,7 @@ public class Review2Controller implements Initializable {
         star5.setImage(star);
     }
 
-    public void clickStar(MouseEvent event) throws IOException {
+    public void clickStar(MouseEvent event)  {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
             case "star1":
@@ -79,9 +82,11 @@ public class Review2Controller implements Initializable {
                 star5.setImage(starfilled);
                 vote = 5;
                 break;
+            default:
+                break;
         }
     }
-    public void hoverStar(MouseEvent event) throws IOException {
+    public void hoverStar(MouseEvent event) {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
             case "star1":
@@ -109,9 +114,11 @@ public class Review2Controller implements Initializable {
                 star4.setImage(starfilled);
                 star5.setImage(starfilled);
                 break;
+            default:
+                break;
         }
     }
-    public void releaseStar(MouseEvent event) throws IOException {
+    public void releaseStar()  {
         switch (vote) {
             case 0:
                 star1.setImage(star);
@@ -138,74 +145,70 @@ public class Review2Controller implements Initializable {
             case 4:
                 star5.setImage(star);
                 break;
+            default:
+                break;
         }
     }
 
-    public void clickSubmit(ActionEvent event) throws IOException {
-        title = textTitle.getText();
-        description = textDesc.getText();
-
-        System.out.println(title + "\n" + vote + "/5\n" + description);
+    public void clickSubmit() {
+        //
     }
 
-    public void clickInterfaceButton(ActionEvent event) {
-    }
 
-    public void clickReviewButton(ActionEvent event) throws IOException {
+    public void clickReviewButton() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
 
     }
 
-    public void clickFridgeButton(ActionEvent event) throws IOException {
+    public void clickFridgeButton() throws IOException {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
+            ps = Home2.getPS2();
             ps.add("Fridge2.fxml");
-            General2.changeScene(General2.setSource("Login2"));
+            General2.changeScene(General2.setSource(LOGIN));
         }
     }
 
-    public void clickFavouriteButton(ActionEvent event) throws IOException {
+    public void clickFavouriteButton() throws IOException {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
+            ps = Home2.getPS2();
             ps.add("Favourite2.fxml");
-            General2.changeScene(General2.setSource("Login2"));
+            General2.changeScene(General2.setSource(LOGIN));
         }
     }
 
-    public void clickLoginButton(ActionEvent event) throws IOException {
-        General2.changeScene(General2.setSource("Login2"));
+    public void clickLoginButton() throws IOException {
+        General2.changeScene(General2.setSource(LOGIN));
 
     }
 
-    public void clickAddButton(ActionEvent event) throws IOException {
+    public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
 
     }
 
-    public void clickSearchButton(ActionEvent event) throws IOException {
+    public void clickSearchButton() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
 
     }
 
-    public void clickHomeButton(ActionEvent event) throws IOException {
+    public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
 
     }
 
-    public void clickBackButton(ActionEvent event) {
+    public void clickBackButton() {
+        //
     }
 
-    public void clickInsertIngredients(ActionEvent event) throws IOException {
+    public void clickInsertIngredients() throws IOException {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton(ActionEvent event) throws IOException {
+    public void clickRecipesButton() throws IOException {
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
