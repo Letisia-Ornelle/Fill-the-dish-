@@ -70,6 +70,9 @@ public class SelectIngredients2Controller implements Initializable {
         ps1.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }
+    public void clickLoginButton() throws IOException {
+        General2.changeScene(General2.setSource(LOGIN));
+    }
     public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
     }
@@ -94,26 +97,17 @@ public class SelectIngredients2Controller implements Initializable {
 
     }
 
-
     public void clickSearchButton() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
     }
 
 
-
-    public void clickLoginButton() throws IOException {
-        General2.changeScene(General2.setSource(LOGIN));
-    }
-
     public void clickFavouriteButton() throws IOException {
-        PendentScreen2 ps3;
-        ps3 = Home2.getPS2();
-        ps3.setScreen2("1");
+        ps.setScreen2("1");
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            ps3 = Home2.getPS2();
-            ps3.add("Favourite2.fxml");
+            ps.add("Favourite2.fxml");
             General2.changeScene(General2.setSource(LOGIN));
         }      }
 
