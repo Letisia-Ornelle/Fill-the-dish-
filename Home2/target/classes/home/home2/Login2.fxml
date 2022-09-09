@@ -85,9 +85,9 @@
       <Label alignment="CENTER" layoutX="615.0" layoutY="269.0" prefWidth="50.0" text="Oppure" textAlignment="CENTER" />
       <TextField fx:id="name" layoutX="710.0" layoutY="225.0" prefHeight="25.0" prefWidth="200.0" promptText="Nome" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" />
       <TextField fx:id="lastname" layoutX="710.0" layoutY="313.0" prefHeight="25.0" prefWidth="200.0" promptText="Cognome" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" />
-      <TextField fx:id="userName" layoutX="710.0" layoutY="397.0" prefHeight="25.0" prefWidth="200.0" promptText="Username" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" />
+      <TextField fx:id="userN" layoutX="710.0" layoutY="397.0" prefHeight="25.0" prefWidth="200.0" promptText="Username" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" />
       <TextField fx:id="email" layoutX="1020.0" layoutY="225.0" prefHeight="25.0" prefWidth="200.0" promptText="E-mail" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" />
-      <PasswordField fx:id="passWord" layoutX="1020.0" layoutY="313.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" style="-fx-border-radius: 30px; -fx-background-radius: 30px;" />
+      <PasswordField fx:id="passW" layoutX="1020.0" layoutY="313.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" style="-fx-border-radius: 30px; -fx-background-radius: 30px;" />
       <PasswordField fx:id="repeatPassword" layoutX="1020.0" layoutY="397.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" />
       <Button fx:id="register" onAction="#clickRegister" layoutX="924.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" style="-fx-border-radius: 30px;" text="Iscriviti" />
       <Label alignment="CENTER" layoutX="245.0" layoutY="125.0" prefWidth="150.0" text="Accedi">

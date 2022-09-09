@@ -84,7 +84,7 @@
         </ScrollPane>
     <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButton" prefHeight="30.0" prefWidth="50.0" />
     <Button fx:id="back" layoutX="70.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="30.0" prefWidth="50.0" />
-        <Button onAction="#ClickRecipe" layoutX="1099.0" layoutY="579.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" styleClass="cerca" stylesheets="@style.css" text="Calcola ricetta" />
+        <Button onAction="#clickRecipe" layoutX="1099.0" layoutY="579.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" styleClass="cerca" stylesheets="@style.css" text="Calcola ricetta" />
 
     </children>
 </Pane>

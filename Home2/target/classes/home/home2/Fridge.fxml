@@ -9,7 +9,7 @@
    <Pane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" styleClass="#pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
 
       <Pane fx:id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@sfondo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-         <Button fx:id="aggiungi" layoutX="480.0" layoutY="160.0" mnemonicParsing="false" onAction="#AddToFridge" style="-fx-border-radius: 30;" styleClass="cerca" text="Aggiungi" />
+         <Button fx:id="aggiungi" layoutX="480.0" layoutY="160.0" mnemonicParsing="false" onAction="#addToFridge" style="-fx-border-radius: 30;" styleClass="cerca" text="Aggiungi" />
          <TextField fx:id="textField" layoutX="250.0" layoutY="160.0" prefHeight="33.0" prefWidth="219.0" styleClass="cerca" />
          <Label layoutX="250.0" layoutY="125.0" text="Aggiungi un ingrediente:">
             <font>
