@@ -164,12 +164,10 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink7() throws IOException {
-        PendentScreen ps6;
-        ps6 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            ps6.add("Fridge.fxml");
+            ps.add("Fridge.fxml");
             General.changeScene(General.setSource(LOGIN));
         }
     }
