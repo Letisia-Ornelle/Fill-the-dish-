@@ -61,7 +61,8 @@ public class LoginController implements Initializable {
     private void clickLoginButton() throws IOException {
         PendentScreen ps = Home.getPS();
 
-        assert General.LOGINSTATE;
+        General.setloginState(true);
+        //assert General.LOGINSTATE;
 
 
         LoginBean lb = new LoginBean();
@@ -148,7 +149,7 @@ public class LoginController implements Initializable {
     @FXML
     private void clickMenuLink2Log() throws IOException {
         PendentScreen ps = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
@@ -176,7 +177,7 @@ public class LoginController implements Initializable {
     @FXML
     private void clickMenuLink6Log() throws IOException {
         PendentScreen ps = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps.add("Favourite.fxml");
@@ -187,7 +188,7 @@ public class LoginController implements Initializable {
     @FXML
     private void clickMenuLink7Log(ActionEvent event) throws IOException {
         PendentScreen ps = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps.add("Fridge.fxml");

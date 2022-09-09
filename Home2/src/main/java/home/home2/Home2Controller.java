@@ -26,7 +26,7 @@ public class Home2Controller  {
     }
     public  void clickFavouriteButton() throws IOException {
         PendentScreen2 ps1 = Home2.getPS2();
-        if (General2.LOGINSTATE) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             ps1.add("Favourite2.fxml");
@@ -39,7 +39,7 @@ public class Home2Controller  {
 
     public  void clickFridgeButton() throws IOException {
         PendentScreen2 ps2 = Home2.getPS2();
-        if (General2.LOGINSTATE) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             ps2.add("Fridge2.fxml");

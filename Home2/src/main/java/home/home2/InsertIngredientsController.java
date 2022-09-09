@@ -141,7 +141,7 @@ public class InsertIngredientsController implements Initializable {
     private void clickFridgeButton() throws IOException {
         PendentScreen ps2;
         ps2 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("SelectIngredients"));
         } else {
             ps2.add("SelectIngredients.fxml");
@@ -162,7 +162,7 @@ public class InsertIngredientsController implements Initializable {
     private void clickMenuLink2() throws IOException {
         PendentScreen ps4;
         ps4 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps4.add("Insert.fxml");
@@ -184,7 +184,7 @@ public class InsertIngredientsController implements Initializable {
     @FXML
     private void clickMenuLink6() throws IOException {
         PendentScreen ps1 ;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps1 = Home.getPS();
@@ -197,7 +197,7 @@ public class InsertIngredientsController implements Initializable {
     private void clickMenuLink7() throws IOException {
         PendentScreen ps5;
         ps5 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps5.add("Fridge.fxml");

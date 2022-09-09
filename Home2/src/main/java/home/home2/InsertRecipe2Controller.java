@@ -22,7 +22,7 @@ public class InsertRecipe2Controller {
 
     public void clickFavouriteButton() throws IOException {
         PendentScreen2 ps =Home2.getPS2();
-        if (General2.LOGINSTATE) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             ps.add("Favourite2.fxml");
@@ -32,7 +32,7 @@ public class InsertRecipe2Controller {
 
     public void clickFridgeButton() throws IOException {
         PendentScreen2 ps = Home2.getPS2();
-        if (General2.LOGINSTATE) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             ps.add("Fridge2.fxml");

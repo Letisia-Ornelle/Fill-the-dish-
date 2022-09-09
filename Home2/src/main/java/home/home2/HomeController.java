@@ -91,7 +91,7 @@ public class HomeController implements Initializable {
     @FXML
     private  void clickMenuLink2H() throws IOException {
         PendentScreen ps = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
@@ -113,7 +113,7 @@ public class HomeController implements Initializable {
     @FXML
     private  void clickMenuLink6H() throws IOException {
         PendentScreen ps;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps = Home.getPS();
@@ -124,7 +124,7 @@ public class HomeController implements Initializable {
     @FXML
     private void clickMenuLink7H() throws IOException {
         PendentScreen ps;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Fridge"));
       } else {
             ps = Home.getPS();

@@ -128,7 +128,7 @@ public class ReviewController implements Initializable {
     private void clickMenuLink2Review() throws IOException {
         PendentScreen ps4;
         ps4 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps4.add("Insert.fxml");
@@ -150,7 +150,7 @@ public class ReviewController implements Initializable {
     @FXML
     private void clickMenuLink6() throws IOException {
         PendentScreen ps5 ;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps5 = Home.getPS();
@@ -163,7 +163,7 @@ public class ReviewController implements Initializable {
     private void clickMenuLink7() throws IOException {
         PendentScreen ps6;
         ps6 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps6.add("Fridge.fxml");

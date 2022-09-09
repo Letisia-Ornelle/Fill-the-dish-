@@ -154,7 +154,7 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink2() throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
@@ -180,7 +180,7 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink6() throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps.add("Favourite.fxml");
@@ -189,7 +189,7 @@ public class RecipeController implements Initializable {
     }
     @FXML
     private void clickMenuLink7() throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps.add("Fridge.fxml");
@@ -207,7 +207,7 @@ public class RecipeController implements Initializable {
         try{
             favController = new FavouritesController();
 
-                if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+                if (Boolean.TRUE.equals(General.getLoginState())) {
 
                     favController.addToFavourites(favBean);
 
@@ -221,7 +221,7 @@ public class RecipeController implements Initializable {
                 alert.setContentText("Attenzione, devi prima fare il login");
                 alert.show();
             }finally {
-                if(Boolean.FALSE.equals(General.LOGINSTATE)){
+                if(Boolean.FALSE.equals(General.getLoginState())){
                     ps.add("Recipe.fxml");
                     General.changeScene(General.setSource(LOGIN));
                 }

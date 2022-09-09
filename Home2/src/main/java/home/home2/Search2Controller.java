@@ -209,7 +209,7 @@ public class Search2Controller implements Initializable {
         PendentScreen2 ps3;
         ps3 = Home2.getPS2();
         ps3.setScreen2("1");
-        if (General2.LOGINSTATE) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             ps3 = Home2.getPS2();
@@ -221,7 +221,7 @@ public class Search2Controller implements Initializable {
         PendentScreen2 ps4;
         ps4 = Home2.getPS2();
         ps4.setScreen2("1");
-        if (General2.LOGINSTATE) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
             ps4 = Home2.getPS2();

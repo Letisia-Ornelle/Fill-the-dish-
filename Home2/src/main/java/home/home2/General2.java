@@ -6,10 +6,18 @@ import java.util.List;
 
 public class General2 {
 
-    public  static final boolean LOGINSTATE = false;
+    private  static boolean loginState2 = false;
     private static List<String> list = new ArrayList<>();
 
     private General2(){}
+
+    public static void setLoginStateSview(Boolean login){
+        loginState2 = login;
+    }
+
+    public static Boolean getLoginStateSView(){
+        return loginState2;
+    }
 
     public static String setSource(String newScreen) {
         String tempSrc = newScreen;

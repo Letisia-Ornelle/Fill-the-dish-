@@ -140,7 +140,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
     public  void clickFavouriteButton() throws IOException {
         PendentScreen2 ps;
 
-        if (Boolean.TRUE.equals(General2.LOGINSTATE)) {
+        if (General2.getLoginStateSView()) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
             ps = Home2.getPS2();

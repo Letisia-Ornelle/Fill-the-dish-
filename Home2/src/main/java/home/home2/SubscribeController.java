@@ -150,7 +150,7 @@ public class SubscribeController implements Initializable {
     }
     @FXML
     private void clickMenuLink2() throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps.add("Insert.fxml");
@@ -164,7 +164,7 @@ public class SubscribeController implements Initializable {
 
     @FXML
     private void clickMenuLink7() throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps.add("Fridge.fxml");
@@ -207,7 +207,7 @@ public class SubscribeController implements Initializable {
         }
     @FXML
     private void clickMenuLink6() throws IOException {
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+        if (Boolean.TRUE.equals(General.getLoginState())) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps.add("Favourite.fxml");
