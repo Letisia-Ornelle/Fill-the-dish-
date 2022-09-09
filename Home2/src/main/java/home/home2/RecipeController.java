@@ -65,19 +65,19 @@ public class RecipeController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
         favButton.setImage(heart);
-        recipeImg.setImage(ps.getImage());
         inFavourite = false;
         recipeDescription.setText(ps.getDescription());
 
         recipeName.setText(ps.getName());
+        recipeImg.setImage(ps.getImage());
 
 
-        CalculateRecipeController recipeController = new CalculateRecipeController();
 
         CalculateRecipeBean recipeBean = new CalculateRecipeBean();
-
-        List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
+        CalculateRecipeController recipeController = new CalculateRecipeController();
         recipeBean.setName(recipeName.getText());
+        List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
+
 
         for (IngredientBean ingredientBean : ingredientBeanList) {
             FXMLLoader fxmlLoader = new FXMLLoader();

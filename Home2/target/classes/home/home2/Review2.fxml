@@ -35,32 +35,32 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="50.0" prefWidth="183.0" text="Aggiungi la tua Ricetta" textFill="WHITE" GridPane.columnIndex="2">
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#clickAddButtonR2" prefHeight="50.0" prefWidth="183.0" text="Aggiungi la tua Ricetta" textFill="WHITE" GridPane.columnIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="login" mnemonicParsing="false" onAction="#clickLoginButton" prefHeight="50.0" prefWidth="183.0" text="Accedi" textFill="WHITE" GridPane.columnIndex="3">
+                  <Button fx:id="login" mnemonicParsing="false" onAction="#clickLoginButtonR2" prefHeight="50.0" prefWidth="183.0" text="Accedi" textFill="WHITE" GridPane.columnIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="recipes" mnemonicParsing="false" onAction="#clickRecipesButton" prefHeight="50.0" prefWidth="183.0" text="Elenco ricette" textFill="WHITE" GridPane.columnIndex="4">
+                  <Button fx:id="recipes" mnemonicParsing="false" onAction="#clickRecipesButtonR2" prefHeight="50.0" prefWidth="183.0" text="Elenco ricette" textFill="WHITE" GridPane.columnIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickFavouriteButton" prefHeight="50.0" prefWidth="183.0" text="Lista dei Preferiti" textFill="WHITE" GridPane.columnIndex="5">
+                  <Button mnemonicParsing="false" onAction="#clickFavouriteButtonR2" prefHeight="50.0" prefWidth="183.0" text="Lista dei Preferiti" textFill="WHITE" GridPane.columnIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickFridgeButton" prefHeight="50.0" prefWidth="183.0" text="Frigo Virtuale" textFill="WHITE" GridPane.columnIndex="6">
+                  <Button mnemonicParsing="false" onAction="#clickFridgeButtonR2" prefHeight="50.0" prefWidth="183.0" text="Frigo Virtuale" textFill="WHITE" GridPane.columnIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickReviewButton" style="-fx-background-color: purple" prefHeight="50.0" prefWidth="183.0" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="7">
+                  <Button mnemonicParsing="false" onAction="#clickReviewButtonR2" style="-fx-background-color: purple" prefHeight="50.0" prefWidth="183.0" text="Lascia una Recensione" textFill="WHITE" GridPane.columnIndex="7">
                      <font>
                         <Font size="15.0" />
                      </font>

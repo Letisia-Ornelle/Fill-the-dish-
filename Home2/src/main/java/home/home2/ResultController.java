@@ -39,9 +39,9 @@ public class ResultController implements Initializable {
     @FXML
     Button backButton;
     @FXML
-    private Pane menu;
+    private Pane menuResult;
     @FXML
-    private Pane dark;
+    private Pane darkResult;
 
     @FXML
     Label category;
@@ -50,8 +50,8 @@ public class ResultController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        dark.setVisible(false);
-        menu.setVisible(false);
+        darkResult.setVisible(false);
+        menuResult.setVisible(false);
 
 
         switch (ps.getScreen()) {
@@ -195,15 +195,15 @@ public class ResultController implements Initializable {
 
 
     @FXML
-    private void clickMenuButton()  {
-        if (menu.isVisible()) {
+    private void clickMenuButtonResult()  {
+        if (menuResult.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkResult);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuResult);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
@@ -211,20 +211,20 @@ public class ResultController implements Initializable {
             translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuResult.setVisible(false);
+                darkResult.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuResult.setVisible(true);
+            darkResult.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkResult);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuResult);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);
@@ -242,11 +242,11 @@ public class ResultController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1(){
+    private void clickMenuLink1Result(){
         //
     }
     @FXML
-    private void clickMenuLink2() throws IOException {
+    private void clickMenuLink2Result() throws IOException {
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
@@ -255,19 +255,19 @@ public class ResultController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink3() throws IOException {
+    private void clickMenuLink3Result() throws IOException {
         General.changeScene(General.setSource(LOGIN));
     }
     @FXML
-    private void clickMenuLink4() throws IOException {
+    private void clickMenuLink4Result() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5() throws IOException {
+    private void clickMenuLink5Result() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6() throws IOException {
+    private void clickMenuLink6Result() throws IOException {
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
@@ -276,7 +276,7 @@ public class ResultController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink7() throws IOException {
+    private void clickMenuLink7Result() throws IOException {
         if (Boolean.TRUE.equals(General.LOGINSTATE)){
             General.changeScene(General.setSource("Fridge"));
         } else {
