@@ -61,7 +61,8 @@ public class LoginController implements Initializable {
     private void clickLoginButton() throws IOException {
         PendentScreen ps = Home.getPS();
 
-        General.LOGINSTATE = true;
+        assert General.LOGINSTATE;
+
 
         LoginBean lb = new LoginBean();
         lb.setUsername(username.getText());

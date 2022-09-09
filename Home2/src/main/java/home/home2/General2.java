@@ -6,7 +6,7 @@ import java.util.List;
 
 public class General2 {
 
-    public static boolean LOGINSTATE = false;
+    public  static final boolean LOGINSTATE = false;
     private static List<String> list = new ArrayList<>();
 
     private General2(){}

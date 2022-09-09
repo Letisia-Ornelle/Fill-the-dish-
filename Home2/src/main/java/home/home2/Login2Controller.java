@@ -48,7 +48,7 @@ public class Login2Controller {
      @FXML
     public void clickLogin() throws IOException,LoginFailedException {
 
-        General.LOGINSTATE = true;
+         assert General2.LOGINSTATE;
 
          LoginBean loginB = new LoginBean();
         loginB.setUsername(username.getText());

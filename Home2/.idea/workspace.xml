@@ -80,7 +80,7 @@
       <command value="S" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Home2">
+  <component name="RunManager" selected="Application.Home">
     <configuration name="Home" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="home.home2.Home" />
       <module name="Home2" />
@@ -321,7 +321,7 @@
       <workItem from="1662668050407" duration="1501000" />
       <workItem from="1662679104231" duration="3949000" />
       <workItem from="1662683312318" duration="1840000" />
-      <workItem from="1662706111083" duration="35531000" />
+      <workItem from="1662706111083" duration="38469000" />
     </task>
     <servers />
   </component>
