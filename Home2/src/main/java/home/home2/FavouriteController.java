@@ -23,9 +23,9 @@ import static home.home2.Home.ps;
 
 public class FavouriteController implements Initializable {
     @FXML
-    private Pane menu;
+    private Pane menuFav;
     @FXML
-    private Pane dark;
+    private Pane darkFav;
     @FXML
     private Button menuButton;
     @FXML
@@ -33,15 +33,15 @@ public class FavouriteController implements Initializable {
 
 
     @FXML
-    private void clickMenuButton() {
-        if (menu.isVisible()) {
+    private void clickMenuButtonFav() {
+        if (menuFav.isVisible()) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkFav);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuFav);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
             translateTransition2.setByX(-220);
@@ -49,20 +49,20 @@ public class FavouriteController implements Initializable {
             translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
+                menuFav.setVisible(false);
+                darkFav.setVisible(false);
             });
 
         } else {
-            menu.setVisible(true);
-            dark.setVisible(true);
+            menuFav.setVisible(true);
+            darkFav.setVisible(true);
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), darkFav);
             fadeTransition.setFromValue(0);
             fadeTransition.setToValue(1);
             fadeTransition.play();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menuFav);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(320);
             translateTransition2.setByX(220);
@@ -80,8 +80,8 @@ public class FavouriteController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
-        menu.setVisible(false);
-        dark.setVisible(false);
+        menuFav.setVisible(false);
+        darkFav.setVisible(false);
         int i;
         int column = 0;
         int row = 1;
