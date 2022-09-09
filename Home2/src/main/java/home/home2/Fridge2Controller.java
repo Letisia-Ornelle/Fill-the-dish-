@@ -74,19 +74,19 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
     public void addToFridge() throws  DuplicateIngredientException {
 
         if(!textField.getText().equals("")) {
+            ManageFridgeController fridgeC = new ManageFridgeController();
+
             FridgeBean fridge = new FridgeBean();
             fridge.setIngredientName(textField.getText());
 
-            ManageFridgeController manageFridge = new ManageFridgeController();
 
-
-                if (manageFridge.getImage(fridge)) {
+                if (Boolean.TRUE.equals(fridgeC.getImage(fridge))) {
                     //
                 }
                 else{
-                    FileChooser fileChooser = new FileChooser();
-                    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
-                    File file = fileChooser.showOpenDialog(null);
+                    FileChooser f = new FileChooser();
+                    f.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
+                    File file = f.showOpenDialog(null);
                     if(file != null){
                         String imagePath = file.getAbsolutePath();
                         InputStream inputStream = null;
@@ -101,7 +101,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
                     }
                 }
 
-                manageFridge.addIngredient(fridge);
+                fridgeC.addIngredient(fridge);
                 textField.setText("");
 
             }

@@ -62,22 +62,21 @@ public class InsertIngredientsController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
 
-                Pane pane = fxmlLoader.load();
-                getContr(fxmlLoader.getController());
-
 
                 if (column == 2) {
                     column = 0;
                     row++;
                 }
+                Pane pane = fxmlLoader.load();
+                getContr(fxmlLoader.getController());
 
-                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
-                // set grid height
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
                 grid.add(pane, column++, row);
                 GridPane.setMargin(pane, new Insets(50));
                 grid.setAlignment(Pos.CENTER);
@@ -210,18 +209,21 @@ public class InsertIngredientsController implements Initializable {
 
     @FXML
     private void clickMenuButton(){
-        if (menu.isVisible()) {
+        if (Boolean.TRUE.equals(menu.isVisible())) {
+
+            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5), menuButton);
+
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
+
+            translateTransition1.setByX(-320);
+            translateTransition.setByX(-220);
+            translateTransition1.play();
+            translateTransition.play();
+
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
             fadeTransition.play();
-
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
-            translateTransition1.setByX(-320);
-            translateTransition2.setByX(-220);
-            translateTransition1.play();
-            translateTransition2.play();
 
             fadeTransition.setOnFinished(event -> {
                 menu.setVisible(false);
@@ -229,8 +231,9 @@ public class InsertIngredientsController implements Initializable {
             });
 
         } else {
-            menu.setVisible(true);
             dark.setVisible(true);
+            menu.setVisible(true);
+
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
             fadeTransition.setFromValue(0);

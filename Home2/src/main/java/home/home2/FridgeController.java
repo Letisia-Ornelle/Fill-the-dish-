@@ -108,16 +108,13 @@ public class FridgeController implements Initializable, FridgeObserver {
 
             ManageFridgeController fridge = new ManageFridgeController();
 
-            if (fridge.getImage(f)) {
-               //
-            } else {
-
+            if (!fridge.getImage(f)) {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpg,*.png", "*.jpg", "*.png"));
                 File file = fileChooser.showOpenDialog(null);
                 if (file != null) {
-                    String imagePath = file.getAbsolutePath();
                     InputStream inputStream = null;
+                    String imagePath = file.getAbsolutePath();
                     try {
                         inputStream = new FileInputStream(imagePath);
                         f.setIngredientInputStream(new FileInputStream(imagePath));
@@ -127,6 +124,8 @@ public class FridgeController implements Initializable, FridgeObserver {
                     Image image = new Image(inputStream);
                     f.setIngredientImage(image);
 
+                } else {
+                    //
                 }
 
             }
@@ -146,6 +145,11 @@ public class FridgeController implements Initializable, FridgeObserver {
 
     }
 
+
+
+    public void clickBackButton() throws IOException {
+        General.setBackScene();
+    }
     @Override
     public void update(FridgeBean fridgebean) {
 
@@ -167,11 +171,6 @@ public class FridgeController implements Initializable, FridgeObserver {
         }
 
     }
-
-    public void clickBackButton() throws IOException {
-        General.setBackScene();
-    }
-
 
     public void clickHomeButton() throws IOException {
         General.changeScene(General.setSource("Home"));
