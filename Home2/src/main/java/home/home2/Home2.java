@@ -14,18 +14,17 @@ public class Home2 extends Application {
 
     private static Stage stg;
     private static List<String> screenList;
-    public static PendentScreen2 ps;
+    public static final PendentScreen2 ps = new PendentScreen2();
 
     @Override
     public void start(Stage stage) throws Exception {
-
-        stg = stage;
+        getStage(stage);
 
         List<String> list = new ArrayList<>();
-        list.add("Home2.fxml");              // potrebbe dare bug se la app si apre in una schermata diversa dalla home
-        screenList = list;
+        list.add("Home2.fxml");
+        addToList(list);
 
-        ps = new PendentScreen2();
+        getPS2();
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(Home.class.getResource("Home2.fxml"));
@@ -34,6 +33,14 @@ public class Home2 extends Application {
         stage.setTitle("Fill The Dish!");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private static void getStage(Stage stage){
+        stg = stage;
+
+    }
+    private static void addToList(List<String> list){
+        screenList = list;
     }
 
     public static List<String> getList() {

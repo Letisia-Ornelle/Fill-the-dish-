@@ -5,7 +5,6 @@ import home.home2.beans.FridgeBean;
 import home.home2.model.exceptions.DuplicateIngredientException;
 import home.home2.model.FridgeObserver;
 import home.home2.model.FridgeSubject;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -62,7 +61,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
                 elementController2.setData(fridgeBeans.get(i));
 
                 verticalBox.getChildren().add(anchorPane);
-                verticalBox.setMargin(anchorPane, new Insets(5));
+                VBox.setMargin(anchorPane, new Insets(5));
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -72,7 +71,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
     }
 
 
-    public void AddToFridge() throws  DuplicateIngredientException {
+    public void addToFridge() throws  DuplicateIngredientException {
 
         if(!textField.getText().equals("")) {
             FridgeBean fridge = new FridgeBean();
@@ -120,7 +119,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
             elementController2.setData(fridgebean);
 
             verticalBox.getChildren().add(anchorPane);
-            verticalBox.setMargin(anchorPane, new Insets(5));
+            VBox.setMargin(anchorPane, new Insets(5));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -133,7 +132,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
     }
 
     public void clickFridgeButton() throws IOException {
-
+        //
     }
 
     public  void clickFavouriteButton() throws IOException {
@@ -160,6 +159,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
     }
 
     public void clickBackButton() {
+        //
     }
 
     public void clickHomeButton() throws IOException {
@@ -170,7 +170,7 @@ public class Fridge2Controller implements Initializable, FridgeObserver {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton(ActionEvent event) throws IOException {
+    public void clickRecipesButton() throws IOException {
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }

@@ -1,9 +1,7 @@
 package home.home2;
 
-import home.home2.controller.CalculateRecipeController;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +9,6 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -19,7 +16,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class IngredientsController implements Initializable {
@@ -140,7 +136,7 @@ public class IngredientsController implements Initializable {
     }
     @FXML
     private static void clickFridgeButton() throws IOException {
-        if (General.LOGINSTATE) {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps = Home.getPS();
@@ -152,12 +148,12 @@ public class IngredientsController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1() throws IOException {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private static void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private static void clickMenuLink2() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
             ps = Home.getPS();
@@ -166,20 +162,20 @@ public class IngredientsController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
+    private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource(LOGINSTRING));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private static void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private static void clickMenuLink6() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps = Home.getPS();
@@ -188,8 +184,8 @@ public class IngredientsController implements Initializable {
         }
     }
     @FXML
-    private static void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private static void clickMenuLink7() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)){
             General.changeScene(General.setSource("Fridge"));
         } else {
             ps = Home.getPS();

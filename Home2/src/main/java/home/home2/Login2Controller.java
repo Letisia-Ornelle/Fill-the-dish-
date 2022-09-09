@@ -7,20 +7,18 @@ import home.home2.beans.LoginBean;
 import home.home2.model.exceptions.FailedRegistrationException;
 import home.home2.model.exceptions.InvalidSyntaxEmailException;
 import home.home2.model.exceptions.LoginFailedException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import static home.home2.Home2.ps;
 
 public class Login2Controller {
 
-    private PendentScreen2 ps2;
+    private static final String LOGIN = "Login2";
 
      @FXML
      private TextField username;
@@ -38,21 +36,21 @@ public class Login2Controller {
     private TextField email;
 
     @FXML
-    private TextField userName;
+    private TextField userN;
 
     @FXML
-    private PasswordField passWord;
+    private PasswordField passW;
 
     @FXML
     private PasswordField repeatPassword;
 
 
      @FXML
-    public void clickLogin(ActionEvent event) throws IOException, SQLException, LoginFailedException {
+    public void clickLogin() throws IOException,LoginFailedException {
 
-        General2.LOGINSTATE = true;
+         assert General2.LOGINSTATE ;
 
-        LoginBean loginB = new LoginBean();
+         LoginBean loginB = new LoginBean();
         loginB.setUsername(username.getText());
         loginB.setPassword(password.getText());
 
@@ -60,14 +58,14 @@ public class Login2Controller {
         password.setText("");
 
         LoginController loginC = new LoginController();
-        if(loginC.login(loginB) == false){
+        if(!loginC.login(loginB)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Credenziali Errate!");
             alert.show();
         }
         else{
-            // Reindirizzare.....
-            if(ps.isNull()){
+            //
+            if(Boolean.TRUE.equals(ps.isNull())){
                 General2.changeScene(General2.setSource("Home2"));
             }
             else{
@@ -78,36 +76,34 @@ public class Login2Controller {
 
     }
 
-    public void clickRegister(ActionEvent event) throws SQLException {
+    public void clickRegister()  {
 
         EnrollBean enrollbean = new EnrollBean();
-        enrollbean.setUsername(userName.getText());
+        enrollbean.setUsername(userN.getText());
         enrollbean.setName(name.getText());
         enrollbean.setCognome(lastname.getText());
         enrollbean.setEmail(email.getText());
-        enrollbean.setPassword(passWord.getText());
+        enrollbean.setPassword(passW.getText());
 
         EnrollController controller = new EnrollController();
 
         try{
-            if (controller.addUser(enrollbean) == true && enrollbean.getPassword().equals(repeatPassword.getText())) {
+            if (controller.addUser(enrollbean) && enrollbean.getPassword().equals(repeatPassword.getText())) {
 
-                System.out.println("Nuovo utente registrato con successo!");
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setContentText("Account registrato con successo! Ora puoi accedere.");
                 alert.show();
 
-                userName.setText("");
+                userN.setText("");
                 name.setText("");
                 lastname.setText("");
                 email.setText("");
-                passWord.setText("");
+                passW.setText("");
                 repeatPassword.setText("");
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Le due password non coincidono!");
-                //alert.show();
+                alert.show();
             }
 
         }catch (FailedRegistrationException e){
@@ -120,67 +116,66 @@ public class Login2Controller {
 
     }
 
-    public void clickInterfaceButton(ActionEvent event) {
+    public void clickInterfaceButton() {
          // No
     }
 
-    public void clickReviewButton(ActionEvent event) throws IOException {
+    public void clickReviewButton() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
 
     }
 
-    public void clickFridgeButton(ActionEvent event) throws IOException {
+    public void clickFridgeButton() throws IOException {
+         PendentScreen2 ps = Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
             ps.add("Fridge2.fxml");
-            //System.out.println();
-            General2.changeScene(General2.setSource("Login2"));
+            General2.changeScene(General2.setSource(LOGIN));
         }
 
     }
 
-    public void clickFavouriteButton(ActionEvent event) throws IOException {
+    public void clickFavouriteButton() throws IOException {
+         PendentScreen2 ps = Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
             ps.add("Favourite2.fxml");
-            General2.changeScene(General2.setSource("Login2"));
+            General2.changeScene(General2.setSource(LOGIN));
         }
 
     }
 
-    public void clickLoginButton(ActionEvent event) throws IOException {
-        General2.changeScene(General2.setSource("Login2"));
+    public void clickLoginButton() throws IOException {
+        General2.changeScene(General2.setSource(LOGIN));
 
     }
 
-    public void clickAddButton(ActionEvent event) throws IOException {
+    public void clickAddButton() throws IOException {
         General2.changeScene(General2.setSource("Add2"));
 
     }
 
-    public void clickSearchButton(ActionEvent event) throws IOException {
+    public void clickSearchButton() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
 
     }
 
-    public void clickHomeButton(ActionEvent event) throws IOException {
+    public void clickHomeButton() throws IOException {
          General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickBackButton(ActionEvent event) {
+    public void clickBackButton() {
+         //
     }
 
-    public void clickInsertIngredients(ActionEvent event) throws IOException {
+    public void clickInsertIngredients() throws IOException {
          General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton(ActionEvent event) throws IOException {
+    public void clickRecipesButton() throws IOException {
+         PendentScreen2 ps = Home2.getPS2();
          ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }

@@ -76,7 +76,7 @@
          <VBox fx:id="verticalBox" minHeight="10.0" />
       </ScrollPane>
       <TextField fx:id="textField" layoutX="92.0" layoutY="305.0" prefHeight="31.0" prefWidth="374.0" promptText="Digita l'ingrediente da aggiungere" style="-fx-border-radius: 30px; -fx-background-radius: 30px; -fx-background-color: #D2D2D2; -fx-border-color: black;" />
-      <Button fx:id="aggiungi" layoutX="214.0" layoutY="369.0" mnemonicParsing="false" onAction="#AddToFridge" prefHeight="31.0" prefWidth="131.0" style="-fx-border-radius: 30px; -fx-background-radius: 30px; -fx-background-color: transparent; -fx-border-color: black;" text="Aggiungi" />
+      <Button fx:id="aggiungi" layoutX="214.0" layoutY="369.0" mnemonicParsing="false" onAction="#addToFridge" prefHeight="31.0" prefWidth="131.0" style="-fx-border-radius: 30px; -fx-background-radius: 30px; -fx-background-color: transparent; -fx-border-color: black;" text="Aggiungi" />
       <Button fx:id="home" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickHomeButton" prefHeight="30.0" prefWidth="50.0" />
       <Button fx:id="back" layoutX="70.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="30.0" prefWidth="50.0" />
    </children>

@@ -30,8 +30,7 @@ public class Result2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Home2 m = new Home2();
-        ps = m.getPS2();
+        PendentScreen2 ps = Home2.getPS2();
 
 
         int column = 0;
@@ -181,6 +180,7 @@ public class Result2Controller implements Initializable {
     }
 
     public void clickFridgeButton(ActionEvent event) throws IOException {
+        PendentScreen2 ps = Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
@@ -193,6 +193,7 @@ public class Result2Controller implements Initializable {
     }
 
     public void clickFavouriteButton(ActionEvent event) throws IOException {
+        PendentScreen2 ps = Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {

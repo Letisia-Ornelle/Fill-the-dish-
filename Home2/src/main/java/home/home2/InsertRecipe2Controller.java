@@ -1,68 +1,65 @@
 package home.home2;
 
-import javafx.event.ActionEvent;
-
 import java.io.IOException;
 
-import static home.home2.Home2.ps;
 
 public class InsertRecipe2Controller {
-    public void clickSearchButton(ActionEvent event) throws IOException {
+    private static final String LOGIN = "Login2";
+    public void clickSearchButton() throws IOException {
         General2.changeScene(General2.setSource("Search2"));
 
     }
 
-    public void clickAddButton(ActionEvent event) throws IOException {
-       // General.changeScene(General.setSource("Review2"));
+    public void clickAddButton() throws IOException {
+       //
 
     }
 
-    public void clickLoginButton(ActionEvent event) throws IOException {
-        General2.changeScene(General2.setSource("Login2"));
+    public void clickLoginButton() throws IOException {
+        General2.changeScene(General2.setSource(LOGIN));
 
     }
 
-    public void clickFavouriteButton(ActionEvent event) throws IOException {
+    public void clickFavouriteButton() throws IOException {
+        PendentScreen2 ps =Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
             ps.add("Favourite2.fxml");
-            General2.changeScene(General2.setSource("Login2"));
+            General2.changeScene(General2.setSource(LOGIN));
         }
     }
 
-    public void clickFridgeButton(ActionEvent event) throws IOException {
+    public void clickFridgeButton() throws IOException {
+        PendentScreen2 ps = Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            Home2 m = new Home2();
-            ps = m.getPS2();
             ps.add("Fridge2.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login2"));
+            General.changeScene(General.setSource(LOGIN));
         }
 
     }
 
-    public void clickReviewButton(ActionEvent event) throws IOException {
+    public void clickReviewButton() throws IOException {
         General2.changeScene(General2.setSource("Review2"));
 
     }
 
-    public void clickHomeButton(ActionEvent event) throws IOException {
+    public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
     }
 
-    public void clickBackButton(ActionEvent event) {
+    public void clickBackButton() {
+        //
     }
 
-    public void clickInsertIngredients(ActionEvent event) throws IOException {
+    public void clickInsertIngredients() throws IOException {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
 
-    public void clickRecipesButton(ActionEvent event) throws IOException {
+    public void clickRecipesButton() throws IOException {
+        PendentScreen2 ps = Home2.getPS2();
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }

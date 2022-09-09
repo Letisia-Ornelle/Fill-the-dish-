@@ -21,8 +21,6 @@ public class Favourite2Controller implements Initializable {
 
     @FXML
     private  VBox verticalBox;
-    private static PendentScreen2 ps;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,6 +36,7 @@ public class Favourite2Controller implements Initializable {
             e.printStackTrace();
         }
 
+        assert favController != null;
         favouritesBeans = favController.showFavourites();
 
         try {
@@ -65,10 +64,10 @@ public class Favourite2Controller implements Initializable {
     }
 
     public  void clickFridgeButton() throws IOException {
+        PendentScreen2 ps = Home2.getPS2();
         if (Boolean.TRUE.equals(General2.LOGINSTATE)) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            ps = Home2.getPS2();
             ps.add("Fridge2.fxml");
             General2.changeScene(General2.setSource("Login2"));
         }
@@ -100,6 +99,7 @@ public class Favourite2Controller implements Initializable {
     }
 
     public void clickBackButton() {
+        //
     }
 
     public void clickInsertIngredients() throws IOException {
@@ -107,6 +107,7 @@ public class Favourite2Controller implements Initializable {
     }
 
     public void clickRecipesButton() throws IOException {
+        PendentScreen2 ps = Home2.getPS2();
         ps.setScreen2("1");
         General2.changeScene(General2.setSource("Result2"));
     }

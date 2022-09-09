@@ -49,6 +49,7 @@ public class FavouriteController implements Initializable {
             e.printStackTrace();
         }
 
+        assert favController != null;
         favouritesBeans = favController.showFavourites();
 
         try {
@@ -61,7 +62,7 @@ public class FavouriteController implements Initializable {
                 elementController.setData(favouritesBeans.get(i));
 
                 grid.add(anchorPane, column, row++);
-                grid.setMargin(anchorPane, new Insets(5));
+                GridPane.setMargin(anchorPane, new Insets(5));
                 grid.setGridLinesVisible(false);
             }
         } catch (IOException e) {

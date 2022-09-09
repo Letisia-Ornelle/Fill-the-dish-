@@ -98,7 +98,7 @@ public class FridgeController implements Initializable, FridgeObserver {
 
     }
 
-    public void AddToFridge() {
+    public void addToFridge() {
 
 
         if(!textField.getText().equals("")) {

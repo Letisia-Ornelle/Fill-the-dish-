@@ -63,7 +63,7 @@ public class InsertIngredientsController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("dynamicCB.fxml"));
 
                 Pane pane = fxmlLoader.load();
-                choiceBoxController = fxmlLoader.getController();
+                getContr(fxmlLoader.getController());
 
 
                 if (column == 2) {
@@ -88,6 +88,10 @@ public class InsertIngredientsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void getContr(Object controller) {
+        choiceBoxController = (DynamicCBController) controller;
     }
 
     @FXML
@@ -120,7 +124,9 @@ public class InsertIngredientsController implements Initializable {
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
 
-        recipeBeans = recipeController.checkIngredients(recipeBean);
+        for(CalculateRecipeBean i : recipeController.checkIngredients(recipeBean)){
+            recipeBeans.add(i);
+        }
 
         General.changeScene(General.setSource("Result"));
 

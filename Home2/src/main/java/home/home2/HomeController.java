@@ -1,7 +1,6 @@
 package home.home2;
 
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -85,35 +84,36 @@ public class HomeController implements Initializable {
 
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1() throws IOException {
         ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private  void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private  void clickMenuLink2() throws IOException {
+        PendentScreen ps = Home.getPS();
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            ps = Home.getPS();
             ps.add("Insert.fxml");
             General.changeScene(General.setSource(LOGINSTRING));
         }
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
+    private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource(LOGINSTRING));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private  void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private  void clickMenuLink6() throws IOException {
+        PendentScreen ps;
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
             ps = Home.getPS();
@@ -122,8 +122,9 @@ public class HomeController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink7() throws IOException {
+        PendentScreen ps;
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
       } else {
             ps = Home.getPS();
