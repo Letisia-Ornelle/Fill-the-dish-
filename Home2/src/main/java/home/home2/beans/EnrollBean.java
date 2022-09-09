@@ -45,7 +45,7 @@ public class EnrollBean {
     }
 
     public static boolean verifyEmail(String email){
-        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
+        String regex = "~ /[a-zA-Z0-9_]{1,}@[a-z.]{1,}\\.[a-z]{1,4}/";
         Pattern p = Pattern.compile(regex);
         return p.matcher(email).matches();
     }
