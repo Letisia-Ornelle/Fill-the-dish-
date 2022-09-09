@@ -105,6 +105,8 @@ public class InsertRecipeController implements Initializable {
 
     @FXML
     private void clickMenuLink1(ActionEvent event) throws IOException {
+        PendentScreen ps = Home.getPS();
+        ps.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
     @FXML

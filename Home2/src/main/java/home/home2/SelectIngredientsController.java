@@ -73,6 +73,11 @@ public class SelectIngredientsController implements  Initializable {
     }
 
     @FXML
+    private void clickBackButton() throws IOException {
+        General.setBackScene();
+    }
+
+    @FXML
     private void clickMenuButton()  {
         if (menu.isVisible()) {
 
@@ -111,16 +116,13 @@ public class SelectIngredientsController implements  Initializable {
         }
     }
 
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
-    @FXML
-    private void clickBackButton() throws IOException {
-        General.setBackScene();
-    }
 
 
+
+    @FXML
+    private void clickMenuLink2() throws IOException {
+            General.changeScene(General.setSource("Insert"));
+    }
     @FXML
     private void clickMenuLink1() throws IOException {
         PendentScreen ps3;
@@ -128,54 +130,31 @@ public class SelectIngredientsController implements  Initializable {
         ps3.setScreen("1");
         General.changeScene(General.setSource("Result"));
     }
+
     @FXML
-    private void clickMenuLink2() throws IOException {
-        PendentScreen ps4;
-        ps4 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Insert"));
-        } else {
-            ps4.add("Insert.fxml");
-            General.changeScene(General.setSource(LOGIN));
-        }
+    private void clickMenuLink4() throws IOException {
+        General.changeScene(General.setSource("Subscribe"));
+    }
+
+    @FXML
+    private void clickMenuLink6() throws IOException {
+            General.changeScene(General.setSource("Favourite"));
     }
     @FXML
     private void clickMenuLink3() throws IOException {
         General.changeScene(General.setSource(LOGIN));
     }
     @FXML
-    private void clickMenuLink4() throws IOException {
-        General.changeScene(General.setSource("Subscribe"));
+    private void clickMenuLink7() throws IOException {
+            General.changeScene(General.setSource("Fridge"));
     }
+
+
+
     @FXML
     private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
-    @FXML
-    private void clickMenuLink6() throws IOException {
-        PendentScreen ps5 ;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Favourite"));
-        } else {
-            ps5 = Home.getPS();
-            ps5.add("Favourite.fxml");
-
-            General.changeScene(General.setSource(LOGIN));
-        }
-    }
-    @FXML
-    private void clickMenuLink7() throws IOException {
-        PendentScreen ps6;
-        ps6 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Fridge"));
-        } else {
-            ps6.add("Fridge.fxml");
-            General.changeScene(General.setSource(LOGIN));
-        }
-    }
-
-
     private static List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
 
     @FXML
@@ -199,7 +178,10 @@ public class SelectIngredientsController implements  Initializable {
 
         General.changeScene(General.setSource("Result"));
     }
-
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
+    }
     public List<CalculateRecipeBean> getRecipesBeans(){
         return recipeBeans;
     }

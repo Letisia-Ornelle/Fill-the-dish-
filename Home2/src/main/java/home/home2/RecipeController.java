@@ -65,25 +65,24 @@ public class RecipeController implements Initializable {
         menu.setVisible(false);
         dark.setVisible(false);
         favButton.setImage(heart);
-        inFavourite = false;
-
-
-        recipeName.setText(ps.getName());
         recipeImg.setImage(ps.getImage());
+        inFavourite = false;
         recipeDescription.setText(ps.getDescription());
 
-
-        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
-        recipeBean.setName(recipeName.getText());
+        recipeName.setText(ps.getName());
 
 
         CalculateRecipeController recipeController = new CalculateRecipeController();
-        List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
 
+        CalculateRecipeBean recipeBean = new CalculateRecipeBean();
+
+        List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
+        recipeBean.setName(recipeName.getText());
 
         for (IngredientBean ingredientBean : ingredientBeanList) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("ingredient.fxml"));
 
                 Pane anchorPane = fxmlLoader.load();
@@ -107,10 +106,14 @@ public class RecipeController implements Initializable {
         if (menu.isVisible()) {
 
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), dark);
-            fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
-            fadeTransition.play();
+            fadeTransition.setFromValue(1);
 
+            fadeTransition.play();
+            fadeTransition.setOnFinished(event -> {
+                menu.setVisible(false);
+                dark.setVisible(false);
+            });
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5), menu);
             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5), menuButton);
             translateTransition1.setByX(-320);
@@ -118,10 +121,7 @@ public class RecipeController implements Initializable {
             translateTransition1.play();
             translateTransition2.play();
 
-            fadeTransition.setOnFinished(event -> {
-                menu.setVisible(false);
-                dark.setVisible(false);
-            });
+
 
         } else {
             menu.setVisible(true);
@@ -142,10 +142,7 @@ public class RecipeController implements Initializable {
     }
 
 
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
+
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();
@@ -164,6 +161,10 @@ public class RecipeController implements Initializable {
 
             General.changeScene(General.setSource(LOGIN));
         }
+    }
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
     }
     @FXML
     private void clickMenuLink3() throws IOException {
@@ -213,14 +214,14 @@ public class RecipeController implements Initializable {
                 }
             } catch (DuplicateRecipeException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Attenzione,ricetta presente nella lista dei preferiti");
+                alert.setContentText("Attenzione, questa ricetta è già presente nella lista dei preferiti");
                 alert.show();
             }catch(ProvideLoginException e1){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Attenzione, devi prima fare il login");
                 alert.show();
             }finally {
-                if(!Boolean.TRUE.equals(General.LOGINSTATE)){
+                if(Boolean.FALSE.equals(General.LOGINSTATE)){
                     ps.add("Recipe.fxml");
                     General.changeScene(General.setSource(LOGIN));
                 }
