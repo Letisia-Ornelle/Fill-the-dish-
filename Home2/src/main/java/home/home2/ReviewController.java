@@ -115,17 +115,17 @@ public class ReviewController implements Initializable {
 
 
     @FXML
-    private void clickHomeButton() throws IOException {
+    private void clickHomeButtonReview() throws IOException {
         General.changeScene(General.setSource("Home"));
     }
     @FXML
-    private void clickBackButton() throws IOException {
+    private void clickBackButtonReview() throws IOException {
         General.setBackScene();
     }
 
 
     @FXML
-    private void clickMenuLink2() throws IOException {
+    private void clickMenuLink2Review() throws IOException {
         PendentScreen ps4;
         ps4 = Home.getPS();
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
@@ -136,11 +136,11 @@ public class ReviewController implements Initializable {
         }
     }
     @FXML
-    private void clickMenuLink3() throws IOException {
+    private void clickMenuLink3Review() throws IOException {
         General.changeScene(General.setSource(LOGIN));
     }
     @FXML
-    private void clickMenuLink4() throws IOException {
+    private void clickMenuLink4Review() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
@@ -180,7 +180,7 @@ public class ReviewController implements Initializable {
     }
 
 
-    public void clickStar(MouseEvent event) {
+    public void clickStarReview(MouseEvent event) {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
             case "star1":
@@ -217,7 +217,7 @@ public class ReviewController implements Initializable {
                 break;
         }
     }
-    public void hoverStar(MouseEvent event)  {
+    public void hoverStarReview(MouseEvent event)  {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
             case "star1":
