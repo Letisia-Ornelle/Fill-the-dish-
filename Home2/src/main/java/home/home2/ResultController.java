@@ -188,7 +188,10 @@ public class ResultController implements Initializable {
     }
 
 
-
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
+    }
 
 
     @FXML
@@ -229,10 +232,7 @@ public class ResultController implements Initializable {
             translateTransition2.play();
         }
     }
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
+
     @FXML
     private void clickBackButton() throws IOException {
         General.setBackScene();

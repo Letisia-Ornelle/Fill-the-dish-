@@ -49,6 +49,20 @@ public class InsertRecipeController implements Initializable {
         portata.getItems().addAll(" ","primo      ","secondo      ","colazione      ","antipasto      ","contorno      ","dessert      ");
         portata.setValue("Seleziona un ingrediente");
     }
+
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
+    }
+    @FXML
+    private void clickBackButton() throws IOException {
+        General.setBackScene();
+    }
+
+    @FXML
+    private void clickSubmitButton() {
+        //
+    }
     @FXML
     private void clickMenuButton() {
         if (menu.isVisible()) {
@@ -86,20 +100,6 @@ public class InsertRecipeController implements Initializable {
             translateTransition1.play();
             translateTransition2.play();
         }
-    }
-
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
-    @FXML
-    private void clickBackButton() throws IOException {
-        General.setBackScene();
-    }
-
-    @FXML
-    private void clickSubmitButton() {
-        //
     }
 
 

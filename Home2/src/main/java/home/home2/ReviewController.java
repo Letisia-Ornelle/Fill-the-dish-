@@ -63,6 +63,14 @@ public class ReviewController implements Initializable {
         star5.setImage(star);
 
     }
+
+    @FXML
+    private void clickMenuLink1() throws IOException {
+        PendentScreen ps3;
+        ps3 = Home.getPS();
+        ps3.setScreen("1");
+        General.changeScene(General.setSource("Result"));
+    }
     @FXML
     private void clickMenuButton() {
         if (menu.isVisible()) {
@@ -112,13 +120,7 @@ public class ReviewController implements Initializable {
         General.setBackScene();
     }
 
-    @FXML
-    private void clickMenuLink1() throws IOException {
-        PendentScreen ps3;
-        ps3 = Home.getPS();
-        ps3.setScreen("1");
-        General.changeScene(General.setSource("Result"));
-    }
+
     @FXML
     private void clickMenuLink2() throws IOException {
         PendentScreen ps4;
@@ -164,6 +166,14 @@ public class ReviewController implements Initializable {
             ps6.add("Fridge.fxml");
             General.changeScene(General.setSource(LOGIN));
         }
+    }
+
+    @FXML
+    private void clickSubmitButton() {
+        String address = email.getText();
+        String comment = note.getText();
+        alert.setVisible(address.equals("") || comment.equals("") || vote == 0);
+
     }
 
 
@@ -268,12 +278,5 @@ public class ReviewController implements Initializable {
         }
     }
 
-    @FXML
-    private void clickSubmitButton() {
-        String address = email.getText();
-        String comment = note.getText();
-        alert.setVisible(address.equals("") || comment.equals("") || vote == 0);
-
-    }
 
 }
