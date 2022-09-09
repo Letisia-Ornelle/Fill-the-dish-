@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home2.ps;
 
 
 public class SelectIngredients2Controller implements Initializable {
@@ -131,16 +132,7 @@ public class SelectIngredients2Controller implements Initializable {
         General2.changeScene(General2.setSource("Ingredients2"));
     }
     public void clickFridgeButton() throws IOException {
-        PendentScreen2 ps4;
-        ps4 = Home2.getPS2();
-        ps4.setScreen2("1");
-        if (General2.LOGINSTATE) {
-            General2.changeScene(General2.setSource("Fridge2"));
-        } else {
-            ps4 = Home2.getPS2();
-            ps4.add("Fridge2.fxml");
-            General2.changeScene(General2.setSource(LOGIN));
-        }
+        General2.changeScene(General2.setSource("Fridge2"));
     }
     public void clickHomeButton() throws IOException {
         General2.changeScene(General2.setSource("Home2"));
