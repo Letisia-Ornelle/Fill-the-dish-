@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class SubscribeController implements Initializable {
 
     private static final String LOGIN = "Login";
@@ -116,10 +118,6 @@ public class SubscribeController implements Initializable {
     }
 
 
-    @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
-    }
 
     @FXML
     private void clickBackButton() throws IOException {
@@ -127,17 +125,13 @@ public class SubscribeController implements Initializable {
     }
 
 
+
+
     @FXML
-    private void clickMenuLink2() throws IOException {
-        PendentScreen ps4;
-        ps4 = Home.getPS();
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Insert"));
-        } else {
-            ps4.add("Insert.fxml");
-            General.changeScene(General.setSource(LOGIN));
-        }
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
     }
+
     @FXML
     private void clickMenuLink1() throws IOException {
         PendentScreen ps3;
@@ -153,6 +147,15 @@ public class SubscribeController implements Initializable {
     @FXML
     private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
+    }
+    @FXML
+    private void clickMenuLink2() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+            General.changeScene(General.setSource("Insert"));
+        } else {
+            ps.add("Insert.fxml");
+            General.changeScene(General.setSource(LOGIN));
+        }
     }
     @FXML
     private void clickMenuLink4() throws IOException {
@@ -175,18 +178,7 @@ public class SubscribeController implements Initializable {
     private void clickLogin() throws IOException {
         General.changeScene(General.setSource(LOGIN));
     }
-    @FXML
-    private void clickMenuLink6() throws IOException {
-        PendentScreen ps5 ;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Favourite"));
-        } else {
-            ps5 = Home.getPS();
-            ps5.add("Favourite.fxml");
 
-            General.changeScene(General.setSource(LOGIN));
-        }
-    }
 
     @FXML
     private void clickSubscribe(ActionEvent event) throws IOException {
@@ -215,4 +207,16 @@ public class SubscribeController implements Initializable {
             alert2.show();
         }
         }
+    @FXML
+    private void clickMenuLink6() throws IOException {
+        PendentScreen ps5 ;
+        ps5 = Home.getPS();
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            ps5.add("Favourite.fxml");
+
+            General.changeScene(General.setSource(LOGIN));
+        }
+    }
 }
