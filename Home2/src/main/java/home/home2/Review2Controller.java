@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static home.home2.Home2.ps;
+
 
 public class Review2Controller implements Initializable {
 
@@ -34,12 +36,9 @@ public class Review2Controller implements Initializable {
 
     private String click;
 
-    private static PendentScreen2 ps;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        ps = Home2.getPS2();
 
 
         star1.setImage(star);
@@ -52,38 +51,39 @@ public class Review2Controller implements Initializable {
     public void clickStar(MouseEvent event)  {
         click = event.getPickResult().getIntersectedNode().getId();
         switch (click) {
-            case "star1":
+            case "star1" -> {
                 star1.setImage(starfilled);
                 vote = 1;
-                break;
-            case "star2":
+            }
+            case "star2" -> {
                 star1.setImage(starfilled);
                 star2.setImage(starfilled);
                 vote = 2;
-                break;
-            case "star3":
+            }
+            case "star3" -> {
                 star1.setImage(starfilled);
                 star2.setImage(starfilled);
                 star3.setImage(starfilled);
                 vote = 3;
-                break;
-            case "star4":
+            }
+            case "star4" -> {
                 star1.setImage(starfilled);
                 star2.setImage(starfilled);
                 star3.setImage(starfilled);
                 star4.setImage(starfilled);
                 vote = 4;
-                break;
-            case "star5":
+            }
+            case "star5" -> {
                 star1.setImage(starfilled);
                 star2.setImage(starfilled);
                 star3.setImage(starfilled);
                 star4.setImage(starfilled);
                 star5.setImage(starfilled);
                 vote = 5;
-                break;
-            default:
-                break;
+            }
+            default -> {
+                //
+            }
         }
     }
     public void hoverStar(MouseEvent event) {
@@ -164,7 +164,6 @@ public class Review2Controller implements Initializable {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Fridge2"));
         } else {
-            ps = Home2.getPS2();
             ps.add("Fridge2.fxml");
             General2.changeScene(General2.setSource(LOGIN));
         }
@@ -174,7 +173,6 @@ public class Review2Controller implements Initializable {
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("Favourite2"));
         } else {
-            ps = Home2.getPS2();
             ps.add("Favourite2.fxml");
             General2.changeScene(General2.setSource(LOGIN));
         }

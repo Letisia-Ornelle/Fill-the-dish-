@@ -24,7 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class ResultController implements Initializable {
+
+    private static final String LOGIN = "Login";
+    private static final String ITEM = "items.fxml";
     @FXML
     GridPane grid;
     @FXML
@@ -41,156 +46,148 @@ public class ResultController implements Initializable {
     @FXML
     Label category;
 
-    private static PendentScreen ps;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         dark.setVisible(false);
         menu.setVisible(false);
-        ps = Home.getPS();
-
-
-        int column = 0;
-        int row = 1;
 
 
         switch (ps.getScreen()) {
-            case "1":
+            case "1" -> {
                 AllRecipesController recipe = new AllRecipesController();
                 List<CalculateRecipeBean> recipeBeans = new ArrayList<>();
-
                 try {
                     recipeBeans = recipe.allRecipes();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-
-                try {
-                    for (CalculateRecipeBean recipeBean : recipeBeans) {
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-
-                        fxmlLoader.setLocation(getClass().getResource("items.fxml"));
-
-                        Pane anchorPane = fxmlLoader.load();
-
-                        ItemsController itemController = fxmlLoader.getController();
-                        itemController.setData(recipeBean);
-
-                        if (column == 2) {
-                            column = 0;
-                            row++;
-                        }
-
-                        // set grid width
-                        grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                        // set grid height
-                        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                        grid.add(anchorPane, column++, row);
-                        grid.setMargin(anchorPane, new Insets(100));
-                        grid.setAlignment(Pos.CENTER);
-                        grid.setHalignment(anchorPane, HPos.LEFT);
-                        grid.setGridLinesVisible(false);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-
-
-            case "2":
-
+                getAllRecipesDB(recipeBeans);
+            }
+            case "2" -> {
                 InsertIngredientsController insertIngController = new InsertIngredientsController();
-
-                try {
-                    for (int j = 0; j < insertIngController.getRecipes().size(); j++) {
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-
-                        fxmlLoader.setLocation(getClass().getResource("items.fxml"));
-
-                        Pane anchorPane = fxmlLoader.load();
-
-                        ItemsController itemController = fxmlLoader.getController();
-                        itemController.setData(insertIngController.getRecipes().get(j));
-
-                        if (column == 2) {
-                            column = 0;
-                            row++;
-                        }
-
-                        // set grid width
-                        grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                        // set grid height
-                        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                        grid.add(anchorPane, column++, row);
-                        GridPane.setMargin(anchorPane, new Insets(100));
-                        grid.setAlignment(Pos.CENTER);
-                        GridPane.setHalignment(anchorPane, HPos.LEFT);
-                        grid.setGridLinesVisible(false);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-
-            case "3":
+                getInsertedIngredientsRecipes(insertIngController);
+            }
+            case "3" -> {
                 SelectIngredientsController selectController = new SelectIngredientsController();
-                try {
-                    for (int j = 0; j < selectController.getRecipesBeans().size(); j++) {
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-
-                        fxmlLoader.setLocation(getClass().getResource("items.fxml"));
-
-                        Pane anchorPane = fxmlLoader.load();
-
-                        ItemsController itemController = fxmlLoader.getController();
-                        itemController.setData(selectController.getRecipesBeans().get(j));
-
-                        if (column == 2) {
-                            column = 0;
-                            row++;
-                        }
-
-                        // set grid width
-                        grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-                        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                        // set grid height
-                        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                        grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                        grid.add(anchorPane, column++, row);
-                        GridPane.setMargin(anchorPane, new Insets(100));
-                        grid.setAlignment(Pos.CENTER);
-                        GridPane.setHalignment(anchorPane, HPos.LEFT);
-                        grid.setGridLinesVisible(false);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                break;
-            default:
-                break;
-
+                getSelectedIngredientRecipes(selectController);
+            }
+            default -> {
+                //
+            }
         }
 
+    }
+
+    private void getAllRecipesDB(List<CalculateRecipeBean> recipeBeans) {
+        int column = 0;
+        int row = 1;
+        try {
+
+            for (int j = 0; j < recipeBeans.size(); j++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource(ITEM));
+
+                Pane anchorPane = fxmlLoader.load();
+
+                ItemsController itemController = fxmlLoader.getController();
+                itemController.setData(recipeBeans.get(j));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+                grid.add(anchorPane, column++, row);
+
+                setGridProperties(grid);
+                GridPane.setMargin(anchorPane, new Insets(100));
+                GridPane.setHalignment(anchorPane, HPos.LEFT);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getSelectedIngredientRecipes(SelectIngredientsController selectController) {
+        int column = 0;
+        int row = 1;
+        try {
+            for (int j = 0; j < selectController.getRecipesBeans().size(); j++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource(ITEM));
+
+                Pane anchorPane = fxmlLoader.load();
+
+                ItemsController itemController = fxmlLoader.getController();
+                itemController.setData(selectController.getRecipesBeans().get(j));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row);
+
+                setGridProperties(grid);
+                GridPane.setMargin(anchorPane, new Insets(100));
+                GridPane.setHalignment(anchorPane, HPos.LEFT);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
+
+    private void getInsertedIngredientsRecipes(InsertIngredientsController insertIngController) {
+        int column = 0;
+        int row = 1;
+        try {
+            for (int j = 0; j < insertIngController.getRecipes().size(); j++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource(ITEM));
+
+                Pane anchorPane = fxmlLoader.load();
+
+                ItemsController itemController = fxmlLoader.getController();
+                itemController.setData(insertIngController.getRecipes().get(j));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row);
+
+                setGridProperties(grid);
+                GridPane.setMargin(anchorPane, new Insets(100));
+                GridPane.setHalignment(anchorPane, HPos.LEFT);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setGridProperties(GridPane grid) {
+        // set grid width
+        grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+        // set grid height
+        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+        grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+        grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+        grid.setAlignment(Pos.CENTER);
+        grid.setGridLinesVisible(false);
+    }
+
+
 
 
 
@@ -253,14 +250,13 @@ public class ResultController implements Initializable {
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            ps = Home.getPS();
             ps.add("Insert.fxml");
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
     private void clickMenuLink3() throws IOException {
-        General.changeScene(General.setSource("Login"));
+        General.changeScene(General.setSource(LOGIN));
     }
     @FXML
     private void clickMenuLink4() throws IOException {
@@ -275,9 +271,8 @@ public class ResultController implements Initializable {
         if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            ps = Home.getPS();
             ps.add("Favourite.fxml");
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
@@ -285,9 +280,8 @@ public class ResultController implements Initializable {
         if (Boolean.TRUE.equals(General.LOGINSTATE)){
             General.changeScene(General.setSource("Fridge"));
         } else {
-            ps = Home.getPS();
             ps.add("Fridge.fxml");
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
 

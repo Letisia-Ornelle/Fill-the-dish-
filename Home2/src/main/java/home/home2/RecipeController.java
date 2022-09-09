@@ -9,7 +9,6 @@ import home.home2.model.exceptions.DuplicateRecipeException;
 import home.home2.model.exceptions.ProvideLoginException;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -30,16 +28,24 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home.ps;
+
 public class RecipeController implements Initializable {
+    private static final String LOGIN = "Login";
     Boolean inFavourite;
-    private static PendentScreen ps;
     Image heart = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\heart.png");
     Image check = new Image("C:\\Users\\letis\\OneDrive\\Bureau\\Fill-the-dish-.git\\trunk\\Home2\\src\\main\\resources\\home\\home2\\true.png");
 
     @FXML
-    Button menuButton, homeButton, backButton;
+    Button menuButton;
     @FXML
-    private Pane menu, dark;
+    Button homeButton;
+    @FXML
+    Button backButton;
+    @FXML
+    private Pane menu;
+    @FXML
+    private Pane dark;
     @FXML
     private ImageView favButton;
 
@@ -61,17 +67,11 @@ public class RecipeController implements Initializable {
         favButton.setImage(heart);
         inFavourite = false;
 
-        Home m = new Home();
-        ps = m.getPS();
 
         recipeName.setText(ps.getName());
         recipeImg.setImage(ps.getImage());
         recipeDescription.setText(ps.getDescription());
-        System.out.println(ps.getDescription());
-        System.out.println(ps.getType());
 
-        // A questo punto , chiamo la bean e poi il controller applicativo passando la bean come parametro
-        // Recuperando cosi la lista di ingredienti
 
         CalculateRecipeBean recipeBean = new CalculateRecipeBean();
         recipeBean.setName(recipeName.getText());
@@ -80,22 +80,21 @@ public class RecipeController implements Initializable {
         CalculateRecipeController recipeController = new CalculateRecipeController();
         List<IngredientBean> ingredientBeanList = recipeController.getIngredients(recipeBean);
 
-        // Ok devo iterare su questa lista e aggiungere in modo progressivo il coso nel verticalBox
 
-        for(int i=0; i<ingredientBeanList.size();i++){
-            try{
+        for (IngredientBean ingredientBean : ingredientBeanList) {
+            try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("ingredient.fxml"));
 
                 Pane anchorPane = fxmlLoader.load();
 
                 IngredientController ingredientController = fxmlLoader.getController();
-                ingredientController.setData(ingredientBeanList.get(i));
+                ingredientController.setData(ingredientBean);
 
                 verticalBox.getChildren().add(anchorPane);
-                verticalBox.setMargin(anchorPane, new Insets(2));
+                VBox.setMargin(anchorPane, new Insets(2));
 
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -153,61 +152,53 @@ public class RecipeController implements Initializable {
     }
 
     @FXML
-    private void clickMenuLink1(ActionEvent event) throws IOException {
+    private void clickMenuLink1() throws IOException {
         General.changeScene(General.setSource("Result"));
     }
     @FXML
-    private void clickMenuLink2(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink2() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Insert"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
             ps.add("Insert.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
-    private void clickMenuLink3(ActionEvent event) throws IOException {
-        General.changeScene(General.setSource("Login"));
+    private void clickMenuLink3() throws IOException {
+        General.changeScene(General.setSource(LOGIN));
     }
     @FXML
-    private void clickMenuLink4(ActionEvent event) throws IOException {
+    private void clickMenuLink4() throws IOException {
         General.changeScene(General.setSource("Subscribe"));
     }
     @FXML
-    private void clickMenuLink5(ActionEvent event) throws IOException {
+    private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink6() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Favourite"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
             ps.add("Favourite.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
     @FXML
-    private void clickMenuLink7(ActionEvent event) throws IOException {
-        if (General.LOGINSTATE) {
+    private void clickMenuLink7() throws IOException {
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
             General.changeScene(General.setSource("Fridge"));
         } else {
-            Home m = new Home();
-            ps = m.getPS();
             ps.add("Fridge.fxml");
-            //System.out.println();
-            General.changeScene(General.setSource("Login"));
+            General.changeScene(General.setSource(LOGIN));
         }
     }
 
 
     @FXML
-    private void clickFavButton(MouseEvent event) throws IOException {
+    private void clickFavButton() throws IOException {
 
         FavouritesBean favBean = new FavouritesBean();
         favBean.setRecipeName(recipeName.getText());
@@ -215,7 +206,7 @@ public class RecipeController implements Initializable {
         try{
             favController = new FavouritesController();
 
-                if (General.LOGINSTATE) {
+                if (Boolean.TRUE.equals(General.LOGINSTATE)) {
 
                     favController.addToFavourites(favBean);
 
@@ -229,11 +220,9 @@ public class RecipeController implements Initializable {
                 alert.setContentText("Attenzione, devi prima fare il login");
                 alert.show();
             }finally {
-                if(!General.LOGINSTATE){
-                    Home m = new Home();
-                    ps = m.getPS();
+                if(!Boolean.TRUE.equals(General.LOGINSTATE)){
                     ps.add("Recipe.fxml");
-                    General.changeScene(General.setSource("Login"));
+                    General.changeScene(General.setSource(LOGIN));
                 }
         }
 
@@ -245,7 +234,7 @@ public class RecipeController implements Initializable {
         favButton.setScaleY(1.2);
     }
     @FXML
-    private void ReleaseButton() {
+    private void releaseButton() {
         favButton.setScaleX(1);
         favButton.setScaleY(1);
     }
