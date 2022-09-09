@@ -70,15 +70,12 @@ public class FavouritesDAO {
         }catch(SQLException e){
             e.printStackTrace();
         }finally {
-            try {
-                if(stmt != null){
-                    stmt.close();
-                }
+            try{
                 if(stmt1 != null){
                     stmt1.close();
                 }
 
-            } catch (SQLException e) {
+            } catch (SQLException e){
                 e.printStackTrace();
             }
         }
