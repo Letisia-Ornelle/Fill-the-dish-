@@ -8,7 +8,8 @@ public class General {
 
     private General(){}
 
-    public static Boolean LOGINSTATE = false;
+    public static Boolean LOGINSTATE = false ;
+
     private static List<String> list = new ArrayList<>();
 
 

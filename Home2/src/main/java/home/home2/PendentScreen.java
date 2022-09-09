@@ -27,10 +27,7 @@ public class PendentScreen {
     }
 
     public Boolean isNull() {
-        if (scr.equals("")) {
-            return true;
-        }
-        return false;
+        return scr.equals("");
     }
 
     public void clear() {

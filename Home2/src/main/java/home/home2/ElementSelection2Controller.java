@@ -29,7 +29,11 @@ public class ElementSelection2Controller {
 
     }
 
-    private static ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
+    private static final ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
+    public ObservableList<Ingredient> getFridgeIngredients(){
+        return selectedIngredients;
+    }
+
 
     public void selectedIng() {
 
@@ -42,7 +46,4 @@ public class ElementSelection2Controller {
 
     }
 
-    public ObservableList<Ingredient> getFridgeIngredients(){
-        return selectedIngredients;
-    }
 }

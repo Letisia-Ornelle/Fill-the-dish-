@@ -213,7 +213,7 @@ public class RecipeController implements Initializable {
                 }
             } catch (DuplicateRecipeException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Attenzione, questa ricetta è già presente nella lista dei preferiti");
+                alert.setContentText("Attenzione,ricetta presente nella lista dei preferiti");
                 alert.show();
             }catch(ProvideLoginException e1){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

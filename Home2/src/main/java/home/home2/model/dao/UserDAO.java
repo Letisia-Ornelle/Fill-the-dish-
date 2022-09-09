@@ -7,6 +7,7 @@ import java.sql.*;
 
 
 public class UserDAO {
+    private static final String USERNAME = "username";
 
 
    public String verify( String username, String password) {
@@ -24,12 +25,12 @@ public class UserDAO {
            if (!res.first()) {
                //
            } else {
-               String username1 = res.getString("username");
+               String username1 = res.getString(USERNAME);
                String pass = res.getString("password");
 
 
                if (username1.equals(username) && pass.equals(password)) {
-                   result = res.getString("username");
+                   result = res.getString(USERNAME);
                }
            }
        }catch (SQLException e){
@@ -61,7 +62,7 @@ public class UserDAO {
 
             userentity = new UserEntity();
 
-            userentity.setUsername(resultset.getString("username"));
+            userentity.setUsername(resultset.getString(USERNAME));
             userentity.setName(resultset.getString("nome"));
             userentity.setSurname(resultset.getString("cognome"));
             userentity.setEmail(resultset.getString("email"));
