@@ -27,22 +27,23 @@ public class SearchController implements Initializable {
     @FXML
     private Button contorni;
     @FXML
+    private Button antipasti;
+    @FXML
     private Button dessert;
     @FXML
-    private Button antipasti;
+    private Pane dark;
     @FXML
     private Button colazioni;
     @FXML
     private Button menuButton;
     @FXML
     private Pane menu;
-    @FXML
-    private Pane dark;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        menu.setVisible(false);
         dark.setVisible(false);
+        menu.setVisible(false);
     }
     @FXML
     private void clickMenuButton() {
@@ -85,14 +86,9 @@ public class SearchController implements Initializable {
 
 
     @FXML
-    private void clickHomeButton() throws IOException {
-        General.changeScene(General.setSource("Home"));
+    private void clickMenuLink3() throws IOException {
+        General.changeScene(General.setSource(LOGIN));
     }
-    @FXML
-    private void clickBackButton() throws IOException {
-        General.setBackScene();
-    }
-
 
     @FXML
     private void clickMenuLink1() throws IOException {
@@ -112,30 +108,18 @@ public class SearchController implements Initializable {
             General.changeScene(General.setSource(LOGIN));
         }
     }
-    @FXML
-    private void clickMenuLink3() throws IOException {
-        General.changeScene(General.setSource(LOGIN));
-    }
-    @FXML
-    private void clickMenuLink4() throws IOException {
-        General.changeScene(General.setSource("Subscribe"));
-    }
+
+
     @FXML
     private void clickMenuLink5() throws IOException {
         General.changeScene(General.setSource("Review"));
     }
     @FXML
-    private void clickMenuLink6() throws IOException {
-        PendentScreen ps5 ;
-        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
-            General.changeScene(General.setSource("Favourite"));
-        } else {
-            ps5 = Home.getPS();
-            ps5.add("Favourite.fxml");
-
-            General.changeScene(General.setSource(LOGIN));
-        }
+    private void clickMenuLink4() throws IOException {
+        General.changeScene(General.setSource("Subscribe"));
     }
+
+
     @FXML
     private void clickMenuLink7() throws IOException {
         PendentScreen ps6;
@@ -186,5 +170,27 @@ public class SearchController implements Initializable {
     private void clickSearchButton() throws IOException {
         General.changeScene(General.setSource(RESULT));
     }
+
+    @FXML
+    private void clickHomeButton() throws IOException {
+        General.changeScene(General.setSource("Home"));
+    }
+    @FXML
+    private void clickBackButton() throws IOException {
+        General.setBackScene();
+    }
+    @FXML
+    private void clickMenuLink6() throws IOException {
+        PendentScreen ps5 ;
+        if (Boolean.TRUE.equals(General.LOGINSTATE)) {
+            General.changeScene(General.setSource("Favourite"));
+        } else {
+            ps5 = Home.getPS();
+            ps5.add("Favourite.fxml");
+
+            General.changeScene(General.setSource(LOGIN));
+        }
+    }
+
 
 }

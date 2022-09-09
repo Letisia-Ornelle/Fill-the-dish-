@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static home.home2.Home2.ps;
+
 public class InsertIngredients2Controller implements Initializable {
 
     private static final String LOGIN = "Login2";
@@ -152,7 +154,6 @@ public class InsertIngredients2Controller implements Initializable {
     }
 
     public void clickFridge() throws IOException {
-        PendentScreen2 ps = Home2.getPS2();
         if (General2.LOGINSTATE) {
             General2.changeScene(General2.setSource("SelectIngredients2"));
         } else {
