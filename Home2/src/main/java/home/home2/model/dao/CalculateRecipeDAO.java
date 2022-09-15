@@ -20,6 +20,8 @@ public class  CalculateRecipeDAO {
         Statement stmt = null;
         Connection conn = null;
 
+
+
         ObservableList<Ingredient> listaIng = FXCollections.observableArrayList();
         try{
             conn = DBConnection.getInstance().getConnection();
@@ -91,7 +93,6 @@ public class  CalculateRecipeDAO {
             e.printStackTrace();
         }finally {
            stmt1.close();
-
         }
         return recipes;
     }

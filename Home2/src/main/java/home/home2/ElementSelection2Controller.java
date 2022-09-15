@@ -27,6 +27,8 @@ public class ElementSelection2Controller {
         name.setText(fridgebean.getIngredientName());
         img.setImage(fridgebean.getIngredientImage());
 
+        System.out.println("Ciao");
+
     }
 
     private static final ObservableList<Ingredient> selectedIngredients = FXCollections.observableArrayList();
